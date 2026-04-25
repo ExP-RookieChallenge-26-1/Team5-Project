@@ -1,1 +1,122 @@
-[]
+[
+  {
+    "file_id": "exp-make5/Assets/Scripts/Player.cs",
+    "path": "exp-make5/Assets/Scripts/Player.cs",
+    "file_name": "Player.cs",
+    "content_hash": "e4e2524d456771714e2f56e2e7ba6f690c464279",
+    "size": 1357,
+    "line_count": 49,
+    "namespace": "",
+    "using_list": [
+      "UnityEngine",
+      "UnityEngine.InputSystem"
+    ],
+    "classes": [
+      {
+        "name": "Player",
+        "kind": "class",
+        "access": "public",
+        "base_types": [
+          "MonoBehaviour"
+        ],
+        "interfaces": [],
+        "attributes": [],
+        "is_partial": false,
+        "is_generic": false
+      }
+    ],
+    "main_class_name": "Player",
+    "unity_type": "MonoBehaviour",
+    "methods": [
+      "Start",
+      "UpdateDirection",
+      "Update",
+      "Vector2"
+    ],
+    "fields": [
+      {
+        "name": "animator",
+        "type": "Animator",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "x",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "y",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      }
+    ],
+    "properties": [],
+    "events": [],
+    "unity_messages": [
+      "Start",
+      "Update"
+    ],
+    "has_update": true,
+    "has_fixed_update": false,
+    "has_late_update": false,
+    "has_awake": false,
+    "has_start": true,
+    "has_on_enable": false,
+    "has_on_disable": false,
+    "serialize_field_count": 0,
+    "public_field_count": 0,
+    "get_component_count": 1,
+    "find_call_count": 0,
+    "new_keyword_count": 1,
+    "coroutine_count": 0,
+    "singleton_candidate": false,
+    "dont_destroy_on_load": false,
+    "referenced_types": [
+      "Animator",
+      "float",
+      "UnityEngine",
+      "InputSystem",
+      "Start",
+      "Update",
+      "GetComponent",
+      "UpdateDirection",
+      "Vector2",
+      "SetFloat",
+      "InputX",
+      "InputY",
+      "SetBool",
+      "Keyboard"
+    ],
+    "component_access_types": [
+      "Animator"
+    ],
+    "created_types": [
+      "Vector2"
+    ],
+    "singleton_access_types": [],
+    "string_literals": [
+      "InputX",
+      "InputY",
+      "isMoving"
+    ],
+    "numeric_literals": [
+      0,
+      1
+    ],
+    "guessed_roles": [
+      "runtime",
+      "player"
+    ],
+    "summary_signals": [
+      "런타임 컴포넌트",
+      "Update 기반 처리 존재",
+      "컴포넌트 조회 사용"
+    ]
+  }
+]

@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "file_id": "exp-make5/Assets/Scripts/Player.cs",
+    "class_name": "Player",
+    "risk_flags": [
+      "update-heavy",
+      "init-order-sensitive",
+      "state-owner"
+    ],
+    "risk_reasons": [
+      "Unity 업데이트 루프 사용",
+      "초기화 순서에 민감할 가능성",
+      "상태 중심 또는 관리 중심 클래스일 가능성"
+    ],
+    "risk_score": 28
+  }
+]
