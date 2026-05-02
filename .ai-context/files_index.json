@@ -1,19 +1,18 @@
 [
   {
-    "file_id": "exp-make5/Assets/Scripts/Player.cs",
-    "path": "exp-make5/Assets/Scripts/Player.cs",
-    "file_name": "Player.cs",
-    "content_hash": "e4e2524d456771714e2f56e2e7ba6f690c464279",
-    "size": 1357,
-    "line_count": 49,
+    "file_id": "exp-make5/Assets/Scripts/CameraController.cs",
+    "path": "exp-make5/Assets/Scripts/CameraController.cs",
+    "file_name": "CameraController.cs",
+    "content_hash": "2f42e78f5cb76ccf3ee66d2fd528e307f147fbd6",
+    "size": 1400,
+    "line_count": 32,
     "namespace": "",
     "using_list": [
-      "UnityEngine",
-      "UnityEngine.InputSystem"
+      "UnityEngine"
     ],
     "classes": [
       {
-        "name": "Player",
+        "name": "CameraController",
         "kind": "class",
         "access": "public",
         "base_types": [
@@ -25,13 +24,134 @@
         "is_generic": false
       }
     ],
-    "main_class_name": "Player",
+    "main_class_name": "CameraController",
     "unity_type": "MonoBehaviour",
     "methods": [
       "Start",
-      "UpdateDirection",
+      "LateUpdate",
+      "Vector3"
+    ],
+    "fields": [
+      {
+        "name": "viewSize",
+        "type": "float",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      }
+    ],
+    "properties": [],
+    "events": [],
+    "unity_messages": [
+      "Start",
+      "LateUpdate"
+    ],
+    "has_update": false,
+    "has_fixed_update": false,
+    "has_late_update": true,
+    "has_awake": false,
+    "has_start": true,
+    "has_on_enable": false,
+    "has_on_disable": false,
+    "serialize_field_count": 0,
+    "public_field_count": 1,
+    "get_component_count": 0,
+    "find_call_count": 0,
+    "new_keyword_count": 1,
+    "coroutine_count": 0,
+    "singleton_candidate": false,
+    "dont_destroy_on_load": false,
+    "referenced_types": [
+      "float",
+      "UnityEngine",
+      "Camera",
+      "Settings",
+      "Start",
+      "Orthographic",
+      "LateUpdate",
+      "Player",
       "Update",
-      "Vector2"
+      "Vector3",
+      "Lerp"
+    ],
+    "component_access_types": [],
+    "created_types": [
+      "Vector3"
+    ],
+    "singleton_access_types": [],
+    "string_literals": [
+      "Camera Settings"
+    ],
+    "numeric_literals": [
+      5,
+      5,
+      0.5,
+      5.5,
+      10,
+      10
+    ],
+    "guessed_roles": [
+      "runtime",
+      "player"
+    ],
+    "summary_signals": [
+      "런타임 컴포넌트"
+    ]
+  },
+  {
+    "file_id": "exp-make5/Assets/Scripts/PlayerController.cs",
+    "path": "exp-make5/Assets/Scripts/PlayerController.cs",
+    "file_name": "PlayerController.cs",
+    "content_hash": "e8f92e00a778d14f166b428044c5f5c6d7121973",
+    "size": 7942,
+    "line_count": 231,
+    "namespace": "",
+    "using_list": [
+      "System.Collections.Generic",
+      "UnityEngine",
+      "UnityEngine.InputSystem"
+    ],
+    "classes": [
+      {
+        "name": "PlayerController",
+        "kind": "class",
+        "access": "public",
+        "base_types": [
+          "MonoBehaviour"
+        ],
+        "interfaces": [],
+        "attributes": [],
+        "is_partial": false,
+        "is_generic": false
+      },
+      {
+        "name": "Node",
+        "kind": "class",
+        "access": "private",
+        "base_types": [],
+        "interfaces": [],
+        "attributes": [],
+        "is_partial": false,
+        "is_generic": false
+      }
+    ],
+    "main_class_name": "PlayerController",
+    "unity_type": "MonoBehaviour",
+    "methods": [
+      "Node",
+      "Start",
+      "Vector2",
+      "GenerateTemporaryMap",
+      "Material",
+      "Vector3",
+      "Color",
+      "Update",
+      "Vector2Int",
+      "SetNextTargetNode",
+      "HighlightTile",
+      "RevertTileColor",
+      "FindPath",
+      "RetracePath"
     ],
     "fields": [
       {
@@ -42,15 +162,106 @@
         "is_static": false
       },
       {
-        "name": "x",
+        "name": "mapSize",
+        "type": "int",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "mapTiles",
+        "type": "GameObject[,]",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "moveSpeed",
         "type": "float",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "isMoving",
+        "type": "bool",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "currentTargetNode",
+        "type": "Vector2",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "currentYellowTilePos",
+        "type": "Vector2Int",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "isTileHighlighted",
+        "type": "bool",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "Position",
+        "type": "Vector2Int",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "G",
+        "type": "int",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "H",
+        "type": "int",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "Parent",
+        "type": "Node",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "currentNode",
+        "type": "Node",
         "access": "internal",
         "serialized": false,
         "is_static": false
       },
       {
-        "name": "y",
-        "type": "float",
+        "name": "neighborPos",
+        "type": "Vector2Int",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "newMovementCostToNeighbor",
+        "type": "int",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "currentNode",
+        "type": "Node",
         "access": "internal",
         "serialized": false,
         "is_static": false
@@ -70,53 +281,117 @@
     "has_on_enable": false,
     "has_on_disable": false,
     "serialize_field_count": 0,
-    "public_field_count": 0,
-    "get_component_count": 1,
-    "find_call_count": 0,
-    "new_keyword_count": 1,
+    "public_field_count": 6,
+    "get_component_count": 5,
+    "find_call_count": 1,
+    "new_keyword_count": 17,
     "coroutine_count": 0,
     "singleton_candidate": false,
     "dont_destroy_on_load": false,
     "referenced_types": [
       "Animator",
+      "int",
+      "GameObject[,]",
       "float",
+      "bool",
+      "Vector2",
+      "Vector2Int",
+      "System",
+      "Collections",
+      "Generic",
       "UnityEngine",
       "InputSystem",
+      "Map",
+      "Settings",
+      "Movement",
+      "Position",
+      "Parent",
       "Start",
-      "Update",
       "GetComponent",
-      "UpdateDirection",
-      "Vector2",
+      "SetBool",
       "SetFloat",
       "InputX",
       "InputY",
-      "SetBool",
-      "Keyboard"
+      "Clear",
+      "GenerateTemporaryMap",
+      "Shader",
+      "Find",
+      "Sprites",
+      "Default",
+      "Material",
+      "CreatePrimitive",
+      "PrimitiveType",
+      "Quad",
+      "Vector3",
+      "TempTile_",
+      "MeshRenderer",
+      "Color",
+      "Destroy",
+      "MeshCollider",
+      "Update",
+      "Count",
+      "MoveTowards",
+      "RemoveAt",
+      "SetNextTargetNode",
+      "RevertTileColor",
+      "Mouse",
+      "ReadValue",
+      "Camera",
+      "ScreenToWorldPoint",
+      "RoundToInt",
+      "FindPath",
+      "HighlightTile",
+      "Add",
+      "Remove",
+      "RetracePath",
+      "Contains",
+      "Abs",
+      "Reverse"
     ],
     "component_access_types": [
-      "Animator"
+      "Animator",
+      "MeshRenderer",
+      "MeshCollider"
     ],
     "created_types": [
-      "Vector2"
+      "List",
+      "Vector2",
+      "Material",
+      "Vector3",
+      "Color",
+      "Vector2Int",
+      "HashSet",
+      "Node"
     ],
     "singleton_access_types": [],
     "string_literals": [
+      "Map Settings",
+      "Movement Settings",
+      "isMoving",
       "InputX",
       "InputY",
-      "isMoving"
+      "Sprites/Default",
+      "TempTile_{x}_{y}"
     ],
     "numeric_literals": [
-      0,
-      1
+      10,
+      2,
+      5,
+      1,
+      0.8,
+      0.6
     ],
     "guessed_roles": [
+      "player",
       "runtime",
-      "player"
+      "ui"
     ],
     "summary_signals": [
       "런타임 컴포넌트",
       "Update 기반 처리 존재",
-      "컴포넌트 조회 사용"
+      "UI 관련 로직 포함",
+      "컴포넌트 조회 사용",
+      "Find 계열 탐색 사용"
     ]
   }
 ]
