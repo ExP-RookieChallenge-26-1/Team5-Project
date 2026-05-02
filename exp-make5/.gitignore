@@ -1,0 +1,30 @@
+# 유니티에서 깃허브에 올리면 안 되는(무시할) 핵심 폴더들
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+
+# 유니티 생성 캐시 및 설정 파일들
+/[Mm]emoryCaptures/
+.vs/
+.gradle/
+ExportedObj/
+.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.DS_Store
