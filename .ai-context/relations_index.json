@@ -156,6 +156,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
     "from_class": "MainMenuUI",
+    "to_type": "HideEverything",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
     "to_type": "Log",
     "relation_type": "uses",
     "strength": 1
@@ -178,6 +185,13 @@
     "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
     "from_class": "MainMenuUI",
     "to_type": "RegularExpressions",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "ReturntoStartMenu",
     "relation_type": "uses",
     "strength": 1
   },
