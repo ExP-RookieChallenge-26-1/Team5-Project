@@ -24,22 +24,57 @@ public class MainMenuUI : MonoBehaviour
         element.blocksRaycasts = false;
     }
 
+    private void HideEverything()
+    {
+        HideElement(Settings);
+        HideElement(StartScreen);
+        HideElement(ModeSelectScreen);
+        HideElement(StageSelect_casual);
+        HideElement(StageSelect_story);
+    }
+
+    private void showbydepth(int a)
+    {
+        if (a == 0)
+        {
+            HideEverything();
+            ShowElement(StartScreen);
+        }
+        if (a == 1)//모드설렉션
+        {
+            HideEverything();
+            ShowElement(ModeSelectScreen);
+        }
+        if (a == 2) //스토리모드
+        {
+            HideEverything();
+            ShowElement(StageSelect_story);
+        }
+        if (a == 3) //캐쥬얼모드
+        {
+            HideEverything();
+            ShowElement(StageSelect_casual);
+        }
+    }
+
+    public void ReturntoStartMenu()
+    {
+        showbydepth(0);
+    }
+
     public void EnterModeSelect()
     {
-        HideElement(StartScreen);
-        ShowElement(ModeSelectScreen);
+        showbydepth(1);
     }
 
     public void EnterStoryModeSelect()
     {
-        HideElement(ModeSelectScreen);
-        ShowElement(StageSelect_story);
+        showbydepth(2);
     }
 
     public void EnterCasualModeSelect()
     {
-        HideElement(ModeSelectScreen);
-        ShowElement(StageSelect_casual); 
+        showbydepth(3);
     }
 
     public void GameExit()
