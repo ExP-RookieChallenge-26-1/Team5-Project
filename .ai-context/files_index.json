@@ -102,9 +102,9 @@
     "file_id": "exp-make5/Assets/Scripts/MainMenuUI.cs",
     "path": "exp-make5/Assets/Scripts/MainMenuUI.cs",
     "file_name": "MainMenuUI.cs",
-    "content_hash": "62b871da0cac19781e63e32570a4c5abb6b4b5a5",
-    "size": 1434,
-    "line_count": 65,
+    "content_hash": "e37ae904cbd2ea6022335e4398fe279d2760f21b",
+    "size": 2130,
+    "line_count": 100,
     "namespace": "",
     "using_list": [
       "System.Text.RegularExpressions",
@@ -131,6 +131,9 @@
     "methods": [
       "ShowElement",
       "HideElement",
+      "HideEverything",
+      "showbydepth",
+      "ReturntoStartMenu",
       "EnterModeSelect",
       "EnterStoryModeSelect",
       "EnterCasualModeSelect",
@@ -173,6 +176,8 @@
       "Settings",
       "ShowElement",
       "HideElement",
+      "HideEverything",
+      "ReturntoStartMenu",
       "EnterModeSelect",
       "EnterStoryModeSelect",
       "EnterCasualModeSelect",
@@ -192,7 +197,9 @@
     ],
     "numeric_literals": [
       1,
-      0
+      0,
+      2,
+      3
     ],
     "guessed_roles": [
       "ui",
