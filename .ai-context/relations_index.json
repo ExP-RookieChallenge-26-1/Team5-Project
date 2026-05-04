@@ -91,6 +91,181 @@
     "strength": 1
   },
   {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "MonoBehaviour",
+    "relation_type": "inherits",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "Application",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "CanvasGroup",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "ContinueGame",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "EnterCasualModeSelect",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "EnterModeSelect",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "EnterStoryModeSelect",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "GameExit",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "HideElement",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "Log",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "ModeSelectScreen",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "Quit",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "RegularExpressions",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "Settings",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "SettingsHide",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "SettingsShow",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "ShowElement",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "StageSelect_casual",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "StageSelect_story",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "StartScreen",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "System",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "Text",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "TMPro",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "UI",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "UnityEngine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
     "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
     "from_class": "PlayerController",
     "to_type": "Animator",

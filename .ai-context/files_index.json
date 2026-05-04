@@ -99,6 +99,114 @@
     ]
   },
   {
+    "file_id": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "path": "exp-make5/Assets/Scripts/MainMenuUI.cs",
+    "file_name": "MainMenuUI.cs",
+    "content_hash": "62b871da0cac19781e63e32570a4c5abb6b4b5a5",
+    "size": 1434,
+    "line_count": 65,
+    "namespace": "",
+    "using_list": [
+      "System.Text.RegularExpressions",
+      "UnityEngine",
+      "UnityEngine.UI",
+      "TMPro"
+    ],
+    "classes": [
+      {
+        "name": "MainMenuUI",
+        "kind": "class",
+        "access": "public",
+        "base_types": [
+          "MonoBehaviour"
+        ],
+        "interfaces": [],
+        "attributes": [],
+        "is_partial": false,
+        "is_generic": false
+      }
+    ],
+    "main_class_name": "MainMenuUI",
+    "unity_type": "MonoBehaviour",
+    "methods": [
+      "ShowElement",
+      "HideElement",
+      "EnterModeSelect",
+      "EnterStoryModeSelect",
+      "EnterCasualModeSelect",
+      "GameExit",
+      "SettingsShow",
+      "SettingsHide",
+      "ContinueGame"
+    ],
+    "fields": [],
+    "properties": [],
+    "events": [],
+    "unity_messages": [],
+    "has_update": false,
+    "has_fixed_update": false,
+    "has_late_update": false,
+    "has_awake": false,
+    "has_start": false,
+    "has_on_enable": false,
+    "has_on_disable": false,
+    "serialize_field_count": 0,
+    "public_field_count": 0,
+    "get_component_count": 0,
+    "find_call_count": 0,
+    "new_keyword_count": 0,
+    "coroutine_count": 0,
+    "singleton_candidate": false,
+    "dont_destroy_on_load": false,
+    "referenced_types": [
+      "System",
+      "Text",
+      "RegularExpressions",
+      "UnityEngine",
+      "UI",
+      "TMPro",
+      "CanvasGroup",
+      "StartScreen",
+      "ModeSelectScreen",
+      "StageSelect_story",
+      "StageSelect_casual",
+      "Settings",
+      "ShowElement",
+      "HideElement",
+      "EnterModeSelect",
+      "EnterStoryModeSelect",
+      "EnterCasualModeSelect",
+      "GameExit",
+      "Application",
+      "Quit",
+      "Log",
+      "SettingsShow",
+      "SettingsHide",
+      "ContinueGame"
+    ],
+    "component_access_types": [],
+    "created_types": [],
+    "singleton_access_types": [],
+    "string_literals": [
+      "겜종료"
+    ],
+    "numeric_literals": [
+      1,
+      0
+    ],
+    "guessed_roles": [
+      "ui",
+      "runtime",
+      "save-load",
+      "data"
+    ],
+    "summary_signals": [
+      "런타임 컴포넌트",
+      "UI 관련 로직 포함",
+      "저장/불러오기 관련 로직 포함"
+    ]
+  },
+  {
     "file_id": "exp-make5/Assets/Scripts/PlayerController.cs",
     "path": "exp-make5/Assets/Scripts/PlayerController.cs",
     "file_name": "PlayerController.cs",
