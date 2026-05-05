@@ -6,11 +6,11 @@ public class PlayerController : MonoBehaviour
 {
     private Animator animator;
 
-    [Header("Map Settings")]
-    public int mapSize = 10; 
-    
-    // 타일들을 저장해둘 2차원 배열 추가
-    private GameObject[,] mapTiles; 
+    [Header("References")]
+    public MapManager mapManager;     // 맵 데이터를 받아올 매니저
+    public PlayerStatus playerStatus; // 캐릭터 상태(체력, 부적) 매니저
+
+    private Vector2Int mapSize;
 
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
@@ -18,17 +18,14 @@ public class PlayerController : MonoBehaviour
     
     private List<Vector2> currentPath = new List<Vector2>(); 
     private Vector2 currentTargetNode; 
-
-    // 타일 하이라이트 상태 관리를 위한 변수 추가
-    private Vector2Int currentYellowTilePos;
-    private bool isTileHighlighted = false;
+    private Vector2Int finalDestination;
 
     private class Node
     {
         public Vector2Int Position;
-        public int G; 
-        public int H; 
-        public int F { get { return G + H; } } 
+        public int G;   //걸어온 거리 비용
+        public int H;   //남은 예상 거리
+        public int F { get { return G + H; } } // 총 예상 비용
         public Node Parent; 
 
         public Node(Vector2Int pos) { Position = pos; }
@@ -45,35 +42,9 @@ public class PlayerController : MonoBehaviour
         isMoving = false;
         currentPath.Clear(); 
 
-        GenerateTemporaryMap(mapSize);
-    }
-
-    public void GenerateTemporaryMap(int n)
-    {
-        mapSize = n;
-        mapTiles = new GameObject[n, n]; 
-
-        Shader spriteShader = Shader.Find("Sprites/Default");
-        Material unlitMaterial = new Material(spriteShader);
-
-        for (int x = 0; x < n; x++)
+        if (mapManager != null)
         {
-            for (int y = 0; y < n; y++)
-            {
-                GameObject tile = GameObject.CreatePrimitive(PrimitiveType.Quad);
-                tile.transform.position = new Vector3(x, y, 1f);
-                tile.name = $"TempTile_{x}_{y}";
-                
-                MeshRenderer renderer = tile.GetComponent<MeshRenderer>();
-                renderer.material = unlitMaterial; 
-                
-                Color tileColor = ((x + y) % 2 == 0) ? new Color(0.8f, 0.8f, 0.8f) : new Color(0.6f, 0.6f, 0.6f);
-                renderer.material.color = tileColor;
-                
-                Destroy(tile.GetComponent<MeshCollider>());
-
-                mapTiles[x, y] = tile; 
-            }
+            mapSize = mapManager.GetMapSize();
         }
     }
 
@@ -95,9 +66,11 @@ public class PlayerController : MonoBehaviour
                 {
                     isMoving = false;
                     animator.SetBool("isMoving", false);
-                    
-                    // 목적지 도착 시 타일 색상 원상 복구
-                    if (isTileHighlighted) RevertTileColor(currentYellowTilePos);
+
+                    if (mapManager != null && playerStatus != null)
+                    {
+                        mapManager.OpenTile(finalDestination, playerStatus);
+                    }
                 }
             }
             return; 
@@ -111,7 +84,7 @@ public class PlayerController : MonoBehaviour
             int targetX = Mathf.RoundToInt(worldPosition.x);
             int targetY = Mathf.RoundToInt(worldPosition.y);
 
-            if (targetX >= 0 && targetX < mapSize && targetY >= 0 && targetY < mapSize)
+            if (targetX >= 0 && targetX < mapSize.x && targetY >= 0 && targetY < mapSize.y)
             {
                 Vector2Int startPos = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
                 Vector2Int targetPos = new Vector2Int(targetX, targetY);
@@ -131,25 +104,13 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("isMoving", true);
     }
 
-    // 도착점 타일을 노란색으로 변경하는 함수
-    private void HighlightTile(Vector2Int pos)
-    {
-        currentYellowTilePos = pos;
-        isTileHighlighted = true;
-        mapTiles[pos.x, pos.y].GetComponent<MeshRenderer>().material.color = Color.yellow;
-    }
-
-    // 타일을 원래 체스판 색상으로 되돌리는 함수
-    private void RevertTileColor(Vector2Int pos)
-    {
-        Color originalColor = ((pos.x + pos.y) % 2 == 0) ? new Color(0.8f, 0.8f, 0.8f) : new Color(0.6f, 0.6f, 0.6f);
-        mapTiles[pos.x, pos.y].GetComponent<MeshRenderer>().material.color = originalColor;
-        isTileHighlighted = false;
-    }
-
     private void FindPath(Vector2Int startPos, Vector2Int targetPos)
     {
         if (startPos == targetPos) return;
+
+        // 3. 맵 매니저로부터 현재 맵의 이동 가능 구역 정보(장애물, 열린 타일 등)를 받아옵니다.
+        bool[,] walkableGrid = null;
+        if (mapManager != null) walkableGrid = mapManager.GetWalkableGrid();
 
         List<Node> openList = new List<Node>();
         HashSet<Vector2Int> closedList = new HashSet<Vector2Int>();
@@ -175,6 +136,7 @@ public class PlayerController : MonoBehaviour
 
             if (currentNode.Position == targetPos)
             {
+                finalDestination = targetPos; // 도착 시 맵과 상호작용하기 위해 위치 기억
                 RetracePath(startNode, currentNode);
                 return;
             }
@@ -183,8 +145,16 @@ public class PlayerController : MonoBehaviour
             {
                 Vector2Int neighborPos = currentNode.Position + dir;
 
-                if (neighborPos.x < 0 || neighborPos.x >= mapSize || neighborPos.y < 0 || neighborPos.y >= mapSize) continue;
+                if (neighborPos.x < 0 || neighborPos.x >= mapSize.x || neighborPos.y < 0 || neighborPos.y >= mapSize.y) continue;
                 if (closedList.Contains(neighborPos)) continue;
+
+                // 4. [핵심 로직] 닫힌 타일(walkable == false) 처리
+                if (walkableGrid != null && !walkableGrid[neighborPos.x, neighborPos.y])
+                {
+                    // 갈 수 없는 닫힌 타일이지만, 우리가 클릭한 '최종 목적지'라면 예외적으로 진입을 허용합니다.
+                    // 이렇게 하면 멀리 있는 닫힌 타일은 못 가지만, 내 인접한 열린 길에 붙어있는 닫힌 타일은 클릭해서 깔 수 있습니다.
+                    if (neighborPos != targetPos) continue; 
+                }
 
                 int newMovementCostToNeighbor = currentNode.G + 1; 
                 Node neighborNode = openList.Find(n => n.Position == neighborPos);
@@ -221,9 +191,6 @@ public class PlayerController : MonoBehaviour
 
         if (currentPath.Count > 0)
         {
-            // 길찾기 성공 시 가장 마지막 노드(도착점)를 노란색으로 칠함
-            HighlightTile(endNode.Position);
-            
             isMoving = true;
             SetNextTargetNode(currentPath[0]);
         }
