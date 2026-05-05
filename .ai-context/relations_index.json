@@ -562,6 +562,20 @@
   {
     "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "from_class": "PlayerStatus",
+    "to_type": "BlueAmuletCount",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
+    "from_class": "PlayerStatus",
+    "to_type": "CurrentHealth",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
+    "from_class": "PlayerStatus",
     "to_type": "EncounterBlueMine",
     "relation_type": "uses",
     "strength": 1
@@ -583,7 +597,7 @@
   {
     "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "from_class": "PlayerStatus",
-    "to_type": "Inventory",
+    "to_type": "Invoke",
     "relation_type": "uses",
     "strength": 1
   },
@@ -597,7 +611,28 @@
   {
     "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "from_class": "PlayerStatus",
-    "to_type": "Player",
+    "to_type": "OnBlueAmuletChanged",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
+    "from_class": "PlayerStatus",
+    "to_type": "OnHealthChanged",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
+    "from_class": "PlayerStatus",
+    "to_type": "OnRedAmuletChanged",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
+    "from_class": "PlayerStatus",
+    "to_type": "RedAmuletCount",
     "relation_type": "uses",
     "strength": 1
   },
@@ -611,7 +646,7 @@
   {
     "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "from_class": "PlayerStatus",
-    "to_type": "Stats",
+    "to_type": "System",
     "relation_type": "uses",
     "strength": 1
   },
@@ -619,6 +654,13 @@
     "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "from_class": "PlayerStatus",
     "to_type": "TakeDamage",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
+    "from_class": "PlayerStatus",
+    "to_type": "UI",
     "relation_type": "uses",
     "strength": 1
   },

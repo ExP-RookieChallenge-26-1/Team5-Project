@@ -439,11 +439,12 @@
     "file_id": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "path": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "file_name": "PlayerStatus.cs",
-    "content_hash": "4d90c7b375af2e5495c2c5addbec95ddb87cc756",
-    "size": 1548,
-    "line_count": 60,
+    "content_hash": "b0ea1e418eab32f6fccd50a1cd08290025e7dbcd",
+    "size": 2298,
+    "line_count": 78,
     "namespace": "",
     "using_list": [
+      "System",
       "UnityEngine"
     ],
     "classes": [
@@ -470,30 +471,23 @@
     ],
     "fields": [
       {
-        "name": "maxHealth",
-        "type": "int",
-        "access": "public",
-        "serialized": false,
-        "is_static": false
-      },
-      {
         "name": "currentHealth",
         "type": "int",
-        "access": "public",
-        "serialized": false,
+        "access": "private",
+        "serialized": true,
         "is_static": false
       },
       {
         "name": "redAmuletCount",
         "type": "int",
-        "access": "public",
+        "access": "private",
         "serialized": false,
         "is_static": false
       },
       {
         "name": "blueAmuletCount",
         "type": "int",
-        "access": "public",
+        "access": "private",
         "serialized": false,
         "is_static": false
       }
@@ -510,8 +504,8 @@
     "has_start": true,
     "has_on_enable": false,
     "has_on_disable": false,
-    "serialize_field_count": 0,
-    "public_field_count": 4,
+    "serialize_field_count": 1,
+    "public_field_count": 0,
     "get_component_count": 0,
     "find_call_count": 0,
     "new_keyword_count": 0,
@@ -520,11 +514,17 @@
     "dont_destroy_on_load": false,
     "referenced_types": [
       "int",
+      "System",
       "UnityEngine",
-      "Player",
-      "Stats",
-      "Inventory",
+      "UI",
+      "OnHealthChanged",
+      "OnRedAmuletChanged",
+      "OnBlueAmuletChanged",
+      "RedAmuletCount",
+      "BlueAmuletCount",
+      "CurrentHealth",
       "Start",
+      "Invoke",
       "EncounterRedMine",
       "Log",
       "TakeDamage",
@@ -534,8 +534,6 @@
     "created_types": [],
     "singleton_access_types": [],
     "string_literals": [
-      "Player Stats",
-      "Inventory",
       "빨간 몬스터 처치! 빨간 부적 소비 -> 파란 부적 획득",
       "파란 몬스터 처치! 파란 부적 소비 -> 빨간 부적 획득",
       "부적이 부족합니다! 체력 감소. 남은 체력: {currentHealth}",
@@ -546,14 +544,17 @@
     ],
     "guessed_roles": [
       "runtime",
+      "ui",
       "player",
-      "inventory",
-      "combat"
+      "combat",
+      "save-load"
     ],
     "summary_signals": [
       "런타임 컴포넌트",
-      "인벤토리 계열 로직 포함",
-      "전투 계열 로직 포함"
+      "인스펙터 직렬화 필드 사용",
+      "UI 관련 로직 포함",
+      "전투 계열 로직 포함",
+      "저장/불러오기 관련 로직 포함"
     ]
   },
   {
