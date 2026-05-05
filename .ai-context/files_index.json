@@ -513,11 +513,13 @@
     "file_id": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
     "path": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
     "file_name": "TextHandler.cs",
-    "content_hash": "446d31294caac8dc63157d185de08183d33f15e3",
-    "size": 285,
-    "line_count": 17,
+    "content_hash": "794cc4cf049c132e7ff8b6410091d66213ce68c8",
+    "size": 1075,
+    "line_count": 46,
     "namespace": "",
     "using_list": [
+      "System.Collections",
+      "System.Collections.Generic",
       "UnityEngine"
     ],
     "classes": [
@@ -538,9 +540,33 @@
     "unity_type": "MonoBehaviour",
     "methods": [
       "Start",
-      "Update"
+      "Update",
+      "Rolltext",
+      "WaitForSeconds"
     ],
-    "fields": [],
+    "fields": [
+      {
+        "name": "viewText",
+        "type": "TMPro.TMP_Text",
+        "access": "public",
+        "serialized": false,
+        "is_static": true
+      },
+      {
+        "name": "runTextPrint",
+        "type": "bool",
+        "access": "public",
+        "serialized": false,
+        "is_static": true
+      },
+      {
+        "name": "charCount",
+        "type": "int",
+        "access": "public",
+        "serialized": false,
+        "is_static": true
+      }
+    ],
     "properties": [],
     "events": [],
     "unity_messages": [
@@ -555,38 +581,60 @@
     "has_on_enable": false,
     "has_on_disable": false,
     "serialize_field_count": 0,
-    "public_field_count": 0,
-    "get_component_count": 0,
+    "public_field_count": 3,
+    "get_component_count": 2,
     "find_call_count": 0,
-    "new_keyword_count": 0,
-    "coroutine_count": 0,
+    "new_keyword_count": 1,
+    "coroutine_count": 2,
     "singleton_candidate": false,
     "dont_destroy_on_load": false,
     "referenced_types": [
+      "TMPro.TMP_Text",
+      "bool",
+      "int",
+      "System",
+      "Collections",
+      "Generic",
       "UnityEngine",
+      "TMPro",
+      "TMP_Text",
       "Start",
-      "Update"
+      "Update",
+      "GetComponent",
+      "Length",
+      "StartCoroutine",
+      "Rolltext",
+      "WaitForSeconds"
     ],
     "component_access_types": [],
-    "created_types": [],
+    "created_types": [
+      "WaitForSeconds"
+    ],
     "singleton_access_types": [],
     "string_literals": [],
-    "numeric_literals": [],
+    "numeric_literals": [
+      0.03
+    ],
     "guessed_roles": [
-      "runtime"
+      "runtime",
+      "ui",
+      "save-load"
     ],
     "summary_signals": [
       "런타임 컴포넌트",
-      "Update 기반 처리 존재"
+      "Update 기반 처리 존재",
+      "UI 관련 로직 포함",
+      "저장/불러오기 관련 로직 포함",
+      "컴포넌트 조회 사용"
     ]
   },
   {
     "file_id": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "path": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "file_name": "VNManager.cs",
-    "content_hash": "e2f1a0b08d96330de7a431fc25a378f124b501fb",
-    "size": 451,
-    "line_count": 26,
+    "content_hash": "69fb2232c71b9132d81a2ac8e70f0a032cfe569f",
+    "size": 1189,
+    "line_count": 47,
     "namespace": "",
     "using_list": [
       "UnityEngine",
@@ -613,9 +661,32 @@
       "Start",
       "Update",
       "EventStarter",
-      "WaitForSeconds"
+      "WaitForSeconds",
+      "WaitUntil"
     ],
-    "fields": [],
+    "fields": [
+      {
+        "name": "char1",
+        "type": "GameObject",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "char2",
+        "type": "GameObject",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "textBox",
+        "type": "GameObject",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      }
+    ],
     "properties": [],
     "events": [],
     "unity_messages": [
@@ -630,11 +701,11 @@
     "has_on_enable": false,
     "has_on_disable": false,
     "serialize_field_count": 0,
-    "public_field_count": 0,
-    "get_component_count": 0,
+    "public_field_count": 3,
+    "get_component_count": 1,
     "find_call_count": 0,
-    "new_keyword_count": 1,
-    "coroutine_count": 1,
+    "new_keyword_count": 4,
+    "coroutine_count": 2,
     "singleton_candidate": false,
     "dont_destroy_on_load": false,
     "referenced_types": [
@@ -644,23 +715,41 @@
       "Generic",
       "Start",
       "Update",
+      "StartCoroutine",
       "EventStarter",
-      "WaitForSeconds"
+      "TextHandler",
+      "WaitForSeconds",
+      "SetActive",
+      "GetComponent",
+      "TMPro",
+      "TMP_Text",
+      "Length",
+      "WaitUntil"
     ],
     "component_access_types": [],
     "created_types": [
-      "WaitForSeconds"
+      "WaitForSeconds",
+      "WaitUntil"
     ],
     "singleton_access_types": [],
-    "string_literals": [],
-    "numeric_literals": [],
+    "string_literals": [
+      "aaaa"
+    ],
+    "numeric_literals": [
+      0.05
+    ],
     "guessed_roles": [
       "runtime",
-      "manager"
+      "ui",
+      "manager",
+      "save-load"
     ],
     "summary_signals": [
       "런타임 컴포넌트",
-      "Update 기반 처리 존재"
+      "Update 기반 처리 존재",
+      "UI 관련 로직 포함",
+      "저장/불러오기 관련 로직 포함",
+      "컴포넌트 조회 사용"
     ]
   },
   {

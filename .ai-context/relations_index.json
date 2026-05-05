@@ -772,6 +772,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
     "from_class": "TextHandler",
+    "to_type": "WaitForSeconds",
+    "relation_type": "creates",
+    "strength": 2
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
+    "from_class": "TextHandler",
     "to_type": "MonoBehaviour",
     "relation_type": "inherits",
     "strength": 4
@@ -779,7 +786,91 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
     "from_class": "TextHandler",
+    "to_type": "bool",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
+    "from_class": "TextHandler",
+    "to_type": "Collections",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
+    "from_class": "TextHandler",
+    "to_type": "Generic",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
+    "from_class": "TextHandler",
+    "to_type": "GetComponent",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
+    "from_class": "TextHandler",
+    "to_type": "int",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
+    "from_class": "TextHandler",
+    "to_type": "Length",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
+    "from_class": "TextHandler",
+    "to_type": "Rolltext",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
+    "from_class": "TextHandler",
     "to_type": "Start",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
+    "from_class": "TextHandler",
+    "to_type": "StartCoroutine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
+    "from_class": "TextHandler",
+    "to_type": "System",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
+    "from_class": "TextHandler",
+    "to_type": "TMP_Text",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
+    "from_class": "TextHandler",
+    "to_type": "TMPro",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
+    "from_class": "TextHandler",
+    "to_type": "TMPro.TMP_Text",
     "relation_type": "uses",
     "strength": 1
   },
@@ -798,9 +889,23 @@
     "strength": 1
   },
   {
+    "from_file": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
+    "from_class": "TextHandler",
+    "to_type": "WaitForSeconds",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
     "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "from_class": "VNManager",
     "to_type": "WaitForSeconds",
+    "relation_type": "creates",
+    "strength": 2
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
+    "from_class": "VNManager",
+    "to_type": "WaitUntil",
     "relation_type": "creates",
     "strength": 2
   },
@@ -835,6 +940,27 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "from_class": "VNManager",
+    "to_type": "GetComponent",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
+    "from_class": "VNManager",
+    "to_type": "Length",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
+    "from_class": "VNManager",
+    "to_type": "SetActive",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
+    "from_class": "VNManager",
     "to_type": "Start",
     "relation_type": "uses",
     "strength": 1
@@ -842,7 +968,35 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "from_class": "VNManager",
+    "to_type": "StartCoroutine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
+    "from_class": "VNManager",
     "to_type": "System",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
+    "from_class": "VNManager",
+    "to_type": "TextHandler",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
+    "from_class": "VNManager",
+    "to_type": "TMP_Text",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
+    "from_class": "VNManager",
+    "to_type": "TMPro",
     "relation_type": "uses",
     "strength": 1
   },
@@ -864,6 +1018,13 @@
     "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "from_class": "VNManager",
     "to_type": "WaitForSeconds",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
+    "from_class": "VNManager",
+    "to_type": "WaitUntil",
     "relation_type": "uses",
     "strength": 1
   },
