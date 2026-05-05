@@ -99,121 +99,6 @@
     ]
   },
   {
-    "file_id": "exp-make5/Assets/Scripts/MainMenuUI.cs",
-    "path": "exp-make5/Assets/Scripts/MainMenuUI.cs",
-    "file_name": "MainMenuUI.cs",
-    "content_hash": "e37ae904cbd2ea6022335e4398fe279d2760f21b",
-    "size": 2130,
-    "line_count": 100,
-    "namespace": "",
-    "using_list": [
-      "System.Text.RegularExpressions",
-      "UnityEngine",
-      "UnityEngine.UI",
-      "TMPro"
-    ],
-    "classes": [
-      {
-        "name": "MainMenuUI",
-        "kind": "class",
-        "access": "public",
-        "base_types": [
-          "MonoBehaviour"
-        ],
-        "interfaces": [],
-        "attributes": [],
-        "is_partial": false,
-        "is_generic": false
-      }
-    ],
-    "main_class_name": "MainMenuUI",
-    "unity_type": "MonoBehaviour",
-    "methods": [
-      "ShowElement",
-      "HideElement",
-      "HideEverything",
-      "showbydepth",
-      "ReturntoStartMenu",
-      "EnterModeSelect",
-      "EnterStoryModeSelect",
-      "EnterCasualModeSelect",
-      "GameExit",
-      "SettingsShow",
-      "SettingsHide",
-      "ContinueGame"
-    ],
-    "fields": [],
-    "properties": [],
-    "events": [],
-    "unity_messages": [],
-    "has_update": false,
-    "has_fixed_update": false,
-    "has_late_update": false,
-    "has_awake": false,
-    "has_start": false,
-    "has_on_enable": false,
-    "has_on_disable": false,
-    "serialize_field_count": 0,
-    "public_field_count": 0,
-    "get_component_count": 0,
-    "find_call_count": 0,
-    "new_keyword_count": 0,
-    "coroutine_count": 0,
-    "singleton_candidate": false,
-    "dont_destroy_on_load": false,
-    "referenced_types": [
-      "System",
-      "Text",
-      "RegularExpressions",
-      "UnityEngine",
-      "UI",
-      "TMPro",
-      "CanvasGroup",
-      "StartScreen",
-      "ModeSelectScreen",
-      "StageSelect_story",
-      "StageSelect_casual",
-      "Settings",
-      "ShowElement",
-      "HideElement",
-      "HideEverything",
-      "ReturntoStartMenu",
-      "EnterModeSelect",
-      "EnterStoryModeSelect",
-      "EnterCasualModeSelect",
-      "GameExit",
-      "Application",
-      "Quit",
-      "Log",
-      "SettingsShow",
-      "SettingsHide",
-      "ContinueGame"
-    ],
-    "component_access_types": [],
-    "created_types": [],
-    "singleton_access_types": [],
-    "string_literals": [
-      "겜종료"
-    ],
-    "numeric_literals": [
-      1,
-      0,
-      2,
-      3
-    ],
-    "guessed_roles": [
-      "ui",
-      "runtime",
-      "save-load",
-      "data"
-    ],
-    "summary_signals": [
-      "런타임 컴포넌트",
-      "UI 관련 로직 포함",
-      "저장/불러오기 관련 로직 포함"
-    ]
-  },
-  {
     "file_id": "exp-make5/Assets/Scripts/PlayerController.cs",
     "path": "exp-make5/Assets/Scripts/PlayerController.cs",
     "file_name": "PlayerController.cs",
@@ -507,6 +392,275 @@
       "UI 관련 로직 포함",
       "컴포넌트 조회 사용",
       "Find 계열 탐색 사용"
+    ]
+  },
+  {
+    "file_id": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
+    "path": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
+    "file_name": "MainMenuUI.cs",
+    "content_hash": "e37ae904cbd2ea6022335e4398fe279d2760f21b",
+    "size": 2130,
+    "line_count": 100,
+    "namespace": "",
+    "using_list": [
+      "System.Text.RegularExpressions",
+      "UnityEngine",
+      "UnityEngine.UI",
+      "TMPro"
+    ],
+    "classes": [
+      {
+        "name": "MainMenuUI",
+        "kind": "class",
+        "access": "public",
+        "base_types": [
+          "MonoBehaviour"
+        ],
+        "interfaces": [],
+        "attributes": [],
+        "is_partial": false,
+        "is_generic": false
+      }
+    ],
+    "main_class_name": "MainMenuUI",
+    "unity_type": "MonoBehaviour",
+    "methods": [
+      "ShowElement",
+      "HideElement",
+      "HideEverything",
+      "showbydepth",
+      "ReturntoStartMenu",
+      "EnterModeSelect",
+      "EnterStoryModeSelect",
+      "EnterCasualModeSelect",
+      "GameExit",
+      "SettingsShow",
+      "SettingsHide",
+      "ContinueGame"
+    ],
+    "fields": [],
+    "properties": [],
+    "events": [],
+    "unity_messages": [],
+    "has_update": false,
+    "has_fixed_update": false,
+    "has_late_update": false,
+    "has_awake": false,
+    "has_start": false,
+    "has_on_enable": false,
+    "has_on_disable": false,
+    "serialize_field_count": 0,
+    "public_field_count": 0,
+    "get_component_count": 0,
+    "find_call_count": 0,
+    "new_keyword_count": 0,
+    "coroutine_count": 0,
+    "singleton_candidate": false,
+    "dont_destroy_on_load": false,
+    "referenced_types": [
+      "System",
+      "Text",
+      "RegularExpressions",
+      "UnityEngine",
+      "UI",
+      "TMPro",
+      "CanvasGroup",
+      "StartScreen",
+      "ModeSelectScreen",
+      "StageSelect_story",
+      "StageSelect_casual",
+      "Settings",
+      "ShowElement",
+      "HideElement",
+      "HideEverything",
+      "ReturntoStartMenu",
+      "EnterModeSelect",
+      "EnterStoryModeSelect",
+      "EnterCasualModeSelect",
+      "GameExit",
+      "Application",
+      "Quit",
+      "Log",
+      "SettingsShow",
+      "SettingsHide",
+      "ContinueGame"
+    ],
+    "component_access_types": [],
+    "created_types": [],
+    "singleton_access_types": [],
+    "string_literals": [
+      "겜종료"
+    ],
+    "numeric_literals": [
+      1,
+      0,
+      2,
+      3
+    ],
+    "guessed_roles": [
+      "ui",
+      "runtime",
+      "save-load",
+      "data"
+    ],
+    "summary_signals": [
+      "런타임 컴포넌트",
+      "UI 관련 로직 포함",
+      "저장/불러오기 관련 로직 포함"
+    ]
+  },
+  {
+    "file_id": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
+    "path": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
+    "file_name": "TextHandler.cs",
+    "content_hash": "446d31294caac8dc63157d185de08183d33f15e3",
+    "size": 285,
+    "line_count": 17,
+    "namespace": "",
+    "using_list": [
+      "UnityEngine"
+    ],
+    "classes": [
+      {
+        "name": "TextHandler",
+        "kind": "class",
+        "access": "public",
+        "base_types": [
+          "MonoBehaviour"
+        ],
+        "interfaces": [],
+        "attributes": [],
+        "is_partial": false,
+        "is_generic": false
+      }
+    ],
+    "main_class_name": "TextHandler",
+    "unity_type": "MonoBehaviour",
+    "methods": [
+      "Start",
+      "Update"
+    ],
+    "fields": [],
+    "properties": [],
+    "events": [],
+    "unity_messages": [
+      "Start",
+      "Update"
+    ],
+    "has_update": true,
+    "has_fixed_update": false,
+    "has_late_update": false,
+    "has_awake": false,
+    "has_start": true,
+    "has_on_enable": false,
+    "has_on_disable": false,
+    "serialize_field_count": 0,
+    "public_field_count": 0,
+    "get_component_count": 0,
+    "find_call_count": 0,
+    "new_keyword_count": 0,
+    "coroutine_count": 0,
+    "singleton_candidate": false,
+    "dont_destroy_on_load": false,
+    "referenced_types": [
+      "UnityEngine",
+      "Start",
+      "Update"
+    ],
+    "component_access_types": [],
+    "created_types": [],
+    "singleton_access_types": [],
+    "string_literals": [],
+    "numeric_literals": [],
+    "guessed_roles": [
+      "runtime"
+    ],
+    "summary_signals": [
+      "런타임 컴포넌트",
+      "Update 기반 처리 존재"
+    ]
+  },
+  {
+    "file_id": "exp-make5/Assets/Scripts/UI/VNManager.cs",
+    "path": "exp-make5/Assets/Scripts/UI/VNManager.cs",
+    "file_name": "VNManager.cs",
+    "content_hash": "e2f1a0b08d96330de7a431fc25a378f124b501fb",
+    "size": 451,
+    "line_count": 26,
+    "namespace": "",
+    "using_list": [
+      "UnityEngine",
+      "System.Collections",
+      "System.Collections.Generic"
+    ],
+    "classes": [
+      {
+        "name": "VNManager",
+        "kind": "class",
+        "access": "public",
+        "base_types": [
+          "MonoBehaviour"
+        ],
+        "interfaces": [],
+        "attributes": [],
+        "is_partial": false,
+        "is_generic": false
+      }
+    ],
+    "main_class_name": "VNManager",
+    "unity_type": "MonoBehaviour",
+    "methods": [
+      "Start",
+      "Update",
+      "EventStarter",
+      "WaitForSeconds"
+    ],
+    "fields": [],
+    "properties": [],
+    "events": [],
+    "unity_messages": [
+      "Start",
+      "Update"
+    ],
+    "has_update": true,
+    "has_fixed_update": false,
+    "has_late_update": false,
+    "has_awake": false,
+    "has_start": true,
+    "has_on_enable": false,
+    "has_on_disable": false,
+    "serialize_field_count": 0,
+    "public_field_count": 0,
+    "get_component_count": 0,
+    "find_call_count": 0,
+    "new_keyword_count": 1,
+    "coroutine_count": 1,
+    "singleton_candidate": false,
+    "dont_destroy_on_load": false,
+    "referenced_types": [
+      "UnityEngine",
+      "System",
+      "Collections",
+      "Generic",
+      "Start",
+      "Update",
+      "EventStarter",
+      "WaitForSeconds"
+    ],
+    "component_access_types": [],
+    "created_types": [
+      "WaitForSeconds"
+    ],
+    "singleton_access_types": [],
+    "string_literals": [],
+    "numeric_literals": [],
+    "guessed_roles": [
+      "runtime",
+      "manager"
+    ],
+    "summary_signals": [
+      "런타임 컴포넌트",
+      "Update 기반 처리 존재"
     ]
   },
   {
