@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 // 이 스크립트는 오직 캐릭터의 '상태'만 관리합니다.
 public class PlayerStatus : MonoBehaviour

@@ -31,7 +31,7 @@ public class VNManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         mainTextObject.SetActive(true);
 
-        textToSpeak = "aaaa";
+        textToSpeak = "안녕하세요 ㅁㄷㄴ래ㅑㅂ멪ㄱ햡ㅈ몯ㄱㅎ댐ㄴ야혼ㄷㅇㄱㄹ해넝랴ㅗ헌애ㅗㅅ레ㅗㅈㅇㅁㄴㄱㄹ솢ㄷ메ㅐㄱㄴㄹ호ㅑㅈㄷ넝";
         textBox.GetComponent<TMPro.TMP_Text>().text = textToSpeak;
         currentTextLength = textToSpeak.Length;
         TextHandler.runTextPrint = true;
@@ -39,8 +39,6 @@ public class VNManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         yield return new WaitUntil(() => textLength == currentTextLength);
 
-
         textBox.SetActive(true);
-
     }
 }

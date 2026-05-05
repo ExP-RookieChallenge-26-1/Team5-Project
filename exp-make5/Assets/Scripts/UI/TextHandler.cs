@@ -29,7 +29,6 @@ public class TextHandler : MonoBehaviour
             transferText= viewText.text;
             viewText.text = "";
             StartCoroutine(Rolltext());
-
         }
     }
 

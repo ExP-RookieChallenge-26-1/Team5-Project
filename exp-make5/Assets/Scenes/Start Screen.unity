@@ -808,6 +808,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 908709772320704622, guid: ad6a9e2452d0f264484d4345656a4b6c, type: 3}
+      propertyPath: m_text
+      value: "\uD14C\uC2A4\uD2B8\uC911\n\n\uD504\uB9AC\uD50C\uB808\uC774"
+      objectReference: {fileID: 0}
     - target: {fileID: 6154939840687800358, guid: ad6a9e2452d0f264484d4345656a4b6c, type: 3}
       propertyPath: m_Name
       value: StoryMode
@@ -838,7 +842,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6388826973358090905, guid: ad6a9e2452d0f264484d4345656a4b6c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6388826973358090905, guid: ad6a9e2452d0f264484d4345656a4b6c, type: 3}
       propertyPath: m_SizeDelta.y
@@ -874,7 +878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6388826973358090905, guid: ad6a9e2452d0f264484d4345656a4b6c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -500
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6388826973358090905, guid: ad6a9e2452d0f264484d4345656a4b6c, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -891,6 +895,30 @@ PrefabInstance:
     - target: {fileID: 6388826973358090905, guid: ad6a9e2452d0f264484d4345656a4b6c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8015021382502314399, guid: ad6a9e2452d0f264484d4345656a4b6c, type: 3}
+      propertyPath: Settings
+      value: 
+      objectReference: {fileID: 761514803}
+    - target: {fileID: 8015021382502314399, guid: ad6a9e2452d0f264484d4345656a4b6c, type: 3}
+      propertyPath: StartScreen
+      value: 
+      objectReference: {fileID: 1729814607}
+    - target: {fileID: 8015021382502314399, guid: ad6a9e2452d0f264484d4345656a4b6c, type: 3}
+      propertyPath: ModeSelectScreen
+      value: 
+      objectReference: {fileID: 831093144}
+    - target: {fileID: 8015021382502314399, guid: ad6a9e2452d0f264484d4345656a4b6c, type: 3}
+      propertyPath: StageSelect_story
+      value: 
+      objectReference: {fileID: 1334041755}
+    - target: {fileID: 8015021382502314399, guid: ad6a9e2452d0f264484d4345656a4b6c, type: 3}
+      propertyPath: StageSelect_casual
+      value: 
+      objectReference: {fileID: 559333215}
+    - target: {fileID: 8857895468729003375, guid: ad6a9e2452d0f264484d4345656a4b6c, type: 3}
+      propertyPath: m_text
+      value: TESTING
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
