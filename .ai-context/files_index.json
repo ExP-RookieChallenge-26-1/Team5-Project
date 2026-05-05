@@ -99,12 +99,99 @@
     ]
   },
   {
+    "file_id": "exp-make5/Assets/Scripts/MapManager.cs",
+    "path": "exp-make5/Assets/Scripts/MapManager.cs",
+    "file_name": "MapManager.cs",
+    "content_hash": "7bb6ccc162b3887006486f20fba2538d4c02802c",
+    "size": 1515,
+    "line_count": 39,
+    "namespace": "",
+    "using_list": [
+      "UnityEngine"
+    ],
+    "classes": [
+      {
+        "name": "MapManager",
+        "kind": "class",
+        "access": "public",
+        "base_types": [
+          "MonoBehaviour"
+        ],
+        "interfaces": [],
+        "attributes": [],
+        "is_partial": false,
+        "is_generic": false
+      }
+    ],
+    "main_class_name": "MapManager",
+    "unity_type": "MonoBehaviour",
+    "methods": [
+      "GetMapSize",
+      "Vector2Int",
+      "GetWalkableGrid",
+      "OpenTile"
+    ],
+    "fields": [],
+    "properties": [],
+    "events": [],
+    "unity_messages": [],
+    "has_update": false,
+    "has_fixed_update": false,
+    "has_late_update": false,
+    "has_awake": false,
+    "has_start": false,
+    "has_on_enable": false,
+    "has_on_disable": false,
+    "serialize_field_count": 0,
+    "public_field_count": 0,
+    "get_component_count": 0,
+    "find_call_count": 0,
+    "new_keyword_count": 1,
+    "coroutine_count": 0,
+    "singleton_candidate": false,
+    "dont_destroy_on_load": false,
+    "referenced_types": [
+      "UnityEngine",
+      "Vector2Int",
+      "GetMapSize",
+      "GetWalkableGrid",
+      "PlayerStatus",
+      "OpenTile",
+      "UI",
+      "EncounterRedMine",
+      "EncounterBlueMine"
+    ],
+    "component_access_types": [],
+    "created_types": [
+      "Vector2Int"
+    ],
+    "singleton_access_types": [],
+    "string_literals": [],
+    "numeric_literals": [
+      20,
+      100,
+      2,
+      3,
+      4
+    ],
+    "guessed_roles": [
+      "ui",
+      "player",
+      "manager",
+      "runtime"
+    ],
+    "summary_signals": [
+      "런타임 컴포넌트",
+      "UI 관련 로직 포함"
+    ]
+  },
+  {
     "file_id": "exp-make5/Assets/Scripts/PlayerController.cs",
     "path": "exp-make5/Assets/Scripts/PlayerController.cs",
     "file_name": "PlayerController.cs",
-    "content_hash": "e8f92e00a778d14f166b428044c5f5c6d7121973",
-    "size": 7942,
-    "line_count": 231,
+    "content_hash": "93ca2d7416180a9cf0242d577fc729164f951816",
+    "size": 7133,
+    "line_count": 198,
     "namespace": "",
     "using_list": [
       "System.Collections.Generic",
@@ -141,15 +228,9 @@
       "Node",
       "Start",
       "Vector2",
-      "GenerateTemporaryMap",
-      "Material",
-      "Vector3",
-      "Color",
       "Update",
       "Vector2Int",
       "SetNextTargetNode",
-      "HighlightTile",
-      "RevertTileColor",
       "FindPath",
       "RetracePath"
     ],
@@ -163,14 +244,7 @@
       },
       {
         "name": "mapSize",
-        "type": "int",
-        "access": "public",
-        "serialized": false,
-        "is_static": false
-      },
-      {
-        "name": "mapTiles",
-        "type": "GameObject[,]",
+        "type": "Vector2Int",
         "access": "private",
         "serialized": false,
         "is_static": false
@@ -197,15 +271,8 @@
         "is_static": false
       },
       {
-        "name": "currentYellowTilePos",
+        "name": "finalDestination",
         "type": "Vector2Int",
-        "access": "private",
-        "serialized": false,
-        "is_static": false
-      },
-      {
-        "name": "isTileHighlighted",
-        "type": "bool",
         "access": "private",
         "serialized": false,
         "is_static": false
@@ -218,23 +285,16 @@
         "is_static": false
       },
       {
-        "name": "G",
-        "type": "int",
-        "access": "public",
-        "serialized": false,
-        "is_static": false
-      },
-      {
-        "name": "H",
-        "type": "int",
-        "access": "public",
-        "serialized": false,
-        "is_static": false
-      },
-      {
         "name": "Parent",
         "type": "Node",
         "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "walkableGrid",
+        "type": "bool[,]",
+        "access": "internal",
         "serialized": false,
         "is_static": false
       },
@@ -281,29 +341,31 @@
     "has_on_enable": false,
     "has_on_disable": false,
     "serialize_field_count": 0,
-    "public_field_count": 6,
-    "get_component_count": 5,
+    "public_field_count": 3,
+    "get_component_count": 1,
     "find_call_count": 1,
-    "new_keyword_count": 17,
+    "new_keyword_count": 10,
     "coroutine_count": 0,
     "singleton_candidate": false,
     "dont_destroy_on_load": false,
     "referenced_types": [
       "Animator",
-      "int",
-      "GameObject[,]",
+      "Vector2Int",
       "float",
       "bool",
       "Vector2",
-      "Vector2Int",
+      "bool[,]",
+      "int",
       "System",
       "Collections",
       "Generic",
       "UnityEngine",
       "InputSystem",
-      "Map",
-      "Settings",
+      "References",
+      "MapManager",
+      "PlayerStatus",
       "Movement",
+      "Settings",
       "Position",
       "Parent",
       "Start",
@@ -313,77 +375,56 @@
       "InputX",
       "InputY",
       "Clear",
-      "GenerateTemporaryMap",
-      "Shader",
-      "Find",
-      "Sprites",
-      "Default",
-      "Material",
-      "CreatePrimitive",
-      "PrimitiveType",
-      "Quad",
-      "Vector3",
-      "TempTile_",
-      "MeshRenderer",
-      "Color",
-      "Destroy",
-      "MeshCollider",
+      "GetMapSize",
       "Update",
       "Count",
+      "Vector3",
       "MoveTowards",
       "RemoveAt",
       "SetNextTargetNode",
-      "RevertTileColor",
+      "OpenTile",
       "Mouse",
       "ReadValue",
       "Camera",
       "ScreenToWorldPoint",
       "RoundToInt",
       "FindPath",
-      "HighlightTile",
+      "GetWalkableGrid",
       "Add",
       "Remove",
       "RetracePath",
       "Contains",
+      "Find",
       "Abs",
       "Reverse"
     ],
     "component_access_types": [
-      "Animator",
-      "MeshRenderer",
-      "MeshCollider"
+      "Animator"
     ],
     "created_types": [
       "List",
       "Vector2",
-      "Material",
-      "Vector3",
-      "Color",
       "Vector2Int",
       "HashSet",
       "Node"
     ],
     "singleton_access_types": [],
     "string_literals": [
-      "Map Settings",
+      "References",
       "Movement Settings",
       "isMoving",
       "InputX",
-      "InputY",
-      "Sprites/Default",
-      "TempTile_{x}_{y}"
+      "InputY"
     ],
     "numeric_literals": [
-      10,
-      2,
       5,
-      1,
-      0.8,
-      0.6
+      3,
+      4
     ],
     "guessed_roles": [
       "player",
       "runtime",
+      "manager",
       "ui"
     ],
     "summary_signals": [
@@ -392,6 +433,127 @@
       "UI 관련 로직 포함",
       "컴포넌트 조회 사용",
       "Find 계열 탐색 사용"
+    ]
+  },
+  {
+    "file_id": "exp-make5/Assets/Scripts/PlayerStatus.cs",
+    "path": "exp-make5/Assets/Scripts/PlayerStatus.cs",
+    "file_name": "PlayerStatus.cs",
+    "content_hash": "02a19bed381ad30ce6b5c6cf80e1a80bbef4e407",
+    "size": 1545,
+    "line_count": 60,
+    "namespace": "",
+    "using_list": [
+      "UnityEngine"
+    ],
+    "classes": [
+      {
+        "name": "PlayerStatus",
+        "kind": "class",
+        "access": "public",
+        "base_types": [
+          "MonoBehaviour"
+        ],
+        "interfaces": [],
+        "attributes": [],
+        "is_partial": false,
+        "is_generic": false
+      }
+    ],
+    "main_class_name": "PlayerStatus",
+    "unity_type": "MonoBehaviour",
+    "methods": [
+      "Start",
+      "EncounterRedMine",
+      "EncounterBlueMine",
+      "TakeDamage"
+    ],
+    "fields": [
+      {
+        "name": "maxHealth",
+        "type": "int",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "currentHealth",
+        "type": "int",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "redAmuletCount",
+        "type": "int",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "blueAmuletCount",
+        "type": "int",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      }
+    ],
+    "properties": [],
+    "events": [],
+    "unity_messages": [
+      "Start"
+    ],
+    "has_update": false,
+    "has_fixed_update": false,
+    "has_late_update": false,
+    "has_awake": false,
+    "has_start": true,
+    "has_on_enable": false,
+    "has_on_disable": false,
+    "serialize_field_count": 0,
+    "public_field_count": 4,
+    "get_component_count": 0,
+    "find_call_count": 0,
+    "new_keyword_count": 0,
+    "coroutine_count": 0,
+    "singleton_candidate": false,
+    "dont_destroy_on_load": false,
+    "referenced_types": [
+      "int",
+      "UnityEngine",
+      "Player",
+      "Stats",
+      "Inventory",
+      "Start",
+      "EncounterRedMine",
+      "Log",
+      "TakeDamage",
+      "EncounterBlueMine"
+    ],
+    "component_access_types": [],
+    "created_types": [],
+    "singleton_access_types": [],
+    "string_literals": [
+      "Player Stats",
+      "Inventory",
+      "빨간 몬스터 처치! 빨간 부적 소비 -> 파란 부적 획득",
+      "파란 몬스터 처치! 파란 부적 소비 -> 빨간 부적 획득",
+      "부적이 부족합니다! 체력 감소. 남은 체력: {currentHealth}",
+      "게임 오버!"
+    ],
+    "numeric_literals": [
+      3
+    ],
+    "guessed_roles": [
+      "runtime",
+      "player",
+      "inventory",
+      "combat"
+    ],
+    "summary_signals": [
+      "런타임 컴포넌트",
+      "인벤토리 계열 로직 포함",
+      "전투 계열 로직 포함"
     ]
   },
   {

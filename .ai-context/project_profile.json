@@ -2,24 +2,25 @@
   "project_name": "unknown",
   "language": "C#",
   "engine_guess": "Unity",
-  "total_cs_files": 39,
-  "mono_behaviour_files": 37,
+  "total_cs_files": 41,
+  "mono_behaviour_files": 39,
   "scriptable_object_files": 0,
   "files_with_update": 11,
   "files_with_fixed_update": 0,
   "files_with_late_update": 5,
   "singleton_candidates": 0,
-  "manager_like_classes": 8,
-  "ui_related_classes": 36,
+  "manager_like_classes": 10,
+  "ui_related_classes": 37,
   "save_load_related_classes": 18,
   "role_counts": {
-    "runtime": 37,
-    "player": 17,
-    "ui": 36,
+    "runtime": 39,
+    "player": 19,
+    "ui": 37,
+    "manager": 10,
+    "inventory": 1,
+    "combat": 26,
     "save-load": 18,
     "data": 8,
-    "manager": 8,
-    "combat": 25,
     "network": 1
   },
   "high_coupling_classes": [
@@ -66,12 +67,6 @@
       "referenced_type_count": 69
     },
     {
-      "class_name": "PlayerController",
-      "file_id": "exp-make5/Assets/Scripts/PlayerController.cs",
-      "relation_count": 70,
-      "referenced_type_count": 58
-    },
-    {
       "class_name": "TMP_FrameRateCounter",
       "file_id": "exp-make5/Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_FrameRateCounter.cs",
       "relation_count": 64,
@@ -81,6 +76,12 @@
       "class_name": "TMP_TextSelector_A",
       "file_id": "exp-make5/Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_A.cs",
       "relation_count": 63,
+      "referenced_type_count": 58
+    },
+    {
+      "class_name": "VertexShakeA",
+      "file_id": "exp-make5/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs",
+      "relation_count": 61,
       "referenced_type_count": 58
     }
   ],
@@ -111,33 +112,6 @@
         "상태 중심 또는 관리 중심 클래스일 가능성"
       ],
       "risk_score": 100
-    },
-    {
-      "file_id": "exp-make5/Assets/Scripts/PlayerController.cs",
-      "class_name": "PlayerController",
-      "risk_flags": [
-        "update-heavy",
-        "high-coupling",
-        "public-field-heavy",
-        "getcomponent-heavy",
-        "find-heavy",
-        "magic-number-heavy",
-        "init-order-sensitive",
-        "ui-runtime-mixed",
-        "state-owner"
-      ],
-      "risk_reasons": [
-        "Unity 업데이트 루프 사용",
-        "참조 타입 또는 관계 수가 많음",
-        "public 필드 노출 수가 많음",
-        "GetComponent/TryGetComponent 호출이 많음",
-        "Find 계열 탐색 사용",
-        "숫자 리터럴이 많아 의미 파악이 어려울 수 있음",
-        "초기화 순서에 민감할 가능성",
-        "UI와 런타임 책임이 한 파일에 섞였을 가능성",
-        "상태 중심 또는 관리 중심 클래스일 가능성"
-      ],
-      "risk_score": 98
     },
     {
       "file_id": "exp-make5/Assets/TextMesh Pro/Examples & Extras/Scripts/CameraController.cs",
@@ -305,6 +279,29 @@
         "상태 중심 또는 관리 중심 클래스일 가능성"
       ],
       "risk_score": 79
+    },
+    {
+      "file_id": "exp-make5/Assets/Scripts/PlayerController.cs",
+      "class_name": "PlayerController",
+      "risk_flags": [
+        "update-heavy",
+        "high-coupling",
+        "public-field-heavy",
+        "find-heavy",
+        "init-order-sensitive",
+        "ui-runtime-mixed",
+        "state-owner"
+      ],
+      "risk_reasons": [
+        "Unity 업데이트 루프 사용",
+        "참조 타입 또는 관계 수가 많음",
+        "public 필드 노출 수가 많음",
+        "Find 계열 탐색 사용",
+        "초기화 순서에 민감할 가능성",
+        "UI와 런타임 책임이 한 파일에 섞였을 가능성",
+        "상태 중심 또는 관리 중심 클래스일 가능성"
+      ],
+      "risk_score": 78
     },
     {
       "file_id": "exp-make5/Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark02.cs",
