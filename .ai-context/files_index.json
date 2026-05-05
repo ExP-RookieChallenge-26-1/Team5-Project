@@ -102,8 +102,8 @@
     "file_id": "exp-make5/Assets/Scripts/MapManager.cs",
     "path": "exp-make5/Assets/Scripts/MapManager.cs",
     "file_name": "MapManager.cs",
-    "content_hash": "7bb6ccc162b3887006486f20fba2538d4c02802c",
-    "size": 1515,
+    "content_hash": "9602c5f38e6d3631f4f10cf2f2e41959bbe8b0bc",
+    "size": 1518,
     "line_count": 39,
     "namespace": "",
     "using_list": [
@@ -439,8 +439,8 @@
     "file_id": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "path": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "file_name": "PlayerStatus.cs",
-    "content_hash": "02a19bed381ad30ce6b5c6cf80e1a80bbef4e407",
-    "size": 1545,
+    "content_hash": "4d90c7b375af2e5495c2c5addbec95ddb87cc756",
+    "size": 1548,
     "line_count": 60,
     "namespace": "",
     "using_list": [
@@ -675,9 +675,9 @@
     "file_id": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
     "path": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
     "file_name": "TextHandler.cs",
-    "content_hash": "794cc4cf049c132e7ff8b6410091d66213ce68c8",
-    "size": 1075,
-    "line_count": 46,
+    "content_hash": "a48e5c655754addaa541be104101c33f9ace3e0e",
+    "size": 1074,
+    "line_count": 45,
     "namespace": "",
     "using_list": [
       "System.Collections",
@@ -794,9 +794,9 @@
     "file_id": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "path": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "file_name": "VNManager.cs",
-    "content_hash": "69fb2232c71b9132d81a2ac8e70f0a032cfe569f",
-    "size": 1189,
-    "line_count": 47,
+    "content_hash": "6f44d37bb2a863354accb3bd468d8212350d2252",
+    "size": 1346,
+    "line_count": 45,
     "namespace": "",
     "using_list": [
       "UnityEngine",
@@ -895,7 +895,7 @@
     ],
     "singleton_access_types": [],
     "string_literals": [
-      "aaaa"
+      "안녕하세요 ㅁㄷㄴ래ㅑㅂ멪ㄱ햡ㅈ몯ㄱㅎ댐ㄴ야혼ㄷㅇㄱㄹ해넝랴ㅗ헌애ㅗㅅ레ㅗㅈㅇㅁㄴㄱㄹ솢ㄷ메ㅐㄱㄴㄹ호ㅑㅈㄷ넝"
     ],
     "numeric_literals": [
       0.05
