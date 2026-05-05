@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 // 맵 담당자가 만들어주어야 할 스크립트 (MapManager)
 public class MapManager : MonoBehaviour

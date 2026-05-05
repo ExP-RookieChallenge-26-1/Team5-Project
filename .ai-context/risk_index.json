@@ -27,33 +27,6 @@
     "risk_score": 100
   },
   {
-    "file_id": "exp-make5/Assets/Scripts/PlayerController.cs",
-    "class_name": "PlayerController",
-    "risk_flags": [
-      "update-heavy",
-      "high-coupling",
-      "public-field-heavy",
-      "getcomponent-heavy",
-      "find-heavy",
-      "magic-number-heavy",
-      "init-order-sensitive",
-      "ui-runtime-mixed",
-      "state-owner"
-    ],
-    "risk_reasons": [
-      "Unity 업데이트 루프 사용",
-      "참조 타입 또는 관계 수가 많음",
-      "public 필드 노출 수가 많음",
-      "GetComponent/TryGetComponent 호출이 많음",
-      "Find 계열 탐색 사용",
-      "숫자 리터럴이 많아 의미 파악이 어려울 수 있음",
-      "초기화 순서에 민감할 가능성",
-      "UI와 런타임 책임이 한 파일에 섞였을 가능성",
-      "상태 중심 또는 관리 중심 클래스일 가능성"
-    ],
-    "risk_score": 98
-  },
-  {
     "file_id": "exp-make5/Assets/TextMesh Pro/Examples & Extras/Scripts/CameraController.cs",
     "class_name": "CameraController",
     "risk_flags": [
@@ -219,6 +192,29 @@
       "상태 중심 또는 관리 중심 클래스일 가능성"
     ],
     "risk_score": 79
+  },
+  {
+    "file_id": "exp-make5/Assets/Scripts/PlayerController.cs",
+    "class_name": "PlayerController",
+    "risk_flags": [
+      "update-heavy",
+      "high-coupling",
+      "public-field-heavy",
+      "find-heavy",
+      "init-order-sensitive",
+      "ui-runtime-mixed",
+      "state-owner"
+    ],
+    "risk_reasons": [
+      "Unity 업데이트 루프 사용",
+      "참조 타입 또는 관계 수가 많음",
+      "public 필드 노출 수가 많음",
+      "Find 계열 탐색 사용",
+      "초기화 순서에 민감할 가능성",
+      "UI와 런타임 책임이 한 파일에 섞였을 가능성",
+      "상태 중심 또는 관리 중심 클래스일 가능성"
+    ],
+    "risk_score": 78
   },
   {
     "file_id": "exp-make5/Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark02.cs",
@@ -796,6 +792,19 @@
     "risk_score": 22
   },
   {
+    "file_id": "exp-make5/Assets/Scripts/MapManager.cs",
+    "class_name": "MapManager",
+    "risk_flags": [
+      "ui-runtime-mixed",
+      "state-owner"
+    ],
+    "risk_reasons": [
+      "UI와 런타임 책임이 한 파일에 섞였을 가능성",
+      "상태 중심 또는 관리 중심 클래스일 가능성"
+    ],
+    "risk_score": 18
+  },
+  {
     "file_id": "exp-make5/Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_DigitValidator.cs",
     "class_name": "TMP_DigitValidator",
     "risk_flags": [
@@ -807,5 +816,16 @@
       "상태 중심 또는 관리 중심 클래스일 가능성"
     ],
     "risk_score": 18
+  },
+  {
+    "file_id": "exp-make5/Assets/Scripts/PlayerStatus.cs",
+    "class_name": "PlayerStatus",
+    "risk_flags": [
+      "public-field-heavy"
+    ],
+    "risk_reasons": [
+      "public 필드 노출 수가 많음"
+    ],
+    "risk_score": 10
   }
 ]

@@ -472,11 +472,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VNManager
   char1: {fileID: 0}
   char2: {fileID: 0}
-  textBox: {fileID: 1680014330}
+  textBox: {fileID: 1547165312}
   textToSpeak: 
   currentTextLength: 0
   textLength: 0
-  mainTextObject: {fileID: 1680014330}
+  mainTextObject: {fileID: 1547165312}
 --- !u!4 &1080681429
 Transform:
   m_ObjectHideFlags: 0
@@ -641,8 +641,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c0a9f7bc3e2730c4ea182ed4b546ad48, type: 2}
+  m_sharedMaterial: {fileID: 8043804674467400283, guid: c0a9f7bc3e2730c4ea182ed4b546ad48, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
