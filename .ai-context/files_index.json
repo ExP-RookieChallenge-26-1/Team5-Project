@@ -676,14 +676,14 @@
     "file_id": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
     "path": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
     "file_name": "TextHandler.cs",
-    "content_hash": "a48e5c655754addaa541be104101c33f9ace3e0e",
-    "size": 1074,
-    "line_count": 45,
+    "content_hash": "d4d17dfaed3250a6d85d5a2d1c121b499eaba533",
+    "size": 1409,
+    "line_count": 52,
     "namespace": "",
     "using_list": [
       "System.Collections",
-      "System.Collections.Generic",
-      "UnityEngine"
+      "UnityEngine",
+      "TMPro"
     ],
     "classes": [
       {
@@ -702,74 +702,104 @@
     "main_class_name": "TextHandler",
     "unity_type": "MonoBehaviour",
     "methods": [
-      "Start",
-      "Update",
+      "Awake",
+      "PlayText",
+      "text",
+      "ForceFinish",
       "Rolltext",
       "WaitForSeconds"
     ],
     "fields": [
       {
         "name": "viewText",
-        "type": "TMPro.TMP_Text",
-        "access": "public",
+        "type": "TMP_Text",
+        "access": "private",
         "serialized": false,
-        "is_static": true
+        "is_static": false
       },
       {
-        "name": "runTextPrint",
-        "type": "bool",
-        "access": "public",
+        "name": "rollCoroutine",
+        "type": "Coroutine",
+        "access": "private",
         "serialized": false,
-        "is_static": true
+        "is_static": false
       },
       {
-        "name": "charCount",
-        "type": "int",
+        "name": "currentFullText",
+        "type": "string",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "defaultTypeSpeed",
+        "type": "float",
         "access": "public",
         "serialized": false,
-        "is_static": true
+        "is_static": false
+      },
+      {
+        "name": "currentTypeSpeed",
+        "type": "float",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
       }
     ],
-    "properties": [],
+    "properties": [
+      {
+        "access": "public",
+        "type": "bool",
+        "name": "isTyping"
+      }
+    ],
     "events": [],
     "unity_messages": [
-      "Start",
-      "Update"
+      "Awake"
     ],
-    "has_update": true,
+    "has_update": false,
     "has_fixed_update": false,
     "has_late_update": false,
-    "has_awake": false,
-    "has_start": true,
+    "has_awake": true,
+    "has_start": false,
     "has_on_enable": false,
     "has_on_disable": false,
     "serialize_field_count": 0,
-    "public_field_count": 3,
-    "get_component_count": 2,
+    "public_field_count": 2,
+    "get_component_count": 1,
     "find_call_count": 0,
     "new_keyword_count": 1,
     "coroutine_count": 2,
     "singleton_candidate": false,
     "dont_destroy_on_load": false,
     "referenced_types": [
-      "TMPro.TMP_Text",
+      "TMP_Text",
+      "Coroutine",
+      "string",
+      "float",
       "bool",
-      "int",
       "System",
       "Collections",
-      "Generic",
       "UnityEngine",
       "TMPro",
-      "TMP_Text",
-      "Start",
-      "Update",
+      "Variables",
+      "Awake",
       "GetComponent",
-      "Length",
+      "Call",
+      "VNManager",
+      "PlayText",
+      "Stop",
+      "StopCoroutine",
       "StartCoroutine",
       "Rolltext",
-      "WaitForSeconds"
+      "ForceFinish",
+      "Pauses",
+      "WaitForSeconds",
+      "Typing"
     ],
-    "component_access_types": [],
+    "component_access_types": [
+      "TMP_Text"
+    ],
     "created_types": [
       "WaitForSeconds"
     ],
@@ -781,13 +811,11 @@
     "guessed_roles": [
       "runtime",
       "ui",
-      "save-load"
+      "manager"
     ],
     "summary_signals": [
       "런타임 컴포넌트",
-      "Update 기반 처리 존재",
       "UI 관련 로직 포함",
-      "저장/불러오기 관련 로직 포함",
       "컴포넌트 조회 사용"
     ]
   },
@@ -795,16 +823,29 @@
     "file_id": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "path": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "file_name": "VNManager.cs",
-    "content_hash": "6f44d37bb2a863354accb3bd468d8212350d2252",
-    "size": 1346,
-    "line_count": 45,
+    "content_hash": "de5e9a864bd3961b38ecc95929d59cd8e3528849",
+    "size": 5028,
+    "line_count": 181,
     "namespace": "",
     "using_list": [
       "UnityEngine",
+      "UnityEngine.UI",
       "System.Collections",
-      "System.Collections.Generic"
+      "System.Collections.Generic",
+      "TMPro",
+      "UnityEngine.InputSystem"
     ],
     "classes": [
+      {
+        "name": "DialogueLine",
+        "kind": "class",
+        "access": "public",
+        "base_types": [],
+        "interfaces": [],
+        "attributes": [],
+        "is_partial": false,
+        "is_generic": false
+      },
       {
         "name": "VNManager",
         "kind": "class",
@@ -818,34 +859,153 @@
         "is_generic": false
       }
     ],
-    "main_class_name": "VNManager",
-    "unity_type": "MonoBehaviour",
+    "main_class_name": "DialogueLine",
+    "unity_type": "None",
     "methods": [
       "Start",
-      "Update",
-      "EventStarter",
+      "StartDialogueSequence",
       "WaitForSeconds",
-      "WaitUntil"
+      "Update",
+      "PlayNextLine",
+      "WaitBetweenLines",
+      "WaitUntil",
+      "BounceCharacter",
+      "Vector3",
+      "AdvanceDialogue",
+      "UI_TogglePause",
+      "UI_ToggleFullSkip"
     ],
     "fields": [
       {
-        "name": "char1",
+        "name": "speakerName",
+        "type": "string",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "text",
+        "type": "string",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "characterObject",
         "type": "GameObject",
         "access": "public",
         "serialized": false,
         "is_static": false
       },
       {
-        "name": "char2",
+        "name": "hideCharacter",
+        "type": "bool",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "bounceCharacter",
+        "type": "bool",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "pauseAfterLine",
+        "type": "float",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "mainTextObject",
         "type": "GameObject",
         "access": "public",
         "serialized": false,
         "is_static": false
       },
       {
-        "name": "textBox",
-        "type": "GameObject",
+        "name": "textHandler",
+        "type": "TextHandler",
         "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "nameText",
+        "type": "TMP_Text",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "currentLineIndex",
+        "type": "int",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "nextKey",
+        "type": "Key",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "isPaused",
+        "type": "bool",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "isFastForwarding",
+        "type": "bool",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "isDialogueRunning",
+        "type": "bool",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "isWaitingOnPause",
+        "type": "bool",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "currentLine",
+        "type": "DialogueLine",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "startPos",
+        "type": "Vector3",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "time",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "elapsedTime",
+        "type": "float",
+        "access": "internal",
         "serialized": false,
         "is_static": false
       }
@@ -864,54 +1024,116 @@
     "has_on_enable": false,
     "has_on_disable": false,
     "serialize_field_count": 0,
-    "public_field_count": 3,
+    "public_field_count": 10,
     "get_component_count": 1,
     "find_call_count": 0,
-    "new_keyword_count": 4,
-    "coroutine_count": 2,
+    "new_keyword_count": 5,
+    "coroutine_count": 6,
     "singleton_candidate": false,
     "dont_destroy_on_load": false,
     "referenced_types": [
+      "string",
+      "bool",
+      "float",
+      "TextHandler",
+      "TMP_Text",
+      "int",
+      "Key",
+      "Vector3",
       "UnityEngine",
+      "UI",
       "System",
       "Collections",
       "Generic",
+      "TMPro",
+      "InputSystem",
+      "Added",
+      "New",
+      "Input",
+      "Serializable",
+      "TextArea",
+      "Visuals",
+      "Timing",
+      "References",
+      "Dialogue",
+      "Content",
+      "Controls",
+      "Changed",
+      "KeyCode",
+      "Space",
       "Start",
-      "Update",
+      "GetComponent",
       "StartCoroutine",
-      "EventStarter",
-      "TextHandler",
+      "StartDialogueSequence",
       "WaitForSeconds",
       "SetActive",
-      "GetComponent",
-      "TMPro",
-      "TMP_Text",
-      "Length",
-      "WaitUntil"
+      "PlayNextLine",
+      "Update",
+      "Updated",
+      "Keyboard",
+      "Log",
+      "AdvanceDialogue",
+      "Count",
+      "BounceCharacter",
+      "PlayText",
+      "WaitBetweenLines",
+      "Sequence",
+      "Completed",
+      "WaitUntil",
+      "Lerp",
+      "ForceFinish",
+      "UI_TogglePause",
+      "Game",
+      "Paused",
+      "Resumed",
+      "UI_ToggleFullSkip",
+      "Fast",
+      "Forward",
+      "ON",
+      "OFF"
     ],
-    "component_access_types": [],
+    "component_access_types": [
+      "TextHandler"
+    ],
     "created_types": [
+      "List",
       "WaitForSeconds",
-      "WaitUntil"
+      "WaitUntil",
+      "Vector3"
     ],
     "singleton_access_types": [],
     "string_literals": [
-      "안녕하세요 ㅁㄷㄴ래ㅑㅂ멪ㄱ햡ㅈ몯ㄱㅎ댐ㄴ야혼ㄷㅇㄱㄹ해넝랴ㅗ헌애ㅗㅅ레ㅗㅈㅇㅁㄴㄱㄹ솢ㄷ메ㅐㄱㄴㄹ호ㅑㅈㄷ넝"
+      "Visuals",
+      "Timing",
+      "UI References",
+      "Dialogue Content",
+      "Controls",
+      "Space",
+      "Dialogue Sequence Completed.",
+      "Game Paused",
+      "Game Resumed",
+      "Fast Forward ON",
+      "Fast Forward OFF"
     ],
     "numeric_literals": [
-      0.05
+      3,
+      5,
+      2,
+      20,
+      0.1,
+      0,
+      1,
+      0.005
     ],
     "guessed_roles": [
       "runtime",
       "ui",
-      "manager",
-      "save-load"
+      "player",
+      "manager"
     ],
     "summary_signals": [
-      "런타임 컴포넌트",
       "Update 기반 처리 존재",
       "UI 관련 로직 포함",
-      "저장/불러오기 관련 로직 포함",
       "컴포넌트 조회 사용"
     ]
   },
