@@ -16,8 +16,8 @@
     "runtime": 39,
     "player": 20,
     "ui": 38,
+    "combat": 27,
     "manager": 11,
-    "combat": 26,
     "save-load": 17,
     "data": 8,
     "network": 1
