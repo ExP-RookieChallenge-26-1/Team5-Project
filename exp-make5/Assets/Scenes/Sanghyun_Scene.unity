@@ -386,9 +386,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStatus
   maxHealth: 3
-  currentHealth: 0
-  redAmuletCount: 1
-  blueAmuletCount: 1
 --- !u!4 &843891745
 Transform:
   m_ObjectHideFlags: 0
@@ -433,6 +430,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1690482f615b4f042bdc95c8977ee03b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapManager
+  width: 18
+  height: 14
+  redMineCount: 15
+  blueMineCount: 15
+  closedTilePrefab: {fileID: 2332453513852364286, guid: 6649e27e83a995a48a96fb077d2f8640, type: 3}
+  openTilePrefab: {fileID: 2309684315815170745, guid: f3bd6b1f64d95d94fbf072a6e8313a24, type: 3}
+  redMinePrefab: {fileID: 50759641617976447, guid: 489b12575930b664ca965d3d98929674, type: 3}
+  blueMinePrefab: {fileID: 7498450395503159454, guid: 7fda320d184e6de40b3d30d190be545e, type: 3}
+  hintTextPrefab: {fileID: 8354691151502374225, guid: 945304f1c3a5a6b418440ec78dda5f18, type: 3}
 --- !u!4 &1186111943
 Transform:
   m_ObjectHideFlags: 0
@@ -536,7 +542,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: 8487060995874449709, guid: 4d70359f5cae2074d9fe727c0e4d0b9d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

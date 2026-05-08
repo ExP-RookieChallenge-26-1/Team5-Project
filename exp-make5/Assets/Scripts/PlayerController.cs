@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 currentTargetNode; 
     private Vector2Int finalDestination;
 
+    private Vector2Int previousPos;
+
     private class Node
     {
         public Vector2Int Position;
@@ -52,7 +54,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isMoving && currentPath.Count > 0)
         {
-            transform.position = Vector3.MoveTowards(transform.position, currentTargetNode, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(currentTargetNode.x, currentTargetNode.y, transform.position.z), moveSpeed * Time.deltaTime);
 
             if ((Vector2)transform.position == currentTargetNode)
             {
@@ -60,6 +62,7 @@ public class PlayerController : MonoBehaviour
 
                 if (currentPath.Count > 0)
                 {
+                    previousPos = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
                     SetNextTargetNode(currentPath[0]);
                 }
                 else
@@ -69,7 +72,11 @@ public class PlayerController : MonoBehaviour
 
                     if (mapManager != null && playerStatus != null)
                     {
-                        mapManager.OpenTile(finalDestination, playerStatus);
+                        bool canStay = mapManager.OpenTile(finalDestination, playerStatus);
+                        if (!canStay)
+                        {
+                            transform.position = new Vector3(previousPos.x, previousPos.y, 0);
+                        }
                     }
                 }
             }
@@ -83,15 +90,33 @@ public class PlayerController : MonoBehaviour
 
             int targetX = Mathf.RoundToInt(worldPosition.x);
             int targetY = Mathf.RoundToInt(worldPosition.y);
-
-            if (targetX >= 0 && targetX < mapSize.x && targetY >= 0 && targetY < mapSize.y)
+            Vector2Int targetPos = new Vector2Int(targetX, targetY);
+            
+            if (IsValidTarget(targetPos)) 
             {
                 Vector2Int startPos = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
-                Vector2Int targetPos = new Vector2Int(targetX, targetY);
-
                 FindPath(startPos, targetPos);
             }
+
         }
+    }
+
+    // 플레이어가 클릭한 곳이 이동할 수 있는 칸인지 확인
+    private bool IsValidTarget(Vector2Int target)
+    {
+        if (mapManager == null) return false;
+        if (target.x < 0 || target.x >= mapSize.x || target.y < 0 || target.y >= mapSize.y) return false;
+        
+        // 1. 이미 열린 타일은 언제든 클릭 가능
+        if (mapManager.IsOpened(target.x, target.y)) return true;
+        
+        // 2. 닫힌 타일이라면, 상하좌우 및 대각선 중 '열린 타일'이 하나라도 붙어있어야 함
+        foreach (var n in mapManager.GetNeighbors(target.x, target.y)) 
+        {
+            if (mapManager.IsOpened(n.x, n.y)) return true;
+        }
+        
+        return false; // 열린 타일과 떨어져 있는 생뚱맞은 닫힌 타일은 클릭 무시
     }
 
     private void SetNextTargetNode(Vector2 nextNode)
@@ -108,9 +133,7 @@ public class PlayerController : MonoBehaviour
     {
         if (startPos == targetPos) return;
 
-        // 3. 맵 매니저로부터 현재 맵의 이동 가능 구역 정보(장애물, 열린 타일 등)를 받아옵니다.
-        bool[,] walkableGrid = null;
-        if (mapManager != null) walkableGrid = mapManager.GetWalkableGrid();
+        previousPos = startPos;
 
         List<Node> openList = new List<Node>();
         HashSet<Vector2Int> closedList = new HashSet<Vector2Int>();
@@ -148,12 +171,17 @@ public class PlayerController : MonoBehaviour
                 if (neighborPos.x < 0 || neighborPos.x >= mapSize.x || neighborPos.y < 0 || neighborPos.y >= mapSize.y) continue;
                 if (closedList.Contains(neighborPos)) continue;
 
-                // 4. [핵심 로직] 닫힌 타일(walkable == false) 처리
-                if (walkableGrid != null && !walkableGrid[neighborPos.x, neighborPos.y])
+                if (mapManager != null)
                 {
-                    // 갈 수 없는 닫힌 타일이지만, 우리가 클릭한 '최종 목적지'라면 예외적으로 진입을 허용합니다.
-                    // 이렇게 하면 멀리 있는 닫힌 타일은 못 가지만, 내 인접한 열린 길에 붙어있는 닫힌 타일은 클릭해서 깔 수 있습니다.
-                    if (neighborPos != targetPos) continue; 
+                    // 지뢰 해제 실패로 생성된 '영구 장애물' 칸은 탐색에서 무조건 제외
+                    if (!mapManager.IsWalkable(neighborPos.x, neighborPos.y)) continue;
+
+                    // 아직 까보지 않은 닫힌 타일인 경우
+                    if (!mapManager.IsOpened(neighborPos.x, neighborPos.y))
+                    {
+                        // 내가 클릭한 최종 목적지가 아니라면, 가는 길 중간에 닫힌 타일을 밟을 순 없음
+                        if (neighborPos != targetPos) continue; 
+                    }
                 }
 
                 int newMovementCostToNeighbor = currentNode.G + 1; 

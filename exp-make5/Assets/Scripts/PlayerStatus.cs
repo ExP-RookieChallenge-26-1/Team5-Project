@@ -1,4 +1,5 @@
 using System;
+using NUnit.Framework;
 using UnityEngine;
 
 // 이 스크립트는 오직 캐릭터의 '상태'만 관리합니다.
@@ -11,7 +12,6 @@ public class PlayerStatus : MonoBehaviour
 
     [SerializeField] private int maxHealth = 3;
     private int currentHealth;
-    
     private int redAmuletCount = 1;
     private int blueAmuletCount = 1;
 
@@ -22,44 +22,31 @@ public class PlayerStatus : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-
-        OnHealthChanged?.Invoke(currentHealth);
+        NotifyAll();
     }
 
-    // 빨간 몬스터를 만났을 때 맵 매니저가 호출할 함수
-    public void EncounterRedMine()
+    public bool HandleMineEncounter(bool isRedMine)
     {
-        if (redAmuletCount > 0)
+        if (isRedMine) // 빨간 지뢰: 빨간 부적 소모 -> 파란 부적 획득
         {
-            redAmuletCount--;
-            blueAmuletCount++;
+            if (redAmuletCount > 0) {
+                redAmuletCount--; blueAmuletCount++;
+                NotifyAll();
+                return true;
+            }
+        }
+        else // 파란 지뢰: 파란 부적 소모 -> 빨간 부적 획득
+        {
+            if (blueAmuletCount > 0) {
+                blueAmuletCount--; redAmuletCount++;
+                NotifyAll();
+                return true;
+            }
+        }
 
-            OnRedAmuletChanged?.Invoke(redAmuletCount);
-            OnBlueAmuletChanged?.Invoke(blueAmuletCount);
-            Debug.Log("빨간 몬스터 처치! 빨간 부적 소비 -> 파란 부적 획득");
-        }
-        else
-        {
-            TakeDamage();
-        }
-    }
-
-    // 파란 몬스터를 만났을 때 맵 매니저가 호출할 함수
-    public void EncounterBlueMine()
-    {
-        if (blueAmuletCount > 0)
-        {
-            blueAmuletCount--;
-            redAmuletCount++;
-
-            OnBlueAmuletChanged?.Invoke(blueAmuletCount);
-            OnRedAmuletChanged?.Invoke(redAmuletCount);
-            Debug.Log("파란 몬스터 처치! 파란 부적 소비 -> 빨간 부적 획득");
-        }
-        else
-        {
-            TakeDamage();
-        }
+        // 부적 부족 시 데미지 및 실패 반환
+        TakeDamage();
+        return false;
     }
 
     private void TakeDamage()
@@ -74,5 +61,12 @@ public class PlayerStatus : MonoBehaviour
             Debug.Log("게임 오버!");
             // 게임 오버 처리 로직
         }
+    }
+
+    private void NotifyAll()
+    {
+        OnHealthChanged?.Invoke(currentHealth);
+        OnBlueAmuletChanged?.Invoke(blueAmuletCount);
+        OnRedAmuletChanged?.Invoke(redAmuletCount);
     }
 }

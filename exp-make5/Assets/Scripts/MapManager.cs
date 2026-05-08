@@ -1,39 +1,150 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
 
-// 맵 담당자가 만들어주어야 할 스크립트 (MapManager)
 public class MapManager : MonoBehaviour
 {
-    // 1. 맵 크기 반환 함수
-    public Vector2Int GetMapSize()
-    {
-        // 맵 담당자가 실제 맵 크기를 리턴하도록 구현
-        return new Vector2Int(20, 100); 
+    [Header("Map Settings")]
+    public int width = 18;
+    public int height = 14;
+    public int redMineCount = 5;
+    public int blueMineCount = 5;
+
+    [Header("Prefabs")]
+    public GameObject closedTilePrefab;
+    public GameObject openTilePrefab;
+    public GameObject redMinePrefab;
+    public GameObject blueMinePrefab;
+    public GameObject hintTextPrefab;
+
+    private TileData[,] grid;
+
+    public struct TileData {
+        public bool isRedMine;
+        public bool isBlueMine;
+        public bool isOpened;
+        public bool isObstacle; // 해제 실패 시
+        public int blueNeighbors;
+        public int redNeighbors;
+        public GameObject visualObj;
     }
 
-    // 2. 이동 가능한 타일 위치 배열 (A* 길찾기용)
-    // true면 지나갈 수 있는 길(열린 타일이든 닫힌 타일이든), false면 벽/장애물
-    public bool[,] GetWalkableGrid()
+    void Awake() { GenerateMap(); }
+
+    private void GenerateMap()
     {
-        // 맵 담당자가 생성된 맵의 장애물 정보를 배열로 리턴하도록 구현
-        return new bool[20, 100]; 
+        grid = new TileData[width, height];
+        PlaceMines();
+        CalculateHints();
+        SpawnInitialTiles();
+        
+        // 시작점(0,0)은 미리 열어둡니다.
+        OpenTile(Vector2Int.zero, null, true);
     }
 
-    // 3. 타일 상호작용 함수 (캐릭터가 이동 완료 후 호출)
-    // 캐릭터(PlayerStatus) 자신을 매개변수로 같이 넘겨주면 맵이 결과를 돌려주기 편합니다.
-    public void OpenTile(Vector2Int position, PlayerStatus player)
+    private void PlaceMines()
     {
-        // 맵 담당자가 이 좌표(position)에 무엇이 있는지 판별하는 로직 작성
-        // 예시 로직:
-        /*
-        if (지뢰가 없다면) {
-            UI에 힌트 숫자 표시 로직;
-        } 
-        else if (빨간 지뢰라면) {
-            player.EncounterRedMine(); // 4. 캐릭터의 함수 실행 (결과 통보)
-        } 
-        else if (파란 지뢰라면) {
-            player.EncounterBlueMine(); // 4. 캐릭터의 함수 실행 (결과 통보)
+        int placedRed = 0;
+        int placedBlue = 0;
+
+        while (placedRed < redMineCount || placedBlue < blueMineCount)
+        {
+            int rx = Random.Range(0, width);
+            int ry = Random.Range(0, height);
+
+            // 시작 2x2 구역 및 중복 방지
+            if ((rx <= 1 && ry <= 1) || grid[rx, ry].isRedMine || grid[rx, ry].isBlueMine) continue;
+
+            if (placedRed < redMineCount) { grid[rx, ry].isRedMine = true; placedRed++; }
+            else if (placedBlue < blueMineCount) { grid[rx, ry].isBlueMine = true; placedBlue++; }
         }
-        */
     }
+
+    private void CalculateHints()
+    {
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                if (grid[x, y].isRedMine || grid[x, y].isBlueMine) continue;
+                
+                foreach (var n in GetNeighbors(x, y)) {
+                    if (grid[n.x, n.y].isRedMine) grid[x, y].redNeighbors++;
+                    if (grid[n.x, n.y].isBlueMine) grid[x, y].blueNeighbors++;
+                }
+            }
+        }
+    }
+
+    private void SpawnInitialTiles()
+    {
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                grid[x, y].visualObj = Instantiate(closedTilePrefab, new Vector3(x, y, 0), Quaternion.identity, transform);
+            }
+        }
+    }
+
+    // 캐릭터가 타일을 밟았을 때 호출 (넉백 여부 반환)
+    public bool OpenTile(Vector2Int pos, PlayerStatus player, bool isSilent = false)
+    {
+        if (grid[pos.x, pos.y].isOpened || grid[pos.x, pos.y].isObstacle) return true;
+
+        // 지뢰 판별
+        if (!isSilent && (grid[pos.x, pos.y].isRedMine || grid[pos.x, pos.y].isBlueMine))
+        {
+            bool success = player.HandleMineEncounter(grid[pos.x, pos.y].isRedMine);
+            if (!success) {
+                grid[pos.x, pos.y].isObstacle = true;
+                UpdateTileVisual(pos, "Broken");
+                return false; // 넉백 발생시킴
+            }
+        }
+
+        // 일반 타일 오픈 및 연쇄 반응
+        grid[pos.x, pos.y].isOpened = true;
+        UpdateTileVisual(pos, "Open");
+
+        if (grid[pos.x, pos.y].redNeighbors == 0 && grid[pos.x, pos.y].blueNeighbors == 0) {
+            foreach (var n in GetNeighbors(pos.x, pos.y)) {
+                if (!grid[n.x, n.y].isRedMine && !grid[n.x, n.y].isBlueMine) OpenTile(n, player, true);
+            }
+        }
+        return true;
+    }
+
+    private void UpdateTileVisual(Vector2Int pos, string type)
+    {
+        Destroy(grid[pos.x, pos.y].visualObj);
+        GameObject prefab = type == "Open" ? openTilePrefab : closedTilePrefab; // 실제론 깨진 프리팹 추가 가능
+        
+        grid[pos.x, pos.y].visualObj = Instantiate(prefab, new Vector3(pos.x, pos.y, 0), Quaternion.identity, transform);
+        
+        if (type == "Open") {
+            if (grid[pos.x, pos.y].isRedMine) Instantiate(redMinePrefab, new Vector3(pos.x, pos.y, -0.1f), Quaternion.identity, grid[pos.x, pos.y].visualObj.transform);
+            else if (grid[pos.x, pos.y].isBlueMine) Instantiate(blueMinePrefab, new Vector3(pos.x, pos.y, -0.1f), Quaternion.identity, grid[pos.x, pos.y].visualObj.transform);
+            else ShowHint(pos);
+        }
+    }
+
+    private void ShowHint(Vector2Int pos) {
+        if (grid[pos.x, pos.y].redNeighbors == 0 && grid[pos.x, pos.y].blueNeighbors == 0) return;
+
+        GameObject hint = Instantiate(hintTextPrefab, new Vector3(pos.x, pos.y, -0.2f), Quaternion.identity, grid[pos.x, pos.y].visualObj.transform);
+        hint.GetComponentInChildren<TextMeshPro>().text = $"<color=#55AAFF>{grid[pos.x, pos.y].blueNeighbors}</color>/<color=#FF5555>{grid[pos.x, pos.y].redNeighbors}</color>";
+    }
+
+    public List<Vector2Int> GetNeighbors(int x, int y) {
+        List<Vector2Int> n = new List<Vector2Int>();
+        for (int i = -1; i <= 1; i++) {
+            for (int j = -1; j <= 1; j++) {
+                if (i == 0 && j == 0) continue;
+                int nx = x + i, ny = y + j;
+                if (nx >= 0 && nx < width && ny >= 0 && ny < height) n.Add(new Vector2Int(nx, ny));
+            }
+        }
+        return n;
+    }
+
+    public Vector2Int GetMapSize() => new Vector2Int(width, height);
+    public bool IsWalkable(int x, int y) => !grid[x, y].isObstacle;
+    public bool IsOpened(int x, int y) => grid[x, y].isOpened;
 }
