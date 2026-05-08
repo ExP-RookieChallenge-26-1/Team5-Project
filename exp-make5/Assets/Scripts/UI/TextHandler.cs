@@ -1,44 +1,52 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TextHandler : MonoBehaviour
 {
-    public static TMPro.TMP_Text viewText;
-    public static bool runTextPrint;
-    public static int charCount;
-    [SerializeField] string transferText;
-    [SerializeField] int internalCount;
+    private TMP_Text viewText;
+    private Coroutine rollCoroutine;
+    private string currentFullText;
 
+    // Variables for external scripts to read/modify
+    public bool isTyping { get; private set; }
+    public float defaultTypeSpeed = 0.03f;
+    public float currentTypeSpeed = 0.03f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        
+        viewText = GetComponent<TMP_Text>();
     }
 
-    // Update is called once per frame
-    void Update()
+    // Call this from VNManager to start new text
+    public void PlayText(string text)
     {
-        internalCount = charCount;
-        charCount = GetComponent<TMPro.TMP_Text>().text.Length;
-        if(runTextPrint == true)
-        {
-            runTextPrint = false;
-            viewText = GetComponent<TMPro.TMP_Text>(); 
-            transferText= viewText.text;
-            viewText.text = "";
-            StartCoroutine(Rolltext());
-        }
+        currentFullText = text;
+        viewText.text = "";
+        isTyping = true;
+
+        // Stop any currently running text animations before starting a new one
+        if (rollCoroutine != null) StopCoroutine(rollCoroutine);
+        rollCoroutine = StartCoroutine(Rolltext());
+    }
+
+    // Call this to instantly show all text (skip animation)
+    public void ForceFinish()
+    {
+        if (rollCoroutine != null) StopCoroutine(rollCoroutine);
+        viewText.text = currentFullText;
+        isTyping = false;
     }
 
     IEnumerator Rolltext()
     {
-        foreach (char c in transferText)
+        foreach (char c in currentFullText)
         {
             viewText.text += c;
-            yield return new WaitForSeconds(0.03f);
 
+            // Pauses the coroutine based on our current speed
+            yield return new WaitForSeconds(currentTypeSpeed);
         }
+        isTyping = false; // Typing finished natively
     }
 }
