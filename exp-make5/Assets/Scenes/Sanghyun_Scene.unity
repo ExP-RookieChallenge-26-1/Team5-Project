@@ -322,7 +322,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &446576861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,8 +557,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
   target: {fileID: 1356061677}
-  smoothSpeed: 5
-  viewSize: 4
+  mapManager: {fileID: 1186111942}
+  smoothTime: 0.3
+  targetViewWidth: 14
+  targetViewHeight: 8
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,8 +871,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1690482f615b4f042bdc95c8977ee03b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapManager
-  width: 18
-  height: 14
+  width: 14
+  height: 8
   redMineCount: 15
   blueMineCount: 15
   closedTilePrefab: {fileID: 2332453513852364286, guid: 6649e27e83a995a48a96fb077d2f8640, type: 3}
