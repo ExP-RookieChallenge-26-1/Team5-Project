@@ -785,6 +785,23 @@
     "risk_score": 40
   },
   {
+    "file_id": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "class_name": "UIManager",
+    "risk_flags": [
+      "public-field-heavy",
+      "init-order-sensitive",
+      "ui-runtime-mixed",
+      "state-owner"
+    ],
+    "risk_reasons": [
+      "public 필드 노출 수가 많음",
+      "초기화 순서에 민감할 가능성",
+      "UI와 런타임 책임이 한 파일에 섞였을 가능성",
+      "상태 중심 또는 관리 중심 클래스일 가능성"
+    ],
+    "risk_score": 38
+  },
+  {
     "file_id": "exp-make5/Assets/Scripts/CameraController.cs",
     "class_name": "CameraController",
     "risk_flags": [
