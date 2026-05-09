@@ -806,7 +806,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 818655267185494382, guid: ad6a9e2452d0f264484d4345656a4b6c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: CasualModeStart
       objectReference: {fileID: 0}
     - target: {fileID: 908709772320704622, guid: ad6a9e2452d0f264484d4345656a4b6c, type: 3}
       propertyPath: m_text

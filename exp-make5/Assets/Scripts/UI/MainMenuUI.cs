@@ -1,7 +1,9 @@
 ﻿using System.Text.RegularExpressions;
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using Unity.VectorGraphics;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuUI : MonoBehaviour
 {
@@ -75,6 +77,11 @@ public class MainMenuUI : MonoBehaviour
     public void EnterCasualModeSelect()
     {
         showbydepth(3);
+    }
+
+    public void CasualModeStart()
+    {
+        SceneManager.LoadScene("Sanghyun_Scene");
     }
 
     public void GameExit()
