@@ -3,9 +3,9 @@
     "file_id": "exp-make5/Assets/Scripts/CameraController.cs",
     "path": "exp-make5/Assets/Scripts/CameraController.cs",
     "file_name": "CameraController.cs",
-    "content_hash": "2f42e78f5cb76ccf3ee66d2fd528e307f147fbd6",
-    "size": 1400,
-    "line_count": 32,
+    "content_hash": "eecd8b9377b52d763af493380410492e56aca8cf",
+    "size": 3318,
+    "line_count": 83,
     "namespace": "",
     "using_list": [
       "UnityEngine"
@@ -29,13 +29,77 @@
     "methods": [
       "Start",
       "LateUpdate",
-      "Vector3"
+      "Vector3",
+      "CalculateAxisPosition"
     ],
     "fields": [
       {
-        "name": "viewSize",
+        "name": "currentVelocity",
+        "type": "Vector3",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "cam",
+        "type": "Camera",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "mapWidth",
         "type": "float",
-        "access": "public",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "mapHeight",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "ratioX",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "ratioY",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "halfHeight",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "halfWidth",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "mapMin",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "mapMax",
+        "type": "float",
+        "access": "internal",
         "serialized": false,
         "is_static": false
       }
@@ -54,48 +118,69 @@
     "has_on_enable": false,
     "has_on_disable": false,
     "serialize_field_count": 0,
-    "public_field_count": 1,
-    "get_component_count": 0,
+    "public_field_count": 0,
+    "get_component_count": 1,
     "find_call_count": 0,
-    "new_keyword_count": 1,
+    "new_keyword_count": 2,
     "coroutine_count": 0,
     "singleton_candidate": false,
     "dont_destroy_on_load": false,
     "referenced_types": [
+      "Vector3",
+      "Camera",
       "float",
       "UnityEngine",
-      "Camera",
+      "References",
+      "MapManager",
+      "Movement",
       "Settings",
+      "View",
       "Start",
-      "Orthographic",
+      "GetComponent",
+      "Color",
       "LateUpdate",
-      "Player",
-      "Update",
-      "Vector3",
-      "Lerp"
+      "Vector2Int",
+      "GetMapSize",
+      "Clamping",
+      "CalculateAxisPosition",
+      "SmoothDamp",
+      "Clamp"
     ],
-    "component_access_types": [],
+    "component_access_types": [
+      "Camera"
+    ],
     "created_types": [
       "Vector3"
     ],
     "singleton_access_types": [],
     "string_literals": [
-      "Camera Settings"
+      "References",
+      "Movement Settings",
+      "View Settings"
     ],
     "numeric_literals": [
-      5,
+      0.3,
+      14,
+      8,
+      14,
+      8,
+      2,
+      2,
+      3,
+      10,
+      4,
       5,
       0.5,
-      5.5,
-      10,
-      10
+      0.01
     ],
     "guessed_roles": [
       "runtime",
-      "player"
+      "player",
+      "manager"
     ],
     "summary_signals": [
-      "런타임 컴포넌트"
+      "런타임 컴포넌트",
+      "컴포넌트 조회 사용"
     ]
   },
   {
