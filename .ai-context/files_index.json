@@ -1019,6 +1019,140 @@
     ]
   },
   {
+    "file_id": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "path": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "file_name": "UIManager.cs",
+    "content_hash": "16bd0a48ec6e3b014afb99fbe8dccaeb315aa988",
+    "size": 2369,
+    "line_count": 63,
+    "namespace": "",
+    "using_list": [
+      "UnityEngine",
+      "TMPro"
+    ],
+    "classes": [
+      {
+        "name": "UIManager",
+        "kind": "class",
+        "access": "public",
+        "base_types": [
+          "MonoBehaviour"
+        ],
+        "interfaces": [],
+        "attributes": [],
+        "is_partial": false,
+        "is_generic": false
+      }
+    ],
+    "main_class_name": "UIManager",
+    "unity_type": "MonoBehaviour",
+    "methods": [
+      "Start",
+      "UpdateHpUI",
+      "UpdateRedAmuletUI",
+      "UpdateBlueAmuletUI",
+      "OnDestroy"
+    ],
+    "fields": [
+      {
+        "name": "playerStatus",
+        "type": "PlayerStatus",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "hpText",
+        "type": "TMP_Text",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "redAmuletText",
+        "type": "TMP_Text",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "blueAmuletText",
+        "type": "TMP_Text",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      }
+    ],
+    "properties": [],
+    "events": [],
+    "unity_messages": [
+      "Start",
+      "OnDestroy"
+    ],
+    "has_update": false,
+    "has_fixed_update": false,
+    "has_late_update": false,
+    "has_awake": false,
+    "has_start": true,
+    "has_on_enable": false,
+    "has_on_disable": false,
+    "serialize_field_count": 0,
+    "public_field_count": 4,
+    "get_component_count": 0,
+    "find_call_count": 0,
+    "new_keyword_count": 0,
+    "coroutine_count": 0,
+    "singleton_candidate": false,
+    "dont_destroy_on_load": false,
+    "referenced_types": [
+      "PlayerStatus",
+      "TMP_Text",
+      "UnityEngine",
+      "TMPro",
+      "TextMeshPro",
+      "UI",
+      "Start",
+      "Getter",
+      "CurrentHealth",
+      "UpdateHpUI",
+      "UpdateRedAmuletUI",
+      "RedAmuletCount",
+      "UpdateBlueAmuletUI",
+      "BlueAmuletCount",
+      "OnHealthChanged",
+      "OnRedAmuletChanged",
+      "OnBlueAmuletChanged",
+      "OnDestroy"
+    ],
+    "component_access_types": [],
+    "created_types": [],
+    "singleton_access_types": [],
+    "string_literals": [
+      "연결할 캐릭터 스크립트",
+      "UI 텍스트 요소들",
+      "앞으로 값이 변할 때마다 이 함수들을 실행시켜줘!",
+      "체력: ",
+      "빨간 부적: ",
+      "파란 부적: "
+    ],
+    "numeric_literals": [
+      2,
+      3
+    ],
+    "guessed_roles": [
+      "ui",
+      "runtime",
+      "player",
+      "combat",
+      "manager"
+    ],
+    "summary_signals": [
+      "런타임 컴포넌트",
+      "UI 관련 로직 포함",
+      "전투 계열 로직 포함"
+    ]
+  },
+  {
     "file_id": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "path": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "file_name": "VNManager.cs",

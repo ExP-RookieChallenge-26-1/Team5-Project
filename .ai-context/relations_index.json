@@ -1281,6 +1281,139 @@
     "strength": 1
   },
   {
+    "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "from_class": "UIManager",
+    "to_type": "MonoBehaviour",
+    "relation_type": "inherits",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "from_class": "UIManager",
+    "to_type": "BlueAmuletCount",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "from_class": "UIManager",
+    "to_type": "CurrentHealth",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "from_class": "UIManager",
+    "to_type": "Getter",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "from_class": "UIManager",
+    "to_type": "OnBlueAmuletChanged",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "from_class": "UIManager",
+    "to_type": "OnDestroy",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "from_class": "UIManager",
+    "to_type": "OnHealthChanged",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "from_class": "UIManager",
+    "to_type": "OnRedAmuletChanged",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "from_class": "UIManager",
+    "to_type": "PlayerStatus",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "from_class": "UIManager",
+    "to_type": "RedAmuletCount",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "from_class": "UIManager",
+    "to_type": "Start",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "from_class": "UIManager",
+    "to_type": "TextMeshPro",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "from_class": "UIManager",
+    "to_type": "TMP_Text",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "from_class": "UIManager",
+    "to_type": "TMPro",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "from_class": "UIManager",
+    "to_type": "UI",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "from_class": "UIManager",
+    "to_type": "UnityEngine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "from_class": "UIManager",
+    "to_type": "UpdateBlueAmuletUI",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "from_class": "UIManager",
+    "to_type": "UpdateHpUI",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "from_class": "UIManager",
+    "to_type": "UpdateRedAmuletUI",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
     "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "from_class": "DialogueLine",
     "to_type": "TextHandler",
