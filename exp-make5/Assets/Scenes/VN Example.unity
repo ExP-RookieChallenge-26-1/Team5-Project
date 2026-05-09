@@ -475,19 +475,21 @@ MonoBehaviour:
   nameText: {fileID: 1605358482}
   dialogueLines:
   - speakerName: Chracter 1
-    text: idk
+    text: "\uC548\uB155\uD558\uC138\uC694"
     characterObject: {fileID: 0}
     hideCharacter: 0
     bounceCharacter: 0
     pauseAfterLine: 0
   - speakerName: Character 2
-    text: bruh
+    text: "\uAC8C\uC784 \uAC1C\uBC1C \uC911\uC785\uB2C8\uB2E4."
     characterObject: {fileID: 0}
     hideCharacter: 0
     bounceCharacter: 0
     pauseAfterLine: 0
   - speakerName: Character 3
-    text: idk evc
+    text: "Character Object\uC5D0 \uC2A4\uD504\uB77C\uC774\uD2B8\uB97C \uB4DC\uB798\uADF8
+      \uD574\uC11C \uB123\uC73C\uBA74 \uCE90\uB9AD\uD130\uAC00 \uC6C0\uC9C1\uC774\uB294
+      \uAC83\uC744 \uAD6C\uD604\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
     characterObject: {fileID: 0}
     hideCharacter: 0
     bounceCharacter: 0
