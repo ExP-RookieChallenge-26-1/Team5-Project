@@ -760,15 +760,17 @@
     "file_id": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "path": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "file_name": "MainMenuUI.cs",
-    "content_hash": "e37ae904cbd2ea6022335e4398fe279d2760f21b",
-    "size": 2130,
-    "line_count": 100,
+    "content_hash": "fab0fb03503471afd627c39e7d2b9fa6eb61b5fc",
+    "size": 2290,
+    "line_count": 107,
     "namespace": "",
     "using_list": [
       "System.Text.RegularExpressions",
+      "TMPro",
+      "Unity.VectorGraphics",
       "UnityEngine",
-      "UnityEngine.UI",
-      "TMPro"
+      "UnityEngine.SceneManagement",
+      "UnityEngine.UI"
     ],
     "classes": [
       {
@@ -795,6 +797,7 @@
       "EnterModeSelect",
       "EnterStoryModeSelect",
       "EnterCasualModeSelect",
+      "CasualModeStart",
       "GameExit",
       "SettingsShow",
       "SettingsHide",
@@ -823,9 +826,12 @@
       "System",
       "Text",
       "RegularExpressions",
-      "UnityEngine",
-      "UI",
       "TMPro",
+      "Unity",
+      "VectorGraphics",
+      "UnityEngine",
+      "SceneManagement",
+      "UI",
       "CanvasGroup",
       "StartScreen",
       "ModeSelectScreen",
@@ -839,6 +845,10 @@
       "EnterModeSelect",
       "EnterStoryModeSelect",
       "EnterCasualModeSelect",
+      "CasualModeStart",
+      "SceneManager",
+      "LoadScene",
+      "Sanghyun_Scene",
       "GameExit",
       "Application",
       "Quit",
@@ -851,6 +861,7 @@
     "created_types": [],
     "singleton_access_types": [],
     "string_literals": [
+      "Sanghyun_Scene",
       "겜종료"
     ],
     "numeric_literals": [
@@ -860,10 +871,11 @@
       3
     ],
     "guessed_roles": [
+      "scene",
       "ui",
-      "runtime",
       "save-load",
-      "data"
+      "runtime",
+      "manager"
     ],
     "summary_signals": [
       "런타임 컴포넌트",

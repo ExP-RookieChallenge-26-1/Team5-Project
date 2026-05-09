@@ -933,6 +933,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "from_class": "MainMenuUI",
+    "to_type": "CasualModeStart",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
     "to_type": "ContinueGame",
     "relation_type": "uses",
     "strength": 1
@@ -982,6 +989,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "from_class": "MainMenuUI",
+    "to_type": "LoadScene",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
     "to_type": "Log",
     "relation_type": "uses",
     "strength": 1
@@ -1011,6 +1025,27 @@
     "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "from_class": "MainMenuUI",
     "to_type": "ReturntoStartMenu",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "Sanghyun_Scene",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "SceneManagement",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "SceneManager",
     "relation_type": "uses",
     "strength": 1
   },
@@ -1094,7 +1129,21 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "from_class": "MainMenuUI",
+    "to_type": "Unity",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
     "to_type": "UnityEngine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "VectorGraphics",
     "relation_type": "uses",
     "strength": 1
   },

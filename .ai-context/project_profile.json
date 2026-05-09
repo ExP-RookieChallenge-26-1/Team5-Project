@@ -9,7 +9,7 @@
   "files_with_fixed_update": 0,
   "files_with_late_update": 5,
   "singleton_candidates": 0,
-  "manager_like_classes": 12,
+  "manager_like_classes": 13,
   "ui_related_classes": 39,
   "save_load_related_classes": 17,
   "role_counts": {
@@ -17,10 +17,11 @@
     "player": 21,
     "ui": 39,
     "combat": 28,
-    "manager": 12,
+    "manager": 13,
     "save-load": 17,
-    "data": 8,
-    "network": 1
+    "scene": 1,
+    "network": 1,
+    "data": 7
   },
   "high_coupling_classes": [
     {
