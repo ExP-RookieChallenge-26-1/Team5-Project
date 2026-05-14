@@ -12,8 +12,12 @@ public class CameraController : MonoBehaviour
 
     [Header("View Settings")]
     // 💡 화면의 기준이 될 칸 수 
-    public float targetViewWidth = 14f;  // 종스크롤 시 꽉 채울 가로 기준
-    public float targetViewHeight = 8f;  // 횡스크롤 시 꽉 채울 세로 기준
+    public float coreWidth = 12f;  // 화면에 절대적으로 보장할 맵의 가로 칸 수
+    public float coreHeight = 8f;  // 화면에 절대적으로 보장할 맵의 세로 칸 수
+
+    [Header("UI Padding Settings")]
+    [Range(0f, 0.5f)]
+    public float paddingRatio = 0.1f;
 
     private Camera cam;
 
@@ -28,37 +32,31 @@ public class CameraController : MonoBehaviour
     {
         if (target == null || mapManager == null) return;
 
+        // 1. 💡 카메라 줌(Zoom) 설정: '코어 영역(12x8) + 상하좌우 여백(10%)'을 포함한 최종 시야 계산
+        float paddedHeight = coreHeight * (1f + paddingRatio * 2f);
+        float paddedWidth = coreWidth * (1f + paddingRatio * 2f);
+
+        float targetHalfHeight = paddedHeight / 2f;
+        float targetHalfWidth = (paddedWidth / cam.aspect) / 2f;
+
+        // 화면 비율에 맞춰 여백이 포함된 구역이 잘리지 않도록 줌 조절
+        cam.orthographicSize = Mathf.Max(targetHalfHeight, targetHalfWidth);
+
+        // 2. 맵 정보 가져오기
         Vector2Int mapSize = mapManager.GetMapSize();
         float mapWidth = mapSize.x;  
         float mapHeight = mapSize.y; 
 
-        // 1. 💡 [핵심 수정] 맵의 실제 크기가 우리의 '기준 크기(14, 8)' 대비 어느 쪽이 더 긴지(비율) 계산합니다.
-        float ratioX = mapWidth / targetViewWidth;
-        float ratioY = mapHeight / targetViewHeight;
-
-        // 가로가 기준치보다 상대적으로 더 길다 (또는 같다) -> 횡스크롤 베이스
-        if (ratioX >= ratioY)
-        {
-            // 세로를 무조건 목표치(8)에 맞춰 화면 위아래를 꽉 채웁니다.
-            cam.orthographicSize = targetViewHeight / 2f;
-        }
-        // 세로가 기준치보다 상대적으로 더 길다 -> 종스크롤 베이스
-        else
-        {
-            // 가로를 무조건 목표치(14)에 맞춰 화면 양옆을 꽉 채웁니다.
-            cam.orthographicSize = (targetViewWidth / cam.aspect) / 2f;
-        }
-
-        // 2. 카메라가 비추는 실제 영역 크기(절반) 계산
-        float halfHeight = cam.orthographicSize;
-        float halfWidth = halfHeight * cam.aspect;
-
         // 3. 목표 위치 계산
         Vector3 targetPos = new Vector3(target.position.x, target.position.y, -10f);
 
-        // 4. 맵 경계 제한 (Clamping)
-        float clampedX = CalculateAxisPosition(targetPos.x, mapWidth, halfWidth);
-        float clampedY = CalculateAxisPosition(targetPos.y, mapHeight, halfHeight);
+        // 4. 💡 맵 경계 제한 (Clamping)
+        // 핵심: 카메라 시야가 아무리 넓어져도, 이동 한계선은 오직 '12x8 코어 영역'을 기준으로 막습니다!
+        float coreHalfWidth = coreWidth / 2f;
+        float coreHalfHeight = coreHeight / 2f;
+
+        float clampedX = CalculateAxisPosition(targetPos.x, mapWidth, coreHalfWidth);
+        float clampedY = CalculateAxisPosition(targetPos.y, mapHeight, coreHalfHeight);
 
         Vector3 desiredPosition = new Vector3(clampedX, clampedY, -10f);
 
@@ -66,18 +64,15 @@ public class CameraController : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref currentVelocity, smoothTime);
     }
 
-    private float CalculateAxisPosition(float targetCoord, float mapSpan, float viewHalfSpan)
+    private float CalculateAxisPosition(float targetCoord, float mapSpan, float coreHalfSpan)
     {
         float mapMin = -0.5f; 
         float mapMax = mapSpan - 0.5f;
 
-        // 맵 크기가 카메라 시야보다 작거나 같으면 정중앙에 고정 (오차 보정 0.01f 포함)
-        if (mapSpan <= (viewHalfSpan * 2f) + 0.01f) 
-        {
-            return (mapMin + mapMax) / 2f;
-        }
+        float limitMin = mapMin + coreHalfSpan;
+        float limitMax = mapMax - coreHalfSpan;
 
-        // 맵이 시야보다 크면 캐릭터 추적 및 맵 바깥 여백 노출 방지
-        return Mathf.Clamp(targetCoord, mapMin + viewHalfSpan, mapMax - viewHalfSpan);
+        // 코어 영역이 맵의 끝을 넘어가지 않도록 가둠
+        return Mathf.Clamp(targetCoord, limitMin, limitMax);
     }
 }

@@ -16,6 +16,8 @@ public class MapManager : MonoBehaviour
     public GameObject redMinePrefab;
     public GameObject blueMinePrefab;
     public GameObject hintTextPrefab;
+    public GameObject lockedRedMinePrefab;
+    public GameObject lockedBlueMinePrefab;
 
     private TileData[,] grid;
 
@@ -94,8 +96,11 @@ public class MapManager : MonoBehaviour
             bool success = player.HandleMineEncounter(grid[pos.x, pos.y].isRedMine);
             if (!success) {
                 grid[pos.x, pos.y].isObstacle = true;
-                UpdateTileVisual(pos, "Broken");
-                return false; // 넉백 발생시킴
+
+                string lockedType = grid[pos.x, pos.y].isRedMine ? "LockedRed" : "LockedBlue";
+                UpdateTileVisual(pos, lockedType); 
+                
+                return false;
             }
         }
 
@@ -114,14 +119,23 @@ public class MapManager : MonoBehaviour
     private void UpdateTileVisual(Vector2Int pos, string type)
     {
         Destroy(grid[pos.x, pos.y].visualObj);
-        GameObject prefab = type == "Open" ? openTilePrefab : closedTilePrefab; // 실제론 깨진 프리팹 추가 가능
+        GameObject prefab = (type == "closed") ? closedTilePrefab : openTilePrefab; 
         
         grid[pos.x, pos.y].visualObj = Instantiate(prefab, new Vector3(pos.x, pos.y, 0), Quaternion.identity, transform);
         
-        if (type == "Open") {
+        if (type == "Open") 
+        {
             if (grid[pos.x, pos.y].isRedMine) Instantiate(redMinePrefab, new Vector3(pos.x, pos.y, -0.1f), Quaternion.identity, grid[pos.x, pos.y].visualObj.transform);
             else if (grid[pos.x, pos.y].isBlueMine) Instantiate(blueMinePrefab, new Vector3(pos.x, pos.y, -0.1f), Quaternion.identity, grid[pos.x, pos.y].visualObj.transform);
             else ShowHint(pos);
+        }
+        else if (type == "LockedRed") // 💡 부적 없이 빨간 지뢰 밟음
+        {
+            Instantiate(lockedRedMinePrefab, new Vector3(pos.x, pos.y, -0.1f), Quaternion.identity, grid[pos.x, pos.y].visualObj.transform);
+        }
+        else if (type == "LockedBlue") // 💡 부적 없이 파란 지뢰 밟음
+        {
+            Instantiate(lockedBlueMinePrefab, new Vector3(pos.x, pos.y, -0.1f), Quaternion.identity, grid[pos.x, pos.y].visualObj.transform);
         }
     }
 
