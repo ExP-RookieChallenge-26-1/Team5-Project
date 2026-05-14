@@ -3,9 +3,9 @@
     "file_id": "exp-make5/Assets/Scripts/CameraController.cs",
     "path": "exp-make5/Assets/Scripts/CameraController.cs",
     "file_name": "CameraController.cs",
-    "content_hash": "eecd8b9377b52d763af493380410492e56aca8cf",
-    "size": 3318,
-    "line_count": 83,
+    "content_hash": "92a90948995724397f9358804ac40709a9e6e280",
+    "size": 3064,
+    "line_count": 78,
     "namespace": "",
     "using_list": [
       "UnityEngine"
@@ -41,9 +41,23 @@
         "is_static": false
       },
       {
+        "name": "paddingRatio",
+        "type": "float",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
         "name": "cam",
         "type": "Camera",
         "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "targetHalfHeight",
+        "type": "float",
+        "access": "internal",
         "serialized": false,
         "is_static": false
       },
@@ -62,28 +76,14 @@
         "is_static": false
       },
       {
-        "name": "ratioX",
+        "name": "coreHalfWidth",
         "type": "float",
         "access": "internal",
         "serialized": false,
         "is_static": false
       },
       {
-        "name": "ratioY",
-        "type": "float",
-        "access": "internal",
-        "serialized": false,
-        "is_static": false
-      },
-      {
-        "name": "halfHeight",
-        "type": "float",
-        "access": "internal",
-        "serialized": false,
-        "is_static": false
-      },
-      {
-        "name": "halfWidth",
+        "name": "coreHalfHeight",
         "type": "float",
         "access": "internal",
         "serialized": false,
@@ -98,6 +98,20 @@
       },
       {
         "name": "mapMax",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "limitMin",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "limitMax",
         "type": "float",
         "access": "internal",
         "serialized": false,
@@ -118,7 +132,7 @@
     "has_on_enable": false,
     "has_on_disable": false,
     "serialize_field_count": 0,
-    "public_field_count": 0,
+    "public_field_count": 1,
     "get_component_count": 1,
     "find_call_count": 0,
     "new_keyword_count": 2,
@@ -127,18 +141,22 @@
     "dont_destroy_on_load": false,
     "referenced_types": [
       "Vector3",
-      "Camera",
       "float",
+      "Camera",
       "UnityEngine",
       "References",
       "MapManager",
       "Movement",
       "Settings",
       "View",
+      "UI",
+      "Padding",
       "Start",
       "GetComponent",
       "Color",
       "LateUpdate",
+      "Zoom",
+      "Max",
       "Vector2Int",
       "GetMapSize",
       "Clamping",
@@ -156,30 +174,34 @@
     "string_literals": [
       "References",
       "Movement Settings",
-      "View Settings"
+      "View Settings",
+      "UI Padding Settings"
     ],
     "numeric_literals": [
       0.3,
-      14,
+      12,
       8,
-      14,
-      8,
+      0,
+      0.5,
+      0.1,
+      10,
+      1,
       2,
       2,
       3,
       10,
       4,
-      5,
-      0.5,
-      0.01
+      5
     ],
     "guessed_roles": [
       "runtime",
+      "ui",
       "player",
       "manager"
     ],
     "summary_signals": [
       "런타임 컴포넌트",
+      "UI 관련 로직 포함",
       "컴포넌트 조회 사용"
     ]
   },
@@ -187,9 +209,9 @@
     "file_id": "exp-make5/Assets/Scripts/MapManager.cs",
     "path": "exp-make5/Assets/Scripts/MapManager.cs",
     "file_name": "MapManager.cs",
-    "content_hash": "8e2c06f84ba5a1531f697391997c74470f5a7851",
-    "size": 5685,
-    "line_count": 150,
+    "content_hash": "3f90694d636924e9015cf5b734b2b7d63a23bb5e",
+    "size": 6335,
+    "line_count": 164,
     "namespace": "",
     "using_list": [
       "System.Collections.Generic",
@@ -303,6 +325,20 @@
         "is_static": false
       },
       {
+        "name": "lockedRedMinePrefab",
+        "type": "GameObject",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "lockedBlueMinePrefab",
+        "type": "GameObject",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
         "name": "grid",
         "type": "TileData[,]",
         "access": "private",
@@ -366,6 +402,13 @@
         "is_static": false
       },
       {
+        "name": "lockedType",
+        "type": "string",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
         "name": "nx",
         "type": "int",
         "access": "internal",
@@ -386,10 +429,10 @@
     "has_on_enable": false,
     "has_on_disable": false,
     "serialize_field_count": 0,
-    "public_field_count": 15,
+    "public_field_count": 17,
     "get_component_count": 0,
     "find_call_count": 0,
-    "new_keyword_count": 9,
+    "new_keyword_count": 11,
     "coroutine_count": 0,
     "singleton_candidate": false,
     "dont_destroy_on_load": false,
@@ -397,6 +440,7 @@
       "int",
       "TileData[,]",
       "bool",
+      "string",
       "System",
       "Collections",
       "Generic",
@@ -418,8 +462,9 @@
       "Quaternion",
       "PlayerStatus",
       "HandleMineEncounter",
+      "LockedRed",
+      "LockedBlue",
       "UpdateTileVisual",
-      "Broken",
       "Open",
       "Destroy",
       "ShowHint",
@@ -441,8 +486,10 @@
     "string_literals": [
       "Map Settings",
       "Prefabs",
-      "Broken",
-      "Open"
+      "LockedRed",
+      "LockedBlue",
+      "Open",
+      "closed"
     ],
     "numeric_literals": [
       18,

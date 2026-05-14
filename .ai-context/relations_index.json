@@ -93,7 +93,21 @@
   {
     "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
     "from_class": "CameraController",
+    "to_type": "Max",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
+    "from_class": "CameraController",
     "to_type": "Movement",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
+    "from_class": "CameraController",
+    "to_type": "Padding",
     "relation_type": "uses",
     "strength": 1
   },
@@ -128,6 +142,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
     "from_class": "CameraController",
+    "to_type": "UI",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
+    "from_class": "CameraController",
     "to_type": "UnityEngine",
     "relation_type": "uses",
     "strength": 1
@@ -150,6 +171,13 @@
     "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
     "from_class": "CameraController",
     "to_type": "View",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
+    "from_class": "CameraController",
+    "to_type": "Zoom",
     "relation_type": "uses",
     "strength": 1
   },
@@ -199,13 +227,6 @@
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
     "to_type": "bool",
-    "relation_type": "uses",
-    "strength": 1
-  },
-  {
-    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
-    "from_class": "MapManager",
-    "to_type": "Broken",
     "relation_type": "uses",
     "strength": 1
   },
@@ -310,6 +331,20 @@
   {
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
+    "to_type": "LockedBlue",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "LockedRed",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
     "to_type": "Map",
     "relation_type": "uses",
     "strength": 1
@@ -374,6 +409,13 @@
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
     "to_type": "SpawnInitialTiles",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "string",
     "relation_type": "uses",
     "strength": 1
   },
