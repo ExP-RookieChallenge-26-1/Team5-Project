@@ -58,6 +58,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
     "from_class": "CameraController",
+    "to_type": "FitBackgroundToCamera",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
+    "from_class": "CameraController",
     "to_type": "float",
     "relation_type": "uses",
     "strength": 1
@@ -80,6 +87,13 @@
     "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
     "from_class": "CameraController",
     "to_type": "LateUpdate",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
+    "from_class": "CameraController",
+    "to_type": "Layout",
     "relation_type": "uses",
     "strength": 1
   },
@@ -114,7 +128,49 @@
   {
     "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
     "from_class": "CameraController",
+    "to_type": "Ratio",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
+    "from_class": "CameraController",
+    "to_type": "Rect",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
+    "from_class": "CameraController",
     "to_type": "References",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
+    "from_class": "CameraController",
+    "to_type": "Resolution",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
+    "from_class": "CameraController",
+    "to_type": "Scale",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
+    "from_class": "CameraController",
+    "to_type": "Screen",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
+    "from_class": "CameraController",
+    "to_type": "SetFixedAspectRatio",
     "relation_type": "uses",
     "strength": 1
   },
@@ -129,6 +185,13 @@
     "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
     "from_class": "CameraController",
     "to_type": "SmoothDamp",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
+    "from_class": "CameraController",
+    "to_type": "SpriteRenderer",
     "relation_type": "uses",
     "strength": 1
   },
@@ -164,6 +227,13 @@
     "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
     "from_class": "CameraController",
     "to_type": "Vector3",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
+    "from_class": "CameraController",
+    "to_type": "Vertical",
     "relation_type": "uses",
     "strength": 1
   },

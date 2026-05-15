@@ -3,9 +3,9 @@
     "file_id": "exp-make5/Assets/Scripts/CameraController.cs",
     "path": "exp-make5/Assets/Scripts/CameraController.cs",
     "file_name": "CameraController.cs",
-    "content_hash": "92a90948995724397f9358804ac40709a9e6e280",
-    "size": 3064,
-    "line_count": 78,
+    "content_hash": "8fb7dcf3c601ba944466b6bd947f302bc301cfe1",
+    "size": 7128,
+    "line_count": 169,
     "namespace": "",
     "using_list": [
       "UnityEngine"
@@ -30,9 +30,25 @@
       "Start",
       "LateUpdate",
       "Vector3",
-      "CalculateAxisPosition"
+      "SetFixedAspectRatio",
+      "CalculateAxisPosition",
+      "FitBackgroundToCamera"
     ],
     "fields": [
+      {
+        "name": "backgroundRenderer",
+        "type": "SpriteRenderer",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "viewMask",
+        "type": "Transform",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
       {
         "name": "currentVelocity",
         "type": "Vector3",
@@ -55,7 +71,42 @@
         "is_static": false
       },
       {
-        "name": "targetHalfHeight",
+        "name": "unitsPerRatioY",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "actualTotalHeightUnits",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "actualUnitsPerRatio",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "cameraCenterRatio",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "offsetRatio",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "yOffset",
         "type": "float",
         "access": "internal",
         "serialized": false,
@@ -90,6 +141,34 @@
         "is_static": false
       },
       {
+        "name": "targetAspect",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "scaleHeight",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "rect",
+        "type": "Rect",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "scaleWidth",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
         "name": "mapMin",
         "type": "float",
         "access": "internal",
@@ -116,6 +195,48 @@
         "access": "internal",
         "serialized": false,
         "is_static": false
+      },
+      {
+        "name": "cameraHeight",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "cameraWidth",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "spriteWidth",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "spriteHeight",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "scaleX",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "scaleY",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
       }
     ],
     "properties": [],
@@ -132,37 +253,47 @@
     "has_on_enable": false,
     "has_on_disable": false,
     "serialize_field_count": 0,
-    "public_field_count": 1,
+    "public_field_count": 3,
     "get_component_count": 1,
     "find_call_count": 0,
-    "new_keyword_count": 2,
+    "new_keyword_count": 6,
     "coroutine_count": 0,
     "singleton_candidate": false,
     "dont_destroy_on_load": false,
     "referenced_types": [
+      "SpriteRenderer",
       "Vector3",
       "float",
       "Camera",
+      "Rect",
       "UnityEngine",
       "References",
       "MapManager",
       "Movement",
       "Settings",
       "View",
+      "Vertical",
+      "Layout",
+      "Ratio",
       "UI",
       "Padding",
+      "Resolution",
       "Start",
       "GetComponent",
       "Color",
       "LateUpdate",
+      "SetFixedAspectRatio",
       "Zoom",
       "Max",
+      "FitBackgroundToCamera",
       "Vector2Int",
       "GetMapSize",
       "Clamping",
       "CalculateAxisPosition",
       "SmoothDamp",
-      "Clamp"
+      "Screen",
+      "Clamp",
+      "Scale"
     ],
     "component_access_types": [
       "Camera"
@@ -175,23 +306,31 @@
       "References",
       "Movement Settings",
       "View Settings",
-      "UI Padding Settings"
+      "Vertical Layout Ratio",
+      "UI Padding Settings",
+      "Resolution Settings"
     ],
     "numeric_literals": [
       0.3,
       12,
       8,
+      3,
+      1,
+      15,
       0,
       0.5,
       0.1,
-      10,
-      1,
+      20,
+      9,
+      20,
+      9,
       2,
+      15,
+      8,
       2,
+      12,
       3,
-      10,
-      4,
-      5
+      4
     ],
     "guessed_roles": [
       "runtime",
