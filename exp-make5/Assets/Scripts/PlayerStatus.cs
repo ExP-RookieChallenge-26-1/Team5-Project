@@ -45,11 +45,13 @@ public class PlayerStatus : MonoBehaviour
         }
 
         // 부적 부족 시 데미지 및 실패 반환
-        TakeDamage();
+        // 데미지는 코루틴에서 딜레이 연출 이후에 처리할 것이므로 여기서 즉시 깎지 않습니다.
+        // TakeDamage(); 
         return false;
     }
 
-    private void TakeDamage()
+    // 외부(코루틴)에서 딜레이 후 호출할 수 있도록 private에서 public으로 변경
+    public void TakeDamage() 
     {
         currentHealth--;
 

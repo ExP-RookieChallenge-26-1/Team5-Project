@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections; // 코루틴 사용을 위해 추가
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class PlayerController : MonoBehaviour
     private Vector2Int finalDestination;
 
     private Vector2Int previousPos;
+    
+    private bool isKnockbacking = false; // 넉백 연출 중 조작을 막기 위한 상태 플래그
 
     private class Node
     {
@@ -42,6 +45,7 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("InputX", 0);
         animator.SetFloat("InputY", -1); 
         isMoving = false;
+        isKnockbacking = false; // 💡 [추가됨] 초기화
         currentPath.Clear(); 
 
         if (mapManager != null)
@@ -75,7 +79,8 @@ public class PlayerController : MonoBehaviour
                         bool canStay = mapManager.OpenTile(finalDestination, playerStatus);
                         if (!canStay)
                         {
-                            transform.position = new Vector3(previousPos.x, previousPos.y, 0);
+                            // transform.position = new Vector3(previousPos.x, previousPos.y, 0);
+                            StartCoroutine(MineFailRoutine(finalDestination, previousPos));
                         }
                     }
                 }
@@ -83,7 +88,8 @@ public class PlayerController : MonoBehaviour
             return; 
         }
 
-        if (!isMoving && Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+        // 넉백(isKnockbacking) 중일 때는 마우스 클릭 입력을 무시합니다.
+        if (!isMoving && !isKnockbacking && Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
         {
             Vector2 screenPosition = Mouse.current.position.ReadValue();
             Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
@@ -99,6 +105,38 @@ public class PlayerController : MonoBehaviour
             }
 
         }
+    }
+
+    // 지뢰를 밟고 실패했을 때의 연쇄 작용 코루틴
+    private IEnumerator MineFailRoutine(Vector2Int minePos, Vector2Int returnPos)
+    {
+        isKnockbacking = true; // 조작 불가능 상태로 전환
+
+        // 1. 플레이어는 지뢰 위에 올라간 상태로 잠깐 대기합니다.
+        yield return new WaitForSeconds(0.4f); // 0.4초 딜레이 (원하시는 시간으로 조절 가능)
+
+        // 2. 대기 이후에 체력이 깎입니다.
+        playerStatus.TakeDamage();
+
+        // 3. 방금 전에 있었던 타일(previousPos)로 돌아갑니다. (스르륵 미끄러지는 넉백 연출)
+        Vector3 startPos = transform.position;
+        Vector3 targetPos = new Vector3(returnPos.x, returnPos.y, 0);
+        float timeElapsed = 0;
+        float slideDuration = 0.2f; // 뒤로 밀려나는 시간 (짧고 빠르게)
+
+        while (timeElapsed < 1f)
+        {
+            timeElapsed += Time.deltaTime / slideDuration;
+            // 부드러운 곡선(Ease Out) 느낌으로 감속하며 밀려남
+            transform.position = Vector3.Lerp(startPos, targetPos, Mathf.Sin(timeElapsed * Mathf.PI * 0.5f));
+            yield return null;
+        }
+        transform.position = targetPos; // 오차 보정
+
+        // 4. 그 뒤 해당 타일이 잠겼다는 것을 표시하도록 업데이트
+        mapManager.LockMineTileVisual(minePos);
+
+        isKnockbacking = false; // 연출이 모두 끝나면 다시 조작 가능 상태로 전환
     }
 
     // 플레이어가 클릭한 곳이 이동할 수 있는 칸인지 확인

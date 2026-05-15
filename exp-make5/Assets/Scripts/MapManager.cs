@@ -97,8 +97,9 @@ public class MapManager : MonoBehaviour
             if (!success) {
                 grid[pos.x, pos.y].isObstacle = true;
 
-                string lockedType = grid[pos.x, pos.y].isRedMine ? "LockedRed" : "LockedBlue";
-                UpdateTileVisual(pos, lockedType); 
+                // 타일 잠김 시각 효과를 연출 이후로 미루기 위해 여기서는 뺍니다.
+                // string lockedType = grid[pos.x, pos.y].isRedMine ? "LockedRed" : "LockedBlue";
+                // UpdateTileVisual(pos, lockedType); 
                 
                 return false;
             }
@@ -114,6 +115,13 @@ public class MapManager : MonoBehaviour
             }
         }
         return true;
+    }
+
+    // 코루틴에서 넉백 연출이 끝난 직후, 해당 타일을 잠금 상태로 바꾸기 위한 전용 함수
+    public void LockMineTileVisual(Vector2Int pos)
+    {
+        string lockedType = grid[pos.x, pos.y].isRedMine ? "LockedRed" : "LockedBlue";
+        UpdateTileVisual(pos, lockedType); 
     }
 
     private void UpdateTileVisual(Vector2Int pos, string type)
