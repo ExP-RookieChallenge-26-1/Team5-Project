@@ -5,6 +5,8 @@ public class CameraController : MonoBehaviour
     [Header("References")]
     public Transform target;       // 카메라가 따라다닐 타겟 (플레이어)
     public MapManager mapManager;  // 맵 크기 정보를 가져올 매니저
+    public SpriteRenderer backgroundRenderer;
+    public Transform viewMask;
 
     [Header("Movement Settings")]
     public float smoothTime = 0.3f; // 카메라 이동 부드러움
@@ -15,9 +17,20 @@ public class CameraController : MonoBehaviour
     public float coreWidth = 12f;  // 화면에 절대적으로 보장할 맵의 가로 칸 수
     public float coreHeight = 8f;  // 화면에 절대적으로 보장할 맵의 세로 칸 수
 
+    [Header("Vertical Layout Ratio")]
+    public float layoutTopUI = 3f;      // 상단 UI 공간
+    public float layoutTopMargin = 1f;  // 맵 위쪽 여백
+    public float layoutMap = 15f;       // 맵이 차지할 공간 
+    public float layoutBottomMargin = 1f; // 맵 아래쪽 여백
+
+
     [Header("UI Padding Settings")]
     [Range(0f, 0.5f)]
     public float paddingRatio = 0.1f;
+
+    [Header("Resolution Settings")]
+    public float targetAspectWidth = 20f;  // 💡 목표 가로 비율
+    public float targetAspectHeight = 9f;  // 💡 목표 세로 비율
 
     private Camera cam;
 
@@ -32,36 +45,92 @@ public class CameraController : MonoBehaviour
     {
         if (target == null || mapManager == null) return;
 
-        // 1. 💡 카메라 줌(Zoom) 설정: '코어 영역(12x8) + 상하좌우 여백(10%)'을 포함한 최종 시야 계산
-        float paddedHeight = coreHeight * (1f + paddingRatio * 2f);
-        float paddedWidth = coreWidth * (1f + paddingRatio * 2f);
+        // 1. 화면 비율을 20:9로 강제 고정 (레터박스 처리)
+        SetFixedAspectRatio();
 
-        float targetHalfHeight = paddedHeight / 2f;
-        float targetHalfWidth = (paddedWidth / cam.aspect) / 2f;
+        // 2. 세로 비율과 가로 너비를 모두 보장하는 줌(Zoom) 계산
+        float totalRatio = layoutTopUI + layoutTopMargin + layoutMap + layoutBottomMargin; // 총 20
+        
+        // 세로 기준으로 필요한 카메라 줌 (15 비율 안에 8칸이 딱 맞아야 함)
+        float unitsPerRatioY = coreHeight / layoutMap; 
+        float requiredZoomY = (totalRatio * unitsPerRatioY) / 2f;
 
-        // 화면 비율에 맞춰 여백이 포함된 구역이 잘리지 않도록 줌 조절
-        cam.orthographicSize = Mathf.Max(targetHalfHeight, targetHalfWidth);
+        // 가로 기준으로 필요한 카메라 줌 (가로 12칸이 무조건 화면에 들어와야 함)
+        float requiredZoomX = (coreWidth / cam.aspect) / 2f;
 
-        // 2. 맵 정보 가져오기
+        // 둘 중 더 큰 값을 선택! (가로가 잘릴 상황이면 카메라가 뒤로 물러나며 맵이 비율에 맞게 작아집니다)
+        cam.orthographicSize = Mathf.Max(requiredZoomY, requiredZoomX);
+
+        // 3. 카메라가 줌아웃되었더라도, 3:1:15:1 세로 비율을 정확히 유지하기 위해 오프셋 재계산
+        float actualTotalHeightUnits = cam.orthographicSize * 2f;
+        float actualUnitsPerRatio = actualTotalHeightUnits / totalRatio; 
+
+        float mapCenterRatio = layoutBottomMargin + (layoutMap / 2f); 
+        float cameraCenterRatio = totalRatio / 2f;                    
+        float offsetRatio = cameraCenterRatio - mapCenterRatio;       
+        
+        float yOffset = offsetRatio * actualUnitsPerRatio; 
+
+        // 4. 배경 이미지를 변경된 카메라 시야에 완벽히 맞춤
+        if (backgroundRenderer != null)
+        {
+            FitBackgroundToCamera();
+        }
+
+        if (viewMask != null)
+        {
+            viewMask.localPosition = new Vector3(0f, -yOffset, 10f); // 카메라는 -10에 있으므로 Z는 10으로 주어 0에 맞춤
+            viewMask.localScale = new Vector3(coreWidth, coreHeight, 1f); // 마스크 크기를 무조건 12x8로 강제 고정
+        }
+
+        // 5. 맵 정보 가져오기
         Vector2Int mapSize = mapManager.GetMapSize();
         float mapWidth = mapSize.x;  
         float mapHeight = mapSize.y; 
 
-        // 3. 목표 위치 계산
+        // 6. 맵 경계 제한 (Clamping)
         Vector3 targetPos = new Vector3(target.position.x, target.position.y, -10f);
-
-        // 4. 💡 맵 경계 제한 (Clamping)
-        // 핵심: 카메라 시야가 아무리 넓어져도, 이동 한계선은 오직 '12x8 코어 영역'을 기준으로 막습니다!
         float coreHalfWidth = coreWidth / 2f;
         float coreHalfHeight = coreHeight / 2f;
 
-        float clampedX = CalculateAxisPosition(targetPos.x, mapWidth, coreHalfWidth);
-        float clampedY = CalculateAxisPosition(targetPos.y, mapHeight, coreHalfHeight);
+        float clampedTargetX = CalculateAxisPosition(targetPos.x, mapWidth, coreHalfWidth);
+        float clampedTargetY = CalculateAxisPosition(targetPos.y, mapHeight, coreHalfHeight);
 
-        Vector3 desiredPosition = new Vector3(clampedX, clampedY, -10f);
+        // 최종 위치 = 추적 제한된 타겟 위치 + 레이아웃 오프셋
+        Vector3 desiredPosition = new Vector3(clampedTargetX, clampedTargetY + yOffset, -10f);
 
-        // 5. 부드러운 이동
+        // 7. 부드러운 이동
         transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref currentVelocity, smoothTime);
+    }
+
+    // 종횡비 고정 및 검은 레터박스 생성 함수
+    private void SetFixedAspectRatio()
+    {
+        float targetAspect = targetAspectWidth / targetAspectHeight;
+        float currentAspect = (float)Screen.width / Screen.height;
+        float scaleHeight = currentAspect / targetAspect;
+
+        Rect rect = cam.rect;
+
+        // 현재 화면이 20:9보다 세로로 길거나 네모난 경우 -> 위아래 검은 띠 (레터박스)
+        if (scaleHeight < 1.0f)
+        {
+            rect.width = 1.0f;
+            rect.height = scaleHeight;
+            rect.x = 0;
+            rect.y = (1.0f - scaleHeight) / 2f;
+        }
+        // 현재 화면이 20:9보다 가로로 긴 경우 -> 양옆 검은 띠 (필러박스)
+        else
+        {
+            float scaleWidth = 1.0f / scaleHeight;
+            rect.width = scaleWidth;
+            rect.height = 1.0f;
+            rect.x = (1.0f - scaleWidth) / 2f;
+            rect.y = 0;
+        }
+
+        cam.rect = rect;
     }
 
     private float CalculateAxisPosition(float targetCoord, float mapSpan, float coreHalfSpan)
@@ -74,5 +143,27 @@ public class CameraController : MonoBehaviour
 
         // 코어 영역이 맵의 끝을 넘어가지 않도록 가둠
         return Mathf.Clamp(targetCoord, limitMin, limitMax);
+    }
+
+    private void FitBackgroundToCamera()
+    {
+        if (backgroundRenderer.sprite == null) return;
+
+        // 1. 카메라의 현재 월드 크기 계산 (세로 절반인 orthographicSize * 2 = 전체 세로)
+        float cameraHeight = cam.orthographicSize * 2f;
+        float cameraWidth = cameraHeight * cam.aspect;
+
+        // 2. 배경 원본 이미지의 픽셀/유닛 크기 가져오기
+        float spriteWidth = backgroundRenderer.sprite.bounds.size.x;
+        float spriteHeight = backgroundRenderer.sprite.bounds.size.y;
+
+        // 3. 카메라 크기를 원본 이미지 크기로 나누어 정확한 배율(Scale) 도출
+        float scaleX = cameraWidth / spriteWidth;
+        float scaleY = cameraHeight / spriteHeight;
+
+        // 4. 배경의 스케일과 위치를 강제 고정
+        backgroundRenderer.transform.localScale = new Vector3(scaleX, scaleY, 1f);
+        // 배경이 항상 카메라 정중앙, 타일보다 뒤쪽(Z: 10)에 있도록 강제 정렬
+        backgroundRenderer.transform.localPosition = new Vector3(0f, 0f, 10f); 
     }
 }
