@@ -348,9 +348,9 @@
     "file_id": "exp-make5/Assets/Scripts/MapManager.cs",
     "path": "exp-make5/Assets/Scripts/MapManager.cs",
     "file_name": "MapManager.cs",
-    "content_hash": "3f90694d636924e9015cf5b734b2b7d63a23bb5e",
-    "size": 6335,
-    "line_count": 164,
+    "content_hash": "16a395aafcc0dd2f412475f91d808878260391ee",
+    "size": 6772,
+    "line_count": 172,
     "namespace": "",
     "using_list": [
       "System.Collections.Generic",
@@ -392,6 +392,7 @@
       "SpawnInitialTiles",
       "Vector3",
       "OpenTile",
+      "LockMineTileVisual",
       "UpdateTileVisual",
       "ShowHint",
       "Vector2Int",
@@ -605,6 +606,7 @@
       "LockedBlue",
       "UpdateTileVisual",
       "Open",
+      "LockMineTileVisual",
       "Destroy",
       "ShowHint",
       "GetComponentInChildren",
@@ -654,14 +656,15 @@
     "file_id": "exp-make5/Assets/Scripts/PlayerController.cs",
     "path": "exp-make5/Assets/Scripts/PlayerController.cs",
     "file_name": "PlayerController.cs",
-    "content_hash": "916e923571aa4da9d039784c8ba8366efc2b8afe",
-    "size": 8233,
-    "line_count": 226,
+    "content_hash": "c1c8d4dc85f212141a82b3079421280531818277",
+    "size": 10214,
+    "line_count": 264,
     "namespace": "",
     "using_list": [
       "System.Collections.Generic",
       "UnityEngine",
-      "UnityEngine.InputSystem"
+      "UnityEngine.InputSystem",
+      "System.Collections"
     ],
     "classes": [
       {
@@ -696,6 +699,8 @@
       "Update",
       "Vector3",
       "Vector2Int",
+      "MineFailRoutine",
+      "WaitForSeconds",
       "IsValidTarget",
       "SetNextTargetNode",
       "FindPath",
@@ -766,6 +771,20 @@
         "is_static": false
       },
       {
+        "name": "startPos",
+        "type": "Vector3",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "timeElapsed",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
         "name": "currentNode",
         "type": "Node",
         "access": "internal",
@@ -811,8 +830,8 @@
     "public_field_count": 3,
     "get_component_count": 1,
     "find_call_count": 1,
-    "new_keyword_count": 13,
-    "coroutine_count": 0,
+    "new_keyword_count": 15,
+    "coroutine_count": 2,
     "singleton_candidate": false,
     "dont_destroy_on_load": false,
     "referenced_types": [
@@ -821,6 +840,7 @@
       "float",
       "bool",
       "Vector2",
+      "Vector3",
       "int",
       "System",
       "Collections",
@@ -844,18 +864,27 @@
       "GetMapSize",
       "Update",
       "Count",
-      "Vector3",
       "MoveTowards",
       "RemoveAt",
       "RoundToInt",
       "SetNextTargetNode",
       "OpenTile",
+      "StartCoroutine",
+      "MineFailRoutine",
       "Mouse",
       "ReadValue",
       "Camera",
       "ScreenToWorldPoint",
       "IsValidTarget",
       "FindPath",
+      "WaitForSeconds",
+      "TakeDamage",
+      "Ease",
+      "Out",
+      "Lerp",
+      "Sin",
+      "PI",
+      "LockMineTileVisual",
       "IsOpened",
       "GetNeighbors",
       "Add",
@@ -875,6 +904,7 @@
       "Vector2",
       "Vector3",
       "Vector2Int",
+      "WaitForSeconds",
       "HashSet",
       "Node"
     ],
@@ -888,11 +918,19 @@
     ],
     "numeric_literals": [
       5,
-      2
+      0.4,
+      0.4,
+      2,
+      3,
+      0.2,
+      1,
+      0.5,
+      4
     ],
     "guessed_roles": [
       "player",
       "runtime",
+      "combat",
       "manager",
       "ui"
     ],
@@ -900,6 +938,7 @@
       "런타임 컴포넌트",
       "Update 기반 처리 존재",
       "UI 관련 로직 포함",
+      "전투 계열 로직 포함",
       "컴포넌트 조회 사용",
       "Find 계열 탐색 사용"
     ]
@@ -908,9 +947,9 @@
     "file_id": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "path": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "file_name": "PlayerStatus.cs",
-    "content_hash": "93453122a9df470675578878672be0e72d6852be",
-    "size": 2160,
-    "line_count": 72,
+    "content_hash": "8a6ac3c415d27e715206cdb62fd3b094ff5a923e",
+    "size": 2397,
+    "line_count": 74,
     "namespace": "",
     "using_list": [
       "System",

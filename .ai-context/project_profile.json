@@ -17,7 +17,7 @@
     "ui": 40,
     "player": 21,
     "manager": 14,
-    "combat": 28,
+    "combat": 29,
     "save-load": 17,
     "scene": 1,
     "network": 1,
@@ -67,6 +67,12 @@
       "referenced_type_count": 69
     },
     {
+      "class_name": "PlayerController",
+      "file_id": "exp-make5/Assets/Scripts/PlayerController.cs",
+      "relation_count": 69,
+      "referenced_type_count": 60
+    },
+    {
       "class_name": "DialogueLine",
       "file_id": "exp-make5/Assets/Scripts/UI/VNManager.cs",
       "relation_count": 65,
@@ -76,12 +82,6 @@
       "class_name": "TMP_FrameRateCounter",
       "file_id": "exp-make5/Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_FrameRateCounter.cs",
       "relation_count": 64,
-      "referenced_type_count": 58
-    },
-    {
-      "class_name": "TMP_TextSelector_A",
-      "file_id": "exp-make5/Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_A.cs",
-      "relation_count": 63,
       "referenced_type_count": 58
     }
   ],
@@ -189,6 +189,31 @@
       "risk_score": 89
     },
     {
+      "file_id": "exp-make5/Assets/Scripts/PlayerController.cs",
+      "class_name": "PlayerController",
+      "risk_flags": [
+        "update-heavy",
+        "high-coupling",
+        "public-field-heavy",
+        "find-heavy",
+        "magic-number-heavy",
+        "init-order-sensitive",
+        "ui-runtime-mixed",
+        "state-owner"
+      ],
+      "risk_reasons": [
+        "Unity 업데이트 루프 사용",
+        "참조 타입 또는 관계 수가 많음",
+        "public 필드 노출 수가 많음",
+        "Find 계열 탐색 사용",
+        "숫자 리터럴이 많아 의미 파악이 어려울 수 있음",
+        "초기화 순서에 민감할 가능성",
+        "UI와 런타임 책임이 한 파일에 섞였을 가능성",
+        "상태 중심 또는 관리 중심 클래스일 가능성"
+      ],
+      "risk_score": 86
+    },
+    {
       "file_id": "exp-make5/Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs",
       "class_name": "Benchmark01_UGUI",
       "risk_flags": [
@@ -287,29 +312,6 @@
     {
       "file_id": "exp-make5/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs",
       "class_name": "VertexJitter",
-      "risk_flags": [
-        "high-coupling",
-        "public-field-heavy",
-        "magic-number-heavy",
-        "large-class",
-        "init-order-sensitive",
-        "ui-runtime-mixed",
-        "state-owner"
-      ],
-      "risk_reasons": [
-        "참조 타입 또는 관계 수가 많음",
-        "public 필드 노출 수가 많음",
-        "숫자 리터럴이 많아 의미 파악이 어려울 수 있음",
-        "파일/메서드/필드 수가 많아 책임이 커질 가능성",
-        "초기화 순서에 민감할 가능성",
-        "UI와 런타임 책임이 한 파일에 섞였을 가능성",
-        "상태 중심 또는 관리 중심 클래스일 가능성"
-      ],
-      "risk_score": 79
-    },
-    {
-      "file_id": "exp-make5/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs",
-      "class_name": "VertexZoom",
       "risk_flags": [
         "high-coupling",
         "public-field-heavy",
