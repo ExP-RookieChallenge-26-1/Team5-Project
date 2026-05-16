@@ -1,5 +1,4 @@
 using System;
-using NUnit.Framework;
 using UnityEngine;
 
 // 이 스크립트는 오직 캐릭터의 '상태'만 관리합니다.
@@ -10,19 +9,49 @@ public class PlayerStatus : MonoBehaviour
     public event Action<int> OnRedAmuletChanged;
     public event Action<int> OnBlueAmuletChanged;
 
+    public event Action<int> OnTimeChanged;
+
     [SerializeField] private int maxHealth = 3;
     private int currentHealth;
     private int redAmuletCount = 1;
     private int blueAmuletCount = 1;
 
+    private int currentTime;
+
     public int RedAmuletCount => redAmuletCount; 
     public int BlueAmuletCount => blueAmuletCount;
     public int CurrentHealth => currentHealth;
+    public int CurrentTime => currentTime;
 
     void Start()
     {
         currentHealth = maxHealth;
         NotifyAll();
+    }
+
+    // 시작할 때 맵 매니저로부터 최대 시간을 받아옵니다.
+    public void InitializeTime(int maxTime)
+    {
+        currentTime = maxTime;
+        OnTimeChanged?.Invoke(currentTime);
+    }
+
+    // 이동할 때마다 시간을 소모하는 함수
+    public bool UseTime(int amount)
+    {
+        currentTime -= amount;
+        OnTimeChanged?.Invoke(currentTime);
+        Debug.Log($"시간 소모: {amount}, 남은 시간: {currentTime}");
+
+        if (currentTime <= 0)
+        {
+            if (StageEventManager.Instance != null)
+            {
+                StageEventManager.Instance.TriggerGameOver_Time();
+            }
+            return false;
+        }
+        return true;
     }
 
     public bool HandleMineEncounter(bool isRedMine)
@@ -70,5 +99,6 @@ public class PlayerStatus : MonoBehaviour
         OnHealthChanged?.Invoke(currentHealth);
         OnBlueAmuletChanged?.Invoke(blueAmuletCount);
         OnRedAmuletChanged?.Invoke(redAmuletCount);
+        OnTimeChanged?.Invoke(currentTime);
     }
 }
