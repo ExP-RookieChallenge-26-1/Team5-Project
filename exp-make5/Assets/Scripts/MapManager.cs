@@ -194,7 +194,7 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    // 💡 [추가됨] 플레이어가 진짜 향로 타일 위에 올라왔을 때 호출되어 향로를 획득하고 없애는 함수
+    // 플레이어가 진짜 향로 타일 위에 올라왔을 때 호출되어 향로를 획득하고 없애는 함수
     public void CollectIncense(Vector2Int pos)
     {
         if (grid[pos.x, pos.y].isIncense)
@@ -267,7 +267,7 @@ public class MapManager : MonoBehaviour
                 if (grid[pos.x, pos.y].faintIncenseVisual != null) Destroy(grid[pos.x, pos.y].faintIncenseVisual);
                 
                 // 생성된 오브젝트를 변수에 저장해 둡니다 (나중에 캐릭터가 밟으면 지우기 위해)
-                grid[pos.x, pos.y].realIncenseVisual = Instantiate(realIncensePrefab, new Vector3(pos.x, pos.y, -0.2f), Quaternion.identity, grid[pos.x, pos.y].visualObj.transform);
+                grid[pos.x, pos.y].realIncenseVisual = Instantiate(realIncensePrefab, new Vector3(pos.x, pos.y, -0.2f), Quaternion.identity, transform);
             }
         }
         else if (type == "LockedRed") 

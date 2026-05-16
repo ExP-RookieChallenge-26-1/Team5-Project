@@ -8,7 +8,6 @@ public class PlayerStatus : MonoBehaviour
     public event Action<int> OnHealthChanged;
     public event Action<int> OnRedAmuletChanged;
     public event Action<int> OnBlueAmuletChanged;
-
     public event Action<int> OnTimeChanged;
 
     [SerializeField] private int maxHealth = 3;
@@ -89,8 +88,7 @@ public class PlayerStatus : MonoBehaviour
         
         if (currentHealth <= 0)
         {
-            Debug.Log("게임 오버!");
-            // 게임 오버 처리 로직
+            StageEventManager.Instance.TriggerGameOver_Health();
         }
     }
 

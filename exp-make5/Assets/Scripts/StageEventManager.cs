@@ -29,6 +29,12 @@ public class StageEventManager : MonoBehaviour
         Debug.Log("[Event] 시간 초과 게임 오버 연출 (UI팀 작업 요망)");
     }
 
+    // 💡 [추가됨] 체력 고갈 시 호출
+    public void TriggerGameOver_Health()
+    {
+        Debug.Log("[Event] 체력 고갈 게임 오버 연출 (UI팀 작업 요망)");
+    }
+
     // 💡 [추가됨] 모든 향로 수집 후 수문장 상호작용 시 호출
     public void TriggerStageClear()
     {
