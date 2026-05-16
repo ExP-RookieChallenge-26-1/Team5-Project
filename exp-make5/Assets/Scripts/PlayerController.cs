@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections; // 코루틴 사용을 위해 추가
+using UnityEngine.UI; // Image 제어
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,12 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     public MapManager mapManager;     // 맵 데이터를 받아올 매니저
     public PlayerStatus playerStatus; // 캐릭터 상태(체력, 부적) 매니저
+
+    // 피격 연출용 변수
+    [Header("Effects Settings")]
+    public Image damageFlashImage; // 화면을 덮을 빨간색 패널
+    public float flashDuration = 0.4f; // 빨간색이 스르륵 사라지는 시간
+    public AudioClip oofSound;
 
     private Vector2Int mapSize;
 
@@ -45,12 +52,19 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("InputX", 0);
         animator.SetFloat("InputY", -1); 
         isMoving = false;
-        isKnockbacking = false; // 💡 [추가됨] 초기화
+        isKnockbacking = false;
         currentPath.Clear(); 
 
         if (mapManager != null)
         {
             mapSize = mapManager.GetMapSize();
+        }
+
+        if (damageFlashImage != null)
+        {
+            Color c = damageFlashImage.color;
+            c.a = 0f;
+            damageFlashImage.color = c;
         }
     }
 
@@ -112,8 +126,25 @@ public class PlayerController : MonoBehaviour
     {
         isKnockbacking = true; // 조작 불가능 상태로 전환
 
-        // 1. 플레이어는 지뢰 위에 올라간 상태로 잠깐 대기합니다.
-        yield return new WaitForSeconds(0.4f); // 0.4초 딜레이 (원하시는 시간으로 조절 가능)
+        // 1. 효과음과 함께 화면 번쩍
+        if (SoundManager.Instance != null && oofSound != null)
+        {
+            SoundManager.Instance.PlaySFX(oofSound);
+        }
+
+        float timeElapsed = 0;
+        while (timeElapsed < flashDuration)
+        {
+            timeElapsed += Time.deltaTime;
+            if (damageFlashImage != null)
+            {
+                Color flashColor = damageFlashImage.color;
+                // 시간에 따라 0.5에서 0으로 서서히 감소
+                flashColor.a = Mathf.Lerp(0.5f, 0f, timeElapsed / flashDuration); 
+                damageFlashImage.color = flashColor;
+            }
+            yield return null;
+        }
 
         // 2. 대기 이후에 체력이 깎입니다.
         playerStatus.TakeDamage();
@@ -121,14 +152,14 @@ public class PlayerController : MonoBehaviour
         // 3. 방금 전에 있었던 타일(previousPos)로 돌아갑니다. (스르륵 미끄러지는 넉백 연출)
         Vector3 startPos = transform.position;
         Vector3 targetPos = new Vector3(returnPos.x, returnPos.y, 0);
-        float timeElapsed = 0;
+        float slideTimeElapsed = 0;
         float slideDuration = 0.2f; // 뒤로 밀려나는 시간 (짧고 빠르게)
 
-        while (timeElapsed < 1f)
+        while (slideTimeElapsed < 1f)
         {
-            timeElapsed += Time.deltaTime / slideDuration;
+            slideTimeElapsed += Time.deltaTime / slideDuration;
             // 부드러운 곡선(Ease Out) 느낌으로 감속하며 밀려남
-            transform.position = Vector3.Lerp(startPos, targetPos, Mathf.Sin(timeElapsed * Mathf.PI * 0.5f));
+            transform.position = Vector3.Lerp(startPos, targetPos, Mathf.Sin(slideTimeElapsed * Mathf.PI * 0.5f));
             yield return null;
         }
         transform.position = targetPos; // 오차 보정

@@ -52,6 +52,9 @@ TemporaryDependencyNodeTargetIdentifier=netstandard2.1
 [sourceFiles]
 Assets/Scripts/
  CameraController.cs
+ Input/
+  SlidingPanel.cs
+  SwipeInput.cs
  MapManager.cs
  PlayerController.cs
  PlayerStatus.cs
