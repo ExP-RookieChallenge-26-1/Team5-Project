@@ -716,6 +716,20 @@
   {
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
+    "to_type": "StageEventManager",
+    "relation_type": "singleton-access",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "Abs",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
     "to_type": "Add",
     "relation_type": "uses",
     "strength": 1
@@ -744,7 +758,35 @@
   {
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
+    "to_type": "Chebyshev",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "CollectIncense",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
     "to_type": "Collections",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "Count",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "Data",
     "relation_type": "uses",
     "strength": 1
   },
@@ -807,6 +849,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
+    "to_type": "Instance",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
     "to_type": "Instantiate",
     "relation_type": "uses",
     "strength": 1
@@ -821,7 +870,35 @@
   {
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
+    "to_type": "InteractGatekeeper",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "IsGatekeeper",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
     "to_type": "IsOpened",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "IsRiver",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "IsValidPos",
     "relation_type": "uses",
     "strength": 1
   },
@@ -856,7 +933,28 @@
   {
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
-    "to_type": "Map",
+    "to_type": "Log",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "LogError",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "Max",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "NPC",
     "relation_type": "uses",
     "strength": 1
   },
@@ -884,6 +982,20 @@
   {
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
+    "to_type": "PlaceMinesInArea",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "PlaceStoryElements",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
     "to_type": "PlayerStatus",
     "relation_type": "uses",
     "strength": 1
@@ -905,13 +1017,6 @@
   {
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
-    "to_type": "Settings",
-    "relation_type": "uses",
-    "strength": 1
-  },
-  {
-    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
-    "from_class": "MapManager",
     "to_type": "ShowHint",
     "relation_type": "uses",
     "strength": 1
@@ -920,6 +1025,41 @@
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
     "to_type": "SpawnInitialTiles",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "Stage",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "StageData",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "StageEventManager",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "StageMode",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "Story",
     "relation_type": "uses",
     "strength": 1
   },
@@ -961,7 +1101,28 @@
   {
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
+    "to_type": "TriggerIncenseFound",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "TriggerStageClear",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
     "to_type": "UnityEngine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "UpdateIncenseProximity",
     "relation_type": "uses",
     "strength": 1
   },
@@ -990,6 +1151,13 @@
     "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
     "from_class": "PlayerController",
     "to_type": "Animator",
+    "relation_type": "component-access",
+    "strength": 3
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
+    "from_class": "PlayerController",
+    "to_type": "CameraController",
     "relation_type": "component-access",
     "strength": 3
   },
@@ -1052,6 +1220,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
     "from_class": "PlayerController",
+    "to_type": "StageEventManager",
+    "relation_type": "singleton-access",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
+    "from_class": "PlayerController",
     "to_type": "Abs",
     "relation_type": "uses",
     "strength": 1
@@ -1094,7 +1269,28 @@
   {
     "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
     "from_class": "PlayerController",
+    "to_type": "CameraController",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
+    "from_class": "PlayerController",
+    "to_type": "CheckRiverProximity",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
+    "from_class": "PlayerController",
     "to_type": "Clear",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
+    "from_class": "PlayerController",
+    "to_type": "CollectIncense",
     "relation_type": "uses",
     "strength": 1
   },
@@ -1116,6 +1312,13 @@
     "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
     "from_class": "PlayerController",
     "to_type": "Contains",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
+    "from_class": "PlayerController",
+    "to_type": "Cost",
     "relation_type": "uses",
     "strength": 1
   },
@@ -1199,6 +1402,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
     "from_class": "PlayerController",
+    "to_type": "InitializeTime",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
+    "from_class": "PlayerController",
     "to_type": "InputSystem",
     "relation_type": "uses",
     "strength": 1
@@ -1234,7 +1444,28 @@
   {
     "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
     "from_class": "PlayerController",
+    "to_type": "InteractGatekeeper",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
+    "from_class": "PlayerController",
+    "to_type": "IsGatekeeper",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
+    "from_class": "PlayerController",
     "to_type": "IsOpened",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
+    "from_class": "PlayerController",
+    "to_type": "IsRiver",
     "relation_type": "uses",
     "strength": 1
   },
@@ -1270,6 +1501,13 @@
     "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
     "from_class": "PlayerController",
     "to_type": "MapManager",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
+    "from_class": "PlayerController",
+    "to_type": "Max",
     "relation_type": "uses",
     "strength": 1
   },
@@ -1451,6 +1689,20 @@
   {
     "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
     "from_class": "PlayerController",
+    "to_type": "StageEventManager",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
+    "from_class": "PlayerController",
+    "to_type": "StageMode",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
+    "from_class": "PlayerController",
     "to_type": "Start",
     "relation_type": "uses",
     "strength": 1
@@ -1465,6 +1717,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
     "from_class": "PlayerController",
+    "to_type": "Story",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
+    "from_class": "PlayerController",
     "to_type": "System",
     "relation_type": "uses",
     "strength": 1
@@ -1473,6 +1732,13 @@
     "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
     "from_class": "PlayerController",
     "to_type": "TakeDamage",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
+    "from_class": "PlayerController",
+    "to_type": "TriggerRiverEvent",
     "relation_type": "uses",
     "strength": 1
   },
@@ -1494,6 +1760,20 @@
     "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
     "from_class": "PlayerController",
     "to_type": "Update",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
+    "from_class": "PlayerController",
+    "to_type": "UpdateIncenseProximity",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
+    "from_class": "PlayerController",
+    "to_type": "UseTime",
     "relation_type": "uses",
     "strength": 1
   },
@@ -1528,6 +1808,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "from_class": "PlayerStatus",
+    "to_type": "StageEventManager",
+    "relation_type": "singleton-access",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
+    "from_class": "PlayerStatus",
     "to_type": "BlueAmuletCount",
     "relation_type": "uses",
     "strength": 1
@@ -1542,7 +1829,7 @@
   {
     "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "from_class": "PlayerStatus",
-    "to_type": "Framework",
+    "to_type": "CurrentTime",
     "relation_type": "uses",
     "strength": 1
   },
@@ -1550,6 +1837,20 @@
     "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "from_class": "PlayerStatus",
     "to_type": "HandleMineEncounter",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
+    "from_class": "PlayerStatus",
+    "to_type": "InitializeTime",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
+    "from_class": "PlayerStatus",
+    "to_type": "Instance",
     "relation_type": "uses",
     "strength": 1
   },
@@ -1584,13 +1885,6 @@
   {
     "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "from_class": "PlayerStatus",
-    "to_type": "NUnit",
-    "relation_type": "uses",
-    "strength": 1
-  },
-  {
-    "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
-    "from_class": "PlayerStatus",
     "to_type": "OnBlueAmuletChanged",
     "relation_type": "uses",
     "strength": 1
@@ -1612,7 +1906,21 @@
   {
     "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "from_class": "PlayerStatus",
+    "to_type": "OnTimeChanged",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
+    "from_class": "PlayerStatus",
     "to_type": "RedAmuletCount",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
+    "from_class": "PlayerStatus",
+    "to_type": "StageEventManager",
     "relation_type": "uses",
     "strength": 1
   },
@@ -1640,6 +1948,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "from_class": "PlayerStatus",
+    "to_type": "TriggerGameOver_Time",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
+    "from_class": "PlayerStatus",
     "to_type": "UI",
     "relation_type": "uses",
     "strength": 1
@@ -1648,6 +1963,13 @@
     "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "from_class": "PlayerStatus",
     "to_type": "UnityEngine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
+    "from_class": "PlayerStatus",
+    "to_type": "UseTime",
     "relation_type": "uses",
     "strength": 1
   },
@@ -1773,6 +2095,258 @@
   {
     "from_file": "exp-make5/Assets/Scripts/SoundManager.cs",
     "from_class": "SoundManager",
+    "to_type": "UnityEngine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageData.cs",
+    "from_class": "StageData",
+    "to_type": "List",
+    "relation_type": "creates",
+    "strength": 2
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageData.cs",
+    "from_class": "StageData",
+    "to_type": "Vector2Int",
+    "relation_type": "creates",
+    "strength": 2
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageData.cs",
+    "from_class": "StageData",
+    "to_type": "ScriptableObject",
+    "relation_type": "inherits",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageData.cs",
+    "from_class": "StageData",
+    "to_type": "Casual",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageData.cs",
+    "from_class": "StageData",
+    "to_type": "Collections",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageData.cs",
+    "from_class": "StageData",
+    "to_type": "Common",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageData.cs",
+    "from_class": "StageData",
+    "to_type": "CreateAssetMenu",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageData.cs",
+    "from_class": "StageData",
+    "to_type": "Data",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageData.cs",
+    "from_class": "StageData",
+    "to_type": "Enum",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageData.cs",
+    "from_class": "StageData",
+    "to_type": "Game",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageData.cs",
+    "from_class": "StageData",
+    "to_type": "Generic",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageData.cs",
+    "from_class": "StageData",
+    "to_type": "int",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageData.cs",
+    "from_class": "StageData",
+    "to_type": "Mine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageData.cs",
+    "from_class": "StageData",
+    "to_type": "Mode",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageData.cs",
+    "from_class": "StageData",
+    "to_type": "New",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageData.cs",
+    "from_class": "StageData",
+    "to_type": "NPC",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageData.cs",
+    "from_class": "StageData",
+    "to_type": "Only",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageData.cs",
+    "from_class": "StageData",
+    "to_type": "Settings",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageData.cs",
+    "from_class": "StageData",
+    "to_type": "Stage",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageData.cs",
+    "from_class": "StageData",
+    "to_type": "StageMode",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageData.cs",
+    "from_class": "StageData",
+    "to_type": "Story",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageData.cs",
+    "from_class": "StageData",
+    "to_type": "System",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageData.cs",
+    "from_class": "StageData",
+    "to_type": "UnityEngine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageData.cs",
+    "from_class": "StageData",
+    "to_type": "Vector2Int",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "MonoBehaviour",
+    "relation_type": "inherits",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "Awake",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "Destroy",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "Event",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "Instance",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "Log",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "TriggerGameOver_Time",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "TriggerIncenseFound",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "TriggerRiverEvent",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "TriggerStageClear",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "UI",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
     "to_type": "UnityEngine",
     "relation_type": "uses",
     "strength": 1
