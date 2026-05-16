@@ -679,8 +679,8 @@
     "file_id": "exp-make5/Assets/Scripts/MapManager.cs",
     "path": "exp-make5/Assets/Scripts/MapManager.cs",
     "file_name": "MapManager.cs",
-    "content_hash": "c9f3767dc067da1f21b8f782bda4b4531b3c7f43",
-    "size": 13497,
+    "content_hash": "1a5a48c7c3605b0843b9cd5e43185284c15e9a6c",
+    "size": 13451,
     "line_count": 309,
     "namespace": "",
     "using_list": [
@@ -1441,9 +1441,9 @@
     "file_id": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "path": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "file_name": "PlayerStatus.cs",
-    "content_hash": "813581707df8a7fc62e971671b3e18901553ddeb",
-    "size": 3279,
-    "line_count": 104,
+    "content_hash": "bcf8a84274b3009e3dce3019822034d840de6f82",
+    "size": 3257,
+    "line_count": 102,
     "namespace": "",
     "using_list": [
       "System",
@@ -1546,7 +1546,8 @@
       "Instance",
       "TriggerGameOver_Time",
       "HandleMineEncounter",
-      "TakeDamage"
+      "TakeDamage",
+      "TriggerGameOver_Health"
     ],
     "component_access_types": [],
     "created_types": [],
@@ -1555,8 +1556,7 @@
     ],
     "string_literals": [
       "시간 소모: {amount}, 남은 시간: {currentTime}",
-      "부적이 부족합니다! 체력 감소. 남은 체력: {currentHealth}",
-      "게임 오버!"
+      "부적이 부족합니다! 체력 감소. 남은 체력: {currentHealth}"
     ],
     "numeric_literals": [
       3
@@ -1808,9 +1808,9 @@
     "file_id": "exp-make5/Assets/Scripts/StageEventManager.cs",
     "path": "exp-make5/Assets/Scripts/StageEventManager.cs",
     "file_name": "StageEventManager.cs",
-    "content_hash": "e1f7bec6ae295a5f0059410aff62e87f496d3462",
-    "size": 1206,
-    "line_count": 37,
+    "content_hash": "af8da1431bb868b9ef966267fc6909bc00e98c15",
+    "size": 1402,
+    "line_count": 43,
     "namespace": "",
     "using_list": [
       "UnityEngine"
@@ -1837,6 +1837,7 @@
       "TriggerRiverEvent",
       "TriggerIncenseFound",
       "TriggerGameOver_Time",
+      "TriggerGameOver_Health",
       "TriggerStageClear"
     ],
     "fields": [
@@ -1879,6 +1880,7 @@
       "Event",
       "TriggerIncenseFound",
       "TriggerGameOver_Time",
+      "TriggerGameOver_Health",
       "TriggerStageClear"
     ],
     "component_access_types": [],
@@ -1888,6 +1890,7 @@
       "[Event] 강 접근 독백 출력 (UI팀 작업 요망)",
       "[Event] {index}번째 향로 획득 독백 출력 (UI팀 작업 요망)",
       "[Event] 시간 초과 게임 오버 연출 (UI팀 작업 요망)",
+      "[Event] 체력 고갈 게임 오버 연출 (UI팀 작업 요망)",
       "[Event] 스테이지 클리어 (비주얼 노벨 씬 전환 등 UI팀 작업 요망)"
     ],
     "numeric_literals": [],

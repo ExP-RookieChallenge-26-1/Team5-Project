@@ -1948,6 +1948,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "from_class": "PlayerStatus",
+    "to_type": "TriggerGameOver_Health",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
+    "from_class": "PlayerStatus",
     "to_type": "TriggerGameOver_Time",
     "relation_type": "uses",
     "strength": 1
@@ -2306,6 +2313,13 @@
     "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
     "from_class": "StageEventManager",
     "to_type": "Log",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "TriggerGameOver_Health",
     "relation_type": "uses",
     "strength": 1
   },
