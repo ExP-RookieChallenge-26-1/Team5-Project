@@ -2,26 +2,26 @@
   "project_name": "unknown",
   "language": "C#",
   "engine_guess": "Unity",
-  "total_cs_files": 45,
-  "mono_behaviour_files": 42,
-  "scriptable_object_files": 0,
+  "total_cs_files": 47,
+  "mono_behaviour_files": 43,
+  "scriptable_object_files": 1,
   "files_with_update": 11,
   "files_with_fixed_update": 0,
   "files_with_late_update": 5,
-  "singleton_candidates": 1,
-  "manager_like_classes": 15,
-  "ui_related_classes": 42,
-  "save_load_related_classes": 18,
+  "singleton_candidates": 2,
+  "manager_like_classes": 17,
+  "ui_related_classes": 43,
+  "save_load_related_classes": 17,
   "role_counts": {
-    "runtime": 43,
-    "ui": 42,
-    "player": 23,
-    "manager": 15,
+    "runtime": 45,
+    "ui": 43,
+    "player": 24,
+    "manager": 17,
     "combat": 29,
-    "save-load": 18,
+    "save-load": 17,
     "scene": 2,
-    "network": 1,
-    "data": 7
+    "data": 8,
+    "network": 1
   },
   "high_coupling_classes": [
     {
@@ -43,6 +43,12 @@
       "referenced_type_count": 99
     },
     {
+      "class_name": "PlayerController",
+      "file_id": "exp-make5/Assets/Scripts/PlayerController.cs",
+      "relation_count": 93,
+      "referenced_type_count": 82
+    },
+    {
       "class_name": "VertexZoom",
       "file_id": "exp-make5/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs",
       "relation_count": 83,
@@ -61,28 +67,22 @@
       "referenced_type_count": 70
     },
     {
-      "class_name": "PlayerController",
-      "file_id": "exp-make5/Assets/Scripts/PlayerController.cs",
-      "relation_count": 76,
-      "referenced_type_count": 67
-    },
-    {
       "class_name": "VertexJitter",
       "file_id": "exp-make5/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs",
       "relation_count": 74,
       "referenced_type_count": 69
     },
     {
+      "class_name": "MapManager",
+      "file_id": "exp-make5/Assets/Scripts/MapManager.cs",
+      "relation_count": 66,
+      "referenced_type_count": 61
+    },
+    {
       "class_name": "DialogueLine",
       "file_id": "exp-make5/Assets/Scripts/UI/VNManager.cs",
       "relation_count": 65,
       "referenced_type_count": 59
-    },
-    {
-      "class_name": "TMP_FrameRateCounter",
-      "file_id": "exp-make5/Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_FrameRateCounter.cs",
-      "relation_count": 64,
-      "referenced_type_count": 58
     }
   ],
   "high_risk_classes": [
