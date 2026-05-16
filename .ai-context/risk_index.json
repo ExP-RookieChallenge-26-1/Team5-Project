@@ -693,6 +693,40 @@
     "risk_score": 48
   },
   {
+    "file_id": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "class_name": "SlidingPanel",
+    "risk_flags": [
+      "high-coupling",
+      "init-order-sensitive",
+      "ui-runtime-mixed",
+      "state-owner"
+    ],
+    "risk_reasons": [
+      "참조 타입 또는 관계 수가 많음",
+      "초기화 순서에 민감할 가능성",
+      "UI와 런타임 책임이 한 파일에 섞였을 가능성",
+      "상태 중심 또는 관리 중심 클래스일 가능성"
+    ],
+    "risk_score": 46
+  },
+  {
+    "file_id": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "class_name": "SwipeDetector",
+    "risk_flags": [
+      "update-heavy",
+      "high-coupling",
+      "ui-runtime-mixed",
+      "state-owner"
+    ],
+    "risk_reasons": [
+      "Unity 업데이트 루프 사용",
+      "참조 타입 또는 관계 수가 많음",
+      "UI와 런타임 책임이 한 파일에 섞였을 가능성",
+      "상태 중심 또는 관리 중심 클래스일 가능성"
+    ],
+    "risk_score": 46
+  },
+  {
     "file_id": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
     "class_name": "TextHandler",
     "risk_flags": [

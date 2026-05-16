@@ -252,6 +252,440 @@
     "strength": 1
   },
   {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "RectTransform",
+    "relation_type": "component-access",
+    "strength": 3
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "Vector2",
+    "relation_type": "creates",
+    "strength": 2
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "MonoBehaviour",
+    "relation_type": "inherits",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "Adjust",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "Animation",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "AnimationCurve",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "Awake",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "bool",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "Collections",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "Coroutine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "EaseInOut",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "Evaluate",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "float",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "GetComponent",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "Grab",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "HandleSwipeLeft",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "HandleSwipeRight",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "How",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "Initialize",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "Lerp",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "OnDisable",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "OnEnable",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "OnSwipeLeft",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "OnSwipeRight",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "Open",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "RectTransform",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "RequireComponent",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "Set",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "Settings",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "SlideRoutine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "StartCoroutine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "StopCoroutine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "SwipeDetector",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "System",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "TogglePanel",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "UnityEngine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "Use",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "Vector2",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "from_class": "SwipeDetector",
+    "to_type": "MonoBehaviour",
+    "relation_type": "inherits",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "from_class": "SwipeDetector",
+    "to_type": "Abs",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "from_class": "SwipeDetector",
+    "to_type": "bool",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "from_class": "SwipeDetector",
+    "to_type": "CheckSwipeEnd",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "from_class": "SwipeDetector",
+    "to_type": "CheckTouchStart",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "from_class": "SwipeDetector",
+    "to_type": "float",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "from_class": "SwipeDetector",
+    "to_type": "Global",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "from_class": "SwipeDetector",
+    "to_type": "HandleInput",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "from_class": "SwipeDetector",
+    "to_type": "InputSystem",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "from_class": "SwipeDetector",
+    "to_type": "Invoke",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "from_class": "SwipeDetector",
+    "to_type": "Minimum",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "from_class": "SwipeDetector",
+    "to_type": "OnSwipeLeft",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "from_class": "SwipeDetector",
+    "to_type": "OnSwipeRight",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "from_class": "SwipeDetector",
+    "to_type": "Pointer",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "from_class": "SwipeDetector",
+    "to_type": "ReadValue",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "from_class": "SwipeDetector",
+    "to_type": "Require",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "from_class": "SwipeDetector",
+    "to_type": "Screen",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "from_class": "SwipeDetector",
+    "to_type": "Set",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "from_class": "SwipeDetector",
+    "to_type": "Settings",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "from_class": "SwipeDetector",
+    "to_type": "System",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "from_class": "SwipeDetector",
+    "to_type": "UI",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "from_class": "SwipeDetector",
+    "to_type": "UnityEngine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "from_class": "SwipeDetector",
+    "to_type": "Update",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "from_class": "SwipeDetector",
+    "to_type": "Vector2",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
     "to_type": "List",

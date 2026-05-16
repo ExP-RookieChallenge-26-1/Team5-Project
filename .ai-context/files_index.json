@@ -345,6 +345,337 @@
     ]
   },
   {
+    "file_id": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "path": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "file_name": "SlidingPanel.cs",
+    "content_hash": "28db920e22f356d41e985a155566fd7f5cd3e9cc",
+    "size": 2505,
+    "line_count": 86,
+    "namespace": "",
+    "using_list": [
+      "System.Collections",
+      "UnityEngine"
+    ],
+    "classes": [
+      {
+        "name": "SlidingPanel",
+        "kind": "class",
+        "access": "public",
+        "base_types": [
+          "MonoBehaviour"
+        ],
+        "interfaces": [],
+        "attributes": [],
+        "is_partial": false,
+        "is_generic": false
+      }
+    ],
+    "main_class_name": "SlidingPanel",
+    "unity_type": "MonoBehaviour",
+    "methods": [
+      "Awake",
+      "Vector2",
+      "OnEnable",
+      "OnDisable",
+      "HandleSwipeLeft",
+      "HandleSwipeRight",
+      "TogglePanel",
+      "SlideRoutine"
+    ],
+    "fields": [
+      {
+        "name": "rectTransform",
+        "type": "RectTransform",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "animationDuration",
+        "type": "float",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "openPosition",
+        "type": "Vector2",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "closedPosition",
+        "type": "Vector2",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "isPanelOpen",
+        "type": "bool",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "animationCoroutine",
+        "type": "Coroutine",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "target",
+        "type": "Vector2",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "startPosition",
+        "type": "Vector2",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "elapsedTime",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "t",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      }
+    ],
+    "properties": [],
+    "events": [],
+    "unity_messages": [
+      "Awake",
+      "OnEnable",
+      "OnDisable"
+    ],
+    "has_update": false,
+    "has_fixed_update": false,
+    "has_late_update": false,
+    "has_awake": true,
+    "has_start": false,
+    "has_on_enable": true,
+    "has_on_disable": true,
+    "serialize_field_count": 0,
+    "public_field_count": 1,
+    "get_component_count": 1,
+    "find_call_count": 0,
+    "new_keyword_count": 1,
+    "coroutine_count": 2,
+    "singleton_candidate": false,
+    "dont_destroy_on_load": false,
+    "referenced_types": [
+      "RectTransform",
+      "float",
+      "Vector2",
+      "bool",
+      "Coroutine",
+      "System",
+      "Collections",
+      "UnityEngine",
+      "RequireComponent",
+      "Animation",
+      "Settings",
+      "AnimationCurve",
+      "EaseInOut",
+      "How",
+      "Adjust",
+      "Set",
+      "Awake",
+      "GetComponent",
+      "Grab",
+      "Open",
+      "Use",
+      "Initialize",
+      "OnEnable",
+      "SwipeDetector",
+      "OnSwipeLeft",
+      "HandleSwipeLeft",
+      "OnSwipeRight",
+      "HandleSwipeRight",
+      "OnDisable",
+      "TogglePanel",
+      "StopCoroutine",
+      "StartCoroutine",
+      "SlideRoutine",
+      "Evaluate",
+      "Lerp"
+    ],
+    "component_access_types": [
+      "RectTransform"
+    ],
+    "created_types": [
+      "Vector2"
+    ],
+    "singleton_access_types": [],
+    "string_literals": [
+      "Animation Settings",
+      "Open"
+    ],
+    "numeric_literals": [
+      0.3,
+      500,
+      0
+    ],
+    "guessed_roles": [
+      "ui",
+      "runtime",
+      "player"
+    ],
+    "summary_signals": [
+      "런타임 컴포넌트",
+      "UI 관련 로직 포함",
+      "컴포넌트 조회 사용"
+    ]
+  },
+  {
+    "file_id": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "path": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
+    "file_name": "SwipeInput.cs",
+    "content_hash": "e9296e6c21456132bb05378cc16ac3b8ed082433",
+    "size": 1890,
+    "line_count": 76,
+    "namespace": "",
+    "using_list": [
+      "System",
+      "UnityEngine",
+      "UnityEngine.InputSystem"
+    ],
+    "classes": [
+      {
+        "name": "SwipeDetector",
+        "kind": "class",
+        "access": "public",
+        "base_types": [
+          "MonoBehaviour"
+        ],
+        "interfaces": [],
+        "attributes": [],
+        "is_partial": false,
+        "is_generic": false
+      }
+    ],
+    "main_class_name": "SwipeDetector",
+    "unity_type": "MonoBehaviour",
+    "methods": [
+      "Update",
+      "HandleInput",
+      "CheckTouchStart",
+      "CheckSwipeEnd"
+    ],
+    "fields": [
+      {
+        "name": "swipeThreshold",
+        "type": "float",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "touchStartPos",
+        "type": "Vector2",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "isValidTouchZone",
+        "type": "bool",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "swipeDeltaX",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      }
+    ],
+    "properties": [],
+    "events": [],
+    "unity_messages": [
+      "Update"
+    ],
+    "has_update": true,
+    "has_fixed_update": false,
+    "has_late_update": false,
+    "has_awake": false,
+    "has_start": false,
+    "has_on_enable": false,
+    "has_on_disable": false,
+    "serialize_field_count": 0,
+    "public_field_count": 1,
+    "get_component_count": 0,
+    "find_call_count": 0,
+    "new_keyword_count": 0,
+    "coroutine_count": 0,
+    "singleton_candidate": false,
+    "dont_destroy_on_load": false,
+    "referenced_types": [
+      "float",
+      "Vector2",
+      "bool",
+      "System",
+      "UnityEngine",
+      "InputSystem",
+      "Global",
+      "UI",
+      "OnSwipeLeft",
+      "OnSwipeRight",
+      "Settings",
+      "Minimum",
+      "Require",
+      "Set",
+      "Update",
+      "HandleInput",
+      "Pointer",
+      "CheckTouchStart",
+      "ReadValue",
+      "CheckSwipeEnd",
+      "Screen",
+      "Abs",
+      "Invoke"
+    ],
+    "component_access_types": [],
+    "created_types": [],
+    "singleton_access_types": [],
+    "string_literals": [
+      "Settings",
+      "Minimum distance the finger must travel to count as a swipe."
+    ],
+    "numeric_literals": [
+      50,
+      1,
+      0,
+      1,
+      0.2
+    ],
+    "guessed_roles": [
+      "runtime",
+      "ui",
+      "player"
+    ],
+    "summary_signals": [
+      "런타임 컴포넌트",
+      "Update 기반 처리 존재",
+      "UI 관련 로직 포함"
+    ]
+  },
+  {
     "file_id": "exp-make5/Assets/Scripts/MapManager.cs",
     "path": "exp-make5/Assets/Scripts/MapManager.cs",
     "file_name": "MapManager.cs",
