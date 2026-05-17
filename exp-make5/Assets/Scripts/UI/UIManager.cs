@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public TMP_Text hpText;
     public TMP_Text redAmuletText;
     public TMP_Text blueAmuletText;
+    public TMP_Text TimeText;
 
     void Start()
     {
@@ -21,6 +22,7 @@ public class UIManager : MonoBehaviour
         UpdateHpUI(playerStatus.CurrentHealth);
         UpdateRedAmuletUI(playerStatus.RedAmuletCount);
         UpdateBlueAmuletUI(playerStatus.BlueAmuletCount);
+        UpdateTime(playerStatus.CurrentTime);
 
         // ==========================================
         // 2. 이벤트 구독(Action): 앞으로의 변화 감지
@@ -29,6 +31,7 @@ public class UIManager : MonoBehaviour
         playerStatus.OnHealthChanged += UpdateHpUI;
         playerStatus.OnRedAmuletChanged += UpdateRedAmuletUI;
         playerStatus.OnBlueAmuletChanged += UpdateBlueAmuletUI;
+        playerStatus.OnTimeChanged += UpdateTime;
     }
 
     // 캐릭터의 Action이 호출할 실제 화면 갱신 함수들
@@ -47,6 +50,11 @@ public class UIManager : MonoBehaviour
         blueAmuletText.text = "파란 부적: " + count;
     }
 
+    private void UpdateTime( int time)
+    {
+        TimeText.text = "남은 시간 : " + time;
+    }
+
     // ==========================================
     // 3. 이벤트 구독 해제 (매우 중요!)
     // ==========================================
@@ -58,6 +66,7 @@ public class UIManager : MonoBehaviour
             playerStatus.OnHealthChanged -= UpdateHpUI;
             playerStatus.OnRedAmuletChanged -= UpdateRedAmuletUI;
             playerStatus.OnBlueAmuletChanged -= UpdateBlueAmuletUI;
+            playerStatus.OnTimeChanged -= UpdateTime;
         }
     }
 }
