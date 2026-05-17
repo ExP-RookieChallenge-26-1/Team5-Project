@@ -8,9 +8,7 @@ using UnityEngine.UI;
 public class MainMenuUI : MonoBehaviour
 {
    [SerializeField] private CanvasGroup StartScreen;
-   [SerializeField] private CanvasGroup ModeSelectScreen;
    [SerializeField] private CanvasGroup StageSelect_story;
-   [SerializeField] private CanvasGroup StageSelect_casual;
    [SerializeField] private CanvasGroup Settings;
 
     private void ShowElement(CanvasGroup element)
@@ -30,8 +28,6 @@ public class MainMenuUI : MonoBehaviour
     {
         HideElement(Settings);
         HideElement(StartScreen);
-        HideElement(ModeSelectScreen);
-        HideElement(StageSelect_casual);
         HideElement(StageSelect_story);
     }
 
@@ -42,20 +38,10 @@ public class MainMenuUI : MonoBehaviour
             HideEverything();
             ShowElement(StartScreen);
         }
-        if (a == 1)//모드설렉션
-        {
-            HideEverything();
-            ShowElement(ModeSelectScreen);
-        }
         if (a == 2) //스토리모드
         {
             HideEverything();
             ShowElement(StageSelect_story);
-        }
-        if (a == 3) //캐쥬얼모드
-        {
-            HideEverything();
-            ShowElement(StageSelect_casual);
         }
     }
 
@@ -64,22 +50,12 @@ public class MainMenuUI : MonoBehaviour
         showbydepth(0);
     }
 
-    public void EnterModeSelect()
-    {
-        showbydepth(1);
-    }
-
     public void EnterStoryModeSelect()
     {
         showbydepth(2);
     }
 
-    public void EnterCasualModeSelect()
-    {
-        showbydepth(3);
-    }
-
-    public void CasualModeStart()
+    public void StoryModeStart()
     {
         SceneManager.LoadScene("Sanghyun_Scene");
     }
