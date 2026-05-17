@@ -2389,28 +2389,7 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "from_class": "MainMenuUI",
-    "to_type": "CasualModeStart",
-    "relation_type": "uses",
-    "strength": 1
-  },
-  {
-    "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
-    "from_class": "MainMenuUI",
     "to_type": "ContinueGame",
-    "relation_type": "uses",
-    "strength": 1
-  },
-  {
-    "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
-    "from_class": "MainMenuUI",
-    "to_type": "EnterCasualModeSelect",
-    "relation_type": "uses",
-    "strength": 1
-  },
-  {
-    "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
-    "from_class": "MainMenuUI",
-    "to_type": "EnterModeSelect",
     "relation_type": "uses",
     "strength": 1
   },
@@ -2453,13 +2432,6 @@
     "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "from_class": "MainMenuUI",
     "to_type": "Log",
-    "relation_type": "uses",
-    "strength": 1
-  },
-  {
-    "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
-    "from_class": "MainMenuUI",
-    "to_type": "ModeSelectScreen",
     "relation_type": "uses",
     "strength": 1
   },
@@ -2536,13 +2508,6 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "from_class": "MainMenuUI",
-    "to_type": "StageSelect_casual",
-    "relation_type": "uses",
-    "strength": 1
-  },
-  {
-    "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
-    "from_class": "MainMenuUI",
     "to_type": "StageSelect_story",
     "relation_type": "uses",
     "strength": 1
@@ -2551,6 +2516,13 @@
     "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "from_class": "MainMenuUI",
     "to_type": "StartScreen",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "StoryModeStart",
     "relation_type": "uses",
     "strength": 1
   },
