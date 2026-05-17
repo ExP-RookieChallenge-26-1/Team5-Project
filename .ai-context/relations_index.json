@@ -2809,6 +2809,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
     "from_class": "UIManager",
+    "to_type": "CurrentTime",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "from_class": "UIManager",
     "to_type": "Getter",
     "relation_type": "uses",
     "strength": 1
@@ -2844,6 +2851,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
     "from_class": "UIManager",
+    "to_type": "OnTimeChanged",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "from_class": "UIManager",
     "to_type": "PlayerStatus",
     "relation_type": "uses",
     "strength": 1
@@ -2866,6 +2880,13 @@
     "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
     "from_class": "UIManager",
     "to_type": "TextMeshPro",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "from_class": "UIManager",
+    "to_type": "TimeText",
     "relation_type": "uses",
     "strength": 1
   },
@@ -2915,6 +2936,13 @@
     "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
     "from_class": "UIManager",
     "to_type": "UpdateRedAmuletUI",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "from_class": "UIManager",
+    "to_type": "UpdateTime",
     "relation_type": "uses",
     "strength": 1
   },

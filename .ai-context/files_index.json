@@ -2183,9 +2183,9 @@
     "file_id": "exp-make5/Assets/Scripts/UI/UIManager.cs",
     "path": "exp-make5/Assets/Scripts/UI/UIManager.cs",
     "file_name": "UIManager.cs",
-    "content_hash": "16bd0a48ec6e3b014afb99fbe8dccaeb315aa988",
-    "size": 2369,
-    "line_count": 63,
+    "content_hash": "0e4e20564650e5844b95782e9311b4716ca59cc2",
+    "size": 2652,
+    "line_count": 72,
     "namespace": "",
     "using_list": [
       "UnityEngine",
@@ -2212,6 +2212,7 @@
       "UpdateHpUI",
       "UpdateRedAmuletUI",
       "UpdateBlueAmuletUI",
+      "UpdateTime",
       "OnDestroy"
     ],
     "fields": [
@@ -2242,6 +2243,13 @@
         "access": "public",
         "serialized": false,
         "is_static": false
+      },
+      {
+        "name": "TimeText",
+        "type": "TMP_Text",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
       }
     ],
     "properties": [],
@@ -2258,7 +2266,7 @@
     "has_on_enable": false,
     "has_on_disable": false,
     "serialize_field_count": 0,
-    "public_field_count": 4,
+    "public_field_count": 5,
     "get_component_count": 0,
     "find_call_count": 0,
     "new_keyword_count": 0,
@@ -2272,6 +2280,7 @@
       "TMPro",
       "TextMeshPro",
       "UI",
+      "TimeText",
       "Start",
       "Getter",
       "CurrentHealth",
@@ -2280,9 +2289,12 @@
       "RedAmuletCount",
       "UpdateBlueAmuletUI",
       "BlueAmuletCount",
+      "UpdateTime",
+      "CurrentTime",
       "OnHealthChanged",
       "OnRedAmuletChanged",
       "OnBlueAmuletChanged",
+      "OnTimeChanged",
       "OnDestroy"
     ],
     "component_access_types": [],
@@ -2294,7 +2306,8 @@
       "앞으로 값이 변할 때마다 이 함수들을 실행시켜줘!",
       "체력: ",
       "빨간 부적: ",
-      "파란 부적: "
+      "파란 부적: ",
+      "남은 시간 : "
     ],
     "numeric_literals": [
       2,

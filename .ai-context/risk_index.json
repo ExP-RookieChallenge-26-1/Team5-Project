@@ -640,6 +640,25 @@
     "risk_score": 58
   },
   {
+    "file_id": "exp-make5/Assets/Scripts/UI/UIManager.cs",
+    "class_name": "UIManager",
+    "risk_flags": [
+      "high-coupling",
+      "public-field-heavy",
+      "init-order-sensitive",
+      "ui-runtime-mixed",
+      "state-owner"
+    ],
+    "risk_reasons": [
+      "참조 타입 또는 관계 수가 많음",
+      "public 필드 노출 수가 많음",
+      "초기화 순서에 민감할 가능성",
+      "UI와 런타임 책임이 한 파일에 섞였을 가능성",
+      "상태 중심 또는 관리 중심 클래스일 가능성"
+    ],
+    "risk_score": 56
+  },
+  {
     "file_id": "exp-make5/Assets/TextMesh Pro/Examples & Extras/Scripts/ChatController.cs",
     "class_name": "ChatController",
     "risk_flags": [
@@ -880,23 +899,6 @@
       "상태 중심 또는 관리 중심 클래스일 가능성"
     ],
     "risk_score": 43
-  },
-  {
-    "file_id": "exp-make5/Assets/Scripts/UI/UIManager.cs",
-    "class_name": "UIManager",
-    "risk_flags": [
-      "public-field-heavy",
-      "init-order-sensitive",
-      "ui-runtime-mixed",
-      "state-owner"
-    ],
-    "risk_reasons": [
-      "public 필드 노출 수가 많음",
-      "초기화 순서에 민감할 가능성",
-      "UI와 런타임 책임이 한 파일에 섞였을 가능성",
-      "상태 중심 또는 관리 중심 클래스일 가능성"
-    ],
-    "risk_score": 38
   },
   {
     "file_id": "exp-make5/Assets/Scripts/StageData.cs",
