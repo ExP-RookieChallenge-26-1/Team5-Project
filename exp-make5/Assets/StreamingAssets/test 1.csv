@@ -1,0 +1,5 @@
+﻿SpeakerName,Text,CharacterID,HideCharacter,BounceCharacter,PauseAfter
+Hero,"Hello world, how are you?",HeroSprite,FALSE,TRUE,0
+Villain,I am doing quite well!,VillainSprite,FALSE,FALSE,0
+Hero,Wait... who is there?,HeroSprite,FALSE,FALSE,2.5
+System,The hero ran away.,,TRUE,FALSE,0
