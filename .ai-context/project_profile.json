@@ -9,21 +9,27 @@
   "files_with_fixed_update": 0,
   "files_with_late_update": 5,
   "singleton_candidates": 2,
-  "manager_like_classes": 17,
+  "manager_like_classes": 16,
   "ui_related_classes": 43,
-  "save_load_related_classes": 17,
+  "save_load_related_classes": 18,
   "role_counts": {
     "runtime": 45,
     "ui": 43,
     "player": 24,
-    "manager": 17,
-    "combat": 29,
-    "save-load": 17,
+    "manager": 16,
+    "combat": 30,
+    "save-load": 18,
     "scene": 2,
     "data": 8,
     "network": 1
   },
   "high_coupling_classes": [
+    {
+      "class_name": "DialogueLine",
+      "file_id": "exp-make5/Assets/Scripts/UI/VNManager.cs",
+      "relation_count": 153,
+      "referenced_type_count": 146
+    },
     {
       "class_name": "TMP_TextSelector_B",
       "file_id": "exp-make5/Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_B.cs",
@@ -77,12 +83,6 @@
       "file_id": "exp-make5/Assets/Scripts/MapManager.cs",
       "relation_count": 66,
       "referenced_type_count": 61
-    },
-    {
-      "class_name": "DialogueLine",
-      "file_id": "exp-make5/Assets/Scripts/UI/VNManager.cs",
-      "relation_count": 65,
-      "referenced_type_count": 59
     }
   ],
   "high_risk_classes": [
@@ -108,6 +108,33 @@
         "숫자 리터럴이 많아 의미 파악이 어려울 수 있음",
         "파일/메서드/필드 수가 많아 책임이 커질 가능성",
         "초기화 순서에 민감할 가능성",
+        "UI와 런타임 책임이 한 파일에 섞였을 가능성",
+        "상태 중심 또는 관리 중심 클래스일 가능성"
+      ],
+      "risk_score": 100
+    },
+    {
+      "file_id": "exp-make5/Assets/Scripts/UI/VNManager.cs",
+      "class_name": "DialogueLine",
+      "risk_flags": [
+        "update-heavy",
+        "high-coupling",
+        "public-field-heavy",
+        "magic-number-heavy",
+        "large-class",
+        "init-order-sensitive",
+        "save-load-sensitive",
+        "ui-runtime-mixed",
+        "state-owner"
+      ],
+      "risk_reasons": [
+        "Unity 업데이트 루프 사용",
+        "참조 타입 또는 관계 수가 많음",
+        "public 필드 노출 수가 많음",
+        "숫자 리터럴이 많아 의미 파악이 어려울 수 있음",
+        "파일/메서드/필드 수가 많아 책임이 커질 가능성",
+        "초기화 순서에 민감할 가능성",
+        "저장/불러오기 관련 로직 포함",
         "UI와 런타임 책임이 한 파일에 섞였을 가능성",
         "상태 중심 또는 관리 중심 클래스일 가능성"
       ],
@@ -143,31 +170,6 @@
     {
       "file_id": "exp-make5/Assets/Scripts/CameraController.cs",
       "class_name": "CameraController",
-      "risk_flags": [
-        "update-heavy",
-        "high-coupling",
-        "public-field-heavy",
-        "magic-number-heavy",
-        "large-class",
-        "init-order-sensitive",
-        "ui-runtime-mixed",
-        "state-owner"
-      ],
-      "risk_reasons": [
-        "Unity 업데이트 루프 사용",
-        "참조 타입 또는 관계 수가 많음",
-        "public 필드 노출 수가 많음",
-        "숫자 리터럴이 많아 의미 파악이 어려울 수 있음",
-        "파일/메서드/필드 수가 많아 책임이 커질 가능성",
-        "초기화 순서에 민감할 가능성",
-        "UI와 런타임 책임이 한 파일에 섞였을 가능성",
-        "상태 중심 또는 관리 중심 클래스일 가능성"
-      ],
-      "risk_score": 89
-    },
-    {
-      "file_id": "exp-make5/Assets/Scripts/UI/VNManager.cs",
-      "class_name": "DialogueLine",
       "risk_flags": [
         "update-heavy",
         "high-coupling",
