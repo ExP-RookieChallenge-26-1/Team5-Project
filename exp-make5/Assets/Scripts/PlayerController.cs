@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     private bool isKnockbacking = false; // 넉백 연출 중 조작을 막기 위한 상태 플래그
 
     private bool riverMonologuePlayed = false; // 강 연출을 한 번만 하도록 하기 위한 플래그
+    private bool mountainMonologuePlayed = false;
 
     private class Node
     {
@@ -245,7 +246,7 @@ public class PlayerController : MonoBehaviour
         
         // --- 1. 시간 소모 로직 ---
         int timeCost = 1; // 기본(열린 칸) 1소모
-        if (mapManager.IsRiver(pos.x, pos.y)) timeCost = 10; // 강이면 10소모
+        if (mapManager.IsRiver(pos.x, pos.y) || mapManager.IsMountain(pos.x, pos.y)) timeCost = 10; // 강이면 10소모
         else if (!mapManager.IsOpened(pos.x, pos.y)) timeCost = 3; // 닫힌 칸이면 3소모
 
         // 시간 소모 시도 (0 이하가 되면 이동을 취소하고 멈춥니다)
@@ -261,7 +262,7 @@ public class PlayerController : MonoBehaviour
         mapManager.UpdateIncenseProximity(pos);
 
         // --- 3. 강 접근(2칸 이내) 독백 로직 ---
-        CheckRiverProximity(pos);
+        CheckTerrainProximity(pos);
 
         // --- 4. 실제 이동 처리 ---
         currentTargetNode = nextNode;
@@ -271,21 +272,34 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("isMoving", true);
     }
 
-    // 강 타일 근처 2칸 이내인지 확인하고 독백을 호출합니다.
-    private void CheckRiverProximity(Vector2Int playerPos)
+    // 강과 산 타일 근처 2칸 이내인지 확인하고 독백을 호출합니다.
+    private void CheckTerrainProximity(Vector2Int playerPos)
     {
-        if (riverMonologuePlayed || mapManager.currentStageData.stageMode != StageMode.Story) return;
+        if (mapManager.currentStageData.stageMode != StageMode.Story) return;
 
-        foreach (Vector2Int rPos in mapManager.currentStageData.riverPositions)
+        if (!riverMonologuePlayed)
         {
-            if (Mathf.Max(Mathf.Abs(rPos.x - playerPos.x), Mathf.Abs(rPos.y - playerPos.y)) <= 2)
+            foreach (Vector2Int rPos in mapManager.currentStageData.riverPositions)
             {
-                if (StageEventManager.Instance != null)
+                if (Mathf.Max(Mathf.Abs(rPos.x - playerPos.x), Mathf.Abs(rPos.y - playerPos.y)) <= 2)
                 {
-                    StageEventManager.Instance.TriggerRiverEvent();
+                    if (StageEventManager.Instance != null) StageEventManager.Instance.TriggerRiverEvent();
+                    riverMonologuePlayed = true; 
+                    break;
                 }
-                riverMonologuePlayed = true; // 한 번 출력 후 플래그 차단
-                break;
+            }
+        }
+
+        if (!mountainMonologuePlayed)
+        {
+            foreach (Vector2Int mPos in mapManager.currentStageData.mountainPositions)
+            {
+                if (Mathf.Max(Mathf.Abs(mPos.x - playerPos.x), Mathf.Abs(mPos.y - playerPos.y)) <= 2)
+                {
+                    if (StageEventManager.Instance != null) StageEventManager.Instance.TriggerMountainEvent();
+                    mountainMonologuePlayed = true; 
+                    break;
+                }
             }
         }
     }
@@ -348,7 +362,7 @@ public class PlayerController : MonoBehaviour
                 }
                 // A* 알고리즘의 이동 비용(Cost)에도 시간 패널티를 그대로 적용하여 가장 시간이 적게 드는 길을 찾게 만듭니다.
                 int stepCost = 1; 
-                if (mapManager.IsRiver(neighborPos.x, neighborPos.y)) stepCost = 10;
+                if (mapManager.IsRiver(neighborPos.x, neighborPos.y) || mapManager.IsMountain(neighborPos.x, neighborPos.y)) stepCost = 10;
                 else if (!mapManager.IsOpened(neighborPos.x, neighborPos.y)) stepCost = 3;
 
                 int newMovementCostToNeighbor = currentNode.G + stepCost; 

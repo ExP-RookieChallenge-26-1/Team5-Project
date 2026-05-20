@@ -17,6 +17,12 @@ public class StageEventManager : MonoBehaviour
         Debug.Log("[Event] 강 접근 독백 출력 (UI팀 작업 요망)");
     }
 
+    // 💡 [추가됨] 산 접근 시 호출
+    public void TriggerMountainEvent()
+    {
+        Debug.Log("[Event] 산 접근 독백 출력 (UI팀 작업 요망)");
+    }
+
     // 💡 [추가됨] 향로 조각 획득 시 호출 (몇 번째 조각인지 인자로 받음)
     public void TriggerIncenseFound(int index)
     {

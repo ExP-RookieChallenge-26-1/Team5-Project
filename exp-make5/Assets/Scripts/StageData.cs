@@ -30,14 +30,10 @@ public class StageData : ScriptableObject
 
     [Header("스토리 모드 전용 설정 (Story Mode Only)")]
     [Tooltip("플레이어가 처음 시작할 타일의 위치입니다.")]
-    public Vector2Int playerStartPosition = new Vector2Int(0, 0);
-    
-    [Tooltip("수문장(NPC)이 서 있을 위치입니다.")]
+    public Vector2Int playerStartPosition;
     public Vector2Int gatekeeperPosition;
 
-    [Tooltip("향로 조각들이 숨겨진 위치입니다. (원하는 만큼 추가 가능)")]
     public List<Vector2Int> incensePositions = new List<Vector2Int>();
-
-    [Tooltip("강(시간이 추가 소모되는 풀숲 외 지형) 타일들의 위치입니다.")]
     public List<Vector2Int> riverPositions = new List<Vector2Int>();
+    public List<Vector2Int> mountainPositions = new List<Vector2Int>();
 }

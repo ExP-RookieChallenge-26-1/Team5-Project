@@ -20,7 +20,8 @@ public class MapManager : MonoBehaviour
     // 스토리 모드용 프리팹
     [Header("Story Prefabs")]
     public GameObject riverPrefab;
-    public GameObject gatekeeperPrefab;
+    public GameObject mountainPrefab;
+    public GameObject gatekeeperPrefab;     // 수문장 
 
     public GameObject faintIncensePrefab; // 미확인 타일 위에 띄울 연한 향로
     public GameObject realIncensePrefab;  // 획득 가능한 완전한 모습의 향로
@@ -40,6 +41,7 @@ public class MapManager : MonoBehaviour
 
         // 스토리 모드용 속성
         public bool isRiver;
+        public bool isMountain;
         public bool isIncense;
         public bool isGatekeeper;
 
@@ -83,6 +85,9 @@ public class MapManager : MonoBehaviour
     {
         foreach (Vector2Int pos in currentStageData.riverPositions) {
             if (IsValidPos(pos.x, pos.y)) grid[pos.x, pos.y].isRiver = true;
+        }
+        foreach (Vector2Int pos in currentStageData.mountainPositions) {
+            if (IsValidPos(pos.x, pos.y)) grid[pos.x, pos.y].isMountain = true;
         }
         foreach (Vector2Int pos in currentStageData.incensePositions) {
             if (IsValidPos(pos.x, pos.y)) grid[pos.x, pos.y].isIncense = true;
@@ -154,6 +159,10 @@ public class MapManager : MonoBehaviour
                 if (grid[x, y].isRiver && riverPrefab != null) {
                     Instantiate(riverPrefab, new Vector3(x, y, -0.1f), Quaternion.identity, transform);
                 }
+                if (grid[x, y].isMountain && mountainPrefab != null) {
+                    Instantiate(mountainPrefab, new Vector3(x, y, -0.1f), Quaternion.identity, transform);
+                }
+
                 // 수문장 시각화
                 if (grid[x, y].isGatekeeper && gatekeeperPrefab != null) {
                     Instantiate(gatekeeperPrefab, new Vector3(x, y, -0.1f), Quaternion.identity, transform);
@@ -256,8 +265,8 @@ public class MapManager : MonoBehaviour
         
         if (type == "Open") 
         {
-            if (grid[pos.x, pos.y].isRedMine) Instantiate(redMinePrefab, new Vector3(pos.x, pos.y, -0.1f), Quaternion.identity, grid[pos.x, pos.y].visualObj.transform);
-            else if (grid[pos.x, pos.y].isBlueMine) Instantiate(blueMinePrefab, new Vector3(pos.x, pos.y, -0.1f), Quaternion.identity, grid[pos.x, pos.y].visualObj.transform);
+            if (grid[pos.x, pos.y].isRedMine) Instantiate(redMinePrefab, new Vector3(pos.x, pos.y, -0.2f), Quaternion.identity, grid[pos.x, pos.y].visualObj.transform);
+            else if (grid[pos.x, pos.y].isBlueMine) Instantiate(blueMinePrefab, new Vector3(pos.x, pos.y, -0.2f), Quaternion.identity, grid[pos.x, pos.y].visualObj.transform);
             else ShowHint(pos);
 
             // 타일이 열렸는데 향로 자리라면 완전한 향로를 띄움
@@ -293,7 +302,6 @@ public class MapManager : MonoBehaviour
             for (int j = -1; j <= 1; j++) {
                 if (i == 0 && j == 0) continue;
                 int nx = x + i, ny = y + j;
-                // 💡 [수정됨] mapWidth, mapHeight 사용
                 if (nx >= 0 && nx < currentStageData.mapWidth && ny >= 0 && ny < currentStageData.mapHeight) n.Add(new Vector2Int(nx, ny));
             }
         }
@@ -304,6 +312,7 @@ public class MapManager : MonoBehaviour
     public bool IsWalkable(int x, int y) => !grid[x, y].isObstacle;
     public bool IsOpened(int x, int y) => grid[x, y].isOpened;
     public bool IsRiver(int x, int y) => grid[x, y].isRiver;
+    public bool IsMountain(int x, int y) => grid[x, y].isMountain;
     public bool IsGatekeeper(int x, int y) => grid[x, y].isGatekeeper;
     private bool IsValidPos(int x, int y) => x >= 0 && x < currentStageData.mapWidth && y >= 0 && y < currentStageData.mapHeight;
 }
