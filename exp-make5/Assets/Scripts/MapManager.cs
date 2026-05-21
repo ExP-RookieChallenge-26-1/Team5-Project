@@ -19,8 +19,11 @@ public class MapManager : MonoBehaviour
 
     // 스토리 모드용 프리팹
     [Header("Story Prefabs")]
-    public GameObject riverPrefab;
-    public GameObject mountainPrefab;
+    public GameObject closedRiverPrefab;
+    public GameObject openRiverPrefab;
+    public GameObject closedMountainPrefab;
+    public GameObject openMountainPrefab;
+
     public GameObject gatekeeperPrefab;     // 수문장 
 
     public GameObject faintIncensePrefab; // 미확인 타일 위에 띄울 연한 향로
@@ -153,15 +156,12 @@ public class MapManager : MonoBehaviour
     {
         for (int x = 0; x < currentStageData.mapWidth; x++) {
             for (int y = 0; y < currentStageData.mapHeight; y++) {
-                grid[x, y].visualObj = Instantiate(closedTilePrefab, new Vector3(x, y, 0), Quaternion.identity, transform);
-                
-                // 임시로 강 타일임을 표시 (나중에 프리팹으로 교체 가능)
-                if (grid[x, y].isRiver && riverPrefab != null) {
-                    Instantiate(riverPrefab, new Vector3(x, y, -0.1f), Quaternion.identity, transform);
-                }
-                if (grid[x, y].isMountain && mountainPrefab != null) {
-                    Instantiate(mountainPrefab, new Vector3(x, y, -0.1f), Quaternion.identity, transform);
-                }
+                // 시작할 때 해당 지형에 맞는 '닫힌 버전'의 타일을 베이스로 생성합니다.
+                GameObject prefab = closedTilePrefab;
+                if (grid[x, y].isRiver && closedRiverPrefab != null) prefab = closedRiverPrefab;
+                else if (grid[x, y].isMountain && closedMountainPrefab != null) prefab = closedMountainPrefab;
+
+                grid[x, y].visualObj = Instantiate(prefab, new Vector3(x, y, 0), Quaternion.identity, transform);
 
                 // 수문장 시각화
                 if (grid[x, y].isGatekeeper && gatekeeperPrefab != null) {
@@ -243,8 +243,8 @@ public class MapManager : MonoBehaviour
 
         if (grid[pos.x, pos.y].redNeighbors == 0 && grid[pos.x, pos.y].blueNeighbors == 0) {
             foreach (var n in GetNeighbors(pos.x, pos.y)) {
-                // 강 타일은 연쇄 반응으로 자동으로 열리지 않도록 막음 (직접 밟아야 함)
-                if (!grid[n.x, n.y].isRedMine && !grid[n.x, n.y].isBlueMine && !grid[n.x, n.y].isRiver) OpenTile(n, player, true);
+                if (!grid[n.x, n.y].isRedMine && !grid[n.x, n.y].isBlueMine && !grid[n.x, n.y].isGatekeeper && !grid[n.x, n.y].isRiver) 
+                    OpenTile(n, player, true);
             }
         }
         return true;
@@ -258,8 +258,22 @@ public class MapManager : MonoBehaviour
 
     private void UpdateTileVisual(Vector2Int pos, string type)
     {
-        Destroy(grid[pos.x, pos.y].visualObj);
-        GameObject prefab = (type == "closed") ? closedTilePrefab : openTilePrefab; 
+        if (grid[pos.x, pos.y].visualObj != null)
+        {
+            Destroy(grid[pos.x, pos.y].visualObj);
+        }
+        
+        // 상태에 따라 알맞은 베이스 타일을 선택합니다.
+        GameObject prefab = closedTilePrefab;
+        if (grid[pos.x, pos.y].isRiver && closedRiverPrefab != null) prefab = closedRiverPrefab;
+        else if (grid[pos.x, pos.y].isMountain && closedMountainPrefab != null) prefab = closedMountainPrefab;
+
+        if (type == "Open" || type == "LockedRed" || type == "LockedBlue") 
+        {
+            prefab = openTilePrefab;
+            if (grid[pos.x, pos.y].isRiver && openRiverPrefab != null) prefab = openRiverPrefab;
+            else if (grid[pos.x, pos.y].isMountain && openMountainPrefab != null) prefab = openMountainPrefab;
+        }
         
         grid[pos.x, pos.y].visualObj = Instantiate(prefab, new Vector3(pos.x, pos.y, 0), Quaternion.identity, transform);
         

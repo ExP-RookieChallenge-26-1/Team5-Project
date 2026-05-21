@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6669199168866397465}
   - component: {fileID: 3505013373859909129}
   m_Layer: 0
-  m_Name: River
+  m_Name: ClosedMountain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 5116dc28cda8d7e42be8ed3799d3f100, type: 3}
-  m_Color: {r: 0, g: 0.16476655, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.5377358, b: 0.015248719, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

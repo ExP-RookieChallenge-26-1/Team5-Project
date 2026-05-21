@@ -952,8 +952,10 @@ MonoBehaviour:
   hintTextPrefab: {fileID: 8354691151502374225, guid: 945304f1c3a5a6b418440ec78dda5f18, type: 3}
   lockedRedMinePrefab: {fileID: 50759641617976447, guid: 02a7101a655659f4a963e989f9f62e57, type: 3}
   lockedBlueMinePrefab: {fileID: 7498450395503159454, guid: df600da8ac4d1b841b5f150540095c4b, type: 3}
-  riverPrefab: {fileID: 7475538149519485737, guid: 854629ac5bc40b749ab3190a436520c1, type: 3}
-  mountainPrefab: {fileID: 7475538149519485737, guid: 713900618b4939e499d9354d7c609d74, type: 3}
+  closedRiverPrefab: {fileID: 7475538149519485737, guid: ac24769641d364a488923cc18331ee5d, type: 3}
+  openRiverPrefab: {fileID: 7475538149519485737, guid: 854629ac5bc40b749ab3190a436520c1, type: 3}
+  closedMountainPrefab: {fileID: 7475538149519485737, guid: 713900618b4939e499d9354d7c609d74, type: 3}
+  openMountainPrefab: {fileID: 7475538149519485737, guid: 2b4768f974a84d24db8cb18b9e019eb7, type: 3}
   gatekeeperPrefab: {fileID: 7475538149519485737, guid: 909547bee32d3e94c90f8f7659676499, type: 3}
   faintIncensePrefab: {fileID: 7475538149519485737, guid: f29f054e7f2b5e749b1c2d743916ef0f, type: 3}
   realIncensePrefab: {fileID: 7475538149519485737, guid: 366d087302fd061458f89711db56d1eb, type: 3}
