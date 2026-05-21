@@ -679,9 +679,9 @@
     "file_id": "exp-make5/Assets/Scripts/MapManager.cs",
     "path": "exp-make5/Assets/Scripts/MapManager.cs",
     "file_name": "MapManager.cs",
-    "content_hash": "605b6f7f5157fa1ba666d754329361376f3509bd",
-    "size": 13912,
-    "line_count": 318,
+    "content_hash": "09b47fd3df977c5bbc16ef16bafade02df87f56f",
+    "size": 14500,
+    "line_count": 332,
     "namespace": "",
     "using_list": [
       "System.Collections.Generic",
@@ -798,14 +798,28 @@
         "is_static": false
       },
       {
-        "name": "riverPrefab",
+        "name": "closedRiverPrefab",
         "type": "GameObject",
         "access": "public",
         "serialized": false,
         "is_static": false
       },
       {
-        "name": "mountainPrefab",
+        "name": "openRiverPrefab",
+        "type": "GameObject",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "closedMountainPrefab",
+        "type": "GameObject",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "openMountainPrefab",
         "type": "GameObject",
         "access": "public",
         "serialized": false,
@@ -938,8 +952,22 @@
         "is_static": false
       },
       {
+        "name": "prefab",
+        "type": "GameObject",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
         "name": "lockedType",
         "type": "string",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "prefab",
+        "type": "GameObject",
         "access": "internal",
         "serialized": false,
         "is_static": false
@@ -965,10 +993,10 @@
     "has_on_enable": false,
     "has_on_disable": false,
     "serialize_field_count": 0,
-    "public_field_count": 22,
+    "public_field_count": 24,
     "get_component_count": 0,
     "find_call_count": 0,
-    "new_keyword_count": 16,
+    "new_keyword_count": 14,
     "coroutine_count": 0,
     "singleton_candidate": false,
     "dont_destroy_on_load": false,
@@ -1053,8 +1081,7 @@
       "향로 획득! 현재 개수: {foundIncenseCount}",
       "Open",
       "LockedRed",
-      "LockedBlue",
-      "closed"
+      "LockedBlue"
     ],
     "numeric_literals": [
       2,
