@@ -26,8 +26,8 @@
     {
       "class_name": "DialogueLine",
       "file_id": "exp-make5/Assets/Scripts/UI/VNManager.cs",
-      "relation_count": 153,
-      "referenced_type_count": 146
+      "relation_count": 162,
+      "referenced_type_count": 155
     },
     {
       "class_name": "PlayerController",
