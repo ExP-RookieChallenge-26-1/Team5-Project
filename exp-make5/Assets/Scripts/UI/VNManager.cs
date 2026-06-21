@@ -7,6 +7,7 @@ using UnityEngine.InputSystem; // New Input System
 using System.IO; // Required for reading files
 using System.Text.RegularExpressions; // Required for CSV safe-splitting
 using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 [System.Serializable]
 public class DialogueLine
@@ -54,6 +55,10 @@ public class VNManager : MonoBehaviour
     private bool isWaitingOnPause = false;
 
     private float inputCooldown = 0f;
+
+    [Header("Game Integration")]
+    public UnityEvent OnDialogueStarted;
+    public UnityEvent OnDialogueEnded;
 
     // We use OnEnable so the dialogue starts immediately when you turn on the Overlay Prefab
     void OnEnable()
@@ -326,14 +331,16 @@ public class VNManager : MonoBehaviour
         if (nameText != null && nameText.transform.parent != null)
             nameText.transform.parent.gameObject.SetActive(false);
 
-        // Hide all characters when sequence ends
         foreach (var character in characterRoster)
         {
             if (character.characterObject != null) character.characterObject.SetActive(false);
         }
 
-        // Optional: If you want the canvas to disable itself completely when finished
-        // gameObject.SetActive(false); 
+        // Tell the game the dialogue is over!
+        OnDialogueEnded?.Invoke();
+
+        // Turn the VN Canvas off so we can see the game again
+        gameObject.SetActive(false);
     }
 
     public void UI_TogglePause()
@@ -341,5 +348,16 @@ public class VNManager : MonoBehaviour
         isPaused = !isPaused;
         Time.timeScale = isPaused ? 0f : 1f;
         Debug.Log(isPaused ? "Game Paused" : "Game Resumed");
+    }
+
+    public void StartConversation(string newCsvFileName)
+    {
+        if (textHandler == null) textHandler = mainTextObject.GetComponent<TextHandler>();
+
+        // Tell the game the dialogue has started!
+        OnDialogueStarted?.Invoke();
+
+        LoadDialogueFromFile(newCsvFileName);
+        StartCoroutine(StartDialogueSequence());
     }
 }
