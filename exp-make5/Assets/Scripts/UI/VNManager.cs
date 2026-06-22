@@ -60,13 +60,18 @@ public class VNManager : MonoBehaviour
     public UnityEvent OnDialogueStarted;
     public UnityEvent OnDialogueEnded;
 
-    // We use OnEnable so the dialogue starts immediately when you turn on the Overlay Prefab
+    [Header("Testing")]
+    [Tooltip("Check this box to automatically play a file when the game starts, without needing a trigger!")]
+    public bool testMode = false;
+    public string testFileName = "dialogue.csv";
+
+    // We brought OnEnable back, but it ONLY fires if you are testing!
     void OnEnable()
     {
-        if (textHandler == null) textHandler = mainTextObject.GetComponent<TextHandler>();
-
-        LoadDialogueFromFile(dialogueFileName);
-        StartCoroutine(StartDialogueSequence());
+        if (testMode)
+        {
+            StartConversation(testFileName);
+        }
     }
 
     // --- CSV FILE LOADING SYSTEM ---
@@ -217,10 +222,21 @@ public class VNManager : MonoBehaviour
     {
         if (string.IsNullOrEmpty(id)) return null;
 
+        // 1. Check the internal roster first (For UI Portraits saved inside the Prefab)
         foreach (var character in characterRoster)
         {
             if (character.characterID == id) return character.characterObject;
         }
+
+        // 2. NEW FIX: Search the active game scene! (For actual game characters)
+        // If your CSV file says "Goblin", Unity will search the game board for a GameObject named "Goblin"
+        GameObject sceneCharacter = GameObject.Find(id);
+        if (sceneCharacter != null)
+        {
+            return sceneCharacter;
+        }
+
+        Debug.LogWarning($"VNManager looked everywhere but couldn't find a character named '{id}' to bounce!");
         return null;
     }
 

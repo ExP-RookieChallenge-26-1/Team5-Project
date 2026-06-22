@@ -1,0 +1,29 @@
+﻿SpeakerName,Text,CharacterID,HideCharacter,BounceCharacter,PauseAfter
+,"야심한 밤, 흐릿한 짐승의 형체가 빠르게 다가온다.",System,TRUE,TRUE,0
+???,(어흥),TigerSprite,TRUE,TRUE,0
+수문장,깜짝이야!,GateKeeperSprite,TRUE,TRUE,0
+범,놀라게 할 생각은 없었으나 버릇이 되어 미안하네…,TigerSprite,TRUE,TRUE,0
+수문장,호랑이가 사람 말을 하다니? ,GateKeeperSprite,TRUE,TRUE,0
+범,오랜 시간 살다 보면 호랑이도 말을 할 수 있게 되더군.,TigerSprite,TRUE,TRUE,0
+수문장,혹시 무슨 일로 찾아오셨습니까?,GateKeeperSprite,TRUE,TRUE,0
+범,사람이 되는 방법을 찾고 있네.,TigerSprite,TRUE,TRUE,0
+범,자네는 그 방법을 알고 있는가?,TigerSprite,TRUE,TRUE,0
+수문장,저는 잘 모르겠습니다.,GateKeeperSprite,TRUE,TRUE,0
+범,그렇다면 성 안으로 찾으러 가겠네.,TigerSprite,TRUE,TRUE,0
+수문장,아…안 됩니다.,GateKeeperSprite,TRUE,TRUE,0
+수문장,저야 한 명이니 넘어갔지 여러 명이 범님을 마주한다면 궐내가 발칵 뒤집힐 것입니다.,GateKeeperSprite,TRUE,TRUE,0
+범,"여기까지 왔거늘, 내 그냥 돌아가야 한단 말인가?",TigerSprite,TRUE,TRUE,0
+수문장,제…제가 사람이 되는 방법을 찾아오겠습니다.,GateKeeperSprite,TRUE,TRUE,0
+수문장,알 만한 사람이 있습니다.,GateKeeperSprite,TRUE,TRUE,0
+범,알았네. 그렇다면 나도 무언가 도와줌세. 필요한 것이 있는가?,TigerSprite,TRUE,TRUE,0
+수문장,그럼 제가 안에서 방법을 찾아오는 동안 강가에서 향로 조각을 찾아주십시오.,GateKeeperSprite,TRUE,TRUE,0
+범,내가 이런 말을 할 줄 진작에 알고 있었던 것처럼 말하는 군.,TigerSprite,TRUE,TRUE,0
+수문장,…,GateKeeperSprite,TRUE,TRUE,0
+범,괘씸하지만 뱉은 말이 있으니 도와줌세.,TigerSprite,TRUE,TRUE,0
+수문장,제가 아침에 교대하기 전까지 향로 조각을 찾아와주십시오.,GateKeeperSprite,TRUE,TRUE,0
+수문장,해가 뜨기 전에는 강 근처에 빨간 귀신과 파란 귀신이 나타나니 조심하셔야 합니다.,GateKeeperSprite,TRUE,TRUE,0
+범,빨간 귀신과 파란 귀신이라… 내가 만든 부적으로 해치울 수 있겠군.,TigerSprite,TRUE,TRUE,0
+범,부적이 두 장씩 밖에 없으니 다른색 귀신을 봉인해 만들면 되겠군.,TigerSprite,TRUE,TRUE,0
+수문장,아침에 제가 교대하기 전까지 돌아오셔야 합니다. 그 이후엔 곤란해지실 겁니다,GateKeeperSprite,TRUE,TRUE,0
+범,다녀오겠네.,TigerSprite,TRUE,TRUE,0
+수문장,"에휴 제명에 못 살지, 내가…",GateKeeperSprite,TRUE,TRUE,0
