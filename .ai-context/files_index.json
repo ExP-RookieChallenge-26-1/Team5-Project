@@ -1954,6 +1954,108 @@
     ]
   },
   {
+    "file_id": "exp-make5/Assets/Scripts/UI/DialogueTrigger.cs",
+    "path": "exp-make5/Assets/Scripts/UI/DialogueTrigger.cs",
+    "file_name": "DialogueTrigger.cs",
+    "content_hash": "eb4dc51618c1a9020422db98da025179ffcab275",
+    "size": 700,
+    "line_count": 25,
+    "namespace": "",
+    "using_list": [
+      "UnityEngine"
+    ],
+    "classes": [
+      {
+        "name": "DialogueTrigger",
+        "kind": "class",
+        "access": "public",
+        "base_types": [
+          "MonoBehaviour"
+        ],
+        "interfaces": [],
+        "attributes": [],
+        "is_partial": false,
+        "is_generic": false
+      }
+    ],
+    "main_class_name": "DialogueTrigger",
+    "unity_type": "MonoBehaviour",
+    "methods": [
+      "PlayThisDialogue"
+    ],
+    "fields": [
+      {
+        "name": "csvFileName",
+        "type": "string",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "vnManager",
+        "type": "VNManager",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      }
+    ],
+    "properties": [],
+    "events": [],
+    "unity_messages": [],
+    "has_update": false,
+    "has_fixed_update": false,
+    "has_late_update": false,
+    "has_awake": false,
+    "has_start": false,
+    "has_on_enable": false,
+    "has_on_disable": false,
+    "serialize_field_count": 0,
+    "public_field_count": 2,
+    "get_component_count": 0,
+    "find_call_count": 0,
+    "new_keyword_count": 0,
+    "coroutine_count": 0,
+    "singleton_candidate": false,
+    "dont_destroy_on_load": false,
+    "referenced_types": [
+      "string",
+      "VNManager",
+      "UnityEngine",
+      "What",
+      "Type",
+      "StreamingAssets",
+      "System",
+      "Reference",
+      "THIS",
+      "PlayThisDialogue",
+      "SetActive",
+      "StartConversation",
+      "LogError"
+    ],
+    "component_access_types": [],
+    "created_types": [],
+    "singleton_access_types": [],
+    "string_literals": [
+      "What file should this trigger load?",
+      "Type the exact name of the file in StreamingAssets, e.g., dialogue.csv",
+      "dialogue.csv",
+      "System Reference",
+      "VNManager is not assigned on the DialogueTrigger!"
+    ],
+    "numeric_literals": [],
+    "guessed_roles": [
+      "runtime",
+      "manager",
+      "ui",
+      "save-load"
+    ],
+    "summary_signals": [
+      "런타임 컴포넌트",
+      "UI 관련 로직 포함",
+      "저장/불러오기 관련 로직 포함"
+    ]
+  },
+  {
     "file_id": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "path": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "file_name": "MainMenuUI.cs",
@@ -2646,9 +2748,9 @@
     "file_id": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "path": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "file_name": "VNManager.cs",
-    "content_hash": "99b748c373826d09fbafa5a050ab099307298fae",
-    "size": 12029,
-    "line_count": 379,
+    "content_hash": "29f9285688281bcf8772c62643ae6c12abc7d47d",
+    "size": 11716,
+    "line_count": 371,
     "namespace": "",
     "using_list": [
       "UnityEngine",
@@ -2699,7 +2801,6 @@
     "main_class_name": "DialogueLine",
     "unity_type": "None",
     "methods": [
-      "OnEnable",
       "LoadDialogueFromFile",
       "DialogueLine",
       "StartDialogueSequence",
@@ -2854,20 +2955,6 @@
         "is_static": false
       },
       {
-        "name": "testMode",
-        "type": "bool",
-        "access": "public",
-        "serialized": false,
-        "is_static": false
-      },
-      {
-        "name": "testFileName",
-        "type": "string",
-        "access": "public",
-        "serialized": false,
-        "is_static": false
-      },
-      {
         "name": "nextInputPressed",
         "type": "bool",
         "access": "internal",
@@ -2913,7 +3000,6 @@
     "properties": [],
     "events": [],
     "unity_messages": [
-      "OnEnable",
       "Update"
     ],
     "has_update": true,
@@ -2921,10 +3007,10 @@
     "has_late_update": false,
     "has_awake": false,
     "has_start": false,
-    "has_on_enable": true,
+    "has_on_enable": false,
     "has_on_disable": false,
     "serialize_field_count": 0,
-    "public_field_count": 15,
+    "public_field_count": 13,
     "get_component_count": 1,
     "find_call_count": 1,
     "new_keyword_count": 6,
@@ -2978,12 +3064,6 @@
       "Integration",
       "OnDialogueStarted",
       "OnDialogueEnded",
-      "Testing",
-      "Check",
-      "We",
-      "OnEnable",
-      "ONLY",
-      "StartConversation",
       "FILE",
       "LOADING",
       "SYSTEM",
@@ -3038,6 +3118,7 @@
       "SUPPORT",
       "Keyboard",
       "Pointer",
+      "We",
       "EventSystem",
       "IsPointerOverGameObject",
       "Stop",
@@ -3053,13 +3134,15 @@
       "WaitBetweenLines",
       "EndDialogue",
       "IsNullOrEmpty",
+      "BYPASS",
+      "If",
+      "ID",
+      "ToLower",
+      "Check",
       "For",
       "Portraits",
       "Prefab",
-      "FIX",
       "Search",
-      "If",
-      "Goblin",
       "Find",
       "LogWarning",
       "Wait",
@@ -3094,6 +3177,7 @@
       "UI_TogglePause",
       "Paused",
       "Resumed",
+      "StartConversation",
       "GetComponent"
     ],
     "component_access_types": [
@@ -3115,7 +3199,6 @@
       "dialogue.csv",
       "Controls",
       "Game Integration",
-      "Testing",
       ",(?=(?:[^",
       "]*",
       "[^",
@@ -3125,7 +3208,8 @@
       "\\",
       ", ",
       "Loaded {dialogueLines.Count} lines from {fileName}",
-      "Goblin",
+      "System",
+      "system",
       "if (isFastForwarding) PlayNextLine();",
       "The skip button was successfully clicked!"
     ],

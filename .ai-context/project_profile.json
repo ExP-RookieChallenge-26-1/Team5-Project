@@ -2,23 +2,23 @@
   "project_name": "unknown",
   "language": "C#",
   "engine_guess": "Unity",
-  "total_cs_files": 14,
-  "mono_behaviour_files": 12,
+  "total_cs_files": 15,
+  "mono_behaviour_files": 13,
   "scriptable_object_files": 1,
   "files_with_update": 4,
   "files_with_fixed_update": 0,
   "files_with_late_update": 1,
   "singleton_candidates": 2,
-  "manager_like_classes": 9,
-  "ui_related_classes": 12,
-  "save_load_related_classes": 3,
+  "manager_like_classes": 10,
+  "ui_related_classes": 13,
+  "save_load_related_classes": 4,
   "role_counts": {
-    "runtime": 14,
-    "ui": 12,
+    "runtime": 15,
+    "ui": 13,
     "player": 10,
-    "manager": 9,
+    "manager": 10,
     "combat": 5,
-    "save-load": 3,
+    "save-load": 4,
     "scene": 2,
     "data": 1,
     "inventory": 1
@@ -27,8 +27,8 @@
     {
       "class_name": "DialogueLine",
       "file_id": "exp-make5/Assets/Scripts/UI/VNManager.cs",
-      "relation_count": 170,
-      "referenced_type_count": 163
+      "relation_count": 168,
+      "referenced_type_count": 161
     },
     {
       "class_name": "PlayerController",
@@ -123,7 +123,6 @@
         "find-heavy",
         "magic-number-heavy",
         "large-class",
-        "init-order-sensitive",
         "save-load-sensitive",
         "ui-runtime-mixed",
         "state-owner"
@@ -135,7 +134,6 @@
         "Find 계열 탐색 사용",
         "숫자 리터럴이 많아 의미 파악이 어려울 수 있음",
         "파일/메서드/필드 수가 많아 책임이 커질 가능성",
-        "초기화 순서에 민감할 가능성",
         "저장/불러오기 관련 로직 포함",
         "UI와 런타임 책임이 한 파일에 섞였을 가능성",
         "상태 중심 또는 관리 중심 클래스일 가능성"

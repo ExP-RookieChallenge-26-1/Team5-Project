@@ -2380,6 +2380,104 @@
     "strength": 1
   },
   {
+    "from_file": "exp-make5/Assets/Scripts/UI/DialogueTrigger.cs",
+    "from_class": "DialogueTrigger",
+    "to_type": "MonoBehaviour",
+    "relation_type": "inherits",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/DialogueTrigger.cs",
+    "from_class": "DialogueTrigger",
+    "to_type": "LogError",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/DialogueTrigger.cs",
+    "from_class": "DialogueTrigger",
+    "to_type": "PlayThisDialogue",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/DialogueTrigger.cs",
+    "from_class": "DialogueTrigger",
+    "to_type": "Reference",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/DialogueTrigger.cs",
+    "from_class": "DialogueTrigger",
+    "to_type": "SetActive",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/DialogueTrigger.cs",
+    "from_class": "DialogueTrigger",
+    "to_type": "StartConversation",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/DialogueTrigger.cs",
+    "from_class": "DialogueTrigger",
+    "to_type": "StreamingAssets",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/DialogueTrigger.cs",
+    "from_class": "DialogueTrigger",
+    "to_type": "string",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/DialogueTrigger.cs",
+    "from_class": "DialogueTrigger",
+    "to_type": "System",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/DialogueTrigger.cs",
+    "from_class": "DialogueTrigger",
+    "to_type": "THIS",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/DialogueTrigger.cs",
+    "from_class": "DialogueTrigger",
+    "to_type": "Type",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/DialogueTrigger.cs",
+    "from_class": "DialogueTrigger",
+    "to_type": "UnityEngine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/DialogueTrigger.cs",
+    "from_class": "DialogueTrigger",
+    "to_type": "VNManager",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/DialogueTrigger.cs",
+    "from_class": "DialogueTrigger",
+    "to_type": "What",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
     "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "from_class": "MainMenuUI",
     "to_type": "MonoBehaviour",
@@ -3432,6 +3530,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "from_class": "DialogueLine",
+    "to_type": "BYPASS",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
+    "from_class": "DialogueLine",
     "to_type": "CANCEL",
     "relation_type": "uses",
     "strength": 1
@@ -3642,13 +3747,6 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "from_class": "DialogueLine",
-    "to_type": "FIX",
-    "relation_type": "uses",
-    "strength": 1
-  },
-  {
-    "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
-    "from_class": "DialogueLine",
     "to_type": "float",
     "relation_type": "uses",
     "strength": 1
@@ -3719,14 +3817,14 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "from_class": "DialogueLine",
-    "to_type": "Goblin",
+    "to_type": "Google",
     "relation_type": "uses",
     "strength": 1
   },
   {
     "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "from_class": "DialogueLine",
-    "to_type": "Google",
+    "to_type": "ID",
     "relation_type": "uses",
     "strength": 1
   },
@@ -3985,21 +4083,7 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "from_class": "DialogueLine",
-    "to_type": "OnEnable",
-    "relation_type": "uses",
-    "strength": 1
-  },
-  {
-    "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
-    "from_class": "DialogueLine",
     "to_type": "Only",
-    "relation_type": "uses",
-    "strength": 1
-  },
-  {
-    "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
-    "from_class": "DialogueLine",
-    "to_type": "ONLY",
     "relation_type": "uses",
     "strength": 1
   },
@@ -4265,13 +4349,6 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "from_class": "DialogueLine",
-    "to_type": "Testing",
-    "relation_type": "uses",
-    "strength": 1
-  },
-  {
-    "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
-    "from_class": "DialogueLine",
     "to_type": "Text",
     "relation_type": "uses",
     "strength": 1
@@ -4350,6 +4427,13 @@
     "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "from_class": "DialogueLine",
     "to_type": "TO",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
+    "from_class": "DialogueLine",
+    "to_type": "ToLower",
     "relation_type": "uses",
     "strength": 1
   },
