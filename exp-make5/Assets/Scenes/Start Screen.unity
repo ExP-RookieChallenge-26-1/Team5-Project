@@ -373,6 +373,7 @@ MonoBehaviour:
   StartScreen: {fileID: 1729814607}
   StageSelect_story: {fileID: 1334041755}
   Settings: {fileID: 761514803}
+  buttonSound: {fileID: 8300000, guid: 4fc7a6d743a16c64dbf789c7d57fa230, type: 3}
 --- !u!1 &116772617
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,6 +649,7 @@ MonoBehaviour:
   StartScreen: {fileID: 1729814607}
   StageSelect_story: {fileID: 1334041755}
   Settings: {fileID: 761514803}
+  buttonSound: {fileID: 8300000, guid: 4fc7a6d743a16c64dbf789c7d57fa230, type: 3}
 --- !u!114 &503405503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1346,6 +1348,7 @@ MonoBehaviour:
   StartScreen: {fileID: 1729814607}
   StageSelect_story: {fileID: 1334041755}
   Settings: {fileID: 761514803}
+  buttonSound: {fileID: 8300000, guid: 4fc7a6d743a16c64dbf789c7d57fa230, type: 3}
 --- !u!1 &966432619
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,6 +1428,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966432619}
   m_CullTransparentMesh: 1
+--- !u!1001 &982393718
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5741987351528685929, guid: 706055dd12b88e744adfcfe7a5a0d909, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.08855
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741987351528685929, guid: 706055dd12b88e744adfcfe7a5a0d909, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.84644
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741987351528685929, guid: 706055dd12b88e744adfcfe7a5a0d909, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741987351528685929, guid: 706055dd12b88e744adfcfe7a5a0d909, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741987351528685929, guid: 706055dd12b88e744adfcfe7a5a0d909, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741987351528685929, guid: 706055dd12b88e744adfcfe7a5a0d909, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741987351528685929, guid: 706055dd12b88e744adfcfe7a5a0d909, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741987351528685929, guid: 706055dd12b88e744adfcfe7a5a0d909, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741987351528685929, guid: 706055dd12b88e744adfcfe7a5a0d909, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741987351528685929, guid: 706055dd12b88e744adfcfe7a5a0d909, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123404767461333656, guid: 706055dd12b88e744adfcfe7a5a0d909, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 706055dd12b88e744adfcfe7a5a0d909, type: 3}
 --- !u!1 &1334041753
 GameObject:
   m_ObjectHideFlags: 0
@@ -1726,6 +1786,7 @@ MonoBehaviour:
   StartScreen: {fileID: 1729814607}
   StageSelect_story: {fileID: 1334041755}
   Settings: {fileID: 761514803}
+  buttonSound: {fileID: 8300000, guid: 4fc7a6d743a16c64dbf789c7d57fa230, type: 3}
 --- !u!1 &1729814603
 GameObject:
   m_ObjectHideFlags: 0
@@ -2164,6 +2225,7 @@ MonoBehaviour:
   StartScreen: {fileID: 1729814607}
   StageSelect_story: {fileID: 1334041755}
   Settings: {fileID: 761514803}
+  buttonSound: {fileID: 8300000, guid: 4fc7a6d743a16c64dbf789c7d57fa230, type: 3}
 --- !u!114 &1880486694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2435,6 +2497,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1729814607}
     - target: {fileID: 5196493466479556848, guid: 90f81c40d39fa694fb0de53f4bfb1742, type: 3}
+      propertyPath: buttonSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4fc7a6d743a16c64dbf789c7d57fa230, type: 3}
+    - target: {fileID: 5196493466479556848, guid: 90f81c40d39fa694fb0de53f4bfb1742, type: 3}
       propertyPath: ModeSelectScreen
       value: 
       objectReference: {fileID: 0}
@@ -2605,3 +2671,4 @@ SceneRoots:
   - {fileID: 2075510082}
   - {fileID: 1778395952}
   - {fileID: 5781322}
+  - {fileID: 982393718}
