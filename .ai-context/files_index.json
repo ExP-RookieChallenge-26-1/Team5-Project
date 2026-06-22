@@ -2074,6 +2074,281 @@
     ]
   },
   {
+    "file_id": "exp-make5/Assets/Scripts/UI/MenuTransitionController.cs",
+    "path": "exp-make5/Assets/Scripts/UI/MenuTransitionController.cs",
+    "file_name": "MenuTransitionController.cs",
+    "content_hash": "f417793a0ffe7b9886328e66b46df3fd3e9c950d",
+    "size": 3798,
+    "line_count": 122,
+    "namespace": "for",
+    "using_list": [
+      "System.Collections",
+      "UnityEngine",
+      "UnityEngine.UI",
+      "UnityEngine.InputSystem"
+    ],
+    "classes": [
+      {
+        "name": "MenuTransitionController",
+        "kind": "class",
+        "access": "public",
+        "base_types": [
+          "MonoBehaviour"
+        ],
+        "interfaces": [],
+        "attributes": [],
+        "is_partial": false,
+        "is_generic": false
+      }
+    ],
+    "main_class_name": "MenuTransitionController",
+    "unity_type": "MonoBehaviour",
+    "methods": [
+      "Screen",
+      "Elements",
+      "ORDER",
+      "slide",
+      "Gradient",
+      "Start",
+      "Vector2",
+      "Update",
+      "StartMenuTransition",
+      "PulseStandbyText",
+      "CascadeSlideIn",
+      "WaitForSeconds",
+      "SlideItem",
+      "FadeCanvasGroup"
+    ],
+    "fields": [
+      {
+        "name": "standbyGroup",
+        "type": "CanvasGroup",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "pulseSpeed",
+        "type": "float",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "minAlpha",
+        "type": "float",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "menuItems",
+        "type": "RectTransform[]",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "slideOffset",
+        "type": "float",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "slideDuration",
+        "type": "float",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "cascadeDelay",
+        "type": "float",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "leftGradient",
+        "type": "CanvasGroup",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "gradientFadeDuration",
+        "type": "float",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "originalPositions",
+        "type": "Vector2[]",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "isMenuOpen",
+        "type": "bool",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "startPosition",
+        "type": "Vector2",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "elapsed",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "t",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "startAlpha",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "elapsed",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      }
+    ],
+    "properties": [],
+    "events": [],
+    "unity_messages": [
+      "Start",
+      "Update"
+    ],
+    "has_update": true,
+    "has_fixed_update": false,
+    "has_late_update": false,
+    "has_awake": false,
+    "has_start": true,
+    "has_on_enable": false,
+    "has_on_disable": false,
+    "serialize_field_count": 0,
+    "public_field_count": 9,
+    "get_component_count": 0,
+    "find_call_count": 0,
+    "new_keyword_count": 3,
+    "coroutine_count": 9,
+    "singleton_candidate": false,
+    "dont_destroy_on_load": false,
+    "referenced_types": [
+      "CanvasGroup",
+      "float",
+      "RectTransform",
+      "Vector2",
+      "bool",
+      "System",
+      "Collections",
+      "UnityEngine",
+      "UI",
+      "InputSystem",
+      "Added",
+      "New",
+      "Input",
+      "Standby",
+      "Screen",
+      "Press",
+      "Start",
+      "The",
+      "Menu",
+      "Elements",
+      "Sliding",
+      "In",
+      "Drag",
+      "Title",
+      "Buttons",
+      "IN",
+      "ORDER",
+      "How",
+      "Left",
+      "Gradient",
+      "Optional",
+      "Length",
+      "SetActive",
+      "StartCoroutine",
+      "PulseStandbyText",
+      "Update",
+      "NEW",
+      "INPUT",
+      "SYSTEM",
+      "CHECK",
+      "Pointer",
+      "Mouse",
+      "Touchscreen",
+      "StartMenuTransition",
+      "StopAllCoroutines",
+      "FadeCanvasGroup",
+      "CascadeSlideIn",
+      "PingPong",
+      "Lerp",
+      "SlideItem",
+      "WaitForSeconds",
+      "Pow"
+    ],
+    "component_access_types": [],
+    "created_types": [
+      "Vector2",
+      "WaitForSeconds"
+    ],
+    "singleton_access_types": [],
+    "string_literals": [
+      "Standby Screen (Press to Start)",
+      "The CanvasGroup attached to the 'Press to Start' text or band.",
+      "Menu Elements (Sliding In)",
+      "Drag the Title and Buttons here IN ORDER (top to bottom).",
+      "How far off-screen to the right they should start.",
+      "How long the slide takes for a single item.",
+      "The delay between each item starting its slide (the '차르륵' effect).",
+      "Left Gradient (Optional)"
+    ],
+    "numeric_literals": [
+      1.5,
+      0.3,
+      500,
+      0.6,
+      0.1,
+      0.5,
+      0,
+      1,
+      3
+    ],
+    "guessed_roles": [
+      "ui",
+      "runtime",
+      "player",
+      "inventory"
+    ],
+    "summary_signals": [
+      "런타임 컴포넌트",
+      "Update 기반 처리 존재",
+      "UI 관련 로직 포함",
+      "인벤토리 계열 로직 포함"
+    ]
+  },
+  {
     "file_id": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
     "path": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
     "file_name": "TextHandler.cs",
