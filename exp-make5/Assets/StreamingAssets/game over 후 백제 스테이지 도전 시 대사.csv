@@ -1,0 +1,8 @@
+﻿SpeakerName,Text,CharacterID,HideCharacter,BounceCharacter,PauseAfter
+범,(어흥),TigerSprite,TRUE,TRUE,0
+수문장,범님 오셨습니까?,GateKeeperSprite,TRUE,TRUE,0
+범,이젠 안놀라는 군?,TigerSprite,TRUE,TRUE,0
+수문장,너무 많이 놀라서 익숙해졌습니다.,GateKeeperSprite,TRUE,TRUE,0
+범,저번처럼 향로를 찾아서 오면 되는가?,TigerSprite,TRUE,TRUE,0
+수문장,네 부탁드립니다. ,GateKeeperSprite,TRUE,TRUE,0
+수문장,기다리고 있겠습니다.,GateKeeperSprite,TRUE,TRUE,0

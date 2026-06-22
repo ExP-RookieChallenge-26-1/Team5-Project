@@ -60,20 +60,6 @@ public class VNManager : MonoBehaviour
     public UnityEvent OnDialogueStarted;
     public UnityEvent OnDialogueEnded;
 
-    [Header("Testing")]
-    [Tooltip("Check this box to automatically play a file when the game starts, without needing a trigger!")]
-    public bool testMode = false;
-    public string testFileName = "dialogue.csv";
-
-    // We brought OnEnable back, but it ONLY fires if you are testing!
-    void OnEnable()
-    {
-        if (testMode)
-        {
-            StartConversation(testFileName);
-        }
-    }
-
     // --- CSV FILE LOADING SYSTEM ---
     public void LoadDialogueFromFile(string fileName)
     {
@@ -222,14 +208,20 @@ public class VNManager : MonoBehaviour
     {
         if (string.IsNullOrEmpty(id)) return null;
 
+        // --- NEW: SYSTEM BYPASS ---
+        // If the ID is "System" (ignoring uppercase/lowercase), skip the search entirely!
+        if (id.ToLower() == "system")
+        {
+            return null;
+        }
+
         // 1. Check the internal roster first (For UI Portraits saved inside the Prefab)
         foreach (var character in characterRoster)
         {
             if (character.characterID == id) return character.characterObject;
         }
 
-        // 2. NEW FIX: Search the active game scene! (For actual game characters)
-        // If your CSV file says "Goblin", Unity will search the game board for a GameObject named "Goblin"
+        // 2. Search the active game scene! (For actual game characters)
         GameObject sceneCharacter = GameObject.Find(id);
         if (sceneCharacter != null)
         {
