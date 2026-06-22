@@ -2371,9 +2371,9 @@
     "file_id": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "path": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "file_name": "VNManager.cs",
-    "content_hash": "e6efce0056b2611bb97989479cd39721b38bb0a0",
-    "size": 10904,
-    "line_count": 345,
+    "content_hash": "203908318c8a274f8fbd95ea8be78ecc3c7018f5",
+    "size": 11395,
+    "line_count": 363,
     "namespace": "",
     "using_list": [
       "UnityEngine",
@@ -2384,7 +2384,8 @@
       "UnityEngine.InputSystem",
       "System.IO",
       "System.Text.RegularExpressions",
-      "UnityEngine.EventSystems"
+      "UnityEngine.EventSystems",
+      "UnityEngine.Events"
     ],
     "classes": [
       {
@@ -2439,7 +2440,8 @@
       "AdvanceDialogue",
       "UI_SkipEntireSequence",
       "EndDialogue",
-      "UI_TogglePause"
+      "UI_TogglePause",
+      "StartConversation"
     ],
     "fields": [
       {
@@ -2562,6 +2564,20 @@
         "is_static": false
       },
       {
+        "name": "OnDialogueStarted",
+        "type": "UnityEvent",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "OnDialogueEnded",
+        "type": "UnityEvent",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
         "name": "nextInputPressed",
         "type": "bool",
         "access": "internal",
@@ -2618,11 +2634,11 @@
     "has_on_enable": true,
     "has_on_disable": false,
     "serialize_field_count": 0,
-    "public_field_count": 11,
-    "get_component_count": 1,
+    "public_field_count": 13,
+    "get_component_count": 2,
     "find_call_count": 0,
     "new_keyword_count": 6,
-    "coroutine_count": 6,
+    "coroutine_count": 7,
     "singleton_candidate": false,
     "dont_destroy_on_load": false,
     "referenced_types": [
@@ -2633,6 +2649,7 @@
       "TMP_Text",
       "int",
       "Key",
+      "UnityEvent",
       "Vector3",
       "UnityEngine",
       "UI",
@@ -2649,6 +2666,7 @@
       "RegularExpressions",
       "CSV",
       "EventSystems",
+      "Events",
       "Serializable",
       "TextArea",
       "Visuals",
@@ -2666,6 +2684,10 @@
       "Objects",
       "Controls",
       "Space",
+      "Game",
+      "Integration",
+      "OnDialogueStarted",
+      "OnDialogueEnded",
       "We",
       "OnEnable",
       "Overlay",
@@ -2766,12 +2788,15 @@
       "LogWarning",
       "FALSE",
       "Sequence",
-      "Hide",
-      "Optional",
+      "Tell",
+      "Invoke",
+      "Turn",
+      "VN",
+      "Canvas",
       "UI_TogglePause",
-      "Game",
       "Paused",
-      "Resumed"
+      "Resumed",
+      "StartConversation"
     ],
     "component_access_types": [
       "TextHandler"
@@ -2791,6 +2816,7 @@
       "Dialogue Content",
       "dialogue.csv",
       "Controls",
+      "Game Integration",
       ",(?=(?:[^",
       "]*",
       "[^",
@@ -2803,8 +2829,7 @@
       "if (isFastForwarding) PlayNextLine();",
       "The skip button was successfully clicked!",
       "Skip canceled because isDialogueRunning is FALSE!",
-      "Sequence completely skipped.",
-      "Game Paused"
+      "Sequence completely skipped."
     ],
     "numeric_literals": [
       3,
