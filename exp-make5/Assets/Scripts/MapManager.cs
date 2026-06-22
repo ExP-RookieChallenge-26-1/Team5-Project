@@ -26,12 +26,15 @@ public class MapManager : MonoBehaviour
 
     public GameObject gatekeeperPrefab;     // 수문장 
 
-    public GameObject faintIncensePrefab; // 미확인 타일 위에 띄울 연한 향로
-    public GameObject realIncensePrefab;  // 획득 가능한 완전한 모습의 향로
+    public GameObject[] faintIncensePrefabs = new GameObject[4]; // 블러 향로 조각 1~4
+    public GameObject[] realIncensePrefabs = new GameObject[4];  // 획득 가능한 완전한 모습의 향로
 
     private TileData[,] grid;
 
     private int foundIncenseCount = 0;
+
+    [Header("Sound Settings")]
+    public AudioClip tileOpenSound; // 일반 미확인 타일 여는 소리
 
     public struct TileData {
         public bool isRedMine;
@@ -46,6 +49,7 @@ public class MapManager : MonoBehaviour
         public bool isRiver;
         public bool isMountain;
         public bool isIncense;
+        public int incenseIndex;
         public bool isGatekeeper;
 
         public GameObject faintIncenseVisual;
@@ -92,8 +96,29 @@ public class MapManager : MonoBehaviour
         foreach (Vector2Int pos in currentStageData.mountainPositions) {
             if (IsValidPos(pos.x, pos.y)) grid[pos.x, pos.y].isMountain = true;
         }
+        // 0, 1, 2, 3번 디자인 번호를 무작위로 섞어 배치합니다.
+        List<int> incenseIndices = new List<int> { 0, 1, 2, 3 };
+        for (int i = incenseIndices.Count - 1; i > 0; i--)
+        {
+            int randomIndex = Random.Range(0, i + 1);
+            int temp = incenseIndices[i];
+            incenseIndices[i] = incenseIndices[randomIndex];
+            incenseIndices[randomIndex] = temp;
+        }
+
+        int incenseCounter = 0;
         foreach (Vector2Int pos in currentStageData.incensePositions) {
-            if (IsValidPos(pos.x, pos.y)) grid[pos.x, pos.y].isIncense = true;
+            if (IsValidPos(pos.x, pos.y)) 
+            {
+                grid[pos.x, pos.y].isIncense = true;
+                
+                // 섞인 순서대로 각 좌표 타일에 고유 디자인 번호(0~3)를 부여합니다.
+                if (incenseCounter < incenseIndices.Count)
+                {
+                    grid[pos.x, pos.y].incenseIndex = incenseIndices[incenseCounter];
+                    incenseCounter++;
+                }
+            }
         }
         if (IsValidPos(currentStageData.gatekeeperPosition.x, currentStageData.gatekeeperPosition.y)) {
             grid[currentStageData.gatekeeperPosition.x, currentStageData.gatekeeperPosition.y].isGatekeeper = true;
@@ -178,15 +203,31 @@ public class MapManager : MonoBehaviour
 
         foreach (Vector2Int pos in currentStageData.incensePositions)
         {
-            if (grid[pos.x, pos.y].isOpened) continue; // 이미 열린 곳은 무시
+            if (!IsValidPos(pos.x, pos.y) || grid[pos.x, pos.y].isOpened) continue; // 이미 열린 곳은 무시
 
             // 가로, 세로 중 더 먼 거리를 기준으로 3칸 이내인지 확인 (Chebyshev distance)
             int dist = Mathf.Max(Mathf.Abs(pos.x - playerPos.x), Mathf.Abs(pos.y - playerPos.y));
             
-            // 3칸 이내이고, 아직 반투명 향로를 안 띄웠다면 생성
-            if (dist <= 3 && grid[pos.x, pos.y].faintIncenseVisual == null && faintIncensePrefab != null)
+            if (dist <= 3)
             {
-                grid[pos.x, pos.y].faintIncenseVisual = Instantiate(faintIncensePrefab, new Vector3(pos.x, pos.y, -0.2f), Quaternion.identity, transform);
+                // 3칸 이내이고, 아직 안 띄웠으며, 아직 먹지 않은 향로라면 생성
+                if (grid[pos.x, pos.y].faintIncenseVisual == null && grid[pos.x, pos.y].isIncense)
+                {
+                    int idx = grid[pos.x, pos.y].incenseIndex;
+                    if (faintIncensePrefabs != null && idx >= 0 && idx < faintIncensePrefabs.Length && faintIncensePrefabs[idx] != null)
+                    {
+                        grid[pos.x, pos.y].faintIncenseVisual = Instantiate(faintIncensePrefabs[idx], new Vector3(pos.x, pos.y, -0.2f), Quaternion.identity, transform);
+                    }
+                }
+            }
+            else
+            {
+                // 💡 [수정됨] 3칸보다 멀어졌다면 생성되어 있던 반투명 향로를 즉시 파괴하고 확실히 초기화합니다.
+                if (grid[pos.x, pos.y].faintIncenseVisual != null)
+                {
+                    Destroy(grid[pos.x, pos.y].faintIncenseVisual);
+                    grid[pos.x, pos.y].faintIncenseVisual = null;
+                }
             }
         }
     }
@@ -212,7 +253,14 @@ public class MapManager : MonoBehaviour
             
             if (grid[pos.x, pos.y].realIncenseVisual != null)
             {
-                Destroy(grid[pos.x, pos.y].realIncenseVisual); // 향로 이미지 파괴
+                Destroy(grid[pos.x, pos.y].realIncenseVisual);
+                grid[pos.x, pos.y].realIncenseVisual = null;
+            }
+            
+            if (grid[pos.x, pos.y].faintIncenseVisual != null)
+            {
+                Destroy(grid[pos.x, pos.y].faintIncenseVisual);
+                grid[pos.x, pos.y].faintIncenseVisual = null;
             }
 
             foundIncenseCount++;
@@ -235,6 +283,14 @@ public class MapManager : MonoBehaviour
             if (!success) {
                 grid[pos.x, pos.y].isObstacle = true;
                 return false;
+            }
+        }
+        else if (!isSilent) 
+        {
+            // 💡 [사운드 추가] 지뢰가 아닌 일반 타일을 플레이어가 직접 밟아서 열었을 때
+            if (SoundManager.Instance != null && tileOpenSound != null)
+            {
+                SoundManager.Instance.PlaySFX(tileOpenSound);
             }
         }
 
@@ -282,15 +338,24 @@ public class MapManager : MonoBehaviour
             if (grid[pos.x, pos.y].isRedMine) Instantiate(redMinePrefab, new Vector3(pos.x, pos.y, -0.2f), Quaternion.identity, grid[pos.x, pos.y].visualObj.transform);
             else if (grid[pos.x, pos.y].isBlueMine) Instantiate(blueMinePrefab, new Vector3(pos.x, pos.y, -0.2f), Quaternion.identity, grid[pos.x, pos.y].visualObj.transform);
             else ShowHint(pos);
-
+            
+            if (grid[pos.x, pos.y].faintIncenseVisual != null) 
+            {
+                Destroy(grid[pos.x, pos.y].faintIncenseVisual);
+                grid[pos.x, pos.y].faintIncenseVisual = null;
+            }
+            
             // 타일이 열렸는데 향로 자리라면 완전한 향로를 띄움
-            if (grid[pos.x, pos.y].isIncense && realIncensePrefab != null)
+            if (grid[pos.x, pos.y].isIncense)
             {
                 // 반투명 향로가 있었다면 파괴
                 if (grid[pos.x, pos.y].faintIncenseVisual != null) Destroy(grid[pos.x, pos.y].faintIncenseVisual);
                 
-                // 생성된 오브젝트를 변수에 저장해 둡니다 (나중에 캐릭터가 밟으면 지우기 위해)
-                grid[pos.x, pos.y].realIncenseVisual = Instantiate(realIncensePrefab, new Vector3(pos.x, pos.y, -0.2f), Quaternion.identity, transform);
+                int idx = grid[pos.x, pos.y].incenseIndex;
+                if (realIncensePrefabs != null && idx >= 0 && idx < realIncensePrefabs.Length && realIncensePrefabs[idx] != null)
+                {
+                    grid[pos.x, pos.y].realIncenseVisual = Instantiate(realIncensePrefabs[idx], new Vector3(pos.x, pos.y, -0.2f), Quaternion.identity, transform);
+                }
             }
         }
         else if (type == "LockedRed") 

@@ -10,6 +10,9 @@ public class PlayerStatus : MonoBehaviour
     public event Action<int> OnBlueAmuletChanged;
     public event Action<int> OnTimeChanged;
 
+    [Header("Sound Settings")]
+    public AudioClip defuseSuccessSound; // 지뢰 해제 성공 소리 
+
     [SerializeField] private int maxHealth = 3;
     private int currentHealth;
     private int redAmuletCount = 1;
@@ -60,6 +63,7 @@ public class PlayerStatus : MonoBehaviour
             if (redAmuletCount > 0) {
                 redAmuletCount--; blueAmuletCount++;
                 NotifyAll();
+                if (SoundManager.Instance != null && defuseSuccessSound != null) SoundManager.Instance.PlaySFX(defuseSuccessSound);
                 return true;
             }
         }
@@ -68,6 +72,7 @@ public class PlayerStatus : MonoBehaviour
             if (blueAmuletCount > 0) {
                 blueAmuletCount--; redAmuletCount++;
                 NotifyAll();
+                if (SoundManager.Instance != null && defuseSuccessSound != null) SoundManager.Instance.PlaySFX(defuseSuccessSound);
                 return true;
             }
         }

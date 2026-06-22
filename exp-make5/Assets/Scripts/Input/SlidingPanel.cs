@@ -56,6 +56,11 @@ public class SlidingPanel : MonoBehaviour
 
     public void TogglePanel(bool open)
     {
+        if (open && StageEventManager.Instance != null && StageEventManager.Instance.isGameOver)
+        {
+            return;
+        }
+
         isPanelOpen = open;
         Vector2 target = isPanelOpen ? openPosition : closedPosition;
 

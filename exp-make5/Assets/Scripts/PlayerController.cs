@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public Image damageFlashImage; // 화면을 덮을 빨간색 패널
     public float flashDuration = 0.4f; // 빨간색이 스르륵 사라지는 시간
     public AudioClip oofSound;
+    public AudioClip riverWalkSound;
 
     private Vector2Int mapSize;
 
@@ -76,6 +77,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (StageEventManager.Instance != null && StageEventManager.Instance.isGameOver)
+        {
+            // 이동 중이었다면 애니메이션도 멈추게 처리
+            if (isMoving) 
+            {
+                animator.SetBool("isMoving", false);
+                isMoving = false;
+            }
+            return; // 아래쪽의 이동이나 마우스 클릭 코드를 실행하지 않고 즉시 종료
+        }
+
         if (isMoving && currentPath.Count > 0)
         {
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(currentTargetNode.x, currentTargetNode.y, transform.position.z), moveSpeed * Time.deltaTime);
@@ -263,6 +275,12 @@ public class PlayerController : MonoBehaviour
 
         // --- 3. 강 접근(2칸 이내) 독백 로직 ---
         CheckTerrainProximity(pos);
+
+        // 강 타일 이동 소리
+        if (mapManager.IsRiver(pos.x, pos.y) && SoundManager.Instance != null && riverWalkSound != null)
+        {   
+            SoundManager.Instance.PlaySFX(riverWalkSound);
+        }   
 
         // --- 4. 실제 이동 처리 ---
         currentTargetNode = nextNode;
