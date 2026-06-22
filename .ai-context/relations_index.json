@@ -3460,6 +3460,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "from_class": "DialogueLine",
+    "to_type": "Check",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
+    "from_class": "DialogueLine",
     "to_type": "Clean",
     "relation_type": "uses",
     "strength": 1
@@ -3628,7 +3635,28 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "from_class": "DialogueLine",
+    "to_type": "Find",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
+    "from_class": "DialogueLine",
+    "to_type": "FIX",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
+    "from_class": "DialogueLine",
     "to_type": "float",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
+    "from_class": "DialogueLine",
+    "to_type": "For",
     "relation_type": "uses",
     "strength": 1
   },
@@ -3685,6 +3713,13 @@
     "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "from_class": "DialogueLine",
     "to_type": "GetComponent",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
+    "from_class": "DialogueLine",
+    "to_type": "Goblin",
     "relation_type": "uses",
     "strength": 1
   },
@@ -3964,7 +3999,7 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "from_class": "DialogueLine",
-    "to_type": "Overlay",
+    "to_type": "ONLY",
     "relation_type": "uses",
     "strength": 1
   },
@@ -4007,6 +4042,13 @@
     "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "from_class": "DialogueLine",
     "to_type": "Pointer",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
+    "from_class": "DialogueLine",
+    "to_type": "Portraits",
     "relation_type": "uses",
     "strength": 1
   },
@@ -4063,6 +4105,13 @@
     "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "from_class": "DialogueLine",
     "to_type": "Resumed",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
+    "from_class": "DialogueLine",
+    "to_type": "Search",
     "relation_type": "uses",
     "strength": 1
   },
@@ -4210,6 +4259,13 @@
     "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "from_class": "DialogueLine",
     "to_type": "Tell",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
+    "from_class": "DialogueLine",
+    "to_type": "Testing",
     "relation_type": "uses",
     "strength": 1
   },

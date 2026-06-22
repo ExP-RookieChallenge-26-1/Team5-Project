@@ -2646,9 +2646,9 @@
     "file_id": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "path": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "file_name": "VNManager.cs",
-    "content_hash": "203908318c8a274f8fbd95ea8be78ecc3c7018f5",
-    "size": 11395,
-    "line_count": 363,
+    "content_hash": "99b748c373826d09fbafa5a050ab099307298fae",
+    "size": 12029,
+    "line_count": 379,
     "namespace": "",
     "using_list": [
       "UnityEngine",
@@ -2707,6 +2707,7 @@
       "Update",
       "PlayNextLine",
       "GetCharacterObject",
+      "first",
       "WaitBetweenLines",
       "WaitUntil",
       "BounceCharacter",
@@ -2853,6 +2854,20 @@
         "is_static": false
       },
       {
+        "name": "testMode",
+        "type": "bool",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "testFileName",
+        "type": "string",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
         "name": "nextInputPressed",
         "type": "bool",
         "access": "internal",
@@ -2909,11 +2924,11 @@
     "has_on_enable": true,
     "has_on_disable": false,
     "serialize_field_count": 0,
-    "public_field_count": 13,
-    "get_component_count": 2,
-    "find_call_count": 0,
+    "public_field_count": 15,
+    "get_component_count": 1,
+    "find_call_count": 1,
     "new_keyword_count": 6,
-    "coroutine_count": 7,
+    "coroutine_count": 6,
     "singleton_candidate": false,
     "dont_destroy_on_load": false,
     "referenced_types": [
@@ -2963,17 +2978,16 @@
       "Integration",
       "OnDialogueStarted",
       "OnDialogueEnded",
+      "Testing",
+      "Check",
       "We",
       "OnEnable",
-      "Overlay",
-      "Prefab",
-      "GetComponent",
-      "LoadDialogueFromFile",
-      "StartCoroutine",
-      "StartDialogueSequence",
+      "ONLY",
+      "StartConversation",
       "FILE",
       "LOADING",
       "SYSTEM",
+      "LoadDialogueFromFile",
       "Looks",
       "Assets",
       "Path",
@@ -3005,6 +3019,7 @@
       "LogError",
       "Could",
       "Make",
+      "StartDialogueSequence",
       "MOVE",
       "THIS",
       "TO",
@@ -3032,15 +3047,24 @@
       "DICTIONARY",
       "LOOKUP",
       "GetCharacterObject",
+      "StartCoroutine",
       "BounceCharacter",
       "PlayText",
       "WaitBetweenLines",
       "EndDialogue",
       "IsNullOrEmpty",
+      "For",
+      "Portraits",
+      "Prefab",
+      "FIX",
+      "Search",
+      "If",
+      "Goblin",
+      "Find",
+      "LogWarning",
       "Wait",
       "WaitUntil",
       "Instead",
-      "If",
       "Skip",
       "Mode",
       "Notice",
@@ -3060,7 +3084,6 @@
       "The",
       "ADD",
       "AT",
-      "LogWarning",
       "FALSE",
       "Sequence",
       "Tell",
@@ -3071,7 +3094,7 @@
       "UI_TogglePause",
       "Paused",
       "Resumed",
-      "StartConversation"
+      "GetComponent"
     ],
     "component_access_types": [
       "TextHandler"
@@ -3092,6 +3115,7 @@
       "dialogue.csv",
       "Controls",
       "Game Integration",
+      "Testing",
       ",(?=(?:[^",
       "]*",
       "[^",
@@ -3101,10 +3125,9 @@
       "\\",
       ", ",
       "Loaded {dialogueLines.Count} lines from {fileName}",
+      "Goblin",
       "if (isFastForwarding) PlayNextLine();",
-      "The skip button was successfully clicked!",
-      "Skip canceled because isDialogueRunning is FALSE!",
-      "Sequence completely skipped."
+      "The skip button was successfully clicked!"
     ],
     "numeric_literals": [
       3,
@@ -3123,15 +3146,16 @@
       "ui",
       "player",
       "runtime",
-      "combat",
-      "save-load"
+      "save-load",
+      "combat"
     ],
     "summary_signals": [
       "Update 기반 처리 존재",
       "UI 관련 로직 포함",
       "전투 계열 로직 포함",
       "저장/불러오기 관련 로직 포함",
-      "컴포넌트 조회 사용"
+      "컴포넌트 조회 사용",
+      "Find 계열 탐색 사용"
     ]
   }
 ]
