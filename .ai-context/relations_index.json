@@ -275,6 +275,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
     "from_class": "SlidingPanel",
+    "to_type": "StageEventManager",
+    "relation_type": "singleton-access",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
     "to_type": "Adjust",
     "relation_type": "uses",
     "strength": 1
@@ -387,6 +394,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
     "from_class": "SlidingPanel",
+    "to_type": "Instance",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
     "to_type": "Lerp",
     "relation_type": "uses",
     "strength": 1
@@ -458,6 +472,13 @@
     "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
     "from_class": "SlidingPanel",
     "to_type": "SlideRoutine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "StageEventManager",
     "relation_type": "uses",
     "strength": 1
   },
@@ -716,6 +737,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
+    "to_type": "SoundManager",
+    "relation_type": "singleton-access",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
     "to_type": "StageEventManager",
     "relation_type": "singleton-access",
     "strength": 4
@@ -731,6 +759,13 @@
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
     "to_type": "Add",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "AudioClip",
     "relation_type": "uses",
     "strength": 1
   },
@@ -919,6 +954,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
+    "to_type": "Length",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
     "to_type": "LockedBlue",
     "relation_type": "uses",
     "strength": 1
@@ -1010,6 +1052,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
+    "to_type": "PlaySFX",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
     "to_type": "Prefabs",
     "relation_type": "uses",
     "strength": 1
@@ -1024,7 +1073,28 @@
   {
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
+    "to_type": "Settings",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
     "to_type": "ShowHint",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "Sound",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "SoundManager",
     "relation_type": "uses",
     "strength": 1
   },
@@ -1829,9 +1899,23 @@
   {
     "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "from_class": "PlayerStatus",
+    "to_type": "SoundManager",
+    "relation_type": "singleton-access",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
+    "from_class": "PlayerStatus",
     "to_type": "StageEventManager",
     "relation_type": "singleton-access",
     "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
+    "from_class": "PlayerStatus",
+    "to_type": "AudioClip",
+    "relation_type": "uses",
+    "strength": 1
   },
   {
     "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
@@ -1934,7 +2018,35 @@
   {
     "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "from_class": "PlayerStatus",
+    "to_type": "PlaySFX",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
+    "from_class": "PlayerStatus",
     "to_type": "RedAmuletCount",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
+    "from_class": "PlayerStatus",
+    "to_type": "Settings",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
+    "from_class": "PlayerStatus",
+    "to_type": "Sound",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerStatus.cs",
+    "from_class": "PlayerStatus",
+    "to_type": "SoundManager",
     "relation_type": "uses",
     "strength": 1
   },
@@ -2291,7 +2403,35 @@
   {
     "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
     "from_class": "StageEventManager",
+    "to_type": "SoundManager",
+    "relation_type": "singleton-access",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "Audio",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "AudioClip",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
     "to_type": "Awake",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "bool",
     "relation_type": "uses",
     "strength": 1
   },
@@ -2312,6 +2452,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
     "from_class": "StageEventManager",
+    "to_type": "GetActiveScene",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
     "to_type": "Instance",
     "relation_type": "uses",
     "strength": 1
@@ -2319,7 +2466,112 @@
   {
     "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
     "from_class": "StageEventManager",
+    "to_type": "LoadScene",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
     "to_type": "Log",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "PlaySFX",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "RestartGame",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "SceneManagement",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "SceneManager",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "Screen",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "SetActive",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "ShowGameOverWindow",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "SoundManager",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "Sources",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "Start",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "StartScene",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "TextMeshProUGUI",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "TMPro",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "TriggerGameOver_Abstention",
     "relation_type": "uses",
     "strength": 1
   },
@@ -2487,7 +2739,21 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "from_class": "MainMenuUI",
+    "to_type": "SoundManager",
+    "relation_type": "singleton-access",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
     "to_type": "Application",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "AudioClip",
     "relation_type": "uses",
     "strength": 1
   },
@@ -2536,6 +2802,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "from_class": "MainMenuUI",
+    "to_type": "Instance",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
     "to_type": "LoadScene",
     "relation_type": "uses",
     "strength": 1
@@ -2544,6 +2817,13 @@
     "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "from_class": "MainMenuUI",
     "to_type": "Log",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "PlaySFX",
     "relation_type": "uses",
     "strength": 1
   },
@@ -2614,6 +2894,13 @@
     "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "from_class": "MainMenuUI",
     "to_type": "ShowElement",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "SoundManager",
     "relation_type": "uses",
     "strength": 1
   },

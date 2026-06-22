@@ -9,17 +9,17 @@
   "files_with_fixed_update": 0,
   "files_with_late_update": 1,
   "singleton_candidates": 2,
-  "manager_like_classes": 10,
+  "manager_like_classes": 11,
   "ui_related_classes": 13,
   "save_load_related_classes": 4,
   "role_counts": {
     "runtime": 15,
     "ui": 13,
     "player": 10,
-    "manager": 10,
-    "combat": 5,
+    "manager": 11,
+    "combat": 6,
     "save-load": 4,
-    "scene": 2,
+    "scene": 3,
     "data": 1,
     "inventory": 1
   },
@@ -39,8 +39,8 @@
     {
       "class_name": "MapManager",
       "file_id": "exp-make5/Assets/Scripts/MapManager.cs",
-      "relation_count": 67,
-      "referenced_type_count": 62
+      "relation_count": 74,
+      "referenced_type_count": 68
     },
     {
       "class_name": "MenuTransitionController",
@@ -51,8 +51,8 @@
     {
       "class_name": "SlidingPanel",
       "file_id": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
-      "relation_count": 38,
-      "referenced_type_count": 35
+      "relation_count": 41,
+      "referenced_type_count": 37
     },
     {
       "class_name": "CameraController",
@@ -63,25 +63,25 @@
     {
       "class_name": "MainMenuUI",
       "file_id": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
-      "relation_count": 30,
-      "referenced_type_count": 29
+      "relation_count": 35,
+      "referenced_type_count": 33
+    },
+    {
+      "class_name": "StageEventManager",
+      "file_id": "exp-make5/Assets/Scripts/StageEventManager.cs",
+      "relation_count": 34,
+      "referenced_type_count": 32
     },
     {
       "class_name": "PlayerStatus",
       "file_id": "exp-make5/Assets/Scripts/PlayerStatus.cs",
-      "relation_count": 26,
-      "referenced_type_count": 24
+      "relation_count": 32,
+      "referenced_type_count": 29
     },
     {
       "class_name": "TextHandler",
       "file_id": "exp-make5/Assets/Scripts/UI/TextHandler.cs",
       "relation_count": 26,
-      "referenced_type_count": 23
-    },
-    {
-      "class_name": "SwipeDetector",
-      "file_id": "exp-make5/Assets/Scripts/Input/SwipeInput.cs",
-      "relation_count": 24,
       "referenced_type_count": 23
     }
   ],
@@ -166,6 +166,29 @@
       "risk_score": 89
     },
     {
+      "file_id": "exp-make5/Assets/Scripts/MapManager.cs",
+      "class_name": "MapManager",
+      "risk_flags": [
+        "high-coupling",
+        "public-field-heavy",
+        "magic-number-heavy",
+        "large-class",
+        "init-order-sensitive",
+        "ui-runtime-mixed",
+        "state-owner"
+      ],
+      "risk_reasons": [
+        "참조 타입 또는 관계 수가 많음",
+        "public 필드 노출 수가 많음",
+        "숫자 리터럴이 많아 의미 파악이 어려울 수 있음",
+        "파일/메서드/필드 수가 많아 책임이 커질 가능성",
+        "초기화 순서에 민감할 가능성",
+        "UI와 런타임 책임이 한 파일에 섞였을 가능성",
+        "상태 중심 또는 관리 중심 클래스일 가능성"
+      ],
+      "risk_score": 79
+    },
+    {
       "file_id": "exp-make5/Assets/Scripts/UI/MenuTransitionController.cs",
       "class_name": "MenuTransitionController",
       "risk_flags": [
@@ -189,20 +212,20 @@
       "risk_score": 74
     },
     {
-      "file_id": "exp-make5/Assets/Scripts/MapManager.cs",
-      "class_name": "MapManager",
+      "file_id": "exp-make5/Assets/Scripts/StageEventManager.cs",
+      "class_name": "StageEventManager",
       "risk_flags": [
+        "singleton-candidate",
         "high-coupling",
         "public-field-heavy",
-        "large-class",
         "init-order-sensitive",
         "ui-runtime-mixed",
         "state-owner"
       ],
       "risk_reasons": [
+        "Instance 또는 DontDestroyOnLoad 패턴 감지",
         "참조 타입 또는 관계 수가 많음",
         "public 필드 노출 수가 많음",
-        "파일/메서드/필드 수가 많아 책임이 커질 가능성",
         "초기화 순서에 민감할 가능성",
         "UI와 런타임 책임이 한 파일에 섞였을 가능성",
         "상태 중심 또는 관리 중심 클래스일 가능성"
@@ -274,23 +297,6 @@
       "risk_reasons": [
         "Unity 업데이트 루프 사용",
         "참조 타입 또는 관계 수가 많음",
-        "UI와 런타임 책임이 한 파일에 섞였을 가능성",
-        "상태 중심 또는 관리 중심 클래스일 가능성"
-      ],
-      "risk_score": 46
-    },
-    {
-      "file_id": "exp-make5/Assets/Scripts/PlayerStatus.cs",
-      "class_name": "PlayerStatus",
-      "risk_flags": [
-        "high-coupling",
-        "init-order-sensitive",
-        "ui-runtime-mixed",
-        "state-owner"
-      ],
-      "risk_reasons": [
-        "참조 타입 또는 관계 수가 많음",
-        "초기화 순서에 민감할 가능성",
         "UI와 런타임 책임이 한 파일에 섞였을 가능성",
         "상태 중심 또는 관리 중심 클래스일 가능성"
       ],

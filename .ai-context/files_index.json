@@ -348,9 +348,9 @@
     "file_id": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
     "path": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
     "file_name": "SlidingPanel.cs",
-    "content_hash": "28db920e22f356d41e985a155566fd7f5cd3e9cc",
-    "size": 2505,
-    "line_count": 86,
+    "content_hash": "f3754cfcba4c8d88f2916a777b5832ff17d419ca",
+    "size": 2643,
+    "line_count": 91,
     "namespace": "",
     "using_list": [
       "System.Collections",
@@ -507,6 +507,8 @@
       "HandleSwipeRight",
       "OnDisable",
       "TogglePanel",
+      "StageEventManager",
+      "Instance",
       "StopCoroutine",
       "StartCoroutine",
       "SlideRoutine",
@@ -519,7 +521,9 @@
     "created_types": [
       "Vector2"
     ],
-    "singleton_access_types": [],
+    "singleton_access_types": [
+      "StageEventManager"
+    ],
     "string_literals": [
       "Animation Settings",
       "Open"
@@ -532,6 +536,7 @@
     "guessed_roles": [
       "ui",
       "runtime",
+      "manager",
       "player"
     ],
     "summary_signals": [
@@ -679,9 +684,9 @@
     "file_id": "exp-make5/Assets/Scripts/MapManager.cs",
     "path": "exp-make5/Assets/Scripts/MapManager.cs",
     "file_name": "MapManager.cs",
-    "content_hash": "09b47fd3df977c5bbc16ef16bafade02df87f56f",
-    "size": 14500,
-    "line_count": 332,
+    "content_hash": "c093f6d95b272c3ed4b1cb453bf1293ba2735920",
+    "size": 17301,
+    "line_count": 397,
     "namespace": "",
     "using_list": [
       "System.Collections.Generic",
@@ -903,6 +908,13 @@
         "is_static": false
       },
       {
+        "name": "incenseIndex",
+        "type": "int",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
         "name": "isGatekeeper",
         "type": "bool",
         "access": "public",
@@ -920,6 +932,20 @@
         "name": "realIncenseVisual",
         "type": "GameObject",
         "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "temp",
+        "type": "int",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "incenseCounter",
+        "type": "int",
+        "access": "internal",
         "serialized": false,
         "is_static": false
       },
@@ -959,6 +985,13 @@
         "is_static": false
       },
       {
+        "name": "idx",
+        "type": "int",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
         "name": "lockedType",
         "type": "string",
         "access": "internal",
@@ -968,6 +1001,13 @@
       {
         "name": "prefab",
         "type": "GameObject",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "idx",
+        "type": "int",
         "access": "internal",
         "serialized": false,
         "is_static": false
@@ -993,10 +1033,10 @@
     "has_on_enable": false,
     "has_on_disable": false,
     "serialize_field_count": 0,
-    "public_field_count": 24,
+    "public_field_count": 25,
     "get_component_count": 0,
     "find_call_count": 0,
-    "new_keyword_count": 14,
+    "new_keyword_count": 17,
     "coroutine_count": 0,
     "singleton_candidate": false,
     "dont_destroy_on_load": false,
@@ -1015,6 +1055,9 @@
       "Data",
       "Prefabs",
       "Story",
+      "Sound",
+      "Settings",
+      "AudioClip",
       "Awake",
       "LogError",
       "GenerateMap",
@@ -1027,6 +1070,7 @@
       "OpenTile",
       "Vector2Int",
       "IsValidPos",
+      "Count",
       "PlaceMinesInArea",
       "Abs",
       "GetNeighbors",
@@ -1036,17 +1080,19 @@
       "UpdateIncenseProximity",
       "Chebyshev",
       "Max",
+      "Length",
+      "Destroy",
       "InteractGatekeeper",
-      "Count",
       "StageEventManager",
       "Instance",
       "TriggerStageClear",
       "Log",
       "CollectIncense",
-      "Destroy",
       "TriggerIncenseFound",
       "PlayerStatus",
       "HandleMineEncounter",
+      "SoundManager",
+      "PlaySFX",
       "UpdateTileVisual",
       "Open",
       "LockMineTileVisual",
@@ -1071,12 +1117,14 @@
       "Vector2Int"
     ],
     "singleton_access_types": [
-      "StageEventManager"
+      "StageEventManager",
+      "SoundManager"
     ],
     "string_literals": [
       "Stage Data",
       "Prefabs",
       "Story Prefabs",
+      "Sound Settings",
       "StageData가 연결되지 않았습니다!",
       "향로 획득! 현재 개수: {foundIncenseCount}",
       "Open",
@@ -1084,10 +1132,11 @@
       "LockedBlue"
     ],
     "numeric_literals": [
+      4,
       2,
+      3,
       1000,
       0.1,
-      3,
       0.2
     ],
     "guessed_roles": [
@@ -1107,9 +1156,9 @@
     "file_id": "exp-make5/Assets/Scripts/PlayerController.cs",
     "path": "exp-make5/Assets/Scripts/PlayerController.cs",
     "file_name": "PlayerController.cs",
-    "content_hash": "5a3d50e09162b592efe6cfdfe938f3f5477189aa",
-    "size": 16577,
-    "line_count": 407,
+    "content_hash": "cae43913afb896e34fba0e77b628b9d7cfd7a2dd",
+    "size": 17295,
+    "line_count": 425,
     "namespace": "",
     "using_list": [
       "System.Collections.Generic",
@@ -1168,6 +1217,13 @@
       },
       {
         "name": "oofSound",
+        "type": "AudioClip",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "riverWalkSound",
         "type": "AudioClip",
         "access": "public",
         "serialized": false,
@@ -1335,7 +1391,7 @@
     "has_on_enable": false,
     "has_on_disable": false,
     "serialize_field_count": 0,
-    "public_field_count": 4,
+    "public_field_count": 5,
     "get_component_count": 2,
     "find_call_count": 1,
     "new_keyword_count": 17,
@@ -1377,6 +1433,8 @@
       "GetMapSize",
       "InitializeTime",
       "Update",
+      "StageEventManager",
+      "Instance",
       "Count",
       "MoveTowards",
       "RoundToInt",
@@ -1394,7 +1452,6 @@
       "IsValidTarget",
       "FindPath",
       "SoundManager",
-      "Instance",
       "PlaySFX",
       "Lerp",
       "TakeDamage",
@@ -1416,7 +1473,6 @@
       "Story",
       "Max",
       "Abs",
-      "StageEventManager",
       "TriggerRiverEvent",
       "TriggerMountainEvent",
       "Add",
@@ -1441,8 +1497,8 @@
       "Node"
     ],
     "singleton_access_types": [
-      "SoundManager",
-      "StageEventManager"
+      "StageEventManager",
+      "SoundManager"
     ],
     "string_literals": [
       "References",
@@ -1486,9 +1542,9 @@
     "file_id": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "path": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "file_name": "PlayerStatus.cs",
-    "content_hash": "bcf8a84274b3009e3dce3019822034d840de6f82",
-    "size": 3257,
-    "line_count": 102,
+    "content_hash": "2a2c2bda27e9805a5f0017b73274a12700aa4666",
+    "size": 3631,
+    "line_count": 107,
     "namespace": "",
     "using_list": [
       "System",
@@ -1577,6 +1633,9 @@
       "OnRedAmuletChanged",
       "OnBlueAmuletChanged",
       "OnTimeChanged",
+      "Sound",
+      "Settings",
+      "AudioClip",
       "RedAmuletCount",
       "BlueAmuletCount",
       "CurrentHealth",
@@ -1591,15 +1650,19 @@
       "Instance",
       "TriggerGameOver_Time",
       "HandleMineEncounter",
+      "SoundManager",
+      "PlaySFX",
       "TakeDamage",
       "TriggerGameOver_Health"
     ],
     "component_access_types": [],
     "created_types": [],
     "singleton_access_types": [
-      "StageEventManager"
+      "StageEventManager",
+      "SoundManager"
     ],
     "string_literals": [
+      "Sound Settings",
       "시간 소모: {amount}, 남은 시간: {currentTime}",
       "부적이 부족합니다! 체력 감소. 남은 체력: {currentHealth}"
     ],
@@ -1853,12 +1916,14 @@
     "file_id": "exp-make5/Assets/Scripts/StageEventManager.cs",
     "path": "exp-make5/Assets/Scripts/StageEventManager.cs",
     "file_name": "StageEventManager.cs",
-    "content_hash": "6d885b2c6dac5cf4e76b342633b23bbc10e3ee64",
-    "size": 1583,
-    "line_count": 49,
+    "content_hash": "06c233efb467180b2e7bf6e155180cf2951e60d8",
+    "size": 3731,
+    "line_count": 106,
     "namespace": "",
     "using_list": [
-      "UnityEngine"
+      "UnityEngine",
+      "UnityEngine.SceneManagement",
+      "TMPro"
     ],
     "classes": [
       {
@@ -1884,7 +1949,11 @@
       "TriggerIncenseFound",
       "TriggerGameOver_Time",
       "TriggerGameOver_Health",
-      "TriggerStageClear"
+      "TriggerGameOver_Abstention",
+      "TriggerStageClear",
+      "ShowGameOverWindow",
+      "RestartGame",
+      "StartScene"
     ],
     "fields": [
       {
@@ -1893,6 +1962,48 @@
         "access": "public",
         "serialized": false,
         "is_static": true
+      },
+      {
+        "name": "clearFailedSound",
+        "type": "AudioClip",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "clearSuccessSound",
+        "type": "AudioClip",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "buttonSound",
+        "type": "AudioClip",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "gameOverUIPanel",
+        "type": "GameObject",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "resultText",
+        "type": "TextMeshProUGUI",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "isGameOver",
+        "type": "bool",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
       }
     ],
     "properties": [],
@@ -1908,7 +2019,7 @@
     "has_on_enable": false,
     "has_on_disable": false,
     "serialize_field_count": 0,
-    "public_field_count": 1,
+    "public_field_count": 7,
     "get_component_count": 0,
     "find_call_count": 0,
     "new_keyword_count": 0,
@@ -1916,41 +2027,69 @@
     "singleton_candidate": true,
     "dont_destroy_on_load": false,
     "referenced_types": [
+      "AudioClip",
+      "TextMeshProUGUI",
+      "bool",
       "UnityEngine",
+      "SceneManagement",
+      "TMPro",
       "UI",
       "Instance",
+      "Audio",
+      "Sources",
       "Awake",
       "Destroy",
+      "SetActive",
       "TriggerRiverEvent",
       "Log",
       "Event",
       "TriggerMountainEvent",
       "TriggerIncenseFound",
       "TriggerGameOver_Time",
+      "SoundManager",
+      "PlaySFX",
+      "ShowGameOverWindow",
       "TriggerGameOver_Health",
-      "TriggerStageClear"
+      "TriggerGameOver_Abstention",
+      "TriggerStageClear",
+      "RestartGame",
+      "SceneManager",
+      "LoadScene",
+      "GetActiveScene",
+      "StartScene",
+      "Start",
+      "Screen"
     ],
     "component_access_types": [],
     "created_types": [],
-    "singleton_access_types": [],
+    "singleton_access_types": [
+      "SoundManager"
+    ],
     "string_literals": [
+      "Audio Sources",
       "[Event] 강 접근 독백 출력 (UI팀 작업 요망)",
       "[Event] 산 접근 독백 출력 (UI팀 작업 요망)",
       "[Event] {index}번째 향로 획득 독백 출력 (UI팀 작업 요망)",
-      "[Event] 시간 초과 게임 오버 연출 (UI팀 작업 요망)",
-      "[Event] 체력 고갈 게임 오버 연출 (UI팀 작업 요망)",
-      "[Event] 스테이지 클리어 (비주얼 노벨 씬 전환 등 UI팀 작업 요망)"
+      "시간 초과 게임 오버!",
+      "체력 고갈 게임 오버!",
+      "기권 하셨습니다.",
+      "성공!",
+      "[Event] {message}",
+      "Start Screen"
     ],
     "numeric_literals": [],
     "guessed_roles": [
-      "manager",
+      "scene",
+      "ui",
       "runtime",
-      "ui"
+      "manager",
+      "combat"
     ],
     "summary_signals": [
       "런타임 컴포넌트",
       "싱글톤 후보",
-      "UI 관련 로직 포함"
+      "UI 관련 로직 포함",
+      "전투 계열 로직 포함"
     ]
   },
   {
@@ -2059,9 +2198,9 @@
     "file_id": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "path": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "file_name": "MainMenuUI.cs",
-    "content_hash": "d06a286291bece5ec3b86c0a54189f684ea59de3",
-    "size": 1680,
-    "line_count": 83,
+    "content_hash": "b907b9455e64029665d66455cd67aaaa86b36926",
+    "size": 2374,
+    "line_count": 90,
     "namespace": "",
     "using_list": [
       "System.Text.RegularExpressions",
@@ -2100,7 +2239,15 @@
       "SettingsHide",
       "ContinueGame"
     ],
-    "fields": [],
+    "fields": [
+      {
+        "name": "buttonSound",
+        "type": "AudioClip",
+        "access": "public",
+        "serialized": true,
+        "is_static": false
+      }
+    ],
     "properties": [],
     "events": [],
     "unity_messages": [],
@@ -2111,8 +2258,8 @@
     "has_start": false,
     "has_on_enable": false,
     "has_on_disable": false,
-    "serialize_field_count": 0,
-    "public_field_count": 0,
+    "serialize_field_count": 1,
+    "public_field_count": 1,
     "get_component_count": 0,
     "find_call_count": 0,
     "new_keyword_count": 0,
@@ -2120,6 +2267,7 @@
     "singleton_candidate": false,
     "dont_destroy_on_load": false,
     "referenced_types": [
+      "AudioClip",
       "System",
       "Text",
       "RegularExpressions",
@@ -2137,6 +2285,9 @@
       "HideElement",
       "HideEverything",
       "ReturntoStartMenu",
+      "SoundManager",
+      "Instance",
+      "PlaySFX",
       "EnterStoryModeSelect",
       "StoryModeStart",
       "SceneManager",
@@ -2152,7 +2303,9 @@
     ],
     "component_access_types": [],
     "created_types": [],
-    "singleton_access_types": [],
+    "singleton_access_types": [
+      "SoundManager"
+    ],
     "string_literals": [
       "Sanghyun_Scene",
       "겜종료"
@@ -2165,12 +2318,13 @@
     "guessed_roles": [
       "scene",
       "ui",
+      "manager",
       "save-load",
-      "runtime",
-      "manager"
+      "runtime"
     ],
     "summary_signals": [
       "런타임 컴포넌트",
+      "인스펙터 직렬화 필드 사용",
       "UI 관련 로직 포함",
       "저장/불러오기 관련 로직 포함"
     ]

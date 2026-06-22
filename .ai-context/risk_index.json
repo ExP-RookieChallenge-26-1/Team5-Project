@@ -79,6 +79,29 @@
     "risk_score": 89
   },
   {
+    "file_id": "exp-make5/Assets/Scripts/MapManager.cs",
+    "class_name": "MapManager",
+    "risk_flags": [
+      "high-coupling",
+      "public-field-heavy",
+      "magic-number-heavy",
+      "large-class",
+      "init-order-sensitive",
+      "ui-runtime-mixed",
+      "state-owner"
+    ],
+    "risk_reasons": [
+      "참조 타입 또는 관계 수가 많음",
+      "public 필드 노출 수가 많음",
+      "숫자 리터럴이 많아 의미 파악이 어려울 수 있음",
+      "파일/메서드/필드 수가 많아 책임이 커질 가능성",
+      "초기화 순서에 민감할 가능성",
+      "UI와 런타임 책임이 한 파일에 섞였을 가능성",
+      "상태 중심 또는 관리 중심 클래스일 가능성"
+    ],
+    "risk_score": 79
+  },
+  {
     "file_id": "exp-make5/Assets/Scripts/UI/MenuTransitionController.cs",
     "class_name": "MenuTransitionController",
     "risk_flags": [
@@ -102,20 +125,20 @@
     "risk_score": 74
   },
   {
-    "file_id": "exp-make5/Assets/Scripts/MapManager.cs",
-    "class_name": "MapManager",
+    "file_id": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "class_name": "StageEventManager",
     "risk_flags": [
+      "singleton-candidate",
       "high-coupling",
       "public-field-heavy",
-      "large-class",
       "init-order-sensitive",
       "ui-runtime-mixed",
       "state-owner"
     ],
     "risk_reasons": [
+      "Instance 또는 DontDestroyOnLoad 패턴 감지",
       "참조 타입 또는 관계 수가 많음",
       "public 필드 노출 수가 많음",
-      "파일/메서드/필드 수가 많아 책임이 커질 가능성",
       "초기화 순서에 민감할 가능성",
       "UI와 런타임 책임이 한 파일에 섞였을 가능성",
       "상태 중심 또는 관리 중심 클래스일 가능성"
@@ -242,23 +265,6 @@
       "상태 중심 또는 관리 중심 클래스일 가능성"
     ],
     "risk_score": 45
-  },
-  {
-    "file_id": "exp-make5/Assets/Scripts/StageEventManager.cs",
-    "class_name": "StageEventManager",
-    "risk_flags": [
-      "singleton-candidate",
-      "init-order-sensitive",
-      "ui-runtime-mixed",
-      "state-owner"
-    ],
-    "risk_reasons": [
-      "Instance 또는 DontDestroyOnLoad 패턴 감지",
-      "초기화 순서에 민감할 가능성",
-      "UI와 런타임 책임이 한 파일에 섞였을 가능성",
-      "상태 중심 또는 관리 중심 클래스일 가능성"
-    ],
-    "risk_score": 43
   },
   {
     "file_id": "exp-make5/Assets/Scripts/StageData.cs",
