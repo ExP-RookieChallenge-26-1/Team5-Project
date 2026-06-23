@@ -33,8 +33,10 @@ public struct CharacterReference
 
 public class VNManager : MonoBehaviour
 {
-    // GLOBAL ACCESSOR: Allows any external script or button to find the active manager instantly
     public static VNManager Instance { get; private set; }
+
+    [Header("Visibility Control (Alpha)")]
+    public CanvasGroup dialogueCanvasGroup;
 
     [Header("UI References")]
     public GameObject mainTextObject;
@@ -65,19 +67,26 @@ public class VNManager : MonoBehaviour
     private Coroutine skipCoroutine;
     public float skipDelay = 0.05f;
 
+    // --- ANTI-FLYING BOUNCE TRACKERS ---
+    private Dictionary<GameObject, Vector3> baseCharacterPositions = new Dictionary<GameObject, Vector3>();
+    private Dictionary<GameObject, Coroutine> activeBounceCoroutines = new Dictionary<GameObject, Coroutine>();
+
     private void Awake()
     {
-        // Enforce a strict Singleton pattern
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
         Instance = this;
+
+        SetUIVisibility(false);
     }
 
     public void StartConversationWithFile(string newCsvFileName)
     {
+        gameObject.SetActive(true);
+
         string filePath = Path.Combine(Application.streamingAssetsPath, newCsvFileName);
 
         if (File.Exists(filePath))
@@ -118,7 +127,12 @@ public class VNManager : MonoBehaviour
             return;
         }
 
-        gameObject.SetActive(true);
+        SetUIVisibility(true);
+        if (dialogueCanvasGroup != null)
+        {
+            dialogueCanvasGroup.transform.SetAsLastSibling();
+        }
+
         isDialogueRunning = true;
         isFastForwarding = false;
         isSkipping = false;
@@ -191,9 +205,23 @@ public class VNManager : MonoBehaviour
         {
             DialogueLine currentLine = dialogueLines[currentLineIndex];
 
-            if (nameText != null) nameText.text = currentLine.speakerName;
+            // --- 1. ADVANCED STAGING PARSER ---
+            string characterID = currentLine.characterID;
+            if (!string.IsNullOrEmpty(characterID) && characterID.Contains("|Hide:"))
+            {
+                string[] stagingTokens = characterID.Split(new string[] { "|Hide:" }, System.StringSplitOptions.None);
+                characterID = stagingTokens[0];
+                string characterToHide = stagingTokens[1];
 
-            GameObject activeCharacter = GetCharacterObject(currentLine.characterID);
+                GameObject historicalCharacter = GetCharacterObject(characterToHide);
+                if (historicalCharacter != null)
+                {
+                    historicalCharacter.SetActive(false);
+                }
+            }
+
+            // --- 2. CHARACTER VISIBILITY & BOUNCE PROTECTION ---
+            GameObject activeCharacter = GetCharacterObject(characterID);
             if (activeCharacter != null)
             {
                 if (currentLine.hideCharacter)
@@ -203,10 +231,45 @@ public class VNManager : MonoBehaviour
                 else
                 {
                     activeCharacter.SetActive(true);
-                    if (currentLine.bounceCharacter) StartCoroutine(BounceCharacter(activeCharacter));
+
+                    if (currentLine.bounceCharacter)
+                    {
+                        // Safely lock their true home position down the first time they ever bounce
+                        if (!baseCharacterPositions.ContainsKey(activeCharacter))
+                        {
+                            baseCharacterPositions[activeCharacter] = activeCharacter.transform.localPosition;
+                        }
+
+                        // Stop any existing overlapping bounce routine running on this asset
+                        if (activeBounceCoroutines.ContainsKey(activeCharacter) && activeBounceCoroutines[activeCharacter] != null)
+                        {
+                            StopCoroutine(activeBounceCoroutines[activeCharacter]);
+                        }
+
+                        // Only bounce physically if we aren't blasting through lines via skipping engine
+                        if (!isSkipping && !isFastForwarding)
+                        {
+                            activeBounceCoroutines[activeCharacter] = StartCoroutine(BounceCharacter(activeCharacter));
+                        }
+                        else
+                        {
+                            // Snaps them to the safe floor position instantly during skips
+                            activeCharacter.transform.localPosition = baseCharacterPositions[activeCharacter];
+                        }
+                    }
                 }
             }
 
+            // --- 3. EMPTY TEXT AUTO-ADVANCE ---
+            if (string.IsNullOrWhiteSpace(currentLine.text))
+            {
+                currentLineIndex++;
+                PlayNextLine();
+                return;
+            }
+
+            // --- 4. NORMAL TEXT PLAYBACK ---
+            if (nameText != null) nameText.text = currentLine.speakerName;
             textHandler.PlayText(currentLine.text);
 
             if (currentLine.pauseAfterLine > 0)
@@ -224,7 +287,6 @@ public class VNManager : MonoBehaviour
 
     public void AdvanceDialogue()
     {
-        Debug.Log("AdvanceDialogue");
         if (!isDialogueRunning || isPaused) return;
 
         if (isSkipping)
@@ -262,17 +324,31 @@ public class VNManager : MonoBehaviour
         isSkipping = false;
         inputCooldown = 0f;
 
-        mainTextObject.SetActive(false);
-        if (nameText != null && nameText.transform.parent != null)
-            nameText.transform.parent.gameObject.SetActive(false);
-
         foreach (var character in characterRoster)
         {
             if (character.characterObject != null) character.characterObject.SetActive(false);
         }
 
+        // SAFETY CLEANUP: Force all character objects completely back down to ground zero
+        foreach (var placement in baseCharacterPositions)
+        {
+            if (placement.Key != null) placement.Key.transform.localPosition = placement.Value;
+        }
+        activeBounceCoroutines.Clear();
+
+        SetUIVisibility(false);
+
         OnDialogueEnded?.Invoke();
-        gameObject.SetActive(false);
+    }
+
+    private void SetUIVisibility(bool visible)
+    {
+        if (dialogueCanvasGroup != null)
+        {
+            dialogueCanvasGroup.alpha = visible ? 1f : 0f;
+            dialogueCanvasGroup.interactable = visible;
+            dialogueCanvasGroup.blocksRaycasts = visible;
+        }
     }
 
     GameObject GetCharacterObject(string id)
@@ -311,11 +387,17 @@ public class VNManager : MonoBehaviour
         }
 
         isWaitingOnPause = false;
+
+        if (isDialogueRunning && !isSkipping)
+        {
+            PlayNextLine();
+        }
     }
 
     IEnumerator BounceCharacter(GameObject charObj)
     {
-        Vector3 startPos = charObj.transform.localPosition;
+        // Pull directly from our locked floor baseline position instead of volatile local positions
+        Vector3 startPos = baseCharacterPositions[charObj];
         Vector3 upPos = startPos + new Vector3(0, 20f, 0);
 
         float time = 0.1f;
@@ -323,6 +405,7 @@ public class VNManager : MonoBehaviour
 
         while (elapsedTime < time)
         {
+            if (charObj == null) yield break;
             charObj.transform.localPosition = Vector3.Lerp(startPos, upPos, elapsedTime / time);
             elapsedTime += Time.deltaTime;
             yield return null;
@@ -331,11 +414,14 @@ public class VNManager : MonoBehaviour
         elapsedTime = 0;
         while (elapsedTime < time)
         {
+            if (charObj == null) yield break;
             charObj.transform.localPosition = Vector3.Lerp(upPos, startPos, elapsedTime / time);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        charObj.transform.localPosition = startPos;
+
+        if (charObj != null) charObj.transform.localPosition = startPos;
+        activeBounceCoroutines[charObj] = null;
     }
 
     public void UI_SkipEntireSequence()

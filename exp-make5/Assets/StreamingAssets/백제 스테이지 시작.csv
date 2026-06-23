@@ -2,6 +2,7 @@
 ,"야심한 밤, 흐릿한 짐승의 형체가 빠르게 다가온다.",System,TRUE,TRUE,0
 ???,(어흥),TigerShadowSprite,FALSE,TRUE,0
 수문장,깜짝이야!,GateKeeperSprite,FALSE,TRUE,0
+,,TigerSprite|Hide:TigerShadowSprite,TRUE,FALSE,0
 범,놀라게 할 생각은 없었으나 버릇이 되어 미안하네…,TigerSprite,FALSE,TRUE,0
 수문장,호랑이가 사람 말을 하다니? ,GateKeeperSprite,FALSE,TRUE,0
 범,오랜 시간 살다 보면 호랑이도 말을 할 수 있게 되더군.,TigerSprite,FALSE,TRUE,0
