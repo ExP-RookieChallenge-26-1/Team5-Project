@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEngine.InputSystem; // New Input System
-using System.IO; // Required for reading files
-using System.Text.RegularExpressions; // Required for CSV safe-splitting
+using UnityEngine.InputSystem;
+using System.IO;
+using System.Text.RegularExpressions;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
@@ -17,7 +16,7 @@ public class DialogueLine
     public string text;
 
     [Header("Visuals")]
-    public string characterID; // Changed from GameObject to string for file loading
+    public string characterID;
     public bool hideCharacter;
     public bool bounceCharacter;
 
@@ -25,7 +24,6 @@ public class DialogueLine
     public float pauseAfterLine;
 }
 
-// A dictionary to link character names in your CSV file to actual GameObjects in Unity
 [System.Serializable]
 public struct CharacterReference
 {
@@ -35,56 +33,67 @@ public struct CharacterReference
 
 public class VNManager : MonoBehaviour
 {
+    // GLOBAL ACCESSOR: Allows any external script or button to find the active manager instantly
+    public static VNManager Instance { get; private set; }
+
     [Header("UI References")]
     public GameObject mainTextObject;
     public TextHandler textHandler;
     public TMP_Text nameText;
 
     [Header("Dialogue Content")]
-    public string dialogueFileName = "dialogue.csv"; // Name of file in StreamingAssets
     public List<DialogueLine> dialogueLines = new List<DialogueLine>();
-    public List<CharacterReference> characterRoster = new List<CharacterReference>(); // Link IDs to Objects here
+    public List<CharacterReference> characterRoster = new List<CharacterReference>();
     private int currentLineIndex = 0;
 
     [Header("Controls")]
     public Key nextKey = Key.Space;
 
-    private bool isPaused = false;
-    private bool isFastForwarding = false;
-    private bool isDialogueRunning = false;
-    private bool isWaitingOnPause = false;
-
-    private float inputCooldown = 0f;
-
     [Header("Game Integration")]
     public UnityEvent OnDialogueStarted;
     public UnityEvent OnDialogueEnded;
 
-    // --- CSV FILE LOADING SYSTEM ---
-    public void LoadDialogueFromFile(string fileName)
+    // --- INTERNAL STATE FLAGS ---
+    private bool isPaused = false;
+    private bool isFastForwarding = false;
+    private bool isDialogueRunning = false;
+    private bool isWaitingOnPause = false;
+    private bool isSkipping = false;
+    private float inputCooldown = 0f;
+
+    // --- SKIP ENGINE VARIABLES ---
+    private Coroutine skipCoroutine;
+    public float skipDelay = 0.05f;
+
+    private void Awake()
     {
-        // Looks inside the Assets/StreamingAssets folder
-        string filePath = Path.Combine(Application.streamingAssetsPath, fileName);
+        // Enforce a strict Singleton pattern
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
+
+    public void StartConversationWithFile(string newCsvFileName)
+    {
+        string filePath = Path.Combine(Application.streamingAssetsPath, newCsvFileName);
 
         if (File.Exists(filePath))
         {
             dialogueLines.Clear();
             string[] lines = File.ReadAllLines(filePath);
-
-            // Regex pattern: Splits by comma, but ignores commas inside double quotes
             string splitPattern = @",(?=(?:[^""]*""[^""]*"")*(?![^""]*""))";
 
-            // Start at 1 to skip the header row in your file
             for (int i = 1; i < lines.Length; i++)
             {
                 if (string.IsNullOrWhiteSpace(lines[i])) continue;
 
-                // Split using Regex instead of standard string split
                 string[] columns = Regex.Split(lines[i], splitPattern);
 
                 if (columns.Length >= 6)
                 {
-                    // Clean up any extra quotes that Excel/Google Sheets might have added
                     for (int j = 0; j < columns.Length; j++)
                     {
                         columns[j] = columns[j].TrimStart('"').TrimEnd('"').Replace("\"\"", "\"");
@@ -95,7 +104,6 @@ public class VNManager : MonoBehaviour
                     newLine.text = columns[1];
                     newLine.characterID = columns[2];
 
-                    // Parse booleans and floats safely
                     bool.TryParse(columns[3], out newLine.hideCharacter);
                     bool.TryParse(columns[4], out newLine.bounceCharacter);
                     float.TryParse(columns[5], out newLine.pauseAfterLine);
@@ -103,34 +111,66 @@ public class VNManager : MonoBehaviour
                     dialogueLines.Add(newLine);
                 }
             }
-            Debug.Log($"Loaded {dialogueLines.Count} lines from {fileName}");
         }
         else
         {
-            Debug.LogError($"Could not find dialogue file at {filePath}. Make sure it's in a StreamingAssets folder!");
+            Debug.LogError($"Could not find dialogue file at {filePath}. Make sure it is in a StreamingAssets folder!");
+            return;
         }
+
+        gameObject.SetActive(true);
+        isDialogueRunning = true;
+        isFastForwarding = false;
+        isSkipping = false;
+        isWaitingOnPause = false;
+        inputCooldown = 0f;
+
+        if (textHandler == null) textHandler = mainTextObject.GetComponent<TextHandler>();
+        mainTextObject.SetActive(true);
+
+        OnDialogueStarted?.Invoke();
+        StartCoroutine(StartDialogueSequence());
     }
 
     IEnumerator StartDialogueSequence()
     {
-        isDialogueRunning = true; // MOVE THIS TO THE TOP!
         currentLineIndex = 0;
-        yield return new WaitForSeconds(0.1f);
         mainTextObject.SetActive(true);
         if (nameText != null && nameText.transform.parent != null)
+        {
             nameText.transform.parent.gameObject.SetActive(true);
+        }
 
         PlayNextLine();
+        yield break;
     }
 
     void Update()
     {
         if (!isDialogueRunning || isPaused) return;
 
-        // --- NEW: Cooldown Timer ---
-        if (inputCooldown > 0f)
+        if (inputCooldown > 0f) inputCooldown -= Time.deltaTime;
+
+        bool nextInputPressed = false;
+
+        if (Keyboard.current != null && Keyboard.current[nextKey].wasPressedThisFrame)
+            nextInputPressed = true;
+
+        if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
         {
-            inputCooldown -= Time.deltaTime;
+            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) return;
+            nextInputPressed = true;
+        }
+
+        if (isSkipping)
+        {
+            if (nextInputPressed && inputCooldown <= 0f)
+            {
+                isSkipping = false;
+                if (skipCoroutine != null) StopCoroutine(skipCoroutine);
+                inputCooldown = 0.2f;
+            }
+            return;
         }
 
         if (isFastForwarding && !textHandler.isTyping && !isWaitingOnPause)
@@ -139,23 +179,6 @@ public class VNManager : MonoBehaviour
             return;
         }
 
-        // --- TOUCH AND CLICK SUPPORT ---
-        bool nextInputPressed = false;
-
-        if (Keyboard.current != null && Keyboard.current[nextKey].wasPressedThisFrame)
-            nextInputPressed = true;
-
-        if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
-        {
-            // We still keep this as a backup safety net
-            if (UnityEngine.EventSystems.EventSystem.current != null && UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
-            {
-                return; // Stop checking this frame if we hit UI
-            }
-            nextInputPressed = true;
-        }
-
-        // NEW: Only advance/cancel if the cooldown is completely finished
         if (nextInputPressed && !isWaitingOnPause && inputCooldown <= 0f)
         {
             AdvanceDialogue();
@@ -170,9 +193,7 @@ public class VNManager : MonoBehaviour
 
             if (nameText != null) nameText.text = currentLine.speakerName;
 
-            // --- CHARACTER DICTIONARY LOOKUP ---
             GameObject activeCharacter = GetCharacterObject(currentLine.characterID);
-
             if (activeCharacter != null)
             {
                 if (currentLine.hideCharacter)
@@ -182,10 +203,7 @@ public class VNManager : MonoBehaviour
                 else
                 {
                     activeCharacter.SetActive(true);
-                    if (currentLine.bounceCharacter)
-                    {
-                        StartCoroutine(BounceCharacter(activeCharacter));
-                    }
+                    if (currentLine.bounceCharacter) StartCoroutine(BounceCharacter(activeCharacter));
                 }
             }
 
@@ -204,29 +222,70 @@ public class VNManager : MonoBehaviour
         }
     }
 
-    GameObject GetCharacterObject(string id)
+    public void AdvanceDialogue()
     {
-        if (string.IsNullOrEmpty(id)) return null;
+        Debug.Log("AdvanceDialogue");
+        if (!isDialogueRunning || isPaused) return;
 
-        // --- NEW: SYSTEM BYPASS ---
-        // If the ID is "System" (ignoring uppercase/lowercase), skip the search entirely!
-        if (id.ToLower() == "system")
+        if (isSkipping)
         {
-            return null;
+            isSkipping = false;
+            if (skipCoroutine != null) StopCoroutine(skipCoroutine);
+            inputCooldown = 0.2f;
+            return;
         }
 
-        // 1. Check the internal roster first (For UI Portraits saved inside the Prefab)
+        if (isFastForwarding)
+        {
+            UI_ToggleFullSkip();
+            return;
+        }
+
+        if (textHandler.isTyping)
+        {
+            textHandler.ForceFinish();
+        }
+        else if (!isWaitingOnPause)
+        {
+            PlayNextLine();
+        }
+    }
+
+    private void EndDialogue()
+    {
+        if (skipCoroutine != null) StopCoroutine(skipCoroutine);
+        StopAllCoroutines();
+
+        isDialogueRunning = false;
+        isWaitingOnPause = false;
+        isFastForwarding = false;
+        isSkipping = false;
+        inputCooldown = 0f;
+
+        mainTextObject.SetActive(false);
+        if (nameText != null && nameText.transform.parent != null)
+            nameText.transform.parent.gameObject.SetActive(false);
+
+        foreach (var character in characterRoster)
+        {
+            if (character.characterObject != null) character.characterObject.SetActive(false);
+        }
+
+        OnDialogueEnded?.Invoke();
+        gameObject.SetActive(false);
+    }
+
+    GameObject GetCharacterObject(string id)
+    {
+        if (string.IsNullOrEmpty(id) || id.ToLower() == "system") return null;
+
         foreach (var character in characterRoster)
         {
             if (character.characterID == id) return character.characterObject;
         }
 
-        // 2. Search the active game scene! (For actual game characters)
         GameObject sceneCharacter = GameObject.Find(id);
-        if (sceneCharacter != null)
-        {
-            return sceneCharacter;
-        }
+        if (sceneCharacter != null) return sceneCharacter;
 
         Debug.LogWarning($"VNManager looked everywhere but couldn't find a character named '{id}' to bounce!");
         return null;
@@ -236,28 +295,22 @@ public class VNManager : MonoBehaviour
     {
         isWaitingOnPause = true;
 
-        // Wait for the text to finish typing out
-        yield return new WaitUntil(() => !textHandler.isTyping);
+        while (textHandler != null && textHandler.isTyping)
+        {
+            if (isSkipping) break;
+            yield return null;
+        }
 
-        // Instead of a strict WaitForSeconds, we use a timer
         float timer = 0;
         while (timer < waitTime)
         {
-            // If the player turns on Skip Mode, instantly cancel this pause!
-            if (isFastForwarding)
-            {
-                break;
-            }
+            if (isSkipping || isFastForwarding) break;
 
             timer += Time.deltaTime;
             yield return null;
         }
 
         isWaitingOnPause = false;
-
-        // Notice we removed the "if (isFastForwarding) PlayNextLine();" from down here.
-        // We don't need it anymore, because your Update() loop will automatically 
-        // see that isWaitingOnPause is false and safely trigger the next line!
     }
 
     IEnumerator BounceCharacter(GameObject charObj)
@@ -276,7 +329,6 @@ public class VNManager : MonoBehaviour
         }
 
         elapsedTime = 0;
-
         while (elapsedTime < time)
         {
             charObj.transform.localPosition = Vector3.Lerp(upPos, startPos, elapsedTime / time);
@@ -286,86 +338,41 @@ public class VNManager : MonoBehaviour
         charObj.transform.localPosition = startPos;
     }
 
+    public void UI_SkipEntireSequence()
+    {
+        if (!isDialogueRunning || isSkipping) return;
+
+        Debug.Log("Skip Mode Triggered! Fast-forwarding CSV lines...");
+
+        isSkipping = true;
+        isFastForwarding = false;
+        inputCooldown = 0.2f;
+
+        skipCoroutine = StartCoroutine(AutoSkipRoutine());
+    }
+
     public void UI_ToggleFullSkip()
     {
+        if (!isDialogueRunning || textHandler == null) return;
+
         isFastForwarding = !isFastForwarding;
         textHandler.currentTypeSpeed = isFastForwarding ? 0.005f : textHandler.defaultTypeSpeed;
-
-        // NEW: Force the game to ignore screen taps for a fraction of a second so it doesn't instantly cancel!
         inputCooldown = 0.2f;
     }
 
-    public void AdvanceDialogue()
+    IEnumerator AutoSkipRoutine()
     {
-        if (isPaused) return;
+        while (isSkipping && isDialogueRunning)
+        {
+            if (textHandler != null && textHandler.isTyping)
+            {
+                textHandler.ForceFinish();
+            }
 
-        // --- NEW: CANCEL FAST-FORWARD ON CLICK ---
-        if (isFastForwarding)
-        {
-            UI_ToggleFullSkip(); // This turns fast-forward off and resets normal typing speed
-            return; // We return early so the player doesn't accidentally skip a line while trying to cancel
-        }
+            yield return new WaitForSeconds(skipDelay);
 
-        if (textHandler.isTyping)
-        {
-            textHandler.ForceFinish();
-        }
-        else if (!isWaitingOnPause)
-        {
+            isWaitingOnPause = false;
             PlayNextLine();
         }
-    }
-
-    // --- SKIP ENTIRE SEQUENCE ---
-    public void UI_SkipEntireSequence()
-    {
-        Debug.Log("The skip button was successfully clicked!"); // ADD THIS AT THE TOP
-
-        if (!isDialogueRunning) 
-        {
-            Debug.LogWarning("Skip canceled because isDialogueRunning is FALSE!");
-            return;
-        }
-
-        textHandler.ForceFinish();
-        EndDialogue();
-        Debug.Log("Sequence completely skipped.");
-    }
-
-    private void EndDialogue()
-    {
-        isDialogueRunning = false;
-        mainTextObject.SetActive(false);
-        if (nameText != null && nameText.transform.parent != null)
-            nameText.transform.parent.gameObject.SetActive(false);
-
-        foreach (var character in characterRoster)
-        {
-            if (character.characterObject != null) character.characterObject.SetActive(false);
-        }
-
-        // Tell the game the dialogue is over!
-        OnDialogueEnded?.Invoke();
-
-        // Turn the VN Canvas off so we can see the game again
-        gameObject.SetActive(false);
-    }
-
-    public void UI_TogglePause()
-    {
-        isPaused = !isPaused;
-        Time.timeScale = isPaused ? 0f : 1f;
-        Debug.Log(isPaused ? "Game Paused" : "Game Resumed");
-    }
-
-    public void StartConversation(string newCsvFileName)
-    {
-        if (textHandler == null) textHandler = mainTextObject.GetComponent<TextHandler>();
-
-        // Tell the game the dialogue has started!
-        OnDialogueStarted?.Invoke();
-
-        LoadDialogueFromFile(newCsvFileName);
-        StartCoroutine(StartDialogueSequence());
     }
 }

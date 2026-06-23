@@ -9,13 +9,12 @@ public class DialogueTrigger : MonoBehaviour
     [Header("System Reference")]
     public VNManager vnManager;
 
-    // THIS is the method we will look for in the button!
     public void PlayThisDialogue()
     {
         if (vnManager != null)
         {
-            vnManager.gameObject.SetActive(true);
-            vnManager.StartConversation(csvFileName);
+            // Combined file loading and sequence initialization into one call
+            vnManager.StartConversationWithFile(csvFileName);
         }
         else
         {
