@@ -570,8 +570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3f58f289b7ded147935ca25dad14140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
-  csvFileName: "game over \uD6C4 \uBC31\uC81C \uC2A4\uD14C\uC774\uC9C0 \uB3C4\uC804
-    \uC2DC \uB300\uC0AC.csv"
+  csvFileName: "\uBC31\uC81C \uC2A4\uD14C\uC774\uC9C0 \uC2DC\uC791.csv"
   vnManager: {fileID: 976482527}
 --- !u!114 &976482524
 MonoBehaviour:
@@ -1641,7 +1640,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 6fd2cf133ddf4cf47b314d32001396ab, type: 3}
+  m_Texture: {fileID: 2800000, guid: 9941a43b4db922d42a9902eae46ab56a, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0

@@ -1,5 +1,0 @@
-﻿SpeakerName,Text,CharacterID,HideCharacter,BounceCharacter,PauseAfter
-범,(수문장이 교대하기 전에 돌아가야겠어),TigerSprite,TRUE,TRUE,0
-,저 멀리서 수문장이 안절부절 못하며 기다리고 있다.,System ,TRUE,TRUE,0
-수문장,너무 늦으셨습니다. 다음에 오시면 제가 도와드리겠습니다.,GateKeeperSprite,TRUE,TRUE,0
-,Game Over,System ,TRUE,TRUE,0

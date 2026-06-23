@@ -1,0 +1,11 @@
+﻿SpeakerName,Text,CharacterID,HideCharacter,BounceCharacter,PauseAfter
+범,(어흥),TigerSprite,TRUE,TRUE,0
+수문장,깜짝이야!,GateKeeperSprite,FALSE,TRUE,0
+범,크흠...미안하네 버릇이라...,TigerSprite,FALSE,TRUE,0
+수문장,아닙니다.,GateKeeperSprite,FALSE,TRUE,0
+범,자네가 말한 게 이것인가?,TigerSprite,FALSE,TRUE,0
+수문장,감사합니다. 범님이 다녀오는 동안 제가 스님 한 분을 찾았습니다.,GateKeeperSprite,FALSE,TRUE,0
+범,고생한 보람이 있구나 어서 안내하거라.,TigerSprite,FALSE,TRUE,0
+범,자네는 그 방법을 알고 있는가?,TigerSprite,FALSE,TRUE,0
+수문장,교대 시간에 맞춰 사찰로 안내하겠습니다.,GateKeeperSprite,FALSE,TRUE,0
+,고구려 스테이지가 해금되었습니다.,System,FALSE,TRUE,0

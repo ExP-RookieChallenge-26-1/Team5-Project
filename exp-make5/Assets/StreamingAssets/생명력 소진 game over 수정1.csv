@@ -1,0 +1,4 @@
+﻿SpeakerName,Text,CharacterID,HideCharacter,BounceCharacter,PauseAfter
+범,생각보다 귀신들이 억세구나,TigerSprite,FALSE,TRUE,0
+범,회복하고 돌아와야겠어,TigerSprite,FALSE,TRUE,0
+,Game Over,System,TRUE,TRUE,0
