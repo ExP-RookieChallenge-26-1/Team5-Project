@@ -1684,6 +1684,125 @@
     ]
   },
   {
+    "file_id": "exp-make5/Assets/Scripts/ResolutionFixer209.cs",
+    "path": "exp-make5/Assets/Scripts/ResolutionFixer209.cs",
+    "file_name": "ResolutionFixer209.cs",
+    "content_hash": "ae2014f87a9f4fb81f27e025aa8e61f7f40d0220",
+    "size": 1270,
+    "line_count": 40,
+    "namespace": "",
+    "using_list": [
+      "UnityEngine"
+    ],
+    "classes": [
+      {
+        "name": "ResolutionFixer209",
+        "kind": "class",
+        "access": "public",
+        "base_types": [
+          "MonoBehaviour"
+        ],
+        "interfaces": [],
+        "attributes": [],
+        "is_partial": false,
+        "is_generic": false
+      }
+    ],
+    "main_class_name": "ResolutionFixer209",
+    "unity_type": "MonoBehaviour",
+    "methods": [
+      "Awake"
+    ],
+    "fields": [
+      {
+        "name": "targetAspect",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "scaleHeight",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "rect",
+        "type": "Rect",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "scaleWidth",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "rect",
+        "type": "Rect",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      }
+    ],
+    "properties": [],
+    "events": [],
+    "unity_messages": [
+      "Awake"
+    ],
+    "has_update": false,
+    "has_fixed_update": false,
+    "has_late_update": false,
+    "has_awake": true,
+    "has_start": false,
+    "has_on_enable": false,
+    "has_on_disable": false,
+    "serialize_field_count": 0,
+    "public_field_count": 0,
+    "get_component_count": 1,
+    "find_call_count": 0,
+    "new_keyword_count": 0,
+    "coroutine_count": 0,
+    "singleton_candidate": false,
+    "dont_destroy_on_load": false,
+    "referenced_types": [
+      "float",
+      "Rect",
+      "UnityEngine",
+      "Awake",
+      "Camera",
+      "GetComponent",
+      "Screen"
+    ],
+    "component_access_types": [
+      "Camera"
+    ],
+    "created_types": [],
+    "singleton_access_types": [],
+    "string_literals": [],
+    "numeric_literals": [
+      20,
+      9,
+      20,
+      9,
+      16,
+      1,
+      2
+    ],
+    "guessed_roles": [
+      "runtime"
+    ],
+    "summary_signals": [
+      "런타임 컴포넌트",
+      "컴포넌트 조회 사용"
+    ]
+  },
+  {
     "file_id": "exp-make5/Assets/Scripts/SoundManager.cs",
     "path": "exp-make5/Assets/Scripts/SoundManager.cs",
     "file_name": "SoundManager.cs",

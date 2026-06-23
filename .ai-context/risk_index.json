@@ -295,5 +295,16 @@
       "상태 중심 또는 관리 중심 클래스일 가능성"
     ],
     "risk_score": 20
+  },
+  {
+    "file_id": "exp-make5/Assets/Scripts/ResolutionFixer209.cs",
+    "class_name": "ResolutionFixer209",
+    "risk_flags": [
+      "magic-number-heavy"
+    ],
+    "risk_reasons": [
+      "숫자 리터럴이 많아 의미 파악이 어려울 수 있음"
+    ],
+    "risk_score": 8
   }
 ]

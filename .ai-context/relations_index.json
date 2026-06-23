@@ -2114,6 +2114,69 @@
     "strength": 1
   },
   {
+    "from_file": "exp-make5/Assets/Scripts/ResolutionFixer209.cs",
+    "from_class": "ResolutionFixer209",
+    "to_type": "Camera",
+    "relation_type": "component-access",
+    "strength": 3
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/ResolutionFixer209.cs",
+    "from_class": "ResolutionFixer209",
+    "to_type": "MonoBehaviour",
+    "relation_type": "inherits",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/ResolutionFixer209.cs",
+    "from_class": "ResolutionFixer209",
+    "to_type": "Awake",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/ResolutionFixer209.cs",
+    "from_class": "ResolutionFixer209",
+    "to_type": "Camera",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/ResolutionFixer209.cs",
+    "from_class": "ResolutionFixer209",
+    "to_type": "float",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/ResolutionFixer209.cs",
+    "from_class": "ResolutionFixer209",
+    "to_type": "GetComponent",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/ResolutionFixer209.cs",
+    "from_class": "ResolutionFixer209",
+    "to_type": "Rect",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/ResolutionFixer209.cs",
+    "from_class": "ResolutionFixer209",
+    "to_type": "Screen",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/ResolutionFixer209.cs",
+    "from_class": "ResolutionFixer209",
+    "to_type": "UnityEngine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
     "from_file": "exp-make5/Assets/Scripts/SoundManager.cs",
     "from_class": "SoundManager",
     "to_type": "MonoBehaviour",
