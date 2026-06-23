@@ -8,17 +8,17 @@
   "files_with_update": 4,
   "files_with_fixed_update": 0,
   "files_with_late_update": 1,
-  "singleton_candidates": 2,
-  "manager_like_classes": 11,
-  "ui_related_classes": 13,
-  "save_load_related_classes": 4,
+  "singleton_candidates": 3,
+  "manager_like_classes": 12,
+  "ui_related_classes": 12,
+  "save_load_related_classes": 3,
   "role_counts": {
     "runtime": 15,
-    "ui": 13,
+    "ui": 12,
     "player": 10,
-    "manager": 11,
+    "manager": 12,
     "combat": 6,
-    "save-load": 4,
+    "save-load": 3,
     "scene": 3,
     "data": 1,
     "inventory": 1
@@ -27,8 +27,8 @@
     {
       "class_name": "DialogueLine",
       "file_id": "exp-make5/Assets/Scripts/UI/VNManager.cs",
-      "relation_count": 168,
-      "referenced_type_count": 161
+      "relation_count": 112,
+      "referenced_type_count": 106
     },
     {
       "class_name": "PlayerController",
@@ -118,23 +118,25 @@
       "class_name": "DialogueLine",
       "risk_flags": [
         "update-heavy",
+        "singleton-candidate",
         "high-coupling",
         "public-field-heavy",
         "find-heavy",
         "magic-number-heavy",
         "large-class",
-        "save-load-sensitive",
+        "init-order-sensitive",
         "ui-runtime-mixed",
         "state-owner"
       ],
       "risk_reasons": [
         "Unity 업데이트 루프 사용",
+        "Instance 또는 DontDestroyOnLoad 패턴 감지",
         "참조 타입 또는 관계 수가 많음",
         "public 필드 노출 수가 많음",
         "Find 계열 탐색 사용",
         "숫자 리터럴이 많아 의미 파악이 어려울 수 있음",
         "파일/메서드/필드 수가 많아 책임이 커질 가능성",
-        "저장/불러오기 관련 로직 포함",
+        "초기화 순서에 민감할 가능성",
         "UI와 런타임 책임이 한 파일에 섞였을 가능성",
         "상태 중심 또는 관리 중심 클래스일 가능성"
       ],
@@ -307,6 +309,7 @@
     "MonoBehaviour 중심 구조",
     "Update 사용 빈도 높음",
     "Manager 성격 클래스 다수",
+    "싱글톤 후보 클래스 다수",
     "고결합 클래스 존재"
   ]
 }
