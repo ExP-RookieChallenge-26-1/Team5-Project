@@ -37,17 +37,17 @@ public class UIManager : MonoBehaviour
     // 캐릭터의 Action이 호출할 실제 화면 갱신 함수들
     private void UpdateHpUI(int hp)
     {
-        hpText.text = "체력: " + hp;
+        hpText.text = "" + hp;
     }
 
     private void UpdateRedAmuletUI(int count)
     {
-        redAmuletText.text = "빨간 부적: " + count;
+        redAmuletText.text = "" + count;
     }
 
     private void UpdateBlueAmuletUI(int count)
     {
-        blueAmuletText.text = "파란 부적: " + count;
+        blueAmuletText.text = "" + count;
     }
 
     private void UpdateTime( int time)
