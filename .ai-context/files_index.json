@@ -2871,8 +2871,8 @@
     "file_id": "exp-make5/Assets/Scripts/UI/UIManager.cs",
     "path": "exp-make5/Assets/Scripts/UI/UIManager.cs",
     "file_name": "UIManager.cs",
-    "content_hash": "0e4e20564650e5844b95782e9311b4716ca59cc2",
-    "size": 2652,
+    "content_hash": "36b96499d281cdce8d5363a5567f95c964278de8",
+    "size": 2614,
     "line_count": 72,
     "namespace": "",
     "using_list": [
@@ -2992,9 +2992,6 @@
       "연결할 캐릭터 스크립트",
       "UI 텍스트 요소들",
       "앞으로 값이 변할 때마다 이 함수들을 실행시켜줘!",
-      "체력: ",
-      "빨간 부적: ",
-      "파란 부적: ",
       "남은 시간 : "
     ],
     "numeric_literals": [
