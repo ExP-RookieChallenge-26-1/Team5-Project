@@ -258,7 +258,7 @@ public class PlayerController : MonoBehaviour
         
         // --- 1. 시간 소모 로직 ---
         int timeCost = 1; // 기본(열린 칸) 1소모
-        if (mapManager.IsRiver(pos.x, pos.y) || mapManager.IsMountain(pos.x, pos.y)) timeCost = 10; // 강이면 10소모
+        if (mapManager.IsRiver(pos.x, pos.y) || mapManager.IsMountain(pos.x, pos.y)) timeCost = 5; // 강이면 5소모
         else if (!mapManager.IsOpened(pos.x, pos.y)) timeCost = 3; // 닫힌 칸이면 3소모
 
         // 시간 소모 시도 (0 이하가 되면 이동을 취소하고 멈춥니다)
@@ -380,7 +380,7 @@ public class PlayerController : MonoBehaviour
                 }
                 // A* 알고리즘의 이동 비용(Cost)에도 시간 패널티를 그대로 적용하여 가장 시간이 적게 드는 길을 찾게 만듭니다.
                 int stepCost = 1; 
-                if (mapManager.IsRiver(neighborPos.x, neighborPos.y) || mapManager.IsMountain(neighborPos.x, neighborPos.y)) stepCost = 10;
+                if (mapManager.IsRiver(neighborPos.x, neighborPos.y) || mapManager.IsMountain(neighborPos.x, neighborPos.y)) stepCost = 5;
                 else if (!mapManager.IsOpened(neighborPos.x, neighborPos.y)) stepCost = 3;
 
                 int newMovementCostToNeighbor = currentNode.G + stepCost; 

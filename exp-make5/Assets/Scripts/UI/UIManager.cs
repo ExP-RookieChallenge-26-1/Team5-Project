@@ -50,9 +50,51 @@ public class UIManager : MonoBehaviour
         blueAmuletText.text = "" + count;
     }
 
+    // 12지(支) 시진 글자 (자시부터 시작). "시"는 별도로 붙입니다.
+    private static readonly string[] Jiji =
+    {
+        "자", "축", "인", "묘", "진", "사",
+        "오", "미", "신", "유", "술", "해"
+    };
+
+    [Header("시간 표기 폰트 크기")]
+    [Tooltip("시진 글자(자, 축…)와 각 숫자(1, 2… / 정)를 일반 글자(시, 각) 대비 몇 %로 키울지")]
+    public float emphasisSizePercent = 150f;
+
     private void UpdateTime( int time)
     {
-        TimeText.text = "남은 시간 : " + time;
+        TimeText.text = FormatTime(time);
+    }
+
+    // 내부 시간 값을 전통 시간 표기(시·각)로 변환합니다.
+    // 1시 = 8각, 자시 정각에서 시작하여 시간이 소모될수록 진행되며,
+    // 모두 소모(시간 0)되면 묘시 정각이 됩니다. (자→축→인→묘, 총 24각 = 360분)
+    // 시진 글자와 각 숫자(또는 '정')는 <size> 리치 텍스트로 크게 표시합니다.
+    private string FormatTime(int time)
+    {
+        int max = playerStatus.MaxTime;
+        if (max <= 0) max = 1;
+
+        const int totalGak = 24; // 자시 정각 ~ 묘시 정각 (3시진 × 8각)
+
+        int elapsed = max - time;
+        if (elapsed < 0) elapsed = 0;
+
+        // 소모한 비율만큼 각(刻)이 진행됩니다.
+        int gakPassed = Mathf.Clamp(Mathf.FloorToInt((float)elapsed / max * totalGak), 0, totalGak);
+
+        int siIndex = Mathf.Min(gakPassed / 8, Jiji.Length - 1);
+        int gak = gakPassed % 8;
+
+        string si = Big(Jiji[siIndex]);              // 큰 글자: 시진
+        string gakValue = Big(gak == 0 ? "정" : gak.ToString()); // 큰 글자: '정' 또는 숫자
+        return $"{si}시 {gakValue}각";
+    }
+
+    // 글자를 강조 크기로 감싸는 리치 텍스트 헬퍼
+    private string Big(string text)
+    {
+        return $"<size={emphasisSizePercent:0}%>{text}</size>";
     }
 
     // ==========================================

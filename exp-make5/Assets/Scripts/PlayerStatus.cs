@@ -19,11 +19,13 @@ public class PlayerStatus : MonoBehaviour
     private int blueAmuletCount = 1;
 
     private int currentTime;
+    private int maxTime;
 
-    public int RedAmuletCount => redAmuletCount; 
+    public int RedAmuletCount => redAmuletCount;
     public int BlueAmuletCount => blueAmuletCount;
     public int CurrentHealth => currentHealth;
     public int CurrentTime => currentTime;
+    public int MaxTime => maxTime;
 
     void Start()
     {
@@ -34,6 +36,7 @@ public class PlayerStatus : MonoBehaviour
     // 시작할 때 맵 매니저로부터 최대 시간을 받아옵니다.
     public void InitializeTime(int maxTime)
     {
+        this.maxTime = maxTime;
         currentTime = maxTime;
         OnTimeChanged?.Invoke(currentTime);
     }

@@ -49,7 +49,7 @@ public class StageEventManager : MonoBehaviour
         isGameOver = true;
         if (SoundManager.Instance != null &&  clearFailedSound!= null) SoundManager.Instance.PlaySFX(clearFailedSound);
         ShowGameOverWindow("시간 초과 게임 오버!");
-        VNManager.Instance.StartConversationWithFile("타임 오버 game over 수정1.csv");
+        PlayGameOverDialogueThenRestart("타임 오버 game over 수정1.csv");
     }
 
     // 💡 [추가됨] 체력 고갈 시 호출
@@ -59,7 +59,30 @@ public class StageEventManager : MonoBehaviour
         isGameOver = true;
         if (SoundManager.Instance != null &&  clearFailedSound!= null) SoundManager.Instance.PlaySFX(clearFailedSound);
         ShowGameOverWindow("체력 고갈 게임 오버!");
-        VNManager.Instance.StartConversationWithFile("생명력 소진 game over 수정1.csv");
+        PlayGameOverDialogueThenRestart("생명력 소진 game over 수정1.csv");
+    }
+
+    // 게임오버 대사를 재생하고, 대사가 끝나면 현재 스테이지를 다시 시작합니다.
+    // (게임오버 패널 UI가 아직 없으므로 대사 종료 시점에 자동으로 재시작)
+    private void PlayGameOverDialogueThenRestart(string csvFileName)
+    {
+        if (VNManager.Instance == null)
+        {
+            // 대사 매니저가 없으면 곧바로 재시작
+            ReloadCurrentScene();
+            return;
+        }
+
+        // 대사 종료 이벤트에 일회성 리스너를 걸어, 끝나면 한 번만 재시작하도록 함
+        UnityEngine.Events.UnityAction onEnded = null;
+        onEnded = () =>
+        {
+            VNManager.Instance.OnDialogueEnded.RemoveListener(onEnded);
+            ReloadCurrentScene();
+        };
+        VNManager.Instance.OnDialogueEnded.AddListener(onEnded);
+
+        VNManager.Instance.StartConversationWithFile(csvFileName);
     }
     
     // 💡 [추가됨] 기권 시 호출
@@ -93,10 +116,15 @@ public class StageEventManager : MonoBehaviour
 
     public void RestartGame()
     {
-        // 현재 씬의 이름을 가져와서 다시 로드합니다.
+        // 버튼으로 재시작할 때는 버튼음을 재생합니다.
         if (SoundManager.Instance != null &&  buttonSound!= null) SoundManager.Instance.PlaySFX(buttonSound);
+        ReloadCurrentScene();
+    }
+
+    // 현재 씬을 다시 로드합니다. (버튼 / 대사 종료 자동 재시작 공용)
+    private void ReloadCurrentScene()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        
     }
 
     public void StartScene()
