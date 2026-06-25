@@ -13,14 +13,14 @@
   "ui_related_classes": 13,
   "save_load_related_classes": 4,
   "role_counts": {
-    "save-load": 4,
     "ui": 13,
+    "save-load": 4,
     "runtime": 17,
     "player": 11,
+    "data": 2,
     "manager": 12,
     "combat": 6,
     "scene": 3,
-    "data": 1,
     "inventory": 1
   },
   "high_coupling_classes": [
@@ -51,8 +51,8 @@
     {
       "class_name": "AudioControl",
       "file_id": "exp-make5/Assets/Scripts/AudioControl.cs",
-      "relation_count": 41,
-      "referenced_type_count": 40
+      "relation_count": 51,
+      "referenced_type_count": 50
     },
     {
       "class_name": "SlidingPanel",
