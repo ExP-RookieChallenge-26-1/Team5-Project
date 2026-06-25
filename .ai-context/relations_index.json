@@ -1,5 +1,292 @@
 [
   {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "MonoBehaviour",
+    "relation_type": "inherits",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Add",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "AddListener",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Audio",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "AudioMixer",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "AudioMixers",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "BGM",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "BGMVol",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Control",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Convert",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Converts",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "ConvertToDecibels",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Decibels",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Drag",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "float",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "GetFloat",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "If",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Load",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Log10",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Master",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "MasterVol",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Methods",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Mixer",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Normalize",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "PlayerPrefs",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Reference",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Save",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Scale",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "SetBGMVolume",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "SetFloat",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "SetMasterVolume",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "SetSFXVolume",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "SFX",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "SFXVol",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Slider",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Sliders",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Start",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "UI",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Unity",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "UnityEngine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Volume",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
     "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
     "from_class": "CameraController",
     "to_type": "Camera",
@@ -2473,6 +2760,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
     "from_class": "StageEventManager",
+    "to_type": "VNManager",
+    "relation_type": "singleton-access",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
     "to_type": "Audio",
     "relation_type": "uses",
     "strength": 1
@@ -2613,6 +2907,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
     "from_class": "StageEventManager",
+    "to_type": "StartConversationWithFile",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
     "to_type": "StartScene",
     "relation_type": "uses",
     "strength": 1
@@ -2691,6 +2992,13 @@
     "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
     "from_class": "StageEventManager",
     "to_type": "UnityEngine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/StageEventManager.cs",
+    "from_class": "StageEventManager",
+    "to_type": "VNManager",
     "relation_type": "uses",
     "strength": 1
   },

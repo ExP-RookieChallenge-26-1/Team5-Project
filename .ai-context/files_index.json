@@ -1,5 +1,179 @@
 [
   {
+    "file_id": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "path": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "file_name": "AudioControl.cs",
+    "content_hash": "b581d1384cf8e1d4964e933cb254b88ad0c757ec",
+    "size": 2368,
+    "line_count": 69,
+    "namespace": "",
+    "using_list": [
+      "UnityEngine",
+      "UnityEngine.UI",
+      "UnityEngine.Audio"
+    ],
+    "classes": [
+      {
+        "name": "AudioControl",
+        "kind": "class",
+        "access": "public",
+        "base_types": [
+          "MonoBehaviour"
+        ],
+        "interfaces": [],
+        "attributes": [],
+        "is_partial": false,
+        "is_generic": false
+      }
+    ],
+    "main_class_name": "AudioControl",
+    "unity_type": "MonoBehaviour",
+    "methods": [
+      "Sliders",
+      "Start",
+      "preferences",
+      "SetMasterVolume",
+      "scale",
+      "SetBGMVolume",
+      "SetSFXVolume",
+      "value",
+      "ConvertToDecibels",
+      "entirely"
+    ],
+    "fields": [
+      {
+        "name": "mainMixer",
+        "type": "AudioMixer",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "masterSlider",
+        "type": "Slider",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "bgmSlider",
+        "type": "Slider",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "sfxSlider",
+        "type": "Slider",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "normalizedValue",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      }
+    ],
+    "properties": [],
+    "events": [],
+    "unity_messages": [
+      "Start"
+    ],
+    "has_update": false,
+    "has_fixed_update": false,
+    "has_late_update": false,
+    "has_awake": false,
+    "has_start": true,
+    "has_on_enable": false,
+    "has_on_disable": false,
+    "serialize_field_count": 0,
+    "public_field_count": 4,
+    "get_component_count": 0,
+    "find_call_count": 0,
+    "new_keyword_count": 0,
+    "coroutine_count": 0,
+    "singleton_candidate": false,
+    "dont_destroy_on_load": false,
+    "referenced_types": [
+      "AudioMixer",
+      "Slider",
+      "float",
+      "UnityEngine",
+      "UI",
+      "Audio",
+      "Mixer",
+      "Reference",
+      "Drag",
+      "Sliders",
+      "Scale",
+      "Start",
+      "Load",
+      "PlayerPrefs",
+      "GetFloat",
+      "MasterVol",
+      "BGMVol",
+      "SFXVol",
+      "Add",
+      "AddListener",
+      "SetMasterVolume",
+      "SetBGMVolume",
+      "SetSFXVolume",
+      "Volume",
+      "Control",
+      "Methods",
+      "Convert",
+      "ConvertToDecibels",
+      "SetFloat",
+      "Master",
+      "Save",
+      "BGM",
+      "SFX",
+      "Converts",
+      "AudioMixers",
+      "If",
+      "Unity",
+      "Normalize",
+      "Decibels",
+      "Log10"
+    ],
+    "component_access_types": [],
+    "created_types": [],
+    "singleton_access_types": [],
+    "string_literals": [
+      "Audio Mixer Reference",
+      "Drag your main AudioMixer here",
+      "UI Sliders (0 to 10 Scale)",
+      "MasterVol",
+      "BGMVol",
+      "SFXVol",
+      "Master",
+      "BGM",
+      "SFX"
+    ],
+    "numeric_literals": [
+      10,
+      10,
+      2,
+      80,
+      0.01,
+      20
+    ],
+    "guessed_roles": [
+      "save-load",
+      "ui",
+      "runtime",
+      "player"
+    ],
+    "summary_signals": [
+      "런타임 컴포넌트",
+      "UI 관련 로직 포함",
+      "저장/불러오기 관련 로직 포함"
+    ]
+  },
+  {
     "file_id": "exp-make5/Assets/Scripts/CameraController.cs",
     "path": "exp-make5/Assets/Scripts/CameraController.cs",
     "file_name": "CameraController.cs",
@@ -2035,9 +2209,9 @@
     "file_id": "exp-make5/Assets/Scripts/StageEventManager.cs",
     "path": "exp-make5/Assets/Scripts/StageEventManager.cs",
     "file_name": "StageEventManager.cs",
-    "content_hash": "06c233efb467180b2e7bf6e155180cf2951e60d8",
-    "size": 3731,
-    "line_count": 106,
+    "content_hash": "4c80b7fede23885380563c1180e2f3be3a5a2f14",
+    "size": 3925,
+    "line_count": 108,
     "namespace": "",
     "using_list": [
       "UnityEngine",
@@ -2168,6 +2342,8 @@
       "SoundManager",
       "PlaySFX",
       "ShowGameOverWindow",
+      "VNManager",
+      "StartConversationWithFile",
       "TriggerGameOver_Health",
       "TriggerGameOver_Abstention",
       "TriggerStageClear",
@@ -2182,7 +2358,8 @@
     "component_access_types": [],
     "created_types": [],
     "singleton_access_types": [
-      "SoundManager"
+      "SoundManager",
+      "VNManager"
     ],
     "string_literals": [
       "Audio Sources",
@@ -2190,7 +2367,9 @@
       "[Event] 산 접근 독백 출력 (UI팀 작업 요망)",
       "[Event] {index}번째 향로 획득 독백 출력 (UI팀 작업 요망)",
       "시간 초과 게임 오버!",
+      "타임 오버 game over 수정1.csv",
       "체력 고갈 게임 오버!",
+      "생명력 소진 game over 수정1.csv",
       "기권 하셨습니다.",
       "성공!",
       "[Event] {message}",
