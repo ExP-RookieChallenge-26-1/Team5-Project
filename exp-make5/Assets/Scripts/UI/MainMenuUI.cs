@@ -81,6 +81,7 @@ public class MainMenuUI : MonoBehaviour
     {
         if (SoundManager.Instance != null &&  buttonSound!= null) SoundManager.Instance.PlaySFX(buttonSound);
         ShowElement(Settings);
+        Debug.Log("설정");
     }
 
     public void SettingsHide()
