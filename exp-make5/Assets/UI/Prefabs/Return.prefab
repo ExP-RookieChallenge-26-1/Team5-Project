@@ -149,7 +149,6 @@ GameObject:
   - component: {fileID: 8767677154528310392}
   - component: {fileID: 4757845203456124555}
   - component: {fileID: 3544266086461142291}
-  - component: {fileID: 5196493466479556848}
   m_Layer: 0
   m_Name: Return
   m_TagString: Untagged
@@ -259,7 +258,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5196493466479556848}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
         m_MethodName: ReturntoStartMenu
         m_Mode: 1
@@ -271,20 +270,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5196493466479556848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6202246801322669977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f289d386265f5f9409c92fce4b1991b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MainMenuUI
-  StartScreen: {fileID: 0}
-  ModeSelectScreen: {fileID: 0}
-  StageSelect_story: {fileID: 0}
-  StageSelect_casual: {fileID: 0}
-  Settings: {fileID: 0}

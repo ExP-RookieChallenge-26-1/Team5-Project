@@ -64,6 +64,12 @@ public class MainMenuUI : MonoBehaviour
         SceneManager.LoadScene("Sanghyun_Scene");
     }
 
+    public void Exittomenu()
+    {
+        if (SoundManager.Instance != null && buttonSound != null) SoundManager.Instance.PlaySFX(buttonSound);
+        SceneManager.LoadScene("Start Screen");
+    }
+
     public void GameExit()
     {
         if (SoundManager.Instance != null &&  buttonSound!= null) SoundManager.Instance.PlaySFX(buttonSound);
