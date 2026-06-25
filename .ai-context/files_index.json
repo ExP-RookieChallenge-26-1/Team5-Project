@@ -1353,11 +1353,204 @@
     ]
   },
   {
+    "file_id": "exp-make5/Assets/Scripts/PlayerAnim.cs",
+    "path": "exp-make5/Assets/Scripts/PlayerAnim.cs",
+    "file_name": "PlayerAnim.cs",
+    "content_hash": "47b201e01cb856b03ab6c1bec9bc4ef68139207b",
+    "size": 4370,
+    "line_count": 114,
+    "namespace": "",
+    "using_list": [
+      "System.Collections.Generic",
+      "UnityEngine"
+    ],
+    "classes": [
+      {
+        "name": "PlayerAnim",
+        "kind": "class",
+        "access": "public",
+        "base_types": [
+          "MonoBehaviour"
+        ],
+        "interfaces": [],
+        "attributes": [],
+        "is_partial": false,
+        "is_generic": false
+      }
+    ],
+    "main_class_name": "PlayerAnim",
+    "unity_type": "MonoBehaviour",
+    "methods": [
+      "Awake",
+      "Update",
+      "UpdateDirection",
+      "Animate",
+      "GetSprites",
+      "SetDirection"
+    ],
+    "fields": [
+      {
+        "name": "spriteRenderer",
+        "type": "SpriteRenderer",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "frameInterval",
+        "type": "float",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "animateWhenIdle",
+        "type": "bool",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "currentDir",
+        "type": "Dir",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "isMoving",
+        "type": "bool",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "frameIndex",
+        "type": "int",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "timer",
+        "type": "float",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "lastPosition",
+        "type": "Vector3",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "delta",
+        "type": "Vector3",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      }
+    ],
+    "properties": [],
+    "events": [],
+    "unity_messages": [
+      "Awake",
+      "Update"
+    ],
+    "has_update": true,
+    "has_fixed_update": false,
+    "has_late_update": false,
+    "has_awake": true,
+    "has_start": false,
+    "has_on_enable": false,
+    "has_on_disable": false,
+    "serialize_field_count": 0,
+    "public_field_count": 3,
+    "get_component_count": 1,
+    "find_call_count": 0,
+    "new_keyword_count": 4,
+    "coroutine_count": 0,
+    "singleton_candidate": false,
+    "dont_destroy_on_load": false,
+    "referenced_types": [
+      "SpriteRenderer",
+      "float",
+      "bool",
+      "Dir",
+      "int",
+      "Vector3",
+      "System",
+      "Collections",
+      "Generic",
+      "UnityEngine",
+      "RequireComponent",
+      "References",
+      "Direction",
+      "Sprites",
+      "Sprite",
+      "Animation",
+      "Settings",
+      "Front",
+      "Back",
+      "Left",
+      "Right",
+      "Awake",
+      "GetComponent",
+      "Update",
+      "UpdateDirection",
+      "Animate",
+      "Abs",
+      "GetSprites",
+      "Count",
+      "PlayerController",
+      "SetDirection",
+      "Vector2"
+    ],
+    "component_access_types": [
+      "SpriteRenderer"
+    ],
+    "created_types": [
+      "List"
+    ],
+    "singleton_access_types": [],
+    "string_literals": [
+      "References",
+      "스프라이트가 바뀌는 주체 (비우면 자동으로 같은 오브젝트의 SpriteRenderer 사용)",
+      "Direction Sprites",
+      "앞(아래)으로 갈 때 순환할 스프라이트들",
+      "뒤(위)로 갈 때 순환할 스프라이트들",
+      "왼쪽으로 갈 때 순환할 스프라이트들",
+      "오른쪽으로 갈 때 순환할 스프라이트들",
+      "Animation Settings",
+      "스프라이트가 다음 장면으로 바뀌는 주기(초). 작을수록 빠르게 바뀝니다.",
+      "멈춰 있을 때도 애니메이션을 계속 재생할지 여부 (꺼두면 멈추면 첫 프레임으로 고정)"
+    ],
+    "numeric_literals": [
+      0.2,
+      0,
+      0.000001,
+      2
+    ],
+    "guessed_roles": [
+      "runtime",
+      "ui",
+      "player"
+    ],
+    "summary_signals": [
+      "런타임 컴포넌트",
+      "Update 기반 처리 존재",
+      "UI 관련 로직 포함",
+      "컴포넌트 조회 사용"
+    ]
+  },
+  {
     "file_id": "exp-make5/Assets/Scripts/PlayerController.cs",
     "path": "exp-make5/Assets/Scripts/PlayerController.cs",
     "file_name": "PlayerController.cs",
-    "content_hash": "cae43913afb896e34fba0e77b628b9d7cfd7a2dd",
-    "size": 17295,
+    "content_hash": "f1acb0e40a207cff6e43fdeca8673437b509dda1",
+    "size": 17292,
     "line_count": 425,
     "namespace": "",
     "using_list": [
@@ -1720,7 +1913,7 @@
       3,
       0.2,
       4,
-      10
+      5
     ],
     "guessed_roles": [
       "player",
@@ -1742,9 +1935,9 @@
     "file_id": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "path": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "file_name": "PlayerStatus.cs",
-    "content_hash": "2a2c2bda27e9805a5f0017b73274a12700aa4666",
-    "size": 3631,
-    "line_count": 107,
+    "content_hash": "c75841d6be4227dc3d860df78e6f50ab8fecf24c",
+    "size": 3725,
+    "line_count": 110,
     "namespace": "",
     "using_list": [
       "System",
@@ -1802,6 +1995,13 @@
         "access": "private",
         "serialized": false,
         "is_static": false
+      },
+      {
+        "name": "maxTime",
+        "type": "int",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
       }
     ],
     "properties": [],
@@ -1840,6 +2040,7 @@
       "BlueAmuletCount",
       "CurrentHealth",
       "CurrentTime",
+      "MaxTime",
       "Start",
       "NotifyAll",
       "InitializeTime",
@@ -2235,9 +2436,9 @@
     "file_id": "exp-make5/Assets/Scripts/StageEventManager.cs",
     "path": "exp-make5/Assets/Scripts/StageEventManager.cs",
     "file_name": "StageEventManager.cs",
-    "content_hash": "4c80b7fede23885380563c1180e2f3be3a5a2f14",
-    "size": 3925,
-    "line_count": 108,
+    "content_hash": "0f661fa877f41f7203de2c39e73902753a35b19a",
+    "size": 5022,
+    "line_count": 136,
     "namespace": "",
     "using_list": [
       "UnityEngine",
@@ -2268,10 +2469,12 @@
       "TriggerIncenseFound",
       "TriggerGameOver_Time",
       "TriggerGameOver_Health",
+      "PlayGameOverDialogueThenRestart",
       "TriggerGameOver_Abstention",
       "TriggerStageClear",
       "ShowGameOverWindow",
       "RestartGame",
+      "ReloadCurrentScene",
       "StartScene"
     ],
     "fields": [
@@ -2323,6 +2526,13 @@
         "access": "public",
         "serialized": false,
         "is_static": false
+      },
+      {
+        "name": "onEnded",
+        "type": "UnityEngine.Events.UnityAction",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
       }
     ],
     "properties": [],
@@ -2349,6 +2559,7 @@
       "AudioClip",
       "TextMeshProUGUI",
       "bool",
+      "UnityEngine.Events.UnityAction",
       "UnityEngine",
       "SceneManagement",
       "TMPro",
@@ -2368,9 +2579,16 @@
       "SoundManager",
       "PlaySFX",
       "ShowGameOverWindow",
-      "VNManager",
-      "StartConversationWithFile",
+      "PlayGameOverDialogueThenRestart",
       "TriggerGameOver_Health",
+      "VNManager",
+      "ReloadCurrentScene",
+      "Events",
+      "UnityAction",
+      "OnDialogueEnded",
+      "RemoveListener",
+      "AddListener",
+      "StartConversationWithFile",
       "TriggerGameOver_Abstention",
       "TriggerStageClear",
       "RestartGame",
@@ -2407,13 +2625,12 @@
       "ui",
       "runtime",
       "manager",
-      "combat"
+      "player"
     ],
     "summary_signals": [
       "런타임 컴포넌트",
       "싱글톤 후보",
-      "UI 관련 로직 포함",
-      "전투 계열 로직 포함"
+      "UI 관련 로직 포함"
     ]
   },
   {
@@ -3082,9 +3299,9 @@
     "file_id": "exp-make5/Assets/Scripts/UI/UIManager.cs",
     "path": "exp-make5/Assets/Scripts/UI/UIManager.cs",
     "file_name": "UIManager.cs",
-    "content_hash": "36b96499d281cdce8d5363a5567f95c964278de8",
-    "size": 2614,
-    "line_count": 72,
+    "content_hash": "2d9238c6e67897403321eb9c1429a89a4f9b8369",
+    "size": 4395,
+    "line_count": 114,
     "namespace": "",
     "using_list": [
       "UnityEngine",
@@ -3112,6 +3329,8 @@
       "UpdateRedAmuletUI",
       "UpdateBlueAmuletUI",
       "UpdateTime",
+      "FormatTime",
+      "Big",
       "OnDestroy"
     ],
     "fields": [
@@ -3149,6 +3368,34 @@
         "access": "public",
         "serialized": false,
         "is_static": false
+      },
+      {
+        "name": "emphasisSizePercent",
+        "type": "float",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "max",
+        "type": "int",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "elapsed",
+        "type": "int",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "gak",
+        "type": "int",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
       }
     ],
     "properties": [],
@@ -3165,7 +3412,7 @@
     "has_on_enable": false,
     "has_on_disable": false,
     "serialize_field_count": 0,
-    "public_field_count": 5,
+    "public_field_count": 6,
     "get_component_count": 0,
     "find_call_count": 0,
     "new_keyword_count": 0,
@@ -3175,6 +3422,8 @@
     "referenced_types": [
       "PlayerStatus",
       "TMP_Text",
+      "float",
+      "int",
       "UnityEngine",
       "TMPro",
       "TextMeshPro",
@@ -3194,6 +3443,15 @@
       "OnRedAmuletChanged",
       "OnBlueAmuletChanged",
       "OnTimeChanged",
+      "Jiji",
+      "FormatTime",
+      "MaxTime",
+      "Clamp",
+      "FloorToInt",
+      "Min",
+      "Length",
+      "Big",
+      "ToString",
       "OnDestroy"
     ],
     "component_access_types": [],
@@ -3203,10 +3461,31 @@
       "연결할 캐릭터 스크립트",
       "UI 텍스트 요소들",
       "앞으로 값이 변할 때마다 이 함수들을 실행시켜줘!",
-      "남은 시간 : "
+      "시",
+      "자",
+      "축",
+      "인",
+      "묘",
+      "진",
+      "사",
+      "오",
+      "미",
+      "신",
+      "유",
+      "술",
+      "해",
+      "시간 표기 폰트 크기",
+      "시진 글자(자, 축…)와 각 숫자(1, 2… / 정)를 일반 글자(시, 각) 대비 몇 %로 키울지",
+      "정",
+      "{si}시 {gakValue}각"
     ],
     "numeric_literals": [
       2,
+      12,
+      150,
+      8,
+      24,
+      360,
       3
     ],
     "guessed_roles": [
@@ -3755,6 +4034,190 @@
       "전투 계열 로직 포함",
       "컴포넌트 조회 사용",
       "Find 계열 탐색 사용"
+    ]
+  },
+  {
+    "file_id": "exp-make5/Assets/Scripts/ViewMaskFadeController.cs",
+    "path": "exp-make5/Assets/Scripts/ViewMaskFadeController.cs",
+    "file_name": "ViewMaskFadeController.cs",
+    "content_hash": "92b84390c2d2e805a58f7130d82de99ae8bfc1ef",
+    "size": 2979,
+    "line_count": 71,
+    "namespace": "",
+    "using_list": [
+      "UnityEngine"
+    ],
+    "classes": [
+      {
+        "name": "ViewMaskFadeController",
+        "kind": "class",
+        "access": "public",
+        "base_types": [
+          "MonoBehaviour"
+        ],
+        "interfaces": [],
+        "attributes": [],
+        "is_partial": false,
+        "is_generic": false
+      }
+    ],
+    "main_class_name": "ViewMaskFadeController",
+    "unity_type": "MonoBehaviour",
+    "methods": [
+      "OnEnable",
+      "MaterialPropertyBlock",
+      "LateUpdate",
+      "Vector3",
+      "Vector2",
+      "Vector4"
+    ],
+    "fields": [
+      {
+        "name": "overlayColor",
+        "type": "Color",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "meshRenderer",
+        "type": "MeshRenderer",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "mpb",
+        "type": "MaterialPropertyBlock",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "orthoH",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "orthoW",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "innerRadius",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "halfH",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      }
+    ],
+    "properties": [],
+    "events": [],
+    "unity_messages": [
+      "OnEnable",
+      "LateUpdate"
+    ],
+    "has_update": false,
+    "has_fixed_update": false,
+    "has_late_update": true,
+    "has_awake": false,
+    "has_start": false,
+    "has_on_enable": true,
+    "has_on_disable": false,
+    "serialize_field_count": 0,
+    "public_field_count": 1,
+    "get_component_count": 1,
+    "find_call_count": 0,
+    "new_keyword_count": 5,
+    "coroutine_count": 0,
+    "singleton_candidate": false,
+    "dont_destroy_on_load": false,
+    "referenced_types": [
+      "Color",
+      "MeshRenderer",
+      "MaterialPropertyBlock",
+      "float",
+      "UnityEngine",
+      "Quad",
+      "Custom",
+      "ViewMaskFade",
+      "ExecuteAlways",
+      "RequireComponent",
+      "References",
+      "Camera",
+      "CameraController",
+      "Fade",
+      "Settings",
+      "UV",
+      "OnEnable",
+      "GetComponent",
+      "LateUpdate",
+      "Vector3",
+      "Vector2",
+      "WorldToViewportPoint",
+      "GetPropertyBlock",
+      "SetColor",
+      "SetVector",
+      "Vector4",
+      "SetFloat",
+      "SetPropertyBlock"
+    ],
+    "component_access_types": [
+      "MeshRenderer"
+    ],
+    "created_types": [
+      "MaterialPropertyBlock",
+      "Vector3",
+      "Vector2",
+      "Vector4"
+    ],
+    "singleton_access_types": [],
+    "string_literals": [
+      "References",
+      "Fade Settings",
+      "viewMask 크기 대비 '완전히 선명한' 안쪽 영역 비율 (1 = viewMask와 동일 크기)",
+      "선명한 영역에서 완전히 어두워질 때까지의 페이드 폭 (UV 기준)",
+      "바깥 영역을 덮을 색 (보통 검정). 알파로 최대 어두움 정도 조절",
+      "_Color",
+      "_Center",
+      "_InnerRadius",
+      "_OuterRadius",
+      "_Aspect"
+    ],
+    "numeric_literals": [
+      0.1,
+      1.5,
+      0.85,
+      0.01,
+      1,
+      0.25,
+      2,
+      0.05,
+      2,
+      0.5,
+      0.3,
+      3,
+      0
+    ],
+    "guessed_roles": [
+      "runtime",
+      "ui"
+    ],
+    "summary_signals": [
+      "런타임 컴포넌트",
+      "UI 관련 로직 포함",
+      "컴포넌트 조회 사용"
     ]
   }
 ]
