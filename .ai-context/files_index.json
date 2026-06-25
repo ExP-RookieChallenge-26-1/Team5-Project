@@ -2519,9 +2519,9 @@
     "file_id": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "path": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "file_name": "MainMenuUI.cs",
-    "content_hash": "4148ac175395c48be9749c86bfd17604773f102f",
-    "size": 2574,
-    "line_count": 96,
+    "content_hash": "778550824d109c5106d669215705e40ef88def90",
+    "size": 2603,
+    "line_count": 97,
     "namespace": "",
     "using_list": [
       "System.Text.RegularExpressions",
@@ -2634,7 +2634,8 @@
     "string_literals": [
       "Sanghyun_Scene",
       "Start Screen",
-      "겜종료"
+      "겜종료",
+      "설정"
     ],
     "numeric_literals": [
       1,
