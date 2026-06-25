@@ -58,14 +58,28 @@
   {
     "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
     "from_class": "AudioControl",
-    "to_type": "Control",
+    "to_type": "Call",
     "relation_type": "uses",
     "strength": 1
   },
   {
     "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
     "from_class": "AudioControl",
-    "to_type": "Convert",
+    "to_type": "CanvasGroup",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Close",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Control",
     "relation_type": "uses",
     "strength": 1
   },
@@ -93,6 +107,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
     "from_class": "AudioControl",
+    "to_type": "Disable",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
     "to_type": "Drag",
     "relation_type": "uses",
     "strength": 1
@@ -114,6 +135,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
     "from_class": "AudioControl",
+    "to_type": "HideSettingsPanel",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
     "to_type": "If",
     "relation_type": "uses",
     "strength": 1
@@ -128,7 +156,21 @@
   {
     "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
     "from_class": "AudioControl",
+    "to_type": "Log",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
     "to_type": "Log10",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Make",
     "relation_type": "uses",
     "strength": 1
   },
@@ -170,6 +212,20 @@
   {
     "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
     "from_class": "AudioControl",
+    "to_type": "Open",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Panel",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
     "to_type": "PlayerPrefs",
     "relation_type": "uses",
     "strength": 1
@@ -178,13 +234,6 @@
     "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
     "from_class": "AudioControl",
     "to_type": "Reference",
-    "relation_type": "uses",
-    "strength": 1
-  },
-  {
-    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
-    "from_class": "AudioControl",
-    "to_type": "Save",
     "relation_type": "uses",
     "strength": 1
   },
@@ -240,6 +289,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
     "from_class": "AudioControl",
+    "to_type": "ShowSettingsPanel",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
     "to_type": "Slider",
     "relation_type": "uses",
     "strength": 1
@@ -261,6 +317,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
     "from_class": "AudioControl",
+    "to_type": "The",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
     "to_type": "UI",
     "relation_type": "uses",
     "strength": 1
@@ -276,6 +339,13 @@
     "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
     "from_class": "AudioControl",
     "to_type": "UnityEngine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/AudioControl.cs",
+    "from_class": "AudioControl",
+    "to_type": "Value",
     "relation_type": "uses",
     "strength": 1
   },
