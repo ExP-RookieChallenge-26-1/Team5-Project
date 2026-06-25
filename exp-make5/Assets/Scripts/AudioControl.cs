@@ -13,6 +13,30 @@ public class AudioControl: MonoBehaviour
     public Slider bgmSlider;
     public Slider sfxSlider;
 
+    [Header("UI Panel")]
+    [Tooltip("Drag the Panel containing your sliders here")]
+    public CanvasGroup settingsPanel;
+
+    // Call this function when the "Open" button is clicked
+    public void ShowSettingsPanel()
+    {
+        if (settingsPanel != null)
+        {
+            settingsPanel.alpha = 1f;           // Make visible
+            settingsPanel.blocksRaycasts = true; // Make interactable
+        }
+    }
+
+    // Call this function when the "Close" button is clicked
+    public void HideSettingsPanel()
+    {
+        if (settingsPanel != null)
+        {
+            settingsPanel.alpha = 0f;            // Make invisible
+            settingsPanel.blocksRaycasts = false; // Disable clicks
+        }
+    }
+
     private void Start()
     {
         // 1. Load saved preferences (default to 10 if no save exists)
@@ -30,10 +54,10 @@ public class AudioControl: MonoBehaviour
 
     public void SetMasterVolume(float sliderValue)
     {
-        // Convert the 0-10 slider value to a logarithmic decibel scale (-80dB to 0dB)
+        Debug.Log("The Master slider is moving! Value is: " + sliderValue); // Add this line!
         float decibelValue = ConvertToDecibels(sliderValue);
         mainMixer.SetFloat("Master", decibelValue);
-        PlayerPrefs.SetFloat("MasterVol", sliderValue); // Save the 0-10 value
+        PlayerPrefs.SetFloat("MasterVol", sliderValue);
     }
 
     public void SetBGMVolume(float sliderValue)
