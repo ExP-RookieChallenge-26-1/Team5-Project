@@ -61,6 +61,12 @@
       "referenced_type_count": 37
     },
     {
+      "class_name": "MainMenuUI",
+      "file_id": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
+      "relation_count": 38,
+      "referenced_type_count": 36
+    },
+    {
       "class_name": "StageEventManager",
       "file_id": "exp-make5/Assets/Scripts/StageEventManager.cs",
       "relation_count": 37,
@@ -70,12 +76,6 @@
       "class_name": "CameraController",
       "file_id": "exp-make5/Assets/Scripts/CameraController.cs",
       "relation_count": 36,
-      "referenced_type_count": 33
-    },
-    {
-      "class_name": "MainMenuUI",
-      "file_id": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
-      "relation_count": 35,
       "referenced_type_count": 33
     },
     {

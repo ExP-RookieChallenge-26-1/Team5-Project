@@ -3215,6 +3215,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "from_class": "MainMenuUI",
+    "to_type": "Exittomenu",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
     "to_type": "GameExit",
     "relation_type": "uses",
     "strength": 1
@@ -3306,6 +3313,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "from_class": "MainMenuUI",
+    "to_type": "Screen",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
     "to_type": "Settings",
     "relation_type": "uses",
     "strength": 1
@@ -3342,6 +3356,13 @@
     "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "from_class": "MainMenuUI",
     "to_type": "StageSelect_story",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
+    "from_class": "MainMenuUI",
+    "to_type": "Start",
     "relation_type": "uses",
     "strength": 1
   },

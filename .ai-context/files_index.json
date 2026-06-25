@@ -2519,9 +2519,9 @@
     "file_id": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "path": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
     "file_name": "MainMenuUI.cs",
-    "content_hash": "b907b9455e64029665d66455cd67aaaa86b36926",
-    "size": 2374,
-    "line_count": 90,
+    "content_hash": "4148ac175395c48be9749c86bfd17604773f102f",
+    "size": 2574,
+    "line_count": 96,
     "namespace": "",
     "using_list": [
       "System.Text.RegularExpressions",
@@ -2555,6 +2555,7 @@
       "ReturntoStartMenu",
       "EnterStoryModeSelect",
       "StoryModeStart",
+      "Exittomenu",
       "GameExit",
       "SettingsShow",
       "SettingsHide",
@@ -2614,6 +2615,9 @@
       "SceneManager",
       "LoadScene",
       "Sanghyun_Scene",
+      "Exittomenu",
+      "Start",
+      "Screen",
       "GameExit",
       "Application",
       "Quit",
@@ -2629,6 +2633,7 @@
     ],
     "string_literals": [
       "Sanghyun_Scene",
+      "Start Screen",
       "겜종료"
     ],
     "numeric_literals": [
