@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -49,6 +49,7 @@ public class StageEventManager : MonoBehaviour
         isGameOver = true;
         if (SoundManager.Instance != null &&  clearFailedSound!= null) SoundManager.Instance.PlaySFX(clearFailedSound);
         ShowGameOverWindow("시간 초과 게임 오버!");
+        VNManager.Instance.StartConversationWithFile("타임 오버 game over 수정1.csv");
     }
 
     // 💡 [추가됨] 체력 고갈 시 호출
@@ -58,6 +59,7 @@ public class StageEventManager : MonoBehaviour
         isGameOver = true;
         if (SoundManager.Instance != null &&  clearFailedSound!= null) SoundManager.Instance.PlaySFX(clearFailedSound);
         ShowGameOverWindow("체력 고갈 게임 오버!");
+        VNManager.Instance.StartConversationWithFile("생명력 소진 game over 수정1.csv");
     }
     
     // 💡 [추가됨] 기권 시 호출
