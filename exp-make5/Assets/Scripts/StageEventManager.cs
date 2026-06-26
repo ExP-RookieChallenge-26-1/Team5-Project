@@ -69,7 +69,7 @@ public class StageEventManager : MonoBehaviour
         if (VNManager.Instance == null)
         {
             // 대사 매니저가 없으면 곧바로 재시작
-            ReloadCurrentScene();
+            SceneManager.LoadScene("Start Screen");
             return;
         }
 
@@ -78,7 +78,7 @@ public class StageEventManager : MonoBehaviour
         onEnded = () =>
         {
             VNManager.Instance.OnDialogueEnded.RemoveListener(onEnded);
-            ReloadCurrentScene();
+            SceneManager.LoadScene("Start Screen");
         };
         VNManager.Instance.OnDialogueEnded.AddListener(onEnded);
 
