@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (StageEventManager.Instance != null && StageEventManager.Instance.isGameOver)
+        if ((StageEventManager.Instance != null && StageEventManager.Instance.isGameOver) || VNManager.IsDialogueActive)
         {
             // 이동 중이었다면 애니메이션도 멈추게 처리
             if (isMoving) 

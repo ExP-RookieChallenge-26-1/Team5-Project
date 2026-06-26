@@ -15,7 +15,7 @@ MonoBehaviour:
   stageMode: 1
   mapWidth: 20
   mapHeight: 8
-  maxTime: 100
+  maxTime: 125
   leftRedMineCount: 5
   leftBlueMineCount: 5
   rightRedMineCount: 5

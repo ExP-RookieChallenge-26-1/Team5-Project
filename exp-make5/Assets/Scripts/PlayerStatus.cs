@@ -12,6 +12,7 @@ public class PlayerStatus : MonoBehaviour
 
     [Header("Sound Settings")]
     public AudioClip defuseSuccessSound; // 지뢰 해제 성공 소리 
+    
 
     [SerializeField] private int maxHealth = 3;
     private int currentHealth;

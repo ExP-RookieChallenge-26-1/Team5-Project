@@ -55,6 +55,8 @@ public class VNManager : MonoBehaviour
     public UnityEvent OnDialogueStarted;
     public UnityEvent OnDialogueEnded;
 
+    public static bool IsDialogueActive { get; private set; }
+
     // --- INTERNAL STATE FLAGS ---
     private bool isPaused = false;
     private bool isFastForwarding = false;
@@ -86,6 +88,7 @@ public class VNManager : MonoBehaviour
     public void StartConversationWithFile(string newCsvFileName)
     {
         gameObject.SetActive(true);
+        IsDialogueActive = true;
 
         string filePath = Path.Combine(Application.streamingAssetsPath, newCsvFileName);
 
@@ -337,6 +340,7 @@ public class VNManager : MonoBehaviour
         activeBounceCoroutines.Clear();
 
         SetUIVisibility(false);
+        IsDialogueActive = false;
 
         OnDialogueEnded?.Invoke();
     }
