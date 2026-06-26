@@ -422,6 +422,17 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 1
+--- !u!114 &120466154 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3107303471369314253, guid: d62588cde4a68564a9dff60e08a57e88, type: 3}
+  m_PrefabInstance: {fileID: 1974650027}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &174040294
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,7 +662,7 @@ RectTransform:
   m_GameObject: {fileID: 503405498}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.70000005, y: 0.70000005, z: 0.70000005}
+  m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1334041754}
@@ -768,6 +779,49 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &507252012 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 71888218800405516, guid: 706055dd12b88e744adfcfe7a5a0d909, type: 3}
+  m_PrefabInstance: {fileID: 982393718}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &507252015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507252012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f289d386265f5f9409c92fce4b1991b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainMenuUI
+  StartScreen: {fileID: 1729814607}
+  StageSelect_story: {fileID: 1334041755}
+  Settings: {fileID: 1871129159}
+  buttonSound: {fileID: 8300000, guid: e65ff9e7a2c992f47a821f4f62a1a020, type: 3}
+--- !u!114 &514024646 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8714079870422828640, guid: d62588cde4a68564a9dff60e08a57e88, type: 3}
+  m_PrefabInstance: {fileID: 1974650027}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
+--- !u!114 &539482509 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7002213562077338328, guid: d62588cde4a68564a9dff60e08a57e88, type: 3}
+  m_PrefabInstance: {fileID: 1974650027}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &634746426
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,17 +894,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634746426}
   m_CullTransparentMesh: 1
---- !u!114 &655582905 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8714079870422828640, guid: d62588cde4a68564a9dff60e08a57e88, type: 3}
-  m_PrefabInstance: {fileID: 1974650027}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &678672235
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,17 +969,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 678672235}
   m_CullTransparentMesh: 1
---- !u!114 &808138307 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7002213562077338328, guid: d62588cde4a68564a9dff60e08a57e88, type: 3}
-  m_PrefabInstance: {fileID: 1974650027}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &845048960
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,7 +1363,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 71888218800405516, guid: 706055dd12b88e744adfcfe7a5a0d909, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 507252015}
   m_SourcePrefab: {fileID: 100100000, guid: 706055dd12b88e744adfcfe7a5a0d909, type: 3}
 --- !u!1 &1334041753
 GameObject:
@@ -1503,7 +1538,7 @@ MonoBehaviour:
   StartScreen: {fileID: 1729814607}
   StageSelect_story: {fileID: 1334041755}
   Settings: {fileID: 1871129159}
-  buttonSound: {fileID: 8300000, guid: 4fc7a6d743a16c64dbf789c7d57fa230, type: 3}
+  buttonSound: {fileID: 8300000, guid: e65ff9e7a2c992f47a821f4f62a1a020, type: 3}
 --- !u!114 &1614860821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1517,9 +1552,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioControl
   mainMixer: {fileID: 24100000, guid: ecba43f2228e46e4d97915443b472075, type: 2}
-  masterSlider: {fileID: 808138307}
-  bgmSlider: {fileID: 655582905}
-  sfxSlider: {fileID: 1948879067}
+  masterSlider: {fileID: 539482509}
+  bgmSlider: {fileID: 514024646}
+  sfxSlider: {fileID: 120466154}
   settingsPanel: {fileID: 1871129159}
 --- !u!1 &1729814603
 GameObject:
@@ -2060,17 +2095,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1880486691}
   m_CullTransparentMesh: 1
---- !u!114 &1948879067 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3107303471369314253, guid: d62588cde4a68564a9dff60e08a57e88, type: 3}
-  m_PrefabInstance: {fileID: 1974650027}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1001 &1974650027
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2499,7 +2523,7 @@ PrefabInstance:
       objectReference: {fileID: 1614860820}
     - target: {fileID: 3544266086461142291, guid: 90f81c40d39fa694fb0de53f4bfb1742, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Exittomenu
+      value: ReturntoStartMenu
       objectReference: {fileID: 0}
     - target: {fileID: 4757845203456124555, guid: 90f81c40d39fa694fb0de53f4bfb1742, type: 3}
       propertyPath: m_Type

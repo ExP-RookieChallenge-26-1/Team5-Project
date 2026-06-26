@@ -102,6 +102,8 @@ public class StageEventManager : MonoBehaviour
         isGameOver = true;
         if (SoundManager.Instance != null &&  clearSuccessSound!= null) SoundManager.Instance.PlaySFX(clearSuccessSound);
 
+        PlayGameOverDialogueThenRestart("백제 스테이지 클리어 대사 수정1.csv");
+
         ShowGameOverWindow("성공!");
         
     }

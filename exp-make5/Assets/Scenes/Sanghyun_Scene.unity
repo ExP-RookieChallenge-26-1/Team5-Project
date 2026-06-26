@@ -1999,13 +1999,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3947030886759781120, guid: a7971a38b685eb745bbde8dbf3795b0f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1535612045}
   m_SourcePrefab: {fileID: 100100000, guid: a7971a38b685eb745bbde8dbf3795b0f, type: 3}
 --- !u!224 &1535612043 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6144869999632317612, guid: a7971a38b685eb745bbde8dbf3795b0f, type: 3}
   m_PrefabInstance: {fileID: 1535612042}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1535612044 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3947030886759781120, guid: a7971a38b685eb745bbde8dbf3795b0f, type: 3}
+  m_PrefabInstance: {fileID: 1535612042}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1535612045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535612044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a136b583abc27b746b31e5db324f96f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VNSceneInitializer
+  dialogueFileName: "\uBC31\uC81C \uC2A4\uD14C\uC774\uC9C0 \uC2DC\uC791.csv"
+  playOnStart: 1
 --- !u!1 &1554784993
 GameObject:
   m_ObjectHideFlags: 0

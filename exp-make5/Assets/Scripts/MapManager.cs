@@ -269,6 +269,10 @@ public class MapManager : MonoBehaviour
                 StageEventManager.Instance.TriggerIncenseFound(foundIncenseCount);
             }
             Debug.Log($"향로 획득! 현재 개수: {foundIncenseCount}");
+            if (foundIncenseCount == 4)
+            {
+                StageEventManager.Instance.TriggerStageClear();
+            }
         }
     }
 
