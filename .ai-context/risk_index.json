@@ -150,6 +150,27 @@
     "risk_score": 74
   },
   {
+    "file_id": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "class_name": "BGMManager",
+    "risk_flags": [
+      "singleton-candidate",
+      "high-coupling",
+      "init-order-sensitive",
+      "save-load-sensitive",
+      "ui-runtime-mixed",
+      "state-owner"
+    ],
+    "risk_reasons": [
+      "Instance 또는 DontDestroyOnLoad 패턴 감지",
+      "참조 타입 또는 관계 수가 많음",
+      "초기화 순서에 민감할 가능성",
+      "저장/불러오기 관련 로직 포함",
+      "UI와 런타임 책임이 한 파일에 섞였을 가능성",
+      "상태 중심 또는 관리 중심 클래스일 가능성"
+    ],
+    "risk_score": 73
+  },
+  {
     "file_id": "exp-make5/Assets/Scripts/StageEventManager.cs",
     "class_name": "StageEventManager",
     "risk_flags": [
@@ -336,6 +357,40 @@
     "risk_score": 45
   },
   {
+    "file_id": "exp-make5/Assets/Scripts/IncenseUIManager.cs",
+    "class_name": "IncenseUIManager",
+    "risk_flags": [
+      "singleton-candidate",
+      "init-order-sensitive",
+      "ui-runtime-mixed",
+      "state-owner"
+    ],
+    "risk_reasons": [
+      "Instance 또는 DontDestroyOnLoad 패턴 감지",
+      "초기화 순서에 민감할 가능성",
+      "UI와 런타임 책임이 한 파일에 섞였을 가능성",
+      "상태 중심 또는 관리 중심 클래스일 가능성"
+    ],
+    "risk_score": 43
+  },
+  {
+    "file_id": "exp-make5/Assets/Scripts/UI/PlayerTimeUI.cs",
+    "class_name": "PlayerTimeUI",
+    "risk_flags": [
+      "init-order-sensitive",
+      "save-load-sensitive",
+      "ui-runtime-mixed",
+      "state-owner"
+    ],
+    "risk_reasons": [
+      "초기화 순서에 민감할 가능성",
+      "저장/불러오기 관련 로직 포함",
+      "UI와 런타임 책임이 한 파일에 섞였을 가능성",
+      "상태 중심 또는 관리 중심 클래스일 가능성"
+    ],
+    "risk_score": 40
+  },
+  {
     "file_id": "exp-make5/Assets/Scripts/StageData.cs",
     "class_name": "StageData",
     "risk_flags": [
@@ -346,6 +401,21 @@
     "risk_reasons": [
       "참조 타입 또는 관계 수가 많음",
       "public 필드 노출 수가 많음",
+      "상태 중심 또는 관리 중심 클래스일 가능성"
+    ],
+    "risk_score": 36
+  },
+  {
+    "file_id": "exp-make5/Assets/Scripts/UI/VNSceneInitializer.cs",
+    "class_name": "VNSceneInitializer",
+    "risk_flags": [
+      "high-coupling",
+      "init-order-sensitive",
+      "state-owner"
+    ],
+    "risk_reasons": [
+      "참조 타입 또는 관계 수가 많음",
+      "초기화 순서에 민감할 가능성",
       "상태 중심 또는 관리 중심 클래스일 가능성"
     ],
     "risk_score": 36

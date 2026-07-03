@@ -380,6 +380,20 @@
   {
     "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
     "from_class": "CameraController",
+    "to_type": "BGMManager",
+    "relation_type": "singleton-access",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
+    "from_class": "CameraController",
+    "to_type": "BGMManager",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
+    "from_class": "CameraController",
     "to_type": "CalculateAxisPosition",
     "relation_type": "uses",
     "strength": 1
@@ -422,6 +436,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
     "from_class": "CameraController",
+    "to_type": "FitOverlayToCamera",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
+    "from_class": "CameraController",
     "to_type": "float",
     "relation_type": "uses",
     "strength": 1
@@ -437,6 +458,13 @@
     "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
     "from_class": "CameraController",
     "to_type": "GetMapSize",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
+    "from_class": "CameraController",
+    "to_type": "Instance",
     "relation_type": "uses",
     "strength": 1
   },
@@ -479,6 +507,13 @@
     "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
     "from_class": "CameraController",
     "to_type": "Padding",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
+    "from_class": "CameraController",
+    "to_type": "PlayBGM",
     "relation_type": "uses",
     "strength": 1
   },
@@ -605,6 +640,83 @@
     "from_file": "exp-make5/Assets/Scripts/CameraController.cs",
     "from_class": "CameraController",
     "to_type": "Zoom",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/IncenseUIManager.cs",
+    "from_class": "IncenseUIManager",
+    "to_type": "MonoBehaviour",
+    "relation_type": "inherits",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/IncenseUIManager.cs",
+    "from_class": "IncenseUIManager",
+    "to_type": "Awake",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/IncenseUIManager.cs",
+    "from_class": "IncenseUIManager",
+    "to_type": "CollectIncense",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/IncenseUIManager.cs",
+    "from_class": "IncenseUIManager",
+    "to_type": "Destroy",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/IncenseUIManager.cs",
+    "from_class": "IncenseUIManager",
+    "to_type": "Element",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/IncenseUIManager.cs",
+    "from_class": "IncenseUIManager",
+    "to_type": "Instance",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/IncenseUIManager.cs",
+    "from_class": "IncenseUIManager",
+    "to_type": "ResetUI",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/IncenseUIManager.cs",
+    "from_class": "IncenseUIManager",
+    "to_type": "SetActive",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/IncenseUIManager.cs",
+    "from_class": "IncenseUIManager",
+    "to_type": "Start",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/IncenseUIManager.cs",
+    "from_class": "IncenseUIManager",
+    "to_type": "UI",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/IncenseUIManager.cs",
+    "from_class": "IncenseUIManager",
+    "to_type": "UnityEngine",
     "relation_type": "uses",
     "strength": 1
   },
@@ -758,6 +870,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
     "from_class": "SlidingPanel",
+    "to_type": "IsDialogueActive",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
     "to_type": "Lerp",
     "relation_type": "uses",
     "strength": 1
@@ -892,6 +1011,13 @@
     "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
     "from_class": "SlidingPanel",
     "to_type": "Vector2",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+    "from_class": "SlidingPanel",
+    "to_type": "VNManager",
     "relation_type": "uses",
     "strength": 1
   },
@@ -1094,6 +1220,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
+    "to_type": "IncenseUIManager",
+    "relation_type": "singleton-access",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
     "to_type": "SoundManager",
     "relation_type": "singleton-access",
     "strength": 4
@@ -1171,6 +1304,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
+    "to_type": "Color",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
     "to_type": "Count",
     "relation_type": "uses",
     "strength": 1
@@ -1192,7 +1332,7 @@
   {
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
-    "to_type": "FF5555",
+    "to_type": "EnableKeyword",
     "relation_type": "uses",
     "strength": 1
   },
@@ -1235,6 +1375,13 @@
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
     "to_type": "HandleMineEncounter",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "IncenseUIManager",
     "relation_type": "uses",
     "strength": 1
   },
@@ -1353,6 +1500,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
+    "to_type": "Material",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
     "to_type": "Max",
     "relation_type": "uses",
     "strength": 1
@@ -1375,6 +1529,13 @@
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
     "to_type": "OpenTile",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "OUTLINE_ON",
     "relation_type": "uses",
     "strength": 1
   },
@@ -1424,6 +1585,20 @@
     "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
     "from_class": "MapManager",
     "to_type": "Quaternion",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "SetColor",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/MapManager.cs",
+    "from_class": "MapManager",
+    "to_type": "SetFloat",
     "relation_type": "uses",
     "strength": 1
   },
@@ -2130,6 +2305,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
     "from_class": "PlayerController",
+    "to_type": "IsDialogueActive",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
+    "from_class": "PlayerController",
     "to_type": "IsGatekeeper",
     "relation_type": "uses",
     "strength": 1
@@ -2488,6 +2670,13 @@
     "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
     "from_class": "PlayerController",
     "to_type": "Vector3",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/PlayerController.cs",
+    "from_class": "PlayerController",
+    "to_type": "VNManager",
     "relation_type": "uses",
     "strength": 1
   },
@@ -3381,6 +3570,349 @@
     "strength": 1
   },
   {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "AudioSource",
+    "relation_type": "component-access",
+    "strength": 3
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "MonoBehaviour",
+    "relation_type": "inherits",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "Application",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "AudioClip",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "AudioSource",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "AudioType",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "Awake",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "BGM",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "Collections",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "Combine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "ConnectionError",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "Contains",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "Coroutine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "Destroy",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "DontDestroyOnLoad",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "DownloadHandlerAudioClip",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "Error",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "Forces",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "GetAudioClip",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "GetAudioType",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "GetComponent",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "GetContent",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "GetExtension",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "If",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "Instance",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "IO",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "Keeps",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "Kills",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "LoadAndPlayAudio",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "LogError",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "MPEG",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "Networking",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "OGGVORBIS",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "Path",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "Play",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "PlayBGM",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "ProtocolError",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "RequireComponent",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "Result",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "SendWebRequest",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "StartCoroutine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "StopCoroutine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "System",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "ToLower",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "UnityEngine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "UnityWebRequest",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "UnityWebRequestMultimedia",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "UNKNOWN",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "from_class": "BGMManager",
+    "to_type": "WAV",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
     "from_file": "exp-make5/Assets/Scripts/UI/DialogueTrigger.cs",
     "from_class": "DialogueTrigger",
     "to_type": "MonoBehaviour",
@@ -3761,7 +4293,21 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/MenuTransitionController.cs",
     "from_class": "MenuTransitionController",
+    "to_type": "BGMManager",
+    "relation_type": "singleton-access",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/MenuTransitionController.cs",
+    "from_class": "MenuTransitionController",
     "to_type": "Added",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/MenuTransitionController.cs",
+    "from_class": "MenuTransitionController",
+    "to_type": "BGMManager",
     "relation_type": "uses",
     "strength": 1
   },
@@ -3887,6 +4433,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/MenuTransitionController.cs",
     "from_class": "MenuTransitionController",
+    "to_type": "Instance",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/MenuTransitionController.cs",
+    "from_class": "MenuTransitionController",
     "to_type": "Left",
     "relation_type": "uses",
     "strength": 1
@@ -3951,6 +4504,13 @@
     "from_file": "exp-make5/Assets/Scripts/UI/MenuTransitionController.cs",
     "from_class": "MenuTransitionController",
     "to_type": "PingPong",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/MenuTransitionController.cs",
+    "from_class": "MenuTransitionController",
+    "to_type": "PlayBGM",
     "relation_type": "uses",
     "strength": 1
   },
@@ -4119,6 +4679,90 @@
     "from_file": "exp-make5/Assets/Scripts/UI/MenuTransitionController.cs",
     "from_class": "MenuTransitionController",
     "to_type": "WaitForSeconds",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/PlayerTimeUI.cs",
+    "from_class": "PlayerTimeUI",
+    "to_type": "MonoBehaviour",
+    "relation_type": "inherits",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/PlayerTimeUI.cs",
+    "from_class": "PlayerTimeUI",
+    "to_type": "Dependencies",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/PlayerTimeUI.cs",
+    "from_class": "PlayerTimeUI",
+    "to_type": "MaxTime",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/PlayerTimeUI.cs",
+    "from_class": "PlayerTimeUI",
+    "to_type": "OnDisable",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/PlayerTimeUI.cs",
+    "from_class": "PlayerTimeUI",
+    "to_type": "OnEnable",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/PlayerTimeUI.cs",
+    "from_class": "PlayerTimeUI",
+    "to_type": "OnTimeChanged",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/PlayerTimeUI.cs",
+    "from_class": "PlayerTimeUI",
+    "to_type": "PlayerStatus",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/PlayerTimeUI.cs",
+    "from_class": "PlayerTimeUI",
+    "to_type": "Slider",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/PlayerTimeUI.cs",
+    "from_class": "PlayerTimeUI",
+    "to_type": "UI",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/PlayerTimeUI.cs",
+    "from_class": "PlayerTimeUI",
+    "to_type": "UnityEngine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/PlayerTimeUI.cs",
+    "from_class": "PlayerTimeUI",
+    "to_type": "UpdateTimeUI",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/PlayerTimeUI.cs",
+    "from_class": "PlayerTimeUI",
+    "to_type": "Value",
     "relation_type": "uses",
     "strength": 1
   },
@@ -4993,6 +5637,13 @@
   {
     "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "from_class": "DialogueLine",
+    "to_type": "IsDialogueActive",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
+    "from_class": "DialogueLine",
     "to_type": "IsNullOrEmpty",
     "relation_type": "uses",
     "strength": 1
@@ -5547,6 +6198,146 @@
     "from_file": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "from_class": "DialogueLine",
     "to_type": "WaitForSeconds",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNSceneInitializer.cs",
+    "from_class": "VNSceneInitializer",
+    "to_type": "MonoBehaviour",
+    "relation_type": "inherits",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNSceneInitializer.cs",
+    "from_class": "VNSceneInitializer",
+    "to_type": "VNManager",
+    "relation_type": "singleton-access",
+    "strength": 4
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNSceneInitializer.cs",
+    "from_class": "VNSceneInitializer",
+    "to_type": "Awake",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNSceneInitializer.cs",
+    "from_class": "VNSceneInitializer",
+    "to_type": "bool",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNSceneInitializer.cs",
+    "from_class": "VNSceneInitializer",
+    "to_type": "Could",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNSceneInitializer.cs",
+    "from_class": "VNSceneInitializer",
+    "to_type": "CSV",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNSceneInitializer.cs",
+    "from_class": "VNSceneInitializer",
+    "to_type": "Instance",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNSceneInitializer.cs",
+    "from_class": "VNSceneInitializer",
+    "to_type": "LogError",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNSceneInitializer.cs",
+    "from_class": "VNSceneInitializer",
+    "to_type": "Make",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNSceneInitializer.cs",
+    "from_class": "VNSceneInitializer",
+    "to_type": "Safely",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNSceneInitializer.cs",
+    "from_class": "VNSceneInitializer",
+    "to_type": "Settings",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNSceneInitializer.cs",
+    "from_class": "VNSceneInitializer",
+    "to_type": "Should",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNSceneInitializer.cs",
+    "from_class": "VNSceneInitializer",
+    "to_type": "Start",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNSceneInitializer.cs",
+    "from_class": "VNSceneInitializer",
+    "to_type": "StartConversationWithFile",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNSceneInitializer.cs",
+    "from_class": "VNSceneInitializer",
+    "to_type": "StartVN",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNSceneInitializer.cs",
+    "from_class": "VNSceneInitializer",
+    "to_type": "StreamingAssets",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNSceneInitializer.cs",
+    "from_class": "VNSceneInitializer",
+    "to_type": "string",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNSceneInitializer.cs",
+    "from_class": "VNSceneInitializer",
+    "to_type": "The",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNSceneInitializer.cs",
+    "from_class": "VNSceneInitializer",
+    "to_type": "UnityEngine",
+    "relation_type": "uses",
+    "strength": 1
+  },
+  {
+    "from_file": "exp-make5/Assets/Scripts/UI/VNSceneInitializer.cs",
+    "from_class": "VNSceneInitializer",
+    "to_type": "VNManager",
     "relation_type": "uses",
     "strength": 1
   },

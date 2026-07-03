@@ -2,57 +2,64 @@
   "project_name": "unknown",
   "language": "C#",
   "engine_guess": "Unity",
-  "total_cs_files": 19,
-  "mono_behaviour_files": 17,
+  "total_cs_files": 23,
+  "mono_behaviour_files": 21,
   "scriptable_object_files": 1,
   "files_with_update": 5,
   "files_with_fixed_update": 0,
   "files_with_late_update": 2,
-  "singleton_candidates": 3,
-  "manager_like_classes": 12,
-  "ui_related_classes": 15,
-  "save_load_related_classes": 4,
+  "singleton_candidates": 5,
+  "manager_like_classes": 16,
+  "ui_related_classes": 18,
+  "save_load_related_classes": 6,
   "role_counts": {
-    "ui": 15,
-    "save-load": 4,
-    "runtime": 19,
-    "player": 13,
+    "ui": 18,
+    "save-load": 6,
+    "runtime": 23,
+    "player": 14,
     "data": 2,
-    "manager": 12,
+    "manager": 16,
     "combat": 5,
-    "scene": 3,
+    "scene": 4,
+    "network": 1,
     "inventory": 1
   },
   "high_coupling_classes": [
     {
       "class_name": "DialogueLine",
       "file_id": "exp-make5/Assets/Scripts/UI/VNManager.cs",
-      "relation_count": 144,
-      "referenced_type_count": 137
+      "relation_count": 145,
+      "referenced_type_count": 138
     },
     {
       "class_name": "PlayerController",
       "file_id": "exp-make5/Assets/Scripts/PlayerController.cs",
-      "relation_count": 95,
-      "referenced_type_count": 84
+      "relation_count": 97,
+      "referenced_type_count": 86
     },
     {
       "class_name": "MapManager",
       "file_id": "exp-make5/Assets/Scripts/MapManager.cs",
-      "relation_count": 74,
-      "referenced_type_count": 68
+      "relation_count": 81,
+      "referenced_type_count": 74
     },
     {
       "class_name": "MenuTransitionController",
       "file_id": "exp-make5/Assets/Scripts/UI/MenuTransitionController.cs",
-      "relation_count": 55,
-      "referenced_type_count": 52
+      "relation_count": 59,
+      "referenced_type_count": 55
     },
     {
       "class_name": "AudioControl",
       "file_id": "exp-make5/Assets/Scripts/AudioControl.cs",
       "relation_count": 51,
       "referenced_type_count": 50
+    },
+    {
+      "class_name": "BGMManager",
+      "file_id": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+      "relation_count": 49,
+      "referenced_type_count": 47
     },
     {
       "class_name": "StageEventManager",
@@ -63,6 +70,12 @@
     {
       "class_name": "SlidingPanel",
       "file_id": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
+      "relation_count": 43,
+      "referenced_type_count": 39
+    },
+    {
+      "class_name": "CameraController",
+      "file_id": "exp-make5/Assets/Scripts/CameraController.cs",
       "relation_count": 41,
       "referenced_type_count": 37
     },
@@ -71,18 +84,6 @@
       "file_id": "exp-make5/Assets/Scripts/UI/MainMenuUI.cs",
       "relation_count": 38,
       "referenced_type_count": 36
-    },
-    {
-      "class_name": "CameraController",
-      "file_id": "exp-make5/Assets/Scripts/CameraController.cs",
-      "relation_count": 36,
-      "referenced_type_count": 33
-    },
-    {
-      "class_name": "PlayerAnim",
-      "file_id": "exp-make5/Assets/Scripts/PlayerAnim.cs",
-      "relation_count": 35,
-      "referenced_type_count": 32
     }
   ],
   "high_risk_classes": [
@@ -237,6 +238,27 @@
       "risk_score": 74
     },
     {
+      "file_id": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+      "class_name": "BGMManager",
+      "risk_flags": [
+        "singleton-candidate",
+        "high-coupling",
+        "init-order-sensitive",
+        "save-load-sensitive",
+        "ui-runtime-mixed",
+        "state-owner"
+      ],
+      "risk_reasons": [
+        "Instance 또는 DontDestroyOnLoad 패턴 감지",
+        "참조 타입 또는 관계 수가 많음",
+        "초기화 순서에 민감할 가능성",
+        "저장/불러오기 관련 로직 포함",
+        "UI와 런타임 책임이 한 파일에 섞였을 가능성",
+        "상태 중심 또는 관리 중심 클래스일 가능성"
+      ],
+      "risk_score": 73
+    },
+    {
       "file_id": "exp-make5/Assets/Scripts/StageEventManager.cs",
       "class_name": "StageEventManager",
       "risk_flags": [
@@ -292,27 +314,6 @@
       "risk_reasons": [
         "참조 타입 또는 관계 수가 많음",
         "public 필드 노출 수가 많음",
-        "숫자 리터럴이 많아 의미 파악이 어려울 수 있음",
-        "초기화 순서에 민감할 가능성",
-        "UI와 런타임 책임이 한 파일에 섞였을 가능성",
-        "상태 중심 또는 관리 중심 클래스일 가능성"
-      ],
-      "risk_score": 64
-    },
-    {
-      "file_id": "exp-make5/Assets/Scripts/ViewMaskFadeController.cs",
-      "class_name": "ViewMaskFadeController",
-      "risk_flags": [
-        "update-heavy",
-        "high-coupling",
-        "magic-number-heavy",
-        "init-order-sensitive",
-        "ui-runtime-mixed",
-        "state-owner"
-      ],
-      "risk_reasons": [
-        "Unity 업데이트 루프 사용",
-        "참조 타입 또는 관계 수가 많음",
         "숫자 리터럴이 많아 의미 파악이 어려울 수 있음",
         "초기화 순서에 민감할 가능성",
         "UI와 런타임 책임이 한 파일에 섞였을 가능성",

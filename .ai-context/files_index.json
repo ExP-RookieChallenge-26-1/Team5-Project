@@ -203,9 +203,9 @@
     "file_id": "exp-make5/Assets/Scripts/CameraController.cs",
     "path": "exp-make5/Assets/Scripts/CameraController.cs",
     "file_name": "CameraController.cs",
-    "content_hash": "8fb7dcf3c601ba944466b6bd947f302bc301cfe1",
-    "size": 7128,
-    "line_count": 169,
+    "content_hash": "837cc7e56bbbc2bd685c186551a4c6bfd8154ead",
+    "size": 8301,
+    "line_count": 201,
     "namespace": "",
     "using_list": [
       "UnityEngine"
@@ -232,7 +232,8 @@
       "Vector3",
       "SetFixedAspectRatio",
       "CalculateAxisPosition",
-      "FitBackgroundToCamera"
+      "FitBackgroundToCamera",
+      "FitOverlayToCamera"
     ],
     "fields": [
       {
@@ -258,6 +259,27 @@
       },
       {
         "name": "paddingRatio",
+        "type": "float",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "overlayRenderer",
+        "type": "SpriteRenderer",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "overlayWidth",
+        "type": "float",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "overlayHeight",
         "type": "float",
         "access": "public",
         "serialized": false,
@@ -437,6 +459,34 @@
         "access": "internal",
         "serialized": false,
         "is_static": false
+      },
+      {
+        "name": "spriteWidth",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "spriteHeight",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "scaleX",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "scaleY",
+        "type": "float",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
       }
     ],
     "properties": [],
@@ -453,10 +503,10 @@
     "has_on_enable": false,
     "has_on_disable": false,
     "serialize_field_count": 0,
-    "public_field_count": 3,
+    "public_field_count": 6,
     "get_component_count": 1,
     "find_call_count": 0,
-    "new_keyword_count": 6,
+    "new_keyword_count": 8,
     "coroutine_count": 0,
     "singleton_candidate": false,
     "dont_destroy_on_load": false,
@@ -481,11 +531,15 @@
       "Start",
       "GetComponent",
       "Color",
+      "BGMManager",
+      "Instance",
+      "PlayBGM",
       "LateUpdate",
       "SetFixedAspectRatio",
       "Zoom",
       "Max",
       "FitBackgroundToCamera",
+      "FitOverlayToCamera",
       "Vector2Int",
       "GetMapSize",
       "Clamping",
@@ -501,14 +555,17 @@
     "created_types": [
       "Vector3"
     ],
-    "singleton_access_types": [],
+    "singleton_access_types": [
+      "BGMManager"
+    ],
     "string_literals": [
       "References",
       "Movement Settings",
       "View Settings",
       "Vertical Layout Ratio",
       "UI Padding Settings",
-      "Resolution Settings"
+      "Resolution Settings",
+      "플레이_BGM.mp3"
     ],
     "numeric_literals": [
       0.3,
@@ -522,21 +579,21 @@
       0.1,
       20,
       9,
+      16,
+      10,
       20,
       9,
       2,
       15,
       8,
       2,
-      12,
-      3,
-      4
+      12
     ],
     "guessed_roles": [
       "runtime",
+      "manager",
       "ui",
-      "player",
-      "manager"
+      "player"
     ],
     "summary_signals": [
       "런타임 컴포넌트",
@@ -545,11 +602,107 @@
     ]
   },
   {
+    "file_id": "exp-make5/Assets/Scripts/IncenseUIManager.cs",
+    "path": "exp-make5/Assets/Scripts/IncenseUIManager.cs",
+    "file_name": "IncenseUIManager.cs",
+    "content_hash": "94e568a356fb58c346436c8cd2bf4b71b5c4caf3",
+    "size": 1675,
+    "line_count": 44,
+    "namespace": "",
+    "using_list": [
+      "UnityEngine"
+    ],
+    "classes": [
+      {
+        "name": "IncenseUIManager",
+        "kind": "class",
+        "access": "public",
+        "base_types": [
+          "MonoBehaviour"
+        ],
+        "interfaces": [],
+        "attributes": [],
+        "is_partial": false,
+        "is_generic": false
+      }
+    ],
+    "main_class_name": "IncenseUIManager",
+    "unity_type": "MonoBehaviour",
+    "methods": [
+      "Awake",
+      "Destroy",
+      "Start",
+      "ResetUI",
+      "CollectIncense"
+    ],
+    "fields": [],
+    "properties": [
+      {
+        "access": "internal",
+        "type": "IncenseUIManager",
+        "name": "Instance"
+      }
+    ],
+    "events": [],
+    "unity_messages": [
+      "Awake",
+      "Start"
+    ],
+    "has_update": false,
+    "has_fixed_update": false,
+    "has_late_update": false,
+    "has_awake": true,
+    "has_start": true,
+    "has_on_enable": false,
+    "has_on_disable": false,
+    "serialize_field_count": 0,
+    "public_field_count": 0,
+    "get_component_count": 0,
+    "find_call_count": 0,
+    "new_keyword_count": 2,
+    "coroutine_count": 0,
+    "singleton_candidate": true,
+    "dont_destroy_on_load": false,
+    "referenced_types": [
+      "UnityEngine",
+      "Instance",
+      "UI",
+      "Element",
+      "Awake",
+      "Destroy",
+      "Start",
+      "ResetUI",
+      "SetActive",
+      "CollectIncense"
+    ],
+    "component_access_types": [],
+    "created_types": [],
+    "singleton_access_types": [],
+    "string_literals": [
+      "UI 슬롯 설정 (0번 칸 ~ 3번 칸 순서대로 매칭)"
+    ],
+    "numeric_literals": [
+      3,
+      4,
+      2
+    ],
+    "guessed_roles": [
+      "runtime",
+      "manager",
+      "ui"
+    ],
+    "summary_signals": [
+      "런타임 컴포넌트",
+      "싱글톤 후보",
+      "UI 관련 로직 포함"
+    ]
+  },
+  {
     "file_id": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
     "path": "exp-make5/Assets/Scripts/Input/SlidingPanel.cs",
     "file_name": "SlidingPanel.cs",
-    "content_hash": "f3754cfcba4c8d88f2916a777b5832ff17d419ca",
-    "size": 2643,
+    "content_hash": "982cb455ba97b6d1dc76cfb25144bca0ba2d2d25",
+    "size": 2665,
     "line_count": 91,
     "namespace": "",
     "using_list": [
@@ -709,6 +862,8 @@
       "TogglePanel",
       "StageEventManager",
       "Instance",
+      "VNManager",
+      "IsDialogueActive",
       "StopCoroutine",
       "StartCoroutine",
       "SlideRoutine",
@@ -884,9 +1039,9 @@
     "file_id": "exp-make5/Assets/Scripts/MapManager.cs",
     "path": "exp-make5/Assets/Scripts/MapManager.cs",
     "file_name": "MapManager.cs",
-    "content_hash": "c093f6d95b272c3ed4b1cb453bf1293ba2735920",
-    "size": 17301,
-    "line_count": 397,
+    "content_hash": "9842acd8087a6b690599f3362f089e14c9c95403",
+    "size": 18388,
+    "line_count": 418,
     "namespace": "",
     "using_list": [
       "System.Collections.Generic",
@@ -1192,6 +1347,13 @@
         "is_static": false
       },
       {
+        "name": "collectedIndex",
+        "type": "int",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
         "name": "lockedType",
         "type": "string",
         "access": "internal",
@@ -1208,6 +1370,13 @@
       {
         "name": "idx",
         "type": "int",
+        "access": "internal",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "textMaterial",
+        "type": "Material",
         "access": "internal",
         "serialized": false,
         "is_static": false
@@ -1246,6 +1415,7 @@
       "int",
       "bool",
       "string",
+      "Material",
       "System",
       "Collections",
       "Generic",
@@ -1288,6 +1458,7 @@
       "TriggerStageClear",
       "Log",
       "CollectIncense",
+      "IncenseUIManager",
       "TriggerIncenseFound",
       "PlayerStatus",
       "HandleMineEncounter",
@@ -1299,9 +1470,13 @@
       "LockedRed",
       "LockedBlue",
       "ShowHint",
-      "GetComponentInChildren",
       "TextMeshPro",
-      "FF5555",
+      "GetComponentInChildren",
+      "EnableKeyword",
+      "OUTLINE_ON",
+      "SetColor",
+      "Color",
+      "SetFloat",
       "Add",
       "GetMapSize",
       "IsWalkable",
@@ -1318,6 +1493,7 @@
     ],
     "singleton_access_types": [
       "StageEventManager",
+      "IncenseUIManager",
       "SoundManager"
     ],
     "string_literals": [
@@ -1329,7 +1505,10 @@
       "향로 획득! 현재 개수: {foundIncenseCount}",
       "Open",
       "LockedRed",
-      "LockedBlue"
+      "LockedBlue",
+      "OUTLINE_ON",
+      "_OutlineColor",
+      "_OutlineWidth"
     ],
     "numeric_literals": [
       4,
@@ -1337,12 +1516,14 @@
       3,
       1000,
       0.1,
-      0.2
+      0.2,
+      0.1,
+      0.15
     ],
     "guessed_roles": [
       "runtime",
-      "manager",
       "ui",
+      "manager",
       "player",
       "combat"
     ],
@@ -1549,8 +1730,8 @@
     "file_id": "exp-make5/Assets/Scripts/PlayerController.cs",
     "path": "exp-make5/Assets/Scripts/PlayerController.cs",
     "file_name": "PlayerController.cs",
-    "content_hash": "f1acb0e40a207cff6e43fdeca8673437b509dda1",
-    "size": 17292,
+    "content_hash": "6239cbe762201e40f39f64f8dc9734aa2d96866d",
+    "size": 17324,
     "line_count": 425,
     "namespace": "",
     "using_list": [
@@ -1828,6 +2009,8 @@
       "Update",
       "StageEventManager",
       "Instance",
+      "VNManager",
+      "IsDialogueActive",
       "Count",
       "MoveTowards",
       "RoundToInt",
@@ -1935,9 +2118,9 @@
     "file_id": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "path": "exp-make5/Assets/Scripts/PlayerStatus.cs",
     "file_name": "PlayerStatus.cs",
-    "content_hash": "c75841d6be4227dc3d860df78e6f50ab8fecf24c",
-    "size": 3725,
-    "line_count": 110,
+    "content_hash": "c737390116eb00c863847a42259e6b94960740e6",
+    "size": 3731,
+    "line_count": 111,
     "namespace": "",
     "using_list": [
       "System",
@@ -2436,9 +2619,9 @@
     "file_id": "exp-make5/Assets/Scripts/StageEventManager.cs",
     "path": "exp-make5/Assets/Scripts/StageEventManager.cs",
     "file_name": "StageEventManager.cs",
-    "content_hash": "0f661fa877f41f7203de2c39e73902753a35b19a",
-    "size": 5022,
-    "line_count": 136,
+    "content_hash": "efdf916b7cb4679705a26d3e417975bf8c72945c",
+    "size": 5154,
+    "line_count": 138,
     "namespace": "",
     "using_list": [
       "UnityEngine",
@@ -2582,7 +2765,10 @@
       "PlayGameOverDialogueThenRestart",
       "TriggerGameOver_Health",
       "VNManager",
-      "ReloadCurrentScene",
+      "SceneManager",
+      "LoadScene",
+      "Start",
+      "Screen",
       "Events",
       "UnityAction",
       "OnDialogueEnded",
@@ -2592,12 +2778,9 @@
       "TriggerGameOver_Abstention",
       "TriggerStageClear",
       "RestartGame",
-      "SceneManager",
-      "LoadScene",
+      "ReloadCurrentScene",
       "GetActiveScene",
-      "StartScene",
-      "Start",
-      "Screen"
+      "StartScene"
     ],
     "component_access_types": [],
     "created_types": [],
@@ -2614,10 +2797,11 @@
       "타임 오버 game over 수정1.csv",
       "체력 고갈 게임 오버!",
       "생명력 소진 game over 수정1.csv",
+      "Start Screen",
       "기권 하셨습니다.",
+      "백제 스테이지 클리어 대사 수정1.csv",
       "성공!",
-      "[Event] {message}",
-      "Start Screen"
+      "[Event] {message}"
     ],
     "numeric_literals": [],
     "guessed_roles": [
@@ -2631,6 +2815,162 @@
       "런타임 컴포넌트",
       "싱글톤 후보",
       "UI 관련 로직 포함"
+    ]
+  },
+  {
+    "file_id": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "path": "exp-make5/Assets/Scripts/UI/BGMManager.cs",
+    "file_name": "BGMManager.cs",
+    "content_hash": "e1ecaf5af3f9dd6147ae8d76729b0c904b022df7",
+    "size": 2695,
+    "line_count": 93,
+    "namespace": "",
+    "using_list": [
+      "System.Collections",
+      "System.IO",
+      "UnityEngine",
+      "UnityEngine.Networking"
+    ],
+    "classes": [
+      {
+        "name": "BGMManager",
+        "kind": "class",
+        "access": "public",
+        "base_types": [
+          "MonoBehaviour"
+        ],
+        "interfaces": [],
+        "attributes": [],
+        "is_partial": false,
+        "is_generic": false
+      }
+    ],
+    "main_class_name": "BGMManager",
+    "unity_type": "MonoBehaviour",
+    "methods": [
+      "Awake",
+      "PlayBGM",
+      "LoadAndPlayAudio",
+      "GetAudioType"
+    ],
+    "fields": [
+      {
+        "name": "audioSource",
+        "type": "AudioSource",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "musicCoroutine",
+        "type": "Coroutine",
+        "access": "private",
+        "serialized": false,
+        "is_static": false
+      }
+    ],
+    "properties": [
+      {
+        "access": "internal",
+        "type": "BGMManager",
+        "name": "Instance"
+      }
+    ],
+    "events": [],
+    "unity_messages": [
+      "Awake"
+    ],
+    "has_update": false,
+    "has_fixed_update": false,
+    "has_late_update": false,
+    "has_awake": true,
+    "has_start": false,
+    "has_on_enable": false,
+    "has_on_disable": false,
+    "serialize_field_count": 0,
+    "public_field_count": 0,
+    "get_component_count": 1,
+    "find_call_count": 0,
+    "new_keyword_count": 0,
+    "coroutine_count": 2,
+    "singleton_candidate": true,
+    "dont_destroy_on_load": true,
+    "referenced_types": [
+      "AudioSource",
+      "Coroutine",
+      "System",
+      "Collections",
+      "IO",
+      "UnityEngine",
+      "Networking",
+      "RequireComponent",
+      "Instance",
+      "Keeps",
+      "Awake",
+      "DontDestroyOnLoad",
+      "GetComponent",
+      "Forces",
+      "Destroy",
+      "Kills",
+      "PlayBGM",
+      "If",
+      "StopCoroutine",
+      "StartCoroutine",
+      "LoadAndPlayAudio",
+      "Path",
+      "Combine",
+      "Application",
+      "Contains",
+      "AudioType",
+      "GetAudioType",
+      "UnityWebRequest",
+      "UnityWebRequestMultimedia",
+      "GetAudioClip",
+      "DownloadHandlerAudioClip",
+      "SendWebRequest",
+      "Result",
+      "ConnectionError",
+      "ProtocolError",
+      "LogError",
+      "BGM",
+      "Error",
+      "AudioClip",
+      "GetContent",
+      "Play",
+      "GetExtension",
+      "ToLower",
+      "MPEG",
+      "WAV",
+      "OGGVORBIS",
+      "UNKNOWN"
+    ],
+    "component_access_types": [
+      "AudioSource"
+    ],
+    "created_types": [],
+    "singleton_access_types": [],
+    "string_literals": [
+      "://",
+      "file://",
+      "BGM Error: {www.error}",
+      ".mp3",
+      ".wav",
+      ".ogg"
+    ],
+    "numeric_literals": [],
+    "guessed_roles": [
+      "manager",
+      "runtime",
+      "ui",
+      "save-load",
+      "network"
+    ],
+    "summary_signals": [
+      "런타임 컴포넌트",
+      "싱글톤 후보",
+      "UI 관련 로직 포함",
+      "저장/불러오기 관련 로직 포함",
+      "컴포넌트 조회 사용"
     ]
   },
   {
@@ -2877,9 +3217,9 @@
     "file_id": "exp-make5/Assets/Scripts/UI/MenuTransitionController.cs",
     "path": "exp-make5/Assets/Scripts/UI/MenuTransitionController.cs",
     "file_name": "MenuTransitionController.cs",
-    "content_hash": "f417793a0ffe7b9886328e66b46df3fd3e9c950d",
-    "size": 3798,
-    "line_count": 122,
+    "content_hash": "58d80aa74138ca9f511b3caf977b1ee5859cc441",
+    "size": 3923,
+    "line_count": 127,
     "namespace": "for",
     "using_list": [
       "System.Collections",
@@ -3090,6 +3430,9 @@
       "SetActive",
       "StartCoroutine",
       "PulseStandbyText",
+      "BGMManager",
+      "Instance",
+      "PlayBGM",
       "Update",
       "NEW",
       "INPUT",
@@ -3113,7 +3456,9 @@
       "Vector2",
       "WaitForSeconds"
     ],
-    "singleton_access_types": [],
+    "singleton_access_types": [
+      "BGMManager"
+    ],
     "string_literals": [
       "Standby Screen (Press to Start)",
       "The CanvasGroup attached to the 'Press to Start' text or band.",
@@ -3122,7 +3467,8 @@
       "How far off-screen to the right they should start.",
       "How long the slide takes for a single item.",
       "The delay between each item starting its slide (the '차르륵' effect).",
-      "Left Gradient (Optional)"
+      "Left Gradient (Optional)",
+      "플레이_BGM.mp3"
     ],
     "numeric_literals": [
       1.5,
@@ -3138,6 +3484,7 @@
     "guessed_roles": [
       "ui",
       "runtime",
+      "manager",
       "player",
       "inventory"
     ],
@@ -3146,6 +3493,93 @@
       "Update 기반 처리 존재",
       "UI 관련 로직 포함",
       "인벤토리 계열 로직 포함"
+    ]
+  },
+  {
+    "file_id": "exp-make5/Assets/Scripts/UI/PlayerTimeUI.cs",
+    "path": "exp-make5/Assets/Scripts/UI/PlayerTimeUI.cs",
+    "file_name": "PlayerTimeUI.cs",
+    "content_hash": "54280e68f40078e07384736d1b708495ffeb17f2",
+    "size": 1196,
+    "line_count": 38,
+    "namespace": "",
+    "using_list": [
+      "UnityEngine",
+      "UnityEngine.UI"
+    ],
+    "classes": [
+      {
+        "name": "PlayerTimeUI",
+        "kind": "class",
+        "access": "public",
+        "base_types": [
+          "MonoBehaviour"
+        ],
+        "interfaces": [],
+        "attributes": [],
+        "is_partial": false,
+        "is_generic": false
+      }
+    ],
+    "main_class_name": "PlayerTimeUI",
+    "unity_type": "MonoBehaviour",
+    "methods": [
+      "OnEnable",
+      "OnDisable",
+      "UpdateTimeUI"
+    ],
+    "fields": [],
+    "properties": [],
+    "events": [],
+    "unity_messages": [
+      "OnEnable",
+      "OnDisable"
+    ],
+    "has_update": false,
+    "has_fixed_update": false,
+    "has_late_update": false,
+    "has_awake": false,
+    "has_start": false,
+    "has_on_enable": true,
+    "has_on_disable": true,
+    "serialize_field_count": 0,
+    "public_field_count": 0,
+    "get_component_count": 0,
+    "find_call_count": 0,
+    "new_keyword_count": 0,
+    "coroutine_count": 0,
+    "singleton_candidate": false,
+    "dont_destroy_on_load": false,
+    "referenced_types": [
+      "UnityEngine",
+      "UI",
+      "Dependencies",
+      "PlayerStatus",
+      "Slider",
+      "OnEnable",
+      "UpdateTimeUI",
+      "OnTimeChanged",
+      "OnDisable",
+      "MaxTime",
+      "Value"
+    ],
+    "component_access_types": [],
+    "created_types": [],
+    "singleton_access_types": [],
+    "string_literals": [
+      "Dependencies"
+    ],
+    "numeric_literals": [],
+    "guessed_roles": [
+      "ui",
+      "runtime",
+      "player",
+      "save-load"
+    ],
+    "summary_signals": [
+      "런타임 컴포넌트",
+      "UI 관련 로직 포함",
+      "저장/불러오기 관련 로직 포함"
     ]
   },
   {
@@ -3505,9 +3939,9 @@
     "file_id": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "path": "exp-make5/Assets/Scripts/UI/VNManager.cs",
     "file_name": "VNManager.cs",
-    "content_hash": "3a209bd8e5ffd4b42fb5f9150d1ee926c60c74b0",
-    "size": 14117,
-    "line_count": 464,
+    "content_hash": "3bee5db3f2b1e94777a2cfd196b141fb579d1da7",
+    "size": 14247,
+    "line_count": 468,
     "namespace": "",
     "using_list": [
       "UnityEngine",
@@ -3814,6 +4248,11 @@
         "access": "internal",
         "type": "VNManager",
         "name": "Instance"
+      },
+      {
+        "access": "internal",
+        "type": "bool",
+        "name": "IsDialogueActive"
       }
     ],
     "events": [],
@@ -3877,6 +4316,7 @@
       "Integration",
       "OnDialogueStarted",
       "OnDialogueEnded",
+      "IsDialogueActive",
       "INTERNAL",
       "STATE",
       "FLAGS",
@@ -4034,6 +4474,114 @@
       "전투 계열 로직 포함",
       "컴포넌트 조회 사용",
       "Find 계열 탐색 사용"
+    ]
+  },
+  {
+    "file_id": "exp-make5/Assets/Scripts/UI/VNSceneInitializer.cs",
+    "path": "exp-make5/Assets/Scripts/UI/VNSceneInitializer.cs",
+    "file_name": "VNSceneInitializer.cs",
+    "content_hash": "515878f2e45a8e4cd75fcb65349fd97a3c58b42b",
+    "size": 916,
+    "line_count": 32,
+    "namespace": "",
+    "using_list": [
+      "UnityEngine"
+    ],
+    "classes": [
+      {
+        "name": "VNSceneInitializer",
+        "kind": "class",
+        "access": "public",
+        "base_types": [
+          "MonoBehaviour"
+        ],
+        "interfaces": [],
+        "attributes": [],
+        "is_partial": false,
+        "is_generic": false
+      }
+    ],
+    "main_class_name": "VNSceneInitializer",
+    "unity_type": "MonoBehaviour",
+    "methods": [
+      "file",
+      "Start",
+      "StartVN"
+    ],
+    "fields": [
+      {
+        "name": "dialogueFileName",
+        "type": "string",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      },
+      {
+        "name": "playOnStart",
+        "type": "bool",
+        "access": "public",
+        "serialized": false,
+        "is_static": false
+      }
+    ],
+    "properties": [],
+    "events": [],
+    "unity_messages": [
+      "Start"
+    ],
+    "has_update": false,
+    "has_fixed_update": false,
+    "has_late_update": false,
+    "has_awake": false,
+    "has_start": true,
+    "has_on_enable": false,
+    "has_on_disable": false,
+    "serialize_field_count": 0,
+    "public_field_count": 2,
+    "get_component_count": 0,
+    "find_call_count": 0,
+    "new_keyword_count": 0,
+    "coroutine_count": 0,
+    "singleton_candidate": false,
+    "dont_destroy_on_load": false,
+    "referenced_types": [
+      "string",
+      "bool",
+      "UnityEngine",
+      "Settings",
+      "The",
+      "CSV",
+      "StreamingAssets",
+      "Should",
+      "Awake",
+      "Start",
+      "StartVN",
+      "Safely",
+      "VNManager",
+      "Instance",
+      "StartConversationWithFile",
+      "LogError",
+      "Could",
+      "Make"
+    ],
+    "component_access_types": [],
+    "created_types": [],
+    "singleton_access_types": [
+      "VNManager"
+    ],
+    "string_literals": [
+      "Settings",
+      "intro_scene.csv",
+      "Should the dialogue start immediately on Awake or wait for Start?"
+    ],
+    "numeric_literals": [],
+    "guessed_roles": [
+      "runtime",
+      "manager",
+      "scene"
+    ],
+    "summary_signals": [
+      "런타임 컴포넌트"
     ]
   },
   {
