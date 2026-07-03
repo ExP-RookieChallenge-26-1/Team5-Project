@@ -41,6 +41,11 @@ public class MenuTransitionController : MonoBehaviour
         if (leftGradient != null) leftGradient.alpha = 0f;
 
         StartCoroutine(PulseStandbyText());
+
+        if (BGMManager.Instance != null)
+        {
+            BGMManager.Instance.PlayBGM("플레이_BGM.mp3"); 
+        }
     }
 
     void Update()

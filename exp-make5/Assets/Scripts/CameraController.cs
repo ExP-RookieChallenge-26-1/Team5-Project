@@ -32,6 +32,10 @@ public class CameraController : MonoBehaviour
     public float targetAspectWidth = 20f;  // 💡 목표 가로 비율
     public float targetAspectHeight = 9f;  // 💡 목표 세로 비율
 
+    public SpriteRenderer overlayRenderer;
+    public float overlayWidth = 16f;
+    public float overlayHeight = 10f;
+
     private Camera cam;
 
     void Start()
@@ -39,6 +43,11 @@ public class CameraController : MonoBehaviour
         cam = GetComponent<Camera>();
         cam.orthographic = true;
         cam.backgroundColor = Color.black; 
+
+        if (BGMManager.Instance != null)
+        {
+            BGMManager.Instance.PlayBGM("플레이_BGM.mp3"); 
+        }
     }
 
     void LateUpdate()
@@ -75,6 +84,11 @@ public class CameraController : MonoBehaviour
         if (backgroundRenderer != null)
         {
             FitBackgroundToCamera();
+        }
+
+        if (overlayRenderer != null)
+        {
+            FitOverlayToCamera(yOffset);
         }
 
         if (viewMask != null)
@@ -165,5 +179,23 @@ public class CameraController : MonoBehaviour
         backgroundRenderer.transform.localScale = new Vector3(scaleX, scaleY, 1f);
         // 배경이 항상 카메라 정중앙, 타일보다 뒤쪽(Z: 10)에 있도록 강제 정렬
         backgroundRenderer.transform.localPosition = new Vector3(0f, 0f, 10f); 
+    }
+
+    private void FitOverlayToCamera(float yOffset)
+    {
+        if (overlayRenderer.sprite == null) return;
+
+        // 1. 이미지의 원본 크기(유닛 단위) 가져오기
+        float spriteWidth = overlayRenderer.sprite.bounds.size.x;
+        float spriteHeight = overlayRenderer.sprite.bounds.size.y;
+
+        // 2. 인스펙터에서 설정한 overlayWidth, overlayHeight 칸 수에 맞게 스케일 계산
+        float scaleX = overlayWidth / spriteWidth;
+        float scaleY = overlayHeight / spriteHeight;
+
+        overlayRenderer.transform.localScale = new Vector3(scaleX, scaleY, 1f);
+
+        // 3. viewMask와 똑같이 카메라 레이아웃 오프셋을 반영하여 중앙에 고정
+        overlayRenderer.transform.localPosition = new Vector3(0.3f, -yOffset, 10f);
     }
 }

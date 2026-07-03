@@ -69,7 +69,7 @@ public class StageEventManager : MonoBehaviour
         if (VNManager.Instance == null)
         {
             // 대사 매니저가 없으면 곧바로 재시작
-            ReloadCurrentScene();
+            SceneManager.LoadScene("Start Screen");
             return;
         }
 
@@ -78,7 +78,7 @@ public class StageEventManager : MonoBehaviour
         onEnded = () =>
         {
             VNManager.Instance.OnDialogueEnded.RemoveListener(onEnded);
-            ReloadCurrentScene();
+            SceneManager.LoadScene("Start Screen");
         };
         VNManager.Instance.OnDialogueEnded.AddListener(onEnded);
 
@@ -101,6 +101,8 @@ public class StageEventManager : MonoBehaviour
     {
         isGameOver = true;
         if (SoundManager.Instance != null &&  clearSuccessSound!= null) SoundManager.Instance.PlaySFX(clearSuccessSound);
+
+        PlayGameOverDialogueThenRestart("백제 스테이지 클리어 대사 수정1.csv");
 
         ShowGameOverWindow("성공!");
         

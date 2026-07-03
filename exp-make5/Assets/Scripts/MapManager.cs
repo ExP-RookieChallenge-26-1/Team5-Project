@@ -249,6 +249,8 @@ public class MapManager : MonoBehaviour
     {
         if (grid[pos.x, pos.y].isIncense)
         {
+            int collectedIndex = grid[pos.x, pos.y].incenseIndex;
+
             grid[pos.x, pos.y].isIncense = false; // 더 이상 향로 타일이 아님 처리
             
             if (grid[pos.x, pos.y].realIncenseVisual != null)
@@ -264,11 +266,20 @@ public class MapManager : MonoBehaviour
             }
 
             foundIncenseCount++;
+
+            if (IncenseUIManager.Instance != null)
+            {
+                IncenseUIManager.Instance.CollectIncense(collectedIndex);
+            }
             if (StageEventManager.Instance != null)
             {
                 StageEventManager.Instance.TriggerIncenseFound(foundIncenseCount);
             }
             Debug.Log($"향로 획득! 현재 개수: {foundIncenseCount}");
+            if (foundIncenseCount == 4)
+            {
+                StageEventManager.Instance.TriggerStageClear();
+            }
         }
     }
 
@@ -372,7 +383,17 @@ public class MapManager : MonoBehaviour
         if (grid[pos.x, pos.y].redNeighbors == 0 && grid[pos.x, pos.y].blueNeighbors == 0) return;
 
         GameObject hint = Instantiate(hintTextPrefab, new Vector3(pos.x, pos.y, -0.2f), Quaternion.identity, grid[pos.x, pos.y].visualObj.transform);
-        hint.GetComponentInChildren<TextMeshPro>().text = $"<color=#55AAFF>{grid[pos.x, pos.y].blueNeighbors}</color>/<color=#FF5555>{grid[pos.x, pos.y].redNeighbors}</color>";
+        // 1. TextMeshPro 컴포넌트 가져오기
+        TextMeshPro tmPro = hint.GetComponentInChildren<TextMeshPro>();
+        
+        // 2. 텍스트에는 복잡한 아웃라인 태그를 빼고, 기존의 색상 태그만 깔끔하게 넣기
+        tmPro.text = $"<color=#c5e2c0>{grid[pos.x, pos.y].blueNeighbors}</color>/<color=#f7c3c7>{grid[pos.x, pos.y].redNeighbors}</color>";
+
+        // 3. 💡 코드로 외곽선 강제 활성화 및 두께 조절 (태그 노출 위험 없음!)
+        Material textMaterial = tmPro.fontMaterial; 
+        textMaterial.EnableKeyword("OUTLINE_ON");             // 외곽선 켜기
+        textMaterial.SetColor("_OutlineColor", Color.black);   // 외곽선 색상 (검은색)
+        textMaterial.SetFloat("_OutlineWidth", 0.2f);         // 💡 지난번 네모나게 잘리던 현상을 막기 위해 두께를 0.1~0.15 사이로 조절
     }
 
     public List<Vector2Int> GetNeighbors(int x, int y) {
